@@ -228,22 +228,35 @@
     try {
       const u = JSON.parse(userStr);
       if (u && u.loggedIn) {
-        // Find ALL sign-in elements (IDs and CTA classes)
-        const signinElements = document.querySelectorAll('#nav-signin, .nav-cta, .btn-signin');
-        
-        signinElements.forEach(el => {
-          // Create a unified Avatar/Dashboard Link
+        // 1. Handle primary "Sign In" buttons (transform to Avatar)
+        document.querySelectorAll('#nav-signin, .btn-signin').forEach(el => {
+          if (el.classList.contains('auth-processed')) return;
           const userLink = document.createElement('a');
           userLink.href = 'profile.html';
-          userLink.className = 'nav-user-profile';
+          userLink.className = 'nav-user-profile auth-processed';
           userLink.style = 'display:flex; align-items:center; gap:0.75rem; text-decoration:none;';
-          
           userLink.innerHTML = `
             <span style="font-weight:800; font-size:0.85rem; color:var(--text);" class="hide-mobile">${u.displayName}</span>
             <img src="${u.photoURL}" class="user-avatar" style="width:36px; height:36px; border-radius:50%; border:2px solid var(--brand); cursor:pointer;" title="View Dashboard" />
           `;
-          
           el.replaceWith(userLink);
+        });
+
+        // 2. Handle CTA buttons (transform to Dashboard link)
+        document.querySelectorAll('.nav-cta, .btn-save-progress').forEach(el => {
+          if (el.classList.contains('auth-processed')) return;
+          el.href = 'profile.html';
+          el.innerHTML = 'Dashboard →';
+          el.classList.add('auth-processed');
+        });
+
+        // 3. Catch-all for any other [href="auth.html"] links
+        document.querySelectorAll('a[href="auth.html"], a[href$="/auth.html"]').forEach(btn => {
+           if (!btn.classList.contains('auth-processed')) {
+             btn.href = 'profile.html';
+             btn.innerHTML = 'My Profile';
+             btn.classList.add('auth-processed');
+           }
         });
       }
     } catch(e) { console.warn('Auth sync failed', e); }
