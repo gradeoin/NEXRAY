@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build Your First Website in 2026 (Step by Step) — Nexray Blog</title>
+  <meta name="description" content="A complete beginner's guide to building and deploying your first website using HTML, CSS, and Vercel. No coding experience needed." />
+  <link rel="canonical" href="https://nexray.in/blog/getting-started" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Build Your First Website in 2026 — Nexray" />
+  <meta property="og:description" content="Step-by-step beginner guide to HTML, CSS, and free deployment on Vercel." />
+  <meta property="og:image" content="https://nexray.in/assets/og-image.png" />
+  <meta property="og:url" content="https://nexray.in/blog/getting-started" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Build Your First Website in 2026 (Step by Step)","datePublished":"2026-03-29","author":{"@type":"Organization","name":"Nexray"},"publisher":{"@type":"Organization","name":"Nexray","url":"https://nexray.in"},"description":"A complete beginner's guide to building your first website with HTML, CSS, and Vercel.","mainEntityOfPage":{"@type":"WebPage","@id":"https://nexray.in/blog/getting-started"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nexray.in"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://nexray.in/blog"},{"@type":"ListItem","position":3,"name":"Getting Started"}]}}
+  </script>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><span>Nex<span class="logo-accent">ray</span></span></a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../guide/stage1.html">Guide</a>
+    <a href="index.html" class="active">Blog</a>
+    <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+    <a href="../auth.html" class="nav-cta">Sign In →</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobile-nav"><a href="../index.html">Home</a><a href="../guide/stage1.html">Guide</a><a href="index.html">Blog</a></div>
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+<div class="page-wrapper">
+  <article style="max-width:740px;margin:0 auto;padding:4rem 1.5rem 5rem;">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="margin-bottom:2rem;">
+      <ol style="display:flex;align-items:center;gap:.375rem;list-style:none;color:var(--text-3);font-size:.8rem;">
+        <li><a href="../index.html" style="color:var(--text-2);">Home</a></li>
+        <li style="opacity:.5;">›</li>
+        <li><a href="index.html" style="color:var(--text-2);">Blog</a></li>
+        <li style="opacity:.5;">›</li>
+        <li style="color:var(--text);">Getting Started</li>
+      </ol>
+    </nav>
+
+    <!-- Meta -->
+    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+      <span class="badge badge-brand">Featured</span>
+      <span class="badge level-beginner">Beginner</span>
+      <span class="badge badge-muted">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        8 min read
+      </span>
+    </div>
+
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;line-height:1.2;margin-bottom:1.25rem;">
+      How to Build Your First Website in 2026 (Step by Step)
+    </h1>
+
+    <p style="color:var(--text-2);font-size:1.05rem;line-height:1.8;margin-bottom:.875rem;">
+      By <strong style="color:var(--text);">Nexray Team</strong> · March 29, 2026
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Intro -->
+    <p class="content-text" style="font-size:1.05rem;color:var(--text-2);line-height:1.9;margin-bottom:1.5rem;">
+      You don't need years of experience to build a website. You don't need to pay for a course. You need HTML, a text editor, and 2 hours. By the end of this guide, your site will be live on the internet — for free.
+    </p>
+
+    <!-- What you'll need -->
+    <div class="callout callout-info">
+      <div class="callout-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div>
+        <div class="callout-head">What you need</div>
+        <div class="callout-body">A computer · A browser · <a href="https://code.visualstudio.com" target="_blank" rel="noopener" style="color:var(--brand)">VS Code</a> (free) · A <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--brand)">GitHub</a> account (free) · A <a href="https://vercel.com" target="_blank" rel="noopener" style="color:var(--brand)">Vercel</a> account (free)</div>
+      </div>
+    </div>
+
+    <h2 class="content-heading">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Step 1 — Install VS Code
+    </h2>
+    <p class="content-text">VS Code is the editor ~90% of web developers use. It's free and made by Microsoft. Download it from <a href="https://code.visualstudio.com" target="_blank" rel="noopener" style="color:var(--brand)">code.visualstudio.com</a>. Install it like any normal program.</p>
+    <p class="content-text">Once installed, open it and press <code>Ctrl+Shift+P</code> → type "color theme" to pick a theme you like.</p>
+
+    <h2 class="content-heading">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      Step 2 — Write Your First HTML
+    </h2>
+    <p class="content-text">Create a new folder called <code>my-site</code>. Open VS Code → File → Open Folder → select that folder. Create a new file called <code>index.html</code> and paste this:</p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div style="display:flex;align-items:center;gap:.75rem;"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">HTML</span></div>
+        <button class="code-copy" onclick="navigator.clipboard.writeText(this.closest('.code-block').querySelector('pre').innerText);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)">Copy</button>
+      </div>
+      <div class="code-content"><pre><span class="tag-hl">&lt;!DOCTYPE html&gt;</span>
+<span class="tag-hl">&lt;html</span> <span class="attr">lang</span>=<span class="str">"en"</span><span class="tag-hl">&gt;</span>
+<span class="tag-hl">&lt;head&gt;</span>
+  <span class="tag-hl">&lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span> <span class="tag-hl">/&gt;</span>
+  <span class="tag-hl">&lt;meta</span> <span class="attr">name</span>=<span class="str">"viewport"</span> <span class="attr">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span> <span class="tag-hl">/&gt;</span>
+  <span class="tag-hl">&lt;title&gt;</span>My First Website<span class="tag-hl">&lt;/title&gt;</span>
+<span class="tag-hl">&lt;/head&gt;</span>
+<span class="tag-hl">&lt;body&gt;</span>
+  <span class="tag-hl">&lt;h1&gt;</span>Hello, World!<span class="tag-hl">&lt;/h1&gt;</span>
+  <span class="tag-hl">&lt;p&gt;</span>My first website is live.<span class="tag-hl">&lt;/p&gt;</span>
+  <span class="tag-hl">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://nexray.in"</span><span class="tag-hl">&gt;</span>Learn more at Nexray<span class="tag-hl">&lt;/a&gt;</span>
+<span class="tag-hl">&lt;/body&gt;</span>
+<span class="tag-hl">&lt;/html&gt;</span></pre></div>
+    </div>
+
+    <p class="content-text">Now open the file in your browser (just drag <code>index.html</code> into Chrome). You'll see your first website!</p>
+
+    <h2 class="content-heading">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Step 3 — Deploy It Free with Vercel
+    </h2>
+    <p class="content-text">Now let's put it on the internet — free, no credit card.</p>
+
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Create a GitHub repository</h3>
+        <p>Go to <a href="https://github.com/new" target="_blank" rel="noopener" style="color:var(--brand)">github.com/new</a>, create a public repo called <code>my-site</code>. Upload your <code>index.html</code> file.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3>Connect to Vercel</h3>
+        <p>Go to <a href="https://vercel.com" target="_blank" rel="noopener" style="color:var(--brand)">vercel.com</a> → Sign up with GitHub → "New Project" → Select your repo → Deploy.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3>Your site is live!</h3>
+        <p>Vercel gives you a URL like <code>my-site-abc123.vercel.app</code>. Share it with anyone in the world. You can also connect a custom domain later.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <div class="callout-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div>
+        <div class="callout-head">Pro Tip</div>
+        <div class="callout-body">Every time you push changes to GitHub, Vercel automatically re-deploys your site. That's CI/CD for free — you'll learn more about this in <a href="../guide/stage4.html" style="color:var(--brand)">Stage 4</a>.</div>
+      </div>
+    </div>
+
+    <h2 class="content-heading">What's Next?</h2>
+    <p class="content-text">You have a live website. Now it's time to make it look good. <a href="../guide/stage2.html" style="color:var(--brand)">Stage 2</a> covers CSS — how to add colors, fonts, layouts, and animations that make your site look professional.</p>
+
+    <div style="display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;">
+      <a href="../guide/stage1.html" class="btn btn-primary">Continue to Stage 1 Guide →</a>
+      <a href="index.html" class="btn btn-secondary">← Back to Blog</a>
+    </div>
+
+  </article>
+</div>
+
+<footer class="footer"><div class="footer-bottom" style="max-width:740px;margin:0 auto;"><span>© 2026 <a href="https://nexray.in" style="color:var(--brand)">Nexray</a></span><div class="footer-legal"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../disclaimer.html">Disclaimer</a></div></div></footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

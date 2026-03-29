@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stage 1: Web Dev Basics — Learn what a website is, how domains work, HTML fundamentals, and how to get your first site live for free." />
+  <title>Stage 1: Basics — Nexray</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="stage1.html" class="active">Guide</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="../auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="../index.html">Home</a><a href="stage1.html">Guide</a><a href="../blog/index.html">Blog</a><a href="../resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <!-- Hero -->
+    <div class="stage-hero" style="min-height: 420px; display:flex; align-items:center; position:relative;">
+      <canvas id="stage-canvas" style="position:absolute; inset:0; width:100%; height:100%; z-index:0;"></canvas>
+      <div class="hero-content" style="z-index:1; text-align:center;">
+        <div class="stage-badge">🌐 Stage 1 of 7</div>
+        <h1 class="stage-title">The Basics</h1>
+        <p class="stage-desc">From "what's a website?" to your first live site — step by step, no nonsense, all real.</p>
+        <div class="stage-meta">
+          <div class="stage-meta-item"><span class="icon">⏱️</span> ~3 hours</div>
+          <div class="stage-meta-item"><span class="icon">🎯</span> Absolute Beginner</div>
+          <div class="stage-meta-item"><span class="icon">💰</span> 100% Free</div>
+          <div class="stage-meta-item"><span class="icon">📋</span> 12 Topics</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="section">
+      <!-- TOC -->
+      <div class="toc">
+        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-list">
+          <a href="#what-is-a-website">What Is a Website?</a>
+          <a href="#how-internet-works">How the Internet Works</a>
+          <a href="#domains-and-dns">Domains & DNS Explained</a>
+          <a href="#free-hosting">Get a Free Site Live Today</a>
+          <a href="#html-basics">HTML Fundamentals</a>
+          <a href="#html-structure">Your First HTML Page</a>
+          <a href="#html-elements">Essential HTML Elements</a>
+          <a href="#html-forms">Forms & Inputs</a>
+          <a href="#hosting-options">Hosting Options in 2026</a>
+          <a href="#github-pages">Deploy with GitHub Pages</a>
+          <a href="#vercel-netlify">Vercel & Netlify</a>
+          <a href="#stage1-project">Stage 1 Project</a>
+        </div>
+      </div>
+
+      <!-- 1. What Is a Website -->
+      <h2 class="content-heading" id="what-is-a-website">🌐 What Is a Website?</h2>
+      <p class="content-text">A website is a collection of files (HTML, CSS, JS, images) stored on a computer called a <strong>server</strong>, accessible via the internet through a unique address called a <strong>URL</strong> (Uniform Resource Locator).</p>
+
+      <div class="grid-3 mt-lg mb-lg">
+        <div class="glass-card">
+          <div style="font-size:2rem; margin-bottom:10px;">📄</div>
+          <div style="font-weight:700; margin-bottom:6px;">HTML Files</div>
+          <p style="color:var(--text-secondary); font-size:0.875rem;">The content & structure — headings, paragraphs, images, links</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:2rem; margin-bottom:10px;">🎨</div>
+          <div style="font-weight:700; margin-bottom:6px;">CSS Files</div>
+          <p style="color:var(--text-secondary); font-size:0.875rem;">The visual styling — colors, fonts, layouts, animations</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:2rem; margin-bottom:10px;">⚡</div>
+          <div style="font-weight:700; margin-bottom:6px;">JS Files</div>
+          <p style="color:var(--text-secondary); font-size:0.875rem;">The behavior — interactivity, animations, data fetching</p>
+        </div>
+      </div>
+
+      <p class="content-text">When you type <code style="background:rgba(255,255,255,0.08); padding:2px 8px; border-radius:4px; font-family:'Fira Code',monospace; font-size:0.9em;">https://google.com</code> in your browser, it finds Google's server, downloads the files, and renders them. That's a website!</p>
+
+      <!-- 2. How Internet Works -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="how-internet-works">🌍 How the Internet Works (Simple Version)</h2>
+      <p class="content-text">The internet is a massive network of computers connected by cables, fiber, and wireless signals. Here's what happens when you visit a website — in 6 steps:</p>
+
+      <div class="mt-lg">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>You type a URL</h3>
+            <p>You type <strong>https://example.com</strong> into your browser and hit Enter. The browser needs to find where this lives.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>DNS Lookup</h3>
+            <p>Your computer asks a <strong>DNS (Domain Name System)</strong> server: "What's the IP address for example.com?" The DNS server replies: "It's 93.184.216.34."</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>TCP Connection</h3>
+            <p>Your browser connects to that IP address (the web server) using TCP/IP — like an electronic handshake. HTTPS makes this connection secure.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>HTTP Request</h3>
+            <p>Your browser sends an HTTP GET request: "Hey server, give me the file at /index.html please."</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Server Responds</h3>
+            <p>The server sends back the HTML file along with an HTTP status code (200 = OK, 404 = Not Found, 500 = Server Error).</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3>Browser Renders</h3>
+            <p>Your browser reads the HTML, downloads linked CSS and JS files, builds the DOM tree, and paints the page you see.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Domains & DNS -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="domains-and-dns">🔍 Domains & DNS Explained</h2>
+      <p class="content-text">A <strong>domain name</strong> is the human-friendly address of a website (like <em>youtube.com</em>). Underneath, every server has a numeric IP address (like <em>142.250.80.78</em>). DNS translates domain names to IP addresses — it's the internet's phone book.</p>
+
+      <h3 class="content-subheading">Anatomy of a Domain</h3>
+      <div class="glass-card mt-md mb-lg" style="font-family:'Fira Code',monospace; font-size:1.1rem; text-align:center; padding: 2rem;">
+        <span style="color:#a78bfa;">https</span><span style="color:var(--text-muted);">://</span><span style="color:#60a5fa;">www</span><span style="color:var(--text-muted);">.</span><span style="color:var(--orange-400);">mysite</span><span style="color:#4ade80;">.com</span><span style="color:var(--text-muted);">/</span><span style="color:#f472b6;">about</span>
+        <div style="display:flex; justify-content:center; gap:2rem; margin-top:1rem; font-size:0.8rem; color:var(--text-secondary); font-family:'Inter',sans-serif; flex-wrap:wrap;">
+          <div><span style="color:#a78bfa;">⬆ Protocol</span></div>
+          <div><span style="color:#60a5fa;">⬆ Subdomain</span></div>
+          <div><span style="color:var(--orange-400);">⬆ Domain name</span></div>
+          <div><span style="color:#4ade80;">⬆ TLD</span></div>
+          <div><span style="color:#f472b6;">⬆ Path</span></div>
+        </div>
+      </div>
+
+      <h3 class="content-subheading">How to Buy a Domain</h3>
+      <p class="content-text">Domain registrars sell domain names. Popular options in 2026:</p>
+
+      <div class="grid-3 mt-md mb-lg">
+        <div class="resource-card">
+          <div class="resource-icon">🌐</div>
+          <div class="resource-title">Namecheap</div>
+          <p class="resource-desc">Often the cheapest option. .com domains ~$9-12/year. Great interface, free WhoisGuard privacy.</p>
+          <span class="tag tag-green">Budget Pick</span>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">☁️</div>
+          <div class="resource-title">Cloudflare Registrar</div>
+          <p class="resource-desc">Sells domains at wholesale price (no markup!). Best for privacy. Requires a Cloudflare account.</p>
+          <span class="tag tag-orange">Best Value</span>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">🏢</div>
+          <div class="resource-title">Google Domains → Squarespace</div>
+          <p class="resource-desc">Simple, clean. Google Domains was acquired but the service continues under Squarespace Domains.</p>
+          <span class="tag tag-blue">Beginner Friendly</span>
+        </div>
+      </div>
+
+      <div class="callout callout-pro">
+        <div class="callout-icon">🔥</div>
+        <div>
+          <div class="callout-head">Pro Tip: Use Cloudflare for DNS</div>
+          <div class="callout-body">Buy your domain anywhere, then point the nameservers to Cloudflare. You get free SSL, CDN, DDoS protection, and the fastest DNS on earth — all free. This is what pro devs do.</div>
+        </div>
+      </div>
+
+      <h3 class="content-subheading">DNS Records You Need to Know</h3>
+      <div class="glass-card mt-md">
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <th style="text-align:left; padding:10px; color:var(--orange-400); font-weight:700;">Record</th>
+              <th style="text-align:left; padding:10px; color:var(--orange-400); font-weight:700;">Purpose</th>
+              <th style="text-align:left; padding:10px; color:var(--orange-400); font-weight:700;">Example</th>
+            </tr>
+          </thead>
+          <tbody style="color:var(--text-secondary);">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:10px;"><code>A</code></td>
+              <td style="padding:10px;">Domain → IPv4 address</td>
+              <td style="padding:10px;"><code>mysite.com → 76.76.21.21</code></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:10px;"><code>AAAA</code></td>
+              <td style="padding:10px;">Domain → IPv6 address</td>
+              <td style="padding:10px;"><code>mysite.com → 2606:50c0:...::1</code></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:10px;"><code>CNAME</code></td>
+              <td style="padding:10px;">Domain → another domain</td>
+              <td style="padding:10px;"><code>www → mysite.com</code></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:10px;"><code>MX</code></td>
+              <td style="padding:10px;">Email routing</td>
+              <td style="padding:10px;"><code>mysite.com → mail.google.com</code></td>
+            </tr>
+            <tr>
+              <td style="padding:10px;"><code>TXT</code></td>
+              <td style="padding:10px;">Verification, SPF, DKIM</td>
+              <td style="padding:10px;"><code>v=spf1 include:...</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 4. Free Hosting -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="free-hosting">🆓 Get a Free Site Live Today</h2>
+      <p class="content-text">You don't need to buy a domain or pay for hosting to get started. Here are the best free hosting options in 2026:</p>
+
+      <div class="grid-2 mt-lg mb-lg">
+        <div class="glass-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <div style="font-size:2rem;">▲</div>
+            <div style="font-weight:700; font-size:1.1rem;">Vercel</div>
+            <span class="tag tag-green">Recommended</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:12px;">Push to GitHub → auto-deploy. Free subdomain like <code>mysite.vercel.app</code>. Instant HTTPS. Best for static sites + Next.js.</p>
+          <div class="feature-list">
+            <div class="feature-item">Zero config deployment</div>
+            <div class="feature-item">Global CDN edge network</div>
+            <div class="feature-item">Custom domain support (free)</div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <div style="font-size:2rem;">🔷</div>
+            <div style="font-weight:700; font-size:1.1rem;">Netlify</div>
+            <span class="tag tag-blue">Great Choice</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:12px;">Drag & drop deploy or GitHub. Free at <code>mysite.netlify.app</code>. Great for forms, functions, and split testing.</p>
+          <div class="feature-list">
+            <div class="feature-item">Drag & drop deployment</div>
+            <div class="feature-item">Built-in form handling</div>
+            <div class="feature-item">Serverless functions free tier</div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <div style="font-size:2rem;">🐙</div>
+            <div style="font-weight:700; font-size:1.1rem;">GitHub Pages</div>
+            <span class="tag tag-orange">Classic</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:12px;">Free hosting directly from a GitHub repo. URL: <code>username.github.io/repo</code>. Perfect for portfolios.</p>
+          <div class="feature-list">
+            <div class="feature-item">Free HTTPS</div>
+            <div class="feature-item">Custom domain support</div>
+            <div class="feature-item">GitHub Actions CI/CD</div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <div style="font-size:2rem;">☁️</div>
+            <div style="font-weight:700; font-size:1.1rem;">Cloudflare Pages</div>
+            <span class="tag tag-purple">Fast AF</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:12px;">Deploy from git. Ridiculously fast edge network. Free unlimited bandwidth. URL: <code>mysite.pages.dev</code>.</p>
+          <div class="feature-list">
+            <div class="feature-item">300 cities edge network</div>
+            <div class="feature-item">Unlimited free bandwidth</div>
+            <div class="feature-item">Workers integration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. HTML Basics -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="html-basics">📝 HTML Fundamentals</h2>
+      <p class="content-text">HTML (HyperText Markup Language) is the skeleton of every webpage. It defines content and structure using <strong>tags</strong> — keywords wrapped in angle brackets.</p>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">💡</div>
+        <div>
+          <div class="callout-head">Key Concept: Tags</div>
+          <div class="callout-body">Tags come in pairs: an opening tag <code>&lt;p&gt;</code> and a closing tag <code>&lt;/p&gt;</code>. Everything between them is the content. Some tags are self-closing like <code>&lt;img /&gt;</code> and <code>&lt;br /&gt;</code>.</div>
+        </div>
+      </div>
+
+      <!-- 6. First HTML Page -->
+      <h2 class="content-heading" id="html-structure">🏗️ Your First HTML Page</h2>
+      <p class="content-text">Every HTML document starts with this boilerplate. This is the <strong>minimum required structure</strong> for a valid HTML5 page:</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <div class="code-lang">HTML</div>
+          <button class="code-copy">Copy</button>
+        </div>
+        <pre class="code-content"><span class="cmt">&lt;!-- This doctype tells browsers: "I'm HTML5" --&gt;</span>
+<span class="kw">&lt;!DOCTYPE html&gt;</span>
+
+<span class="cmt">&lt;!-- The root element. lang="en" helps search engines &amp; screen readers --&gt;</span>
+<span class="tag-hl">&lt;html</span> <span class="attr">lang</span>=<span class="str">"en"</span><span class="tag-hl">&gt;</span>
+
+  <span class="cmt">&lt;!-- HEAD: Invisible settings &amp; metadata --&gt;</span>
+  <span class="tag-hl">&lt;head&gt;</span>
+    <span class="cmt">&lt;!-- Character encoding - always include this first --&gt;</span>
+    <span class="tag-hl">&lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span> <span class="tag-hl">/&gt;</span>
+
+    <span class="cmt">&lt;!-- Responsive viewport for mobile devices --&gt;</span>
+    <span class="tag-hl">&lt;meta</span> <span class="attr">name</span>=<span class="str">"viewport"</span> <span class="attr">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span> <span class="tag-hl">/&gt;</span>
+
+    <span class="cmt">&lt;!-- SEO description (shows in Google results) --&gt;</span>
+    <span class="tag-hl">&lt;meta</span> <span class="attr">name</span>=<span class="str">"description"</span> <span class="attr">content</span>=<span class="str">"My first website - built in 2026!"</span> <span class="tag-hl">/&gt;</span>
+
+    <span class="cmt">&lt;!-- Tab title --&gt;</span>
+    <span class="tag-hl">&lt;title&gt;</span>My First Website<span class="tag-hl">&lt;/title&gt;</span>
+
+    <span class="cmt">&lt;!-- Link to your CSS file --&gt;</span>
+    <span class="tag-hl">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"style.css"</span> <span class="tag-hl">/&gt;</span>
+  <span class="tag-hl">&lt;/head&gt;</span>
+
+  <span class="cmt">&lt;!-- BODY: Everything visible on the page --&gt;</span>
+  <span class="tag-hl">&lt;body&gt;</span>
+    <span class="tag-hl">&lt;h1&gt;</span>Hello, World! 🌍<span class="tag-hl">&lt;/h1&gt;</span>
+    <span class="tag-hl">&lt;p&gt;</span>My first website is live. I'm a web developer now!<span class="tag-hl">&lt;/p&gt;</span>
+
+    <span class="cmt">&lt;!-- Link to your JS file — at the bottom for performance --&gt;</span>
+    <span class="tag-hl">&lt;script</span> <span class="attr">src</span>=<span class="str">"script.js"</span><span class="tag-hl">&gt;&lt;/script&gt;</span>
+  <span class="tag-hl">&lt;/body&gt;</span>
+
+<span class="tag-hl">&lt;/html&gt;</span></pre>
+      </div>
+
+      <!-- 7. Essential Elements -->
+      <h2 class="content-heading" id="html-elements">🧩 Essential HTML Elements</h2>
+      <p class="content-text">These are the tags you'll use in 95% of websites. Master these first.</p>
+
+      <div class="grid-2 mt-lg">
+        <div>
+          <h3 class="content-subheading">Text & Headings</h3>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">HTML</div><button class="code-copy">Copy</button></div>
+            <pre class="code-content"><span class="cmt">&lt;!-- Headings: h1 = biggest, h6 = smallest --&gt;</span>
+<span class="cmt">&lt;!-- Only use ONE h1 per page for SEO --&gt;</span>
+<span class="tag-hl">&lt;h1&gt;</span>Main Title<span class="tag-hl">&lt;/h1&gt;</span>
+<span class="tag-hl">&lt;h2&gt;</span>Section Heading<span class="tag-hl">&lt;/h2&gt;</span>
+<span class="tag-hl">&lt;h3&gt;</span>Sub-heading<span class="tag-hl">&lt;/h3&gt;</span>
+
+<span class="cmt">&lt;!-- Paragraphs --&gt;</span>
+<span class="tag-hl">&lt;p&gt;</span>This is a paragraph of text.<span class="tag-hl">&lt;/p&gt;</span>
+
+<span class="cmt">&lt;!-- Bold &amp; Italic --&gt;</span>
+<span class="tag-hl">&lt;strong&gt;</span>Bold text<span class="tag-hl">&lt;/strong&gt;</span>
+<span class="tag-hl">&lt;em&gt;</span>Italic text<span class="tag-hl">&lt;/em&gt;</span>
+
+<span class="cmt">&lt;!-- Line break --&gt;</span>
+<span class="tag-hl">&lt;br /&gt;</span>
+
+<span class="cmt">&lt;!-- Horizontal rule (divider) --&gt;</span>
+<span class="tag-hl">&lt;hr /&gt;</span></pre>
+          </div>
+        </div>
+        <div>
+          <h3 class="content-subheading">Links & Images</h3>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">HTML</div><button class="code-copy">Copy</button></div>
+            <pre class="code-content"><span class="cmt">&lt;!-- Links --&gt;</span>
+<span class="tag-hl">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://google.com"</span><span class="tag-hl">&gt;</span>
+  Visit Google
+<span class="tag-hl">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Open in new tab --&gt;</span>
+<span class="tag-hl">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://google.com"</span>
+   <span class="attr">target</span>=<span class="str">"_blank"</span>
+   <span class="attr">rel</span>=<span class="str">"noopener"</span><span class="tag-hl">&gt;</span>
+  New Tab Link
+<span class="tag-hl">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Images --&gt;</span>
+<span class="cmt">&lt;!-- alt= describes image for SEO &amp; accessibility --&gt;</span>
+<span class="tag-hl">&lt;img</span>
+  <span class="attr">src</span>=<span class="str">"photo.jpg"</span>
+  <span class="attr">alt</span>=<span class="str">"Description of photo"</span>
+  <span class="attr">width</span>=<span class="str">"400"</span>
+  <span class="attr">loading</span>=<span class="str">"lazy"</span>
+<span class="tag-hl">/&gt;</span></pre>
+          </div>
+        </div>
+        <div>
+          <h3 class="content-subheading">Lists</h3>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">HTML</div><button class="code-copy">Copy</button></div>
+            <pre class="code-content"><span class="cmt">&lt;!-- Unordered list (bullet points) --&gt;</span>
+<span class="tag-hl">&lt;ul&gt;</span>
+  <span class="tag-hl">&lt;li&gt;</span>HTML<span class="tag-hl">&lt;/li&gt;</span>
+  <span class="tag-hl">&lt;li&gt;</span>CSS<span class="tag-hl">&lt;/li&gt;</span>
+  <span class="tag-hl">&lt;li&gt;</span>JavaScript<span class="tag-hl">&lt;/li&gt;</span>
+<span class="tag-hl">&lt;/ul&gt;</span>
+
+<span class="cmt">&lt;!-- Ordered list (numbered) --&gt;</span>
+<span class="tag-hl">&lt;ol&gt;</span>
+  <span class="tag-hl">&lt;li&gt;</span>Buy domain<span class="tag-hl">&lt;/li&gt;</span>
+  <span class="tag-hl">&lt;li&gt;</span>Build site<span class="tag-hl">&lt;/li&gt;</span>
+  <span class="tag-hl">&lt;li&gt;</span>Deploy it<span class="tag-hl">&lt;/li&gt;</span>
+<span class="tag-hl">&lt;/ol&gt;</span></pre>
+          </div>
+        </div>
+        <div>
+          <h3 class="content-subheading">Semantic Layout Tags</h3>
+          <div class="code-block">
+            <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">HTML</div><button class="code-copy">Copy</button></div>
+            <pre class="code-content"><span class="cmt">&lt;!-- Semantic tags = meaningful structure --&gt;</span>
+<span class="tag-hl">&lt;header&gt;</span>  <span class="cmt">&lt;!-- top of page --&gt;</span>
+  <span class="tag-hl">&lt;nav&gt;</span>...<span class="tag-hl">&lt;/nav&gt;</span>
+<span class="tag-hl">&lt;/header&gt;</span>
+
+<span class="tag-hl">&lt;main&gt;</span>    <span class="cmt">&lt;!-- primary content --&gt;</span>
+  <span class="tag-hl">&lt;article&gt;</span>...<span class="tag-hl">&lt;/article&gt;</span>
+  <span class="tag-hl">&lt;section&gt;</span>...<span class="tag-hl">&lt;/section&gt;</span>
+  <span class="tag-hl">&lt;aside&gt;</span>...<span class="tag-hl">&lt;/aside&gt;</span>
+<span class="tag-hl">&lt;/main&gt;</span>
+
+<span class="tag-hl">&lt;footer&gt;</span>  <span class="cmt">&lt;!-- bottom of page --&gt;</span>
+  ...
+<span class="tag-hl">&lt;/footer&gt;</span>
+
+<span class="cmt">&lt;!-- Generic containers --&gt;</span>
+<span class="tag-hl">&lt;div&gt;</span>Block container<span class="tag-hl">&lt;/div&gt;</span>
+<span class="tag-hl">&lt;span&gt;</span>Inline container<span class="tag-hl">&lt;/span&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Forms -->
+      <h2 class="content-heading" id="html-forms">📬 Forms & Inputs</h2>
+      <p class="content-text">Forms let users send you data — contact forms, sign-ups, search bars. Here's a complete contact form example:</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">HTML</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="tag-hl">&lt;form</span> <span class="attr">action</span>=<span class="str">"https://formspree.io/f/YOUR_ID"</span> <span class="attr">method</span>=<span class="str">"POST"</span><span class="tag-hl">&gt;</span>
+
+  <span class="cmt">&lt;!-- Text input --&gt;</span>
+  <span class="tag-hl">&lt;label</span> <span class="attr">for</span>=<span class="str">"name"</span><span class="tag-hl">&gt;</span>Your Name<span class="tag-hl">&lt;/label&gt;</span>
+  <span class="tag-hl">&lt;input</span>
+    <span class="attr">type</span>=<span class="str">"text"</span>
+    <span class="attr">id</span>=<span class="str">"name"</span>
+    <span class="attr">name</span>=<span class="str">"name"</span>
+    <span class="attr">placeholder</span>=<span class="str">"John Doe"</span>
+    <span class="attr">required</span>
+  <span class="tag-hl">/&gt;</span>
+
+  <span class="cmt">&lt;!-- Email input --&gt;</span>
+  <span class="tag-hl">&lt;label</span> <span class="attr">for</span>=<span class="str">"email"</span><span class="tag-hl">&gt;</span>Email<span class="tag-hl">&lt;/label&gt;</span>
+  <span class="tag-hl">&lt;input</span>
+    <span class="attr">type</span>=<span class="str">"email"</span>
+    <span class="attr">id</span>=<span class="str">"email"</span>
+    <span class="attr">name</span>=<span class="str">"email"</span>
+    <span class="attr">placeholder</span>=<span class="str">"you@example.com"</span>
+    <span class="attr">required</span>
+  <span class="tag-hl">/&gt;</span>
+
+  <span class="cmt">&lt;!-- Textarea for longer messages --&gt;</span>
+  <span class="tag-hl">&lt;label</span> <span class="attr">for</span>=<span class="str">"msg"</span><span class="tag-hl">&gt;</span>Message<span class="tag-hl">&lt;/label&gt;</span>
+  <span class="tag-hl">&lt;textarea</span>
+    <span class="attr">id</span>=<span class="str">"msg"</span>
+    <span class="attr">name</span>=<span class="str">"message"</span>
+    <span class="attr">rows</span>=<span class="str">"5"</span>
+    <span class="attr">placeholder</span>=<span class="str">"Write your message..."</span>
+    <span class="attr">required</span>
+  <span class="tag-hl">&gt;&lt;/textarea&gt;</span>
+
+  <span class="cmt">&lt;!-- Select dropdown --&gt;</span>
+  <span class="tag-hl">&lt;label</span> <span class="attr">for</span>=<span class="str">"subject"</span><span class="tag-hl">&gt;</span>Subject<span class="tag-hl">&lt;/label&gt;</span>
+  <span class="tag-hl">&lt;select</span> <span class="attr">id</span>=<span class="str">"subject"</span> <span class="attr">name</span>=<span class="str">"subject"</span><span class="tag-hl">&gt;</span>
+    <span class="tag-hl">&lt;option&gt;</span>General Question<span class="tag-hl">&lt;/option&gt;</span>
+    <span class="tag-hl">&lt;option&gt;</span>Collaboration<span class="tag-hl">&lt;/option&gt;</span>
+    <span class="tag-hl">&lt;option&gt;</span>Feedback<span class="tag-hl">&lt;/option&gt;</span>
+  <span class="tag-hl">&lt;/select&gt;</span>
+
+  <span class="cmt">&lt;!-- Checkbox --&gt;</span>
+  <span class="tag-hl">&lt;input</span> <span class="attr">type</span>=<span class="str">"checkbox"</span> <span class="attr">id</span>=<span class="str">"agree"</span> <span class="attr">name</span>=<span class="str">"agree"</span> <span class="attr">required</span> <span class="tag-hl">/&gt;</span>
+  <span class="tag-hl">&lt;label</span> <span class="attr">for</span>=<span class="str">"agree"</span><span class="tag-hl">&gt;</span>I agree to the terms<span class="tag-hl">&lt;/label&gt;</span>
+
+  <span class="cmt">&lt;!-- Submit button --&gt;</span>
+  <span class="tag-hl">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span><span class="tag-hl">&gt;</span>Send Message 🚀<span class="tag-hl">&lt;/button&gt;</span>
+
+<span class="tag-hl">&lt;/form&gt;</span></pre>
+      </div>
+
+      <div class="callout callout-tip mt-md">
+        <div class="callout-icon">✅</div>
+        <div>
+          <div class="callout-head">Free Form Backends</div>
+          <div class="callout-body"><strong>Formspree.io</strong> — free tier handles 50 submissions/month, just point your form action at their URL. <strong>Netlify Forms</strong> — add <code>netlify</code> to your form tag and it works automatically if hosted on Netlify. Zero backend code needed!</div>
+        </div>
+      </div>
+
+      <!-- Hosting Options -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="hosting-options">🏠 Hosting Options in 2026</h2>
+      <p class="content-text">Hosting is where your website files live. Here's a comparison for 2026:</p>
+
+      <div class="glass-card mt-lg mb-lg">
+        <table style="width:100%; border-collapse:collapse; font-size:0.875rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--glass-border);">
+              <th style="text-align:left; padding:12px; color:var(--orange-400);">Host</th>
+              <th style="text-align:left; padding:12px; color:var(--orange-400);">Free Tier</th>
+              <th style="text-align:left; padding:12px; color:var(--orange-400);">Best For</th>
+              <th style="text-align:left; padding:12px; color:var(--orange-400);">Custom Domain</th>
+            </tr>
+          </thead>
+          <tbody style="color:var(--text-secondary);">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px; font-weight:600; color:var(--text-primary);">Vercel</td>
+              <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
+              <td style="padding:12px;">Static + Next.js</td>
+              <td style="padding:12px;">✅ Free</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px; font-weight:600; color:var(--text-primary);">Netlify</td>
+              <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
+              <td style="padding:12px;">Static + Forms</td>
+              <td style="padding:12px;">✅ Free</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px; font-weight:600; color:var(--text-primary);">GitHub Pages</td>
+              <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
+              <td style="padding:12px;">Portfolio / docs</td>
+              <td style="padding:12px;">✅ Free</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px; font-weight:600; color:var(--text-primary);">Cloudflare Pages</td>
+              <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
+              <td style="padding:12px;">Fast global edge</td>
+              <td style="padding:12px;">✅ Free</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px; font-weight:600; color:var(--text-primary);">Railway.app</td>
+              <td style="padding:12px;"><span class="tag tag-orange">Limited</span></td>
+              <td style="padding:12px;">Node.js / backend</td>
+              <td style="padding:12px;">✅ Free</td>
+            </tr>
+            <tr>
+              <td style="padding:12px; font-weight:600; color:var(--text-primary);">Render</td>
+              <td style="padding:12px;"><span class="tag tag-orange">Limited</span></td>
+              <td style="padding:12px;">Apps + databases</td>
+              <td style="padding:12px;">✅ Free</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- GitHub Pages -->
+      <h2 class="content-heading" id="github-pages">🐙 Deploy with GitHub Pages</h2>
+      <p class="content-text">GitHub Pages is the easiest way to host a static website for free. Here's how to go from zero to live in under 5 minutes:</p>
+
+      <div class="mt-lg">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Create a GitHub account</h3>
+            <p>Go to <a href="https://github.com" target="_blank" style="color:var(--orange-400);">github.com</a> and sign up for free. GitHub is where all your code will live.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Create a new repository</h3>
+            <p>Click "New" → name it <code>username.github.io</code> (replace with your actual username). Make it Public. Check "Add README". Click Create.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Upload your files</h3>
+            <p>Click "Add file" → "Upload files" → Drag your <code>index.html</code> and other files → Commit changes.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Enable GitHub Pages</h3>
+            <p>Go to Settings → Pages → Source: "Deploy from a branch" → Branch: main → Save. GitHub builds your site automatically.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Your site is live!</h3>
+            <p>In ~60 seconds, visit <code>https://yourusername.github.io</code> — your site is live on the internet! 🎉</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-tip mt-md">
+        <div class="callout-icon">🔥</div>
+        <div>
+          <div class="callout-head">Add a Custom Domain to GitHub Pages</div>
+          <div class="callout-body">Go to Settings → Pages → Custom Domain → enter your domain. Then add a CNAME DNS record pointing to <code>yourusername.github.io</code>. Cloudflare as your DNS provider + GitHub Pages = free HTTPS custom domain hosting. 🚀</div>
+        </div>
+      </div>
+
+      <!-- Vercel / Netlify -->
+      <h2 class="content-heading" id="vercel-netlify">▲ Deploy with Vercel or Netlify</h2>
+      <p class="content-text">These platforms are even faster to deploy than GitHub Pages. The easiest way: drag & drop your project folder.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Deploy via CLI</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Install Vercel CLI</span>
+<span class="fn">npm</span> install -g vercel
+
+<span class="cmt"># Navigate to your project folder</span>
+<span class="fn">cd</span> my-website
+
+<span class="cmt"># Deploy! Follow the prompts</span>
+<span class="fn">vercel</span>
+
+<span class="cmt"># Your site is now live at https://my-website.vercel.app</span>
+
+<span class="cmt"># ── Or with Netlify CLI ──</span>
+<span class="fn">npm</span> install -g netlify-cli
+<span class="fn">netlify</span> deploy --prod --dir=.</pre>
+      </div>
+
+      <!-- Stage 1 Project -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="stage1-project">🏆 Stage 1 Project: Your First Website</h2>
+      <p class="content-text">Build and deploy a simple portfolio landing page with:</p>
+      <div class="feature-list mb-lg">
+        <div class="feature-item">A profile picture (or placeholder emoji)</div>
+        <div class="feature-item">Your name and a one-line bio</div>
+        <div class="feature-item">A list of 3 skills you want to learn</div>
+        <div class="feature-item">A contact link (email or social)</div>
+        <div class="feature-item">Basic CSS styling (colors, fonts)</div>
+        <div class="feature-item">Deployed live on GitHub Pages or Vercel</div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-icon">⚠️</div>
+        <div>
+          <div class="callout-head">Don't Skip the Deploy Step!</div>
+          <div class="callout-body">Making it live is the most important part. Even if your CSS is basic, a live deployed site is 100x more valuable than a perfect site only on your computer. Employers and clients need a URL. Build the habit of shipping early.</div>
+        </div>
+      </div>
+
+    </div><!-- end section -->
+
+    <!-- Stage Navigation -->
+    <div class="guide-nav">
+      <a href="../index.html" class="guide-nav-btn">
+        <span class="nav-arrow">←</span>
+        <div>
+          <span class="nav-label">Back to</span>
+          Home
+        </div>
+      </a>
+      <a href="stage2.html" class="guide-nav-btn next">
+        <div>
+          <span class="nav-label">Next Stage</span>
+          Stage 2 — Frontend Dev
+        </div>
+        <span class="nav-arrow">→</span>
+      </a>
+    </div>
+  </div><!-- end page-wrapper -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="stage1.html">Stage 1: Basics</a>
+        <a href="stage2.html">Stage 2: Frontend</a>
+        <a href="stage3.html">Stage 3: Backend</a>
+        <a href="stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/three-scenes.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const c = document.getElementById('stage-canvas');
+    if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0xf97316); }
+  </script>
+</body>
+</html>

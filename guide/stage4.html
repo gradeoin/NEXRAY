@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stage 4: DevOps & CI/CD — GitHub, automated deployments, Cloudflare DNS, CDN, caching, Workers, and professional workflows." />
+  <title>Stage 4: DevOps & CI/CD — Nexray</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="stage1.html" class="active">Guide</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="../auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="../index.html">Home</a><a href="stage1.html">Guide</a><a href="../blog/index.html">Blog</a><a href="../resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <div class="stage-hero" style="min-height:420px;display:flex;align-items:center;position:relative;">
+      <canvas id="stage-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
+      <div class="hero-content" style="z-index:1;text-align:center;">
+        <div class="stage-badge">🛠️ Stage 4 of 7</div>
+        <h1 class="stage-title">DevOps & CI/CD</h1>
+        <p class="stage-desc">GitHub flows, automated deployments, Cloudflare's superpower stack, and professional developer workflows.</p>
+        <div class="stage-meta">
+          <div class="stage-meta-item"><span class="icon">⏱️</span> ~5 hours</div>
+          <div class="stage-meta-item"><span class="icon">🎯</span> Intermediate → Advanced</div>
+          <div class="stage-meta-item"><span class="icon">💼</span> Career-Defining Skills</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="toc">
+        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-list">
+          <a href="#git-basics">Git Fundamentals</a>
+          <a href="#github-workflow">GitHub Workflow</a>
+          <a href="#github-actions">GitHub Actions CI/CD</a>
+          <a href="#cloudflare-dns">Cloudflare DNS</a>
+          <a href="#cloudflare-cdn">CDN & Caching</a>
+          <a href="#cloudflare-workers">Cloudflare Workers</a>
+          <a href="#cloudflare-pages">Cloudflare Pages</a>
+          <a href="#docker-basics">Docker Basics</a>
+          <a href="#monitoring">Monitoring & Logs</a>
+          <a href="#stage4-project">Stage 4 Project</a>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="git-basics">🐙 Git Fundamentals</h2>
+      <p class="content-text">Git is a version control system — it tracks every change to your code so you can collaborate, experiment, and roll back mistakes. Every professional uses it daily.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Git Essentials</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># === Setup (do once) ===</span>
+git config --global user.name <span class="str">"Your Name"</span>
+git config --global user.email <span class="str">"you@example.com"</span>
+
+<span class="cmt"># === Start a project ===</span>
+git init           <span class="cmt"># initialize git in current folder</span>
+git clone https://github.com/user/repo.git  <span class="cmt"># copy existing repo</span>
+
+<span class="cmt"># === Daily workflow ===</span>
+git status         <span class="cmt"># see changed files</span>
+git add .          <span class="cmt"># stage ALL changes</span>
+git add file.html  <span class="cmt"># stage specific file</span>
+git commit -m <span class="str">"feat: add contact form"</span>  <span class="cmt"># save snapshot</span>
+git push origin main  <span class="cmt"># upload to GitHub</span>
+git pull           <span class="cmt"># download latest changes</span>
+
+<span class="cmt"># === Branching (work without breaking main) ===</span>
+git checkout -b feature/dark-mode  <span class="cmt"># create + switch branch</span>
+git checkout main                  <span class="cmt"># switch back</span>
+git merge feature/dark-mode        <span class="cmt"># merge into main</span>
+git branch -d feature/dark-mode    <span class="cmt"># delete branch</span>
+
+<span class="cmt"># === Undo mistakes ===</span>
+git restore file.html   <span class="cmt"># undo unsaved changes</span>
+git revert HEAD         <span class="cmt"># undo last commit (safe)</span>
+git log --oneline       <span class="cmt"># see commit history</span>
+git stash               <span class="cmt"># temporarily save changes</span>
+git stash pop           <span class="cmt"># restore stashed changes</span></pre>
+      </div>
+
+      <div class="callout callout-pro">
+        <div class="callout-icon">🔥</div>
+        <div>
+          <div class="callout-head">Conventional Commits (Pro Standard)</div>
+          <div class="callout-body">Use structured commit messages: <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>style:</code>, <code>refactor:</code>, <code>test:</code>, <code>chore:</code>. Example: <strong>feat: add Google auth login</strong>. Tools like semantic-release can auto-generate changelogs from these.</div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="github-workflow">🔄 GitHub Workflow (Pull Request Flow)</h2>
+      <p class="content-text">Professional teams never push directly to <code>main</code>. They use the feature branch → Pull Request → Review → Merge workflow.</p>
+
+      <div class="mt-lg">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content"><h3>Create Feature Branch</h3><p><code>git checkout -b feat/user-profiles</code> — work in isolation, main branch stays clean.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content"><h3>Commit & Push</h3><p>Make your changes, commit often with clear messages, push to GitHub: <code>git push origin feat/user-profiles</code></p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content"><h3>Open Pull Request</h3><p>On GitHub, click "Compare & pull request". Write a clear description of what and why. Request reviewers.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content"><h3>CI Runs Automatically</h3><p>GitHub Actions runs tests, linting, and builds your preview deployment automatically on every PR.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <div class="step-content"><h3>Review & Merge</h3><p>Teammate reviews code, approves, and you merge to main. The CI triggers a production deployment.</p></div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="github-actions">⚡ GitHub Actions CI/CD</h2>
+      <p class="content-text">GitHub Actions automates your workflow. On every push, it can run tests, lint code, build your app, and deploy to production — automatically.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">YAML — .github/workflows/deploy.yml</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># This file lives in .github/workflows/deploy.yml</span>
+
+name: Deploy to Production
+
+<span class="cmt"># Trigger: run this when code is pushed to main branch</span>
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  <span class="cmt"># Job 1: Test & Build</span>
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      <span class="cmt"># 1. Check out the code</span>
+      - uses: actions/checkout@v4
+
+      <span class="cmt"># 2. Set up Node.js</span>
+      - uses: actions/setup-node@v4
+        with:
+          node-version: <span class="str">'20'</span>
+          cache: <span class="str">'npm'</span>
+
+      <span class="cmt"># 3. Install dependencies</span>
+      - run: npm ci
+
+      <span class="cmt"># 4. Run tests</span>
+      - run: npm test
+
+      <span class="cmt"># 5. Build production bundle</span>
+      - run: npm run build
+
+      <span class="cmt"># 6. Upload build artifacts</span>
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  <span class="cmt"># Job 2: Deploy (only on main, after build passes)</span>
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == <span class="str">'refs/heads/main'</span>
+
+    steps:
+      - uses: actions/checkout@v4
+
+      <span class="cmt"># Deploy to Vercel using secret token</span>
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: <span class="kw">${{ secrets.VERCEL_TOKEN }}</span>
+          vercel-org-id: <span class="kw">${{ secrets.VERCEL_ORG_ID }}</span>
+          vercel-project-id: <span class="kw">${{ secrets.VERCEL_PROJECT_ID }}</span>
+          vercel-args: <span class="str">'--prod'</span></pre>
+      </div>
+
+      <h2 class="content-heading" id="cloudflare-dns">☁️ Cloudflare DNS Setup</h2>
+      <p class="content-text">Cloudflare is the #1 tool professionals use. It sits between your domain and your server, adding speed, security, and control — all free on the basic plan.</p>
+
+      <div class="mt-lg">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content"><h3>Create a Cloudflare account</h3><p>Go to <a href="https://cloudflare.com" target="_blank" style="color:var(--orange-400);">cloudflare.com</a> → Sign up free → "Add a Site" → enter your domain name.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content"><h3>Import your DNS records</h3><p>Cloudflare scans your existing DNS records automatically. Review them, adjust if needed. Make sure your A/CNAME records point to your host.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content"><h3>Update nameservers</h3><p>Cloudflare gives you 2 nameservers (e.g. <code>aria.ns.cloudflare.com</code>). Go to your domain registrar → DNS → change nameservers to these. Takes up to 24h to propagate.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content"><h3>Enable proxy (orange cloud ☁️)</h3><p>In Cloudflare DNS settings, toggle the orange cloud on for your A/CNAME records. This routes all traffic through Cloudflare's network — enabling CDN, WAF, and DDoS protection.</p></div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="cloudflare-cdn">🚀 CDN & Caching with Cloudflare</h2>
+      <p class="content-text">Cloudflare's CDN caches your site at 300+ edge locations worldwide. Visitors get files from the closest server — drastically cutting load times.</p>
+
+      <div class="grid-2 mt-md mb-lg">
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">Cache Rules (Page Rules)</div>
+          <div class="code-block" style="margin:0;">
+            <div class="code-header" style="padding:6px 10px;"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang" style="font-size:0.65rem;">Cloudflare Page Rule</div></div>
+            <pre class="code-content" style="font-size:0.8rem;padding:10px;"><span class="cmt"># Cache static assets long-term:</span>
+URL: example.com/assets/*
+Cache Level: Cache Everything
+Edge Cache TTL: 1 month
+
+<span class="cmt"># Bypass cache for API routes:</span>
+URL: example.com/api/*
+Cache Level: Bypass</pre>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">HTTP Cache Headers</div>
+          <div class="code-block" style="margin:0;">
+            <div class="code-header" style="padding:6px 10px;"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang" style="font-size:0.65rem;">JavaScript — Express</div></div>
+            <pre class="code-content" style="font-size:0.8rem;padding:10px;"><span class="cmt">// Cache static files for 1 year</span>
+app.use(<span class="str">'/assets'</span>, express.static(<span class="str">'public'</span>, {
+  maxAge: <span class="str">'1y'</span>,
+  immutable: <span class="kw">true</span>
+}));
+
+<span class="cmt">// No cache for HTML</span>
+res.setHeader(<span class="str">'Cache-Control'</span>,
+  <span class="str">'no-cache, no-store'</span>);</pre>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="cloudflare-workers">⚡ Cloudflare Workers</h2>
+      <p class="content-text">Cloudflare Workers let you run JavaScript at the edge (close to users) — zero cold starts, free 100k requests/day. Perfect for API endpoints, redirects, A/B testing, and middleware.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Cloudflare Worker</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// Cloudflare Worker: runs at the edge worldwide</span>
+<span class="cmt">// Deploy with: wrangler deploy</span>
+
+<span class="kw">export default</span> {
+  <span class="kw">async</span> <span class="fn">fetch</span>(request, env) {
+    <span class="kw">const</span> url = <span class="kw">new</span> URL(request.url);
+
+    <span class="cmt">// Route: API endpoint at the edge</span>
+    <span class="kw">if</span> (url.pathname === <span class="str">'/api/geo'</span>) {
+      <span class="cmt">// Cloudflare gives you the user's location for free!</span>
+      <span class="kw">const</span> { country, city, latitude, longitude } = request.cf;
+      <span class="kw">return</span> <span class="fn">Response</span>.<span class="fn">json</span>({ country, city, latitude, longitude });
+    }
+
+    <span class="cmt">// Redirect old URLs</span>
+    <span class="kw">if</span> (url.pathname === <span class="str">'/old-page'</span>) {
+      <span class="kw">return</span> <span class="fn">Response</span>.<span class="fn">redirect</span>(<span class="str">'/new-page'</span>, <span class="num">301</span>);
+    }
+
+    <span class="cmt">// Add security headers to all responses</span>
+    <span class="kw">const</span> response = <span class="kw">await</span> <span class="fn">fetch</span>(request);
+    <span class="kw">const</span> newResponse = <span class="kw">new</span> <span class="fn">Response</span>(response.body, response);
+    newResponse.headers.<span class="fn">set</span>(<span class="str">'X-Frame-Options'</span>, <span class="str">'DENY'</span>);
+    newResponse.headers.<span class="fn">set</span>(<span class="str">'X-Content-Type-Options'</span>, <span class="str">'nosniff'</span>);
+    newResponse.headers.<span class="fn">set</span>(<span class="str">'Referrer-Policy'</span>, <span class="str">'strict-origin'</span>);
+    <span class="kw">return</span> newResponse;
+  }
+};</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Wrangler CLI Setup</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Install Wrangler (Cloudflare's CLI)</span>
+npm install -g wrangler
+
+<span class="cmt"># Login to Cloudflare</span>
+wrangler login
+
+<span class="cmt"># Create a new Worker project</span>
+wrangler init my-worker
+
+<span class="cmt"># Run locally for testing</span>
+wrangler dev
+
+<span class="cmt"># Deploy to production edge network</span>
+wrangler deploy</pre>
+      </div>
+
+      <h2 class="content-heading" id="cloudflare-pages">📄 Cloudflare Pages</h2>
+      <p class="content-text">Cloudflare Pages is like Vercel/Netlify but on Cloudflare's network. Unlimited bandwidth for free, runs on the same edge as Workers.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Deploy to Cloudflare Pages</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Deploy via Wrangler CLI</span>
+wrangler pages deploy ./dist
+
+<span class="cmt"># Or connect via GitHub (recommended):</span>
+<span class="cmt"># Cloudflare Dashboard → Pages → Create a project</span>
+<span class="cmt"># → Connect to Git → Select repo → Configure build:</span>
+<span class="cmt">#   Build command: npm run build</span>
+<span class="cmt">#   Build output directory: dist</span>
+<span class="cmt"># → Save and Deploy</span>
+
+<span class="cmt"># Every push to main auto-deploys production</span>
+<span class="cmt"># Every PR gets a unique preview URL</span></pre>
+      </div>
+
+      <h2 class="content-heading" id="docker-basics">🐳 Docker Basics</h2>
+      <p class="content-text">Docker packages your app and all its dependencies into a container — so it runs identically on any machine. Essential for backend apps.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">Dockerfile — Node.js App</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Start from official Node.js image</span>
+FROM node:20-alpine
+
+<span class="cmt"># Set working directory inside container</span>
+WORKDIR /app
+
+<span class="cmt"># Copy package files first (layer caching)</span>
+COPY package*.json ./
+
+<span class="cmt"># Install dependencies</span>
+RUN npm ci --only=production
+
+<span class="cmt"># Copy rest of source code</span>
+COPY . .
+
+<span class="cmt"># Tell Docker which port this app uses</span>
+EXPOSE 3000
+
+<span class="cmt"># Command to run when container starts</span>
+CMD ["node", "server.js"]</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Docker Commands</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Build image from Dockerfile</span>
+docker build -t my-app:latest .
+
+<span class="cmt"># Run container locally</span>
+docker run -p 3000:3000 my-app:latest
+
+<span class="cmt"># Run with environment variables</span>
+docker run -p 3000:3000 --env-file .env my-app:latest
+
+<span class="cmt"># Push to Docker Hub (free)</span>
+docker tag my-app:latest yourusername/my-app:latest
+docker push yourusername/my-app:latest
+
+<span class="cmt"># Deploy on any cloud: Railway, Render, Fly.io</span>
+<span class="cmt"># just point at your Docker Hub image</span></pre>
+      </div>
+
+      <h2 class="content-heading" id="monitoring">📊 Monitoring & Logs</h2>
+      <p class="content-text">You need to know when your app is down before your users tell you. These tools are essential in production:</p>
+
+      <div class="grid-2 mt-md mb-lg">
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">🟢 Uptime Monitoring</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;"><strong>UptimeRobot</strong> (free) — checks your site every 5 minutes, alerts you via email/Slack if it goes down.</p>
+          <span class="tag tag-green">Free Plan</span>
+        </div>
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">📉 Error Tracking</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;"><strong>Sentry.io</strong> (free tier) — catches JavaScript errors in real-time, shows you the exact line of code that broke.</p>
+          <span class="tag tag-orange">Essential</span>
+        </div>
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">📊 Analytics</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;"><strong>Cloudflare Analytics</strong> (free) — traffic stats, bandwidth, threats blocked. Privacy-friendly, no cookies needed.</p>
+          <span class="tag tag-blue">Built-in</span>
+        </div>
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">📝 Log Management</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;"><strong>Vercel/Railway Logs</strong> — view real-time server logs from your dashboard. Filter by level, search by text.</p>
+          <span class="tag tag-purple">Platform Built-in</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h2 class="content-heading" id="stage4-project">🏆 Stage 4 Project: Pro Deployment Pipeline</h2>
+      <div class="feature-list mb-lg">
+        <div class="feature-item">GitHub repo with main + feature branch workflow</div>
+        <div class="feature-item">GitHub Actions: auto-test + deploy on merge to main</div>
+        <div class="feature-item">Custom domain connected via Cloudflare DNS</div>
+        <div class="feature-item">Cloudflare proxy enabled (free SSL + CDN)</div>
+        <div class="feature-item">UptimeRobot monitoring your site 24/7</div>
+        <div class="feature-item">Sentry catching frontend JavaScript errors</div>
+      </div>
+    </div>
+
+    <div class="guide-nav">
+      <a href="stage3.html" class="guide-nav-btn"><span class="nav-arrow">←</span><div><span class="nav-label">Previous</span>Stage 3 — Backend & APIs</div></a>
+      <a href="stage5.html" class="guide-nav-btn next"><div><span class="nav-label">Next Stage</span>Stage 5 — Pro Secrets</div><span class="nav-arrow">→</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="stage1.html">Stage 1: Basics</a>
+        <a href="stage2.html">Stage 2: Frontend</a>
+        <a href="stage3.html">Stage 3: Backend</a>
+        <a href="stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/three-scenes.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const c = document.getElementById('stage-canvas');
+    if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0xf59e0b); }
+  </script>
+</body>
+</html>

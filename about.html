@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Nexray — a free, Gen-Z styled, 7-stage guide to modern web development from absolute beginner to professional developer." />
+  <title>About — Nexray</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide/stage1.html">Guide</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="index.html">Home</a><a href="guide/stage1.html">Guide</a><a href="blog/index.html">Blog</a><a href="resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <!-- Hero -->
+    <div style="text-align:center;padding:6rem 2rem 3rem;background:radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%);">
+      <div class="stage-badge" style="margin:0 auto 1.5rem;">ℹ️ About This Guide</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
+        Why We Built<br><span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Nexray</span>
+      </h1>
+      <p style="color:var(--text-secondary);font-size:var(--fs-lg);max-width:700px;margin:0 auto;">
+        Because the internet is still full of outdated 2015-era tutorials that teach <code>float: left</code>, use FTP for deployment, and don't mention CI/CD, serverless, or modern tooling. You deserve better.
+      </p>
+    </div>
+
+    <div class="section">
+      <!-- Mission -->
+      <div class="glass-card mb-xl" style="border-left:4px solid var(--orange-500);padding:2.5rem;">
+        <h2 style="font-size:var(--fs-2xl);font-weight:800;margin-bottom:1rem;">🎯 Our Mission</h2>
+        <p style="color:var(--text-secondary);font-size:var(--fs-md);line-height:1.8;">
+          To create the most comprehensive, up-to-date, and aesthetically honest web development guide available. Not padded with filler. Not hiding the hard parts behind a paywall. Not teaching outdated methods. Just 7 well-structured stages that take you from <strong>"what is HTML"</strong> to <strong>"shipping a full-stack app on the Play Store with CI/CD."</strong>
+        </p>
+      </div>
+
+      <!-- What makes it different -->
+      <h2 class="content-heading">✨ What Makes This Different</h2>
+      <div class="grid-3 mt-md mb-xl">
+        <div class="glass-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">📅</div>
+          <h3 style="margin-bottom:0.75rem;">Actually 2026</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">We cover Cloudflare Workers, Capacitor, Firebase v9 modular SDK, Vite, Resend, React Email, and other tools that actually exist now — not 5-year-old stacks.</p>
+        </div>
+        <div class="glass-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">🆓</div>
+          <h3 style="margin-bottom:0.75rem;">100% Free</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">No paywalls. No upsells. No "click here to watch the video." Every stage, every code snippet, every resource — free forever. We make money when you succeed and recommend us.</p>
+        </div>
+        <div class="glass-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">💎</div>
+          <h3 style="margin-bottom:0.75rem;">Real Code</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Every example is production-quality and copyable. We don't simplify to the point of uselessness. We show you the real code with real explanations.</p>
+        </div>
+        <div class="glass-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">🎨</div>
+          <h3 style="margin-bottom:0.75rem;">Gen-Z Designed</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Dark mode, glassmorphism, Three.js animations, orange accents. Learning shouldn't feel like reading a government document. Beautiful design reduces cognitive load.</p>
+        </div>
+        <div class="glass-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">📱</div>
+          <h3 style="margin-bottom:0.75rem;">Mobile-First</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">This guide works beautifully on your phone. Read it on the bus. Copy code on your laptop. No forced full-screen video. Just text and code you can use anywhere.</p>
+        </div>
+        <div class="glass-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">🏗️</div>
+          <h3 style="margin-bottom:0.75rem;">Project-Based</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Every stage ends with a project that builds on the last. By Stage 7, you've deployed a full-stack web + Android app with custom email, monitoring, and SEO. Not just theory.</p>
+        </div>
+      </div>
+
+      <!-- Curriculum overview -->
+      <h2 class="content-heading">🗺️ The Full Curriculum</h2>
+      <div class="mt-md">
+        <div class="step-card"><div class="step-number">1</div><div class="step-content"><h3>Basics</h3><p>What is the internet, DNS, domains, HTML, free hosting, first deployment to Vercel/Netlify/GitHub Pages.</p></div></div>
+        <div class="step-card"><div class="step-number">2</div><div class="step-content"><h3>Frontend</h3><p>CSS, Flexbox, Grid, responsive design, CSS variables, glassmorphism, JavaScript, DOM, Fetch API, Three.js, React intro.</p></div></div>
+        <div class="step-card"><div class="step-number">3</div><div class="step-content"><h3>Backend</h3><p>Node.js, Express, REST APIs, Firebase Firestore, Firebase Auth, OAuth, serverless functions, environment variables.</p></div></div>
+        <div class="step-card"><div class="step-number">4</div><div class="step-content"><h3>DevOps</h3><p>Git, GitHub workflows, GitHub Actions CI/CD, Cloudflare DNS/CDN/Workers/Pages, Docker basics, monitoring.</p></div></div>
+        <div class="step-card"><div class="step-number">5</div><div class="step-content"><h3>Pro Secrets</h3><p>Custom email, SPF/DKIM/DMARC, HTML email templates, Cloudinary, image optimization, Web Vitals, PWA, security headers.</p></div></div>
+        <div class="step-card"><div class="step-number">6</div><div class="step-content"><h3>Android App</h3><p>TWA, Bubblewrap, Capacitor, React Native, Play Store submission, app signing, deep links.</p></div></div>
+        <div class="step-card"><div class="step-number">7</div><div class="step-content"><h3>Launch & Grow</h3><p>SEO, structured data, analytics, social marketing, branding, Stripe monetization, launch checklist, growth hacks.</p></div></div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;padding:3rem 0 1rem;">
+        <h2 style="font-size:var(--fs-2xl);font-weight:800;margin-bottom:1rem;">Ready to start?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:2rem;">Seven stages. Completely free. Start at your level.</p>
+        <a href="guide/stage1.html" class="btn btn-primary" style="font-size:var(--fs-md);">Begin Stage 1 → Basics 🚀</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="guide/stage1.html">Stage 1: Basics</a>
+        <a href="guide/stage2.html">Stage 2: Frontend</a>
+        <a href="guide/stage3.html">Stage 3: Backend</a>
+        <a href="guide/stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="blog/index.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

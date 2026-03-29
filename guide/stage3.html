@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stage 3: Backend & APIs — Node.js, Firebase, databases, authentication, REST APIs, and serverless functions." />
+  <title>Stage 3: Backend & APIs — Nexray</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="stage1.html" class="active">Guide</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="../auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="../index.html">Home</a><a href="stage1.html">Guide</a><a href="../blog/index.html">Blog</a><a href="../resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <div class="stage-hero" style="min-height:420px;display:flex;align-items:center;position:relative;">
+      <canvas id="stage-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
+      <div class="hero-content" style="z-index:1;text-align:center;">
+        <div class="stage-badge">⚙️ Stage 3 of 7</div>
+        <h1 class="stage-title">Backend & APIs</h1>
+        <p class="stage-desc">Databases, authentication, REST APIs, Firebase, Node.js, and serverless — how the internet actually stores and secures your data.</p>
+        <div class="stage-meta">
+          <div class="stage-meta-item"><span class="icon">⏱️</span> ~8 hours</div>
+          <div class="stage-meta-item"><span class="icon">🎯</span> Intermediate</div>
+          <div class="stage-meta-item"><span class="icon">💡</span> Most Important Stage</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="toc">
+        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-list">
+          <a href="#what-is-backend">What Is a Backend?</a>
+          <a href="#nodejs">Node.js + Express Setup</a>
+          <a href="#rest-api">Building a REST API</a>
+          <a href="#databases">Databases: SQL vs NoSQL</a>
+          <a href="#firebase-db">Firebase Firestore</a>
+          <a href="#auth-intro">Authentication Concepts</a>
+          <a href="#firebase-auth">Firebase Auth (Google + Email)</a>
+          <a href="#oauth">OAuth Providers</a>
+          <a href="#serverless">Serverless Functions</a>
+          <a href="#env-vars">Environment Variables & Secrets</a>
+          <a href="#stage3-project">Stage 3 Project</a>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="what-is-backend">⚙️ What Is a Backend?</h2>
+      <p class="content-text">The <strong>frontend</strong> is what users see. The <strong>backend</strong> is the server-side code that stores data, handles authentication, runs business logic, and sends data to the frontend via APIs.</p>
+
+      <div class="grid-3 mt-lg mb-lg">
+        <div class="glass-card">
+          <div style="font-size:2rem;margin-bottom:10px;">📱</div>
+          <div style="font-weight:700;margin-bottom:6px;">Frontend</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Browser renders HTML/CSS/JS. Sends requests. Shows data from backend.</p>
+        </div>
+        <div class="glass-card" style="border-color:rgba(249,115,22,0.3);">
+          <div style="font-size:2rem;margin-bottom:10px;">🔄</div>
+          <div style="font-weight:700;margin-bottom:6px;">API</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">The bridge. Frontend calls API endpoints, backend processes and responds with JSON.</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:2rem;margin-bottom:10px;">🗄️</div>
+          <div style="font-weight:700;margin-bottom:6px;">Backend</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Server code. Reads/writes database, validates data, handles auth, runs business logic.</p>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="nodejs">🟢 Node.js + Express Setup</h2>
+      <p class="content-text">Node.js runs JavaScript on the server. Express is the most popular Node.js framework for building APIs.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Setup</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Create project folder</span>
+mkdir my-api && cd my-api
+
+<span class="cmt"># Initialize Node.js project</span>
+npm init -y
+
+<span class="cmt"># Install Express</span>
+npm install express
+
+<span class="cmt"># Install dev tools</span>
+npm install -D nodemon  <span class="cmt"># auto-restart on file changes</span>
+
+<span class="cmt"># Add to package.json scripts:</span>
+<span class="cmt"># "dev": "nodemon server.js"</span>
+
+<span class="cmt"># Start dev server</span>
+npm run dev</pre>
+      </div>
+
+      <h2 class="content-heading" id="rest-api">🌐 Building a REST API</h2>
+      <p class="content-text">A REST API is a set of URL endpoints your frontend can call to create, read, update, and delete data (CRUD).</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — server.js (Express REST API)</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="kw">const</span> express = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> app = <span class="fn">express</span>();
+
+<span class="cmt">// Middleware: parse JSON bodies</span>
+app.<span class="fn">use</span>(express.<span class="fn">json</span>());
+
+<span class="cmt">// CORS: allow frontend to call this API</span>
+app.<span class="fn">use</span>((req, res, next) => {
+  res.<span class="fn">header</span>(<span class="str">'Access-Control-Allow-Origin'</span>, <span class="str">'*'</span>);
+  res.<span class="fn">header</span>(<span class="str">'Access-Control-Allow-Headers'</span>, <span class="str">'Content-Type, Authorization'</span>);
+  <span class="fn">next</span>();
+});
+
+<span class="cmt">// In-memory "database" (use a real DB in production)</span>
+<span class="kw">let</span> posts = [
+  { id: <span class="num">1</span>, title: <span class="str">'Hello World'</span>, author: <span class="str">'Alice'</span> },
+  { id: <span class="num">2</span>, title: <span class="str">'My Second Post'</span>, author: <span class="str">'Bob'</span> },
+];
+
+<span class="cmt">// GET all posts</span>
+app.<span class="fn">get</span>(<span class="str">'/api/posts'</span>, (req, res) => {
+  res.<span class="fn">json</span>({ success: <span class="kw">true</span>, data: posts });
+});
+
+<span class="cmt">// GET single post by ID</span>
+app.<span class="fn">get</span>(<span class="str">'/api/posts/:id'</span>, (req, res) => {
+  <span class="kw">const</span> post = posts.<span class="fn">find</span>(p => p.id === +req.params.id);
+  <span class="kw">if</span> (!post) <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">404</span>).<span class="fn">json</span>({ error: <span class="str">'Not found'</span> });
+  res.<span class="fn">json</span>({ success: <span class="kw">true</span>, data: post });
+});
+
+<span class="cmt">// POST create a post</span>
+app.<span class="fn">post</span>(<span class="str">'/api/posts'</span>, (req, res) => {
+  <span class="kw">const</span> { title, author } = req.body;
+  <span class="kw">if</span> (!title || !author) {
+    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">400</span>).<span class="fn">json</span>({ error: <span class="str">'title and author required'</span> });
+  }
+  <span class="kw">const</span> newPost = { id: posts.length + <span class="num">1</span>, title, author };
+  posts.<span class="fn">push</span>(newPost);
+  res.<span class="fn">status</span>(<span class="num">201</span>).<span class="fn">json</span>({ success: <span class="kw">true</span>, data: newPost });
+});
+
+<span class="cmt">// PUT update a post</span>
+app.<span class="fn">put</span>(<span class="str">'/api/posts/:id'</span>, (req, res) => {
+  <span class="kw">const</span> idx = posts.<span class="fn">findIndex</span>(p => p.id === +req.params.id);
+  <span class="kw">if</span> (idx === -<span class="num">1</span>) <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">404</span>).<span class="fn">json</span>({ error: <span class="str">'Not found'</span> });
+  posts[idx] = { ...posts[idx], ...req.body };
+  res.<span class="fn">json</span>({ success: <span class="kw">true</span>, data: posts[idx] });
+});
+
+<span class="cmt">// DELETE a post</span>
+app.<span class="fn">delete</span>(<span class="str">'/api/posts/:id'</span>, (req, res) => {
+  posts = posts.<span class="fn">filter</span>(p => p.id !== +req.params.id);
+  res.<span class="fn">json</span>({ success: <span class="kw">true</span>, message: <span class="str">'Deleted'</span> });
+});
+
+<span class="cmt">// Start server</span>
+app.<span class="fn">listen</span>(<span class="num">3000</span>, () =>
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'🚀 API running at http://localhost:3000'</span>)
+);</pre>
+      </div>
+
+      <h2 class="content-heading" id="databases">🗄️ Databases: SQL vs NoSQL</h2>
+      <div class="grid-2 mt-md mb-lg">
+        <div class="glass-card">
+          <div style="font-weight:700;font-size:1.1rem;margin-bottom:12px;color:var(--orange-400);">SQL (Relational)</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:12px;">Data in tables with rows & columns. Strict schema. Relationships via JOINs. Best for structured data.</p>
+          <div style="color:var(--text-secondary);font-size:0.8rem;"><strong style="color:var(--text-primary);">Examples:</strong> PostgreSQL, MySQL, SQLite, PlanetScale<br><strong style="color:var(--text-primary);">Use for:</strong> E-commerce, banking, user accounts with relations</div>
+        </div>
+        <div class="glass-card">
+          <div style="font-weight:700;font-size:1.1rem;margin-bottom:12px;color:#60a5fa;">NoSQL (Document)</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:12px;">Data as JSON documents. Flexible schema. Scales easily. Best for dynamic data.</p>
+          <div style="color:var(--text-secondary);font-size:0.8rem;"><strong style="color:var(--text-primary);">Examples:</strong> Firebase Firestore, MongoDB, Supabase<br><strong style="color:var(--text-primary);">Use for:</strong> Social apps, real-time data, rapid prototyping</div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="firebase-db">🔥 Firebase Firestore</h2>
+      <p class="content-text">Firebase Firestore is Google's cloud NoSQL database. It's free to start, has real-time sync, and works directly from the browser — no backend server needed!</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Firebase Firestore</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// 1. Install Firebase SDK</span>
+<span class="cmt">// npm install firebase</span>
+
+<span class="kw">import</span> { initializeApp } <span class="kw">from</span> <span class="str">'firebase/app'</span>;
+<span class="kw">import</span> {
+  getFirestore, collection, addDoc,
+  getDocs, doc, updateDoc, deleteDoc,
+  onSnapshot, query, where, orderBy
+} <span class="kw">from</span> <span class="str">'firebase/firestore'</span>;
+
+<span class="cmt">// 2. Initialize (from Firebase Console → Project Settings)</span>
+<span class="kw">const</span> app = <span class="fn">initializeApp</span>({
+  apiKey: process.env.VITE_FIREBASE_API_KEY,
+  authDomain: <span class="str">'your-app.firebaseapp.com'</span>,
+  projectId: <span class="str">'your-app-id'</span>,
+});
+
+<span class="kw">const</span> db = <span class="fn">getFirestore</span>(app);
+
+<span class="cmt">// 3. Add a document</span>
+<span class="kw">async function</span> <span class="fn">addPost</span>(title, content) {
+  <span class="kw">const</span> docRef = <span class="kw">await</span> <span class="fn">addDoc</span>(<span class="fn">collection</span>(db, <span class="str">'posts'</span>), {
+    title,
+    content,
+    createdAt: <span class="kw">new</span> Date(),
+    likes: <span class="num">0</span>
+  });
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Added with ID:'</span>, docRef.id);
+}
+
+<span class="cmt">// 4. Get all documents</span>
+<span class="kw">async function</span> <span class="fn">getPosts</span>() {
+  <span class="kw">const</span> snapshot = <span class="kw">await</span> <span class="fn">getDocs</span>(<span class="fn">collection</span>(db, <span class="str">'posts'</span>));
+  <span class="kw">return</span> snapshot.docs.<span class="fn">map</span>(d => ({ id: d.id, ...d.data() }));
+}
+
+<span class="cmt">// 5. Real-time listener (auto-updates when data changes!)</span>
+<span class="fn">onSnapshot</span>(<span class="fn">collection</span>(db, <span class="str">'posts'</span>), (snapshot) => {
+  <span class="kw">const</span> posts = snapshot.docs.<span class="fn">map</span>(d => ({ id: d.id, ...d.data() }));
+  <span class="fn">renderPosts</span>(posts); <span class="cmt">// update your UI</span>
+});
+
+<span class="cmt">// 6. Query with filters</span>
+<span class="kw">const</span> q = <span class="fn">query</span>(
+  <span class="fn">collection</span>(db, <span class="str">'posts'</span>),
+  <span class="fn">where</span>(<span class="str">'likes'</span>, <span class="str">'>'</span>, <span class="num">10</span>),
+  <span class="fn">orderBy</span>(<span class="str">'createdAt'</span>, <span class="str">'desc'</span>)
+);
+
+<span class="cmt">// 7. Update a document</span>
+<span class="kw">await</span> <span class="fn">updateDoc</span>(<span class="fn">doc</span>(db, <span class="str">'posts'</span>, postId), { likes: <span class="num">11</span> });
+
+<span class="cmt">// 8. Delete a document</span>
+<span class="kw">await</span> <span class="fn">deleteDoc</span>(<span class="fn">doc</span>(db, <span class="str">'posts'</span>, postId));</pre>
+      </div>
+
+      <h2 class="content-heading" id="auth-intro">🔐 Authentication Concepts</h2>
+      <p class="content-text">Authentication = proving who you are. Authorization = what you're allowed to do. In 2026, the gold standard is using OAuth instead of storing passwords yourself.</p>
+
+      <div class="callout callout-danger">
+        <div class="callout-icon">🚨</div>
+        <div>
+          <div class="callout-head">NEVER store plain-text passwords</div>
+          <div class="callout-body">Always hash passwords with bcrypt before storing. Better yet, use Firebase Auth or Auth0 so you never touch passwords at all. Password leaks have ended companies. Don't roll your own crypto.</div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="firebase-auth">🔥 Firebase Auth (Google + Email)</h2>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Firebase Authentication</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="kw">import</span> {
+  getAuth, signInWithPopup, GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut, onAuthStateChanged
+} <span class="kw">from</span> <span class="str">'firebase/auth'</span>;
+
+<span class="kw">const</span> auth     = <span class="fn">getAuth</span>(app);
+<span class="kw">const</span> provider = <span class="kw">new</span> <span class="fn">GoogleAuthProvider</span>();
+
+<span class="cmt">// === Google Sign-In (one-click!) ===</span>
+<span class="kw">async function</span> <span class="fn">signInWithGoogle</span>() {
+  <span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">signInWithPopup</span>(auth, provider);
+  <span class="kw">const</span> user = result.user;
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Signed in as:'</span>, user.displayName, user.email);
+  <span class="cmt">// user.uid = unique user ID, use this in Firestore</span>
+}
+
+<span class="cmt">// === Email + Password Sign Up ===</span>
+<span class="kw">async function</span> <span class="fn">signUp</span>(email, password) {
+  <span class="kw">const</span> userCredential = <span class="kw">await</span>
+    <span class="fn">createUserWithEmailAndPassword</span>(auth, email, password);
+  <span class="kw">return</span> userCredential.user;
+}
+
+<span class="cmt">// === Email + Password Login ===</span>
+<span class="kw">async function</span> <span class="fn">login</span>(email, password) {
+  <span class="kw">const</span> { user } = <span class="kw">await</span>
+    <span class="fn">signInWithEmailAndPassword</span>(auth, email, password);
+  <span class="kw">return</span> user;
+}
+
+<span class="cmt">// === Sign Out ===</span>
+<span class="kw">const</span> <span class="fn">logout</span> = () => <span class="fn">signOut</span>(auth);
+
+<span class="cmt">// === Listen to auth state (runs on every page) ===</span>
+<span class="fn">onAuthStateChanged</span>(auth, (user) => {
+  <span class="kw">if</span> (user) {
+    <span class="cmt">// User is logged in</span>
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Logged in:'</span>, user.uid);
+    document.<span class="fn">getElementById</span>(<span class="str">'user-name'</span>).textContent = user.displayName;
+    document.<span class="fn">getElementById</span>(<span class="str">'login-btn'</span>).style.display = <span class="str">'none'</span>;
+    document.<span class="fn">getElementById</span>(<span class="str">'logout-btn'</span>).style.display = <span class="str">'block'</span>;
+  } <span class="kw">else</span> {
+    <span class="cmt">// User is logged out</span>
+    document.<span class="fn">getElementById</span>(<span class="str">'login-btn'</span>).style.display = <span class="str">'block'</span>;
+  }
+});
+
+<span class="cmt">// === Firestore Security Rules ===</span>
+<span class="cmt">// In Firebase Console → Firestore → Rules:</span>
+<span class="cmt">// rules_version = '2';</span>
+<span class="cmt">// service cloud.firestore {</span>
+<span class="cmt">//   match /databases/{db}/documents {</span>
+<span class="cmt">//     match /posts/{id} {</span>
+<span class="cmt">//       allow read: if true;         // anyone can read</span>
+<span class="cmt">//       allow write: if request.auth != null; // only logged-in users</span>
+<span class="cmt">//     }</span>
+<span class="cmt">//   }</span>
+<span class="cmt">// }</span></pre>
+      </div>
+
+      <h2 class="content-heading" id="oauth">🔗 OAuth Providers</h2>
+      <p class="content-text">OAuth lets users log in with existing accounts (Google, GitHub, Twitter). You never store their password — the provider handles it.</p>
+
+      <div class="grid-2 mt-md mb-lg">
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">Firebase Auth Providers</div>
+          <div class="feature-list">
+            <div class="feature-item">Google (most popular)</div>
+            <div class="feature-item">GitHub</div>
+            <div class="feature-item">Apple (required for iOS apps)</div>
+            <div class="feature-item">Twitter / X</div>
+            <div class="feature-item">Microsoft</div>
+            <div class="feature-item">Phone (SMS OTP)</div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div style="font-weight:700;margin-bottom:8px;">Alternative: Auth0 / Clerk</div>
+          <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;"><strong>Clerk.com</strong> is the 2026 favorite for Next.js apps — beautiful pre-built UI, zero config, free tier.</p>
+          <div class="code-block" style="margin:0;">
+            <div class="code-header" style="padding:6px 10px;"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang" style="font-size:0.65rem;">BASH</div></div>
+            <pre class="code-content" style="padding:10px;font-size:0.8rem;">npm install @clerk/nextjs</pre>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="serverless">⚡ Serverless Functions</h2>
+      <p class="content-text">Serverless functions let you run backend code without managing a server. You pay only when the function runs (often free for small apps).</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Vercel Serverless Function</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// File: /api/send-email.js (Vercel auto-routes this)</span>
+
+<span class="kw">export default async function</span> <span class="fn">handler</span>(req, res) {
+  <span class="kw">if</span> (req.method !== <span class="str">'POST'</span>) {
+    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">405</span>).<span class="fn">json</span>({ error: <span class="str">'Method not allowed'</span> });
+  }
+
+  <span class="kw">const</span> { name, email, message } = req.body;
+
+  <span class="cmt">// Send email with Resend.com (free 3000 emails/month)</span>
+  <span class="kw">const</span> response = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'https://api.resend.com/emails'</span>, {
+    method: <span class="str">'POST'</span>,
+    headers: {
+      <span class="str">'Authorization'</span>: <span class="str">`Bearer <span class="kw">${</span>process.env.RESEND_API_KEY<span class="kw">}</span>`</span>,
+      <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span>,
+    },
+    body: <span class="fn">JSON</span>.<span class="fn">stringify</span>({
+      from: <span class="str">'noreply@yourdomain.com'</span>,
+      to: <span class="str">'you@yourdomain.com'</span>,
+      subject: <span class="str">`New message from <span class="kw">${</span>name<span class="kw">}</span>`</span>,
+      html: <span class="str">`&lt;p&gt;&lt;strong&gt;From:&lt;/strong&gt; <span class="kw">${</span>email<span class="kw">}</span>&lt;/p&gt;&lt;p&gt;<span class="kw">${</span>message<span class="kw">}</span>&lt;/p&gt;`</span>
+    })
+  });
+
+  <span class="kw">if</span> (!response.ok) {
+    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">500</span>).<span class="fn">json</span>({ error: <span class="str">'Email failed'</span> });
+  }
+
+  res.<span class="fn">json</span>({ success: <span class="kw">true</span>, message: <span class="str">'Email sent!'</span> });
+}</pre>
+      </div>
+
+      <h2 class="content-heading" id="env-vars">🔒 Environment Variables & Secrets</h2>
+      <p class="content-text">API keys and secrets must NEVER be in your frontend code or committed to git. Use environment variables.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">.env — Environment Variables</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># File: .env  (NEVER commit this to git!)</span>
+<span class="cmt"># Add ".env" to your .gitignore file</span>
+
+FIREBASE_API_KEY=AIzaSy...
+FIREBASE_PROJECT_ID=my-app-123
+RESEND_API_KEY=re_abc123...
+STRIPE_SECRET_KEY=sk_live_...
+DATABASE_URL=postgresql://user:pass@host/db
+
+<span class="cmt"># In Node.js, access via:</span>
+<span class="cmt"># process.env.FIREBASE_API_KEY</span>
+
+<span class="cmt"># In Vite (frontend), prefix with VITE_:</span>
+<span class="cmt"># VITE_FIREBASE_API_KEY=...  →  import.meta.env.VITE_FIREBASE_API_KEY</span>
+
+<span class="cmt">## .gitignore — protect your secrets ##</span>
+node_modules/
+.env
+.env.local
+.env.production
+dist/
+.DS_Store</pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-icon">⚠️</div>
+        <div>
+          <div class="callout-head">Production Secrets on Vercel/Netlify</div>
+          <div class="callout-body">Add secrets in your hosting dashboard: Vercel → Project Settings → Environment Variables. Netlify → Site Settings → Environment Variables. These are injected at build time and never exposed to users.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h2 class="content-heading" id="stage3-project">🏆 Stage 3 Project: Full-Stack Blog</h2>
+      <p class="content-text">Build a blog with:</p>
+      <div class="feature-list mb-lg">
+        <div class="feature-item">Firebase Firestore to store posts</div>
+        <div class="feature-item">Google Sign-In authentication</div>
+        <div class="feature-item">Create/Read posts (only when logged in)</div>
+        <div class="feature-item">Real-time updates with onSnapshot</div>
+        <div class="feature-item">Firestore security rules protecting data</div>
+        <div class="feature-item">Deployed to Vercel with environment variables</div>
+      </div>
+    </div>
+
+    <div class="guide-nav">
+      <a href="stage2.html" class="guide-nav-btn"><span class="nav-arrow">←</span><div><span class="nav-label">Previous</span>Stage 2 — Frontend Dev</div></a>
+      <a href="stage4.html" class="guide-nav-btn next"><div><span class="nav-label">Next Stage</span>Stage 4 — DevOps & CI/CD</div><span class="nav-arrow">→</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="stage1.html">Stage 1: Basics</a>
+        <a href="stage2.html">Stage 2: Frontend</a>
+        <a href="stage3.html">Stage 3: Backend</a>
+        <a href="stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/three-scenes.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const c = document.getElementById('stage-canvas');
+    if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x06b6d4); }
+  </script>
+</body>
+</html>

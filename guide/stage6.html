@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stage 6: Android App — Turn your website into an Android app using TWA, Capacitor, React Native, and get it on the Play Store in 2026." />
+  <title>Stage 6: Android App — Nexray</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="stage1.html" class="active">Guide</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="../auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="../index.html">Home</a><a href="stage1.html">Guide</a><a href="../blog/index.html">Blog</a><a href="../resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <div class="stage-hero" style="min-height:420px;display:flex;align-items:center;position:relative;">
+      <canvas id="stage-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
+      <div class="hero-content" style="z-index:1;text-align:center;">
+        <div class="stage-badge">📱 Stage 6 of 7</div>
+        <h1 class="stage-title">Android App</h1>
+        <p class="stage-desc">Turn your website into a real Android app — 4 different methods for 2026. From zero-code TWA to full React Native.</p>
+        <div class="stage-meta">
+          <div class="stage-meta-item"><span class="icon">⏱️</span> ~5 hours</div>
+          <div class="stage-meta-item"><span class="icon">🎯</span> Intermediate → Advanced</div>
+          <div class="stage-meta-item"><span class="icon">📱</span> Play Store Ready</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="toc">
+        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-list">
+          <a href="#methods-overview">4 Methods Overview</a>
+          <a href="#twa">Method 1: TWA (Easiest)</a>
+          <a href="#pwa-android">Method 2: PWA to Android</a>
+          <a href="#capacitor">Method 3: Capacitor</a>
+          <a href="#react-native">Method 4: React Native</a>
+          <a href="#play-store">Google Play Store Submission</a>
+          <a href="#app-signing">App Signing & Release</a>
+          <a href="#deep-links">Deep Links & App Links</a>
+          <a href="#stage6-project">Stage 6 Project</a>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="methods-overview">📱 4 Ways to Build an Android App in 2026</h2>
+      <p class="content-text">You don't need to learn Kotlin or Java to build an Android app as a web developer. Here are your options ranked from easiest to most powerful:</p>
+
+      <div class="glass-card mt-md mb-lg">
+        <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+          <thead><tr style="border-bottom:1px solid var(--glass-border);">
+            <th style="text-align:left;padding:12px;color:var(--orange-400);">Method</th>
+            <th style="text-align:left;padding:12px;color:var(--orange-400);">Difficulty</th>
+            <th style="text-align:left;padding:12px;color:var(--orange-400);">Native Features</th>
+            <th style="text-align:left;padding:12px;color:var(--orange-400);">Best For</th>
+          </tr></thead>
+          <tbody style="color:var(--text-secondary);">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px;font-weight:600;color:var(--text-primary);">TWA</td>
+              <td style="padding:12px;"><span class="tag tag-green">Very Easy</span></td>
+              <td style="padding:12px;">Limited</td>
+              <td style="padding:12px;">PWA websites, content sites</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px;font-weight:600;color:var(--text-primary);">PWA + Bubblewrap</td>
+              <td style="padding:12px;"><span class="tag tag-green">Easy</span></td>
+              <td style="padding:12px;">Moderate</td>
+              <td style="padding:12px;">Existing PWA → Play Store</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+              <td style="padding:12px;font-weight:600;color:var(--text-primary);">Capacitor</td>
+              <td style="padding:12px;"><span class="tag tag-orange">Medium</span></td>
+              <td style="padding:12px;">Full access</td>
+              <td style="padding:12px;">Web apps needing native APIs</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;font-weight:600;color:var(--text-primary);">React Native</td>
+              <td style="padding:12px;"><span class="tag tag-purple">Hard</span></td>
+              <td style="padding:12px;">Full native</td>
+              <td style="padding:12px;">Complex apps, best performance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="content-heading" id="twa">🚀 Method 1: TWA (Trusted Web Activity)</h2>
+      <p class="content-text">TWA wraps your website in an Android app shell. The user sees your website — no fake UI. If you have a PWA with 90+ Lighthouse score, this is the fastest path to the Play Store.</p>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">💡</div>
+        <div>
+          <div class="callout-head">Requirements for TWA</div>
+          <div class="callout-body">Your website must: (1) Be served over HTTPS, (2) Have a valid web manifest, (3) Have a service worker, (4) Score 80+ on Lighthouse, (5) Add a <code>/.well-known/assetlinks.json</code> file linking the app to your domain.</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Bubblewrap CLI (Google's official TWA tool)</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Install Bubblewrap (requires Java 8+ and Android SDK)</span>
+npm install -g @bubblewrap/cli
+
+<span class="cmt"># Initialize from your PWA's manifest URL</span>
+bubblewrap init --manifest https://yoursite.com/manifest.json
+
+<span class="cmt"># This creates an Android project. Build it:</span>
+bubblewrap build
+
+<span class="cmt"># Output: app-release-bundle.aab (upload to Play Store)</span>
+<span class="cmt">#         app-release-signed.apk (install directly)</span>
+
+<span class="cmt"># Update after making changes to your PWA:</span>
+bubblewrap update
+bubblewrap build</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JSON — /.well-known/assetlinks.json</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// Host this file at: https://yourdomain.com/.well-known/assetlinks.json</span>
+<span class="cmt">// Replace YOUR_SHA_CERT with the fingerprint from your keystore</span>
+[{
+  <span class="str">"relation"</span>: [<span class="str">"delegate_permission/common.handle_all_urls"</span>],
+  <span class="str">"target"</span>: {
+    <span class="str">"namespace"</span>: <span class="str">"android_app"</span>,
+    <span class="str">"package_name"</span>: <span class="str">"com.yourcompany.yourapp"</span>,
+    <span class="str">"sha256_cert_fingerprints"</span>: [
+      <span class="str">"AA:BB:CC:DD:EE:FF:..."</span>
+    ]
+  }
+}]</pre>
+      </div>
+
+      <h2 class="content-heading" id="pwa-android">📲 Method 2: PWA to Android</h2>
+      <p class="content-text">Modern Android (Chrome 94+) lets users "Install" your PWA directly to their home screen — it looks and feels like a real app. No Play Store needed for distribution!</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — PWA Install Prompt</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// Capture the install prompt event</span>
+<span class="kw">let</span> deferredPrompt;
+
+window.<span class="fn">addEventListener</span>(<span class="str">'beforeinstallprompt'</span>, (e) => {
+  e.<span class="fn">preventDefault</span>();
+  deferredPrompt = e;
+
+  <span class="cmt">// Show your custom install button</span>
+  document.<span class="fn">getElementById</span>(<span class="str">'install-btn'</span>).style.display = <span class="str">'block'</span>;
+});
+
+document.<span class="fn">getElementById</span>(<span class="str">'install-btn'</span>)
+  .<span class="fn">addEventListener</span>(<span class="str">'click'</span>, <span class="kw">async</span> () => {
+    <span class="kw">if</span> (!deferredPrompt) <span class="kw">return</span>;
+    deferredPrompt.<span class="fn">prompt</span>(); <span class="cmt">// show install dialog</span>
+    <span class="kw">const</span> { outcome } = <span class="kw">await</span> deferredPrompt.userChoice;
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'User choice:'</span>, outcome); <span class="cmt">// 'accepted' or 'dismissed'</span>
+    deferredPrompt = <span class="kw">null</span>;
+  });
+
+<span class="cmt">// Detect if already installed</span>
+window.<span class="fn">addEventListener</span>(<span class="str">'appinstalled'</span>, () => {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'App installed!'</span>);
+  document.<span class="fn">getElementById</span>(<span class="str">'install-btn'</span>).style.display = <span class="str">'none'</span>;
+});</pre>
+      </div>
+
+      <h2 class="content-heading" id="capacitor">⚡ Method 3: Capacitor (Recommended for Web Devs)</h2>
+      <p class="content-text">Capacitor (by Ionic) wraps your web app in a native shell with access to device APIs — camera, GPS, notifications, file system, contacts, and more. Write web code, get native features.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Capacitor Setup</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Install Capacitor in your existing web project</span>
+npm install @capacitor/core @capacitor/cli
+
+<span class="cmt"># Initialize (sets up capacitor.config.ts)</span>
+npx cap init "My App" "com.mycompany.myapp" --web-dir=dist
+
+<span class="cmt"># Add Android platform</span>
+npm install @capacitor/android
+npx cap add android
+
+<span class="cmt"># Build your web app first</span>
+npm run build
+
+<span class="cmt"># Sync web files to Android project</span>
+npx cap sync android
+
+<span class="cmt"># Open in Android Studio</span>
+npx cap open android
+
+<span class="cmt"># (In Android Studio: Run → connected device or emulator)</span>
+
+<span class="cmt"># After changes: sync + refresh</span>
+npm run build && npx cap sync android</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Capacitor Native APIs</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// Install plugins as needed:</span>
+<span class="cmt">// npm install @capacitor/camera @capacitor/geolocation @capacitor/push-notifications</span>
+
+<span class="kw">import</span> { Camera, CameraResultType, CameraSource } <span class="kw">from</span> <span class="str">'@capacitor/camera'</span>;
+<span class="kw">import</span> { Geolocation } <span class="kw">from</span> <span class="str">'@capacitor/geolocation'</span>;
+<span class="kw">import</span> { PushNotifications } <span class="kw">from</span> <span class="str">'@capacitor/push-notifications'</span>;
+
+<span class="cmt">// Take a photo with the camera</span>
+<span class="kw">async function</span> <span class="fn">takePhoto</span>() {
+  <span class="kw">const</span> photo = <span class="kw">await</span> Camera.<span class="fn">getPhoto</span>({
+    quality: <span class="num">90</span>,
+    allowEditing: <span class="kw">false</span>,
+    resultType: CameraResultType.DataUrl,
+    source: CameraSource.Camera
+  });
+
+  <span class="cmt">// photo.dataUrl is a base64 image string</span>
+  document.<span class="fn">getElementById</span>(<span class="str">'preview'</span>).src = photo.dataUrl;
+}
+
+<span class="cmt">// Get user's GPS location</span>
+<span class="kw">async function</span> <span class="fn">getLocation</span>() {
+  <span class="kw">const</span> position = <span class="kw">await</span> Geolocation.<span class="fn">getCurrentPosition</span>();
+  <span class="kw">return</span> {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+  };
+}
+
+<span class="cmt">// Push notifications setup</span>
+<span class="kw">async function</span> <span class="fn">setupPushNotifications</span>() {
+  <span class="kw">const</span> permission = <span class="kw">await</span> PushNotifications.<span class="fn">requestPermissions</span>();
+  <span class="kw">if</span> (permission.receive === <span class="str">'granted'</span>) {
+    <span class="kw">await</span> PushNotifications.<span class="fn">register</span>();
+  }
+
+  PushNotifications.<span class="fn">addListener</span>(<span class="str">'registration'</span>, (token) => {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'FCM Token:'</span>, token.value);
+    <span class="cmt">// Save this token to your backend to send notifications</span>
+  });
+}
+
+<span class="cmt">// Check if running as native app vs browser</span>
+<span class="kw">import</span> { Capacitor } <span class="kw">from</span> <span class="str">'@capacitor/core'</span>;
+<span class="kw">if</span> (Capacitor.<span class="fn">isNativePlatform</span>()) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Running as native app'</span>);
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Platform:'</span>, Capacitor.<span class="fn">getPlatform</span>()); <span class="cmt">// 'android' | 'ios' | 'web'</span>
+}</pre>
+      </div>
+
+      <h2 class="content-heading" id="react-native">⚛️ Method 4: React Native (Full Native)</h2>
+      <p class="content-text">React Native compiles to actual native Android components — not a WebView. Maximum performance, maximum native access. Uses React syntax but different components.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — React Native Setup (Expo)</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Expo is the recommended way to start in 2026</span>
+npx create-expo-app@latest MyApp
+cd MyApp
+
+<span class="cmt"># Run on Android emulator or physical device</span>
+npx expo run:android
+
+<span class="cmt"># Or use Expo Go app (fastest for dev)</span>
+npx expo start
+<span class="cmt"># → Scan QR code with Expo Go app on your phone</span>
+
+<span class="cmt"># Build production APK/AAB</span>
+eas build --platform android --profile production</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JSX — React Native Components</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="kw">import</span> React, { useState } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> {
+  View, Text, StyleSheet, TouchableOpacity,
+  FlatList, TextInput, Image, ScrollView
+} <span class="kw">from</span> <span class="str">'react-native'</span>;
+
+<span class="kw">export default function</span> <span class="fn">HomeScreen</span>() {
+  <span class="kw">const</span> [text, setText] = <span class="fn">useState</span>(<span class="str">''</span>);
+
+  <span class="kw">return</span> (
+    <span class="tag-hl">&lt;ScrollView</span> <span class="attr">style</span>=<span class="kw">{styles.container}</span><span class="tag-hl">&gt;</span>
+      <span class="tag-hl">&lt;Text</span> <span class="attr">style</span>=<span class="kw">{styles.title}</span><span class="tag-hl">&gt;</span>My App 📱<span class="tag-hl">&lt;/Text&gt;</span>
+
+      <span class="tag-hl">&lt;TextInput</span>
+        <span class="attr">style</span>=<span class="kw">{styles.input}</span>
+        <span class="attr">placeholder</span>=<span class="str">"Type something..."</span>
+        <span class="attr">value</span>=<span class="kw">{text}</span>
+        <span class="attr">onChangeText</span>=<span class="kw">{setText}</span>
+      <span class="tag-hl">/&gt;</span>
+
+      <span class="tag-hl">&lt;TouchableOpacity</span>
+        <span class="attr">style</span>=<span class="kw">{styles.btn}</span>
+        <span class="attr">onPress</span>=<span class="kw">{() =&gt; alert(`You typed: ${text}`)}</span>
+      <span class="tag-hl">&gt;</span>
+        <span class="tag-hl">&lt;Text</span> <span class="attr">style</span>=<span class="kw">{styles.btnText}</span><span class="tag-hl">&gt;</span>Submit<span class="tag-hl">&lt;/Text&gt;</span>
+      <span class="tag-hl">&lt;/TouchableOpacity&gt;</span>
+    <span class="tag-hl">&lt;/ScrollView&gt;</span>
+  );
+}
+
+<span class="kw">const</span> styles = StyleSheet.<span class="fn">create</span>({
+  container: { flex: <span class="num">1</span>, backgroundColor: <span class="str">'#0a0a0f'</span>, padding: <span class="num">24</span> },
+  title:     { fontSize: <span class="num">32</span>, fontWeight: <span class="str">'900'</span>, color: <span class="str">'#f8fafc'</span> },
+  input:     { backgroundColor: <span class="str">'#1a1a2e'</span>, color: <span class="str">'#fff'</span>, padding: <span class="num">12</span>, borderRadius: <span class="num">8</span>, marginTop: <span class="num">16</span> },
+  btn:       { backgroundColor: <span class="str">'#f97316'</span>, padding: <span class="num">14</span>, borderRadius: <span class="num">8</span>, marginTop: <span class="num">12</span> },
+  btnText:   { color: <span class="str">'#fff'</span>, fontWeight: <span class="str">'700'</span>, textAlign: <span class="str">'center'</span> },
+});</pre>
+      </div>
+
+      <h2 class="content-heading" id="play-store">🏪 Google Play Store Submission</h2>
+      <div class="mt-lg">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content"><h3>Create Google Play Developer Account</h3><p>Go to <a href="https://play.google.com/console" target="_blank" style="color:var(--orange-400);">play.google.com/console</a> → Pay $25 one-time registration fee → Complete account details.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content"><h3>Create New App</h3><p>Play Console → "Create app" → Fill: app name, category, free/paid, content ratings. This creates your app's listing.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content"><h3>Build Release AAB</h3><p>Build a signed Android App Bundle (.aab). For Capacitor: in Android Studio → Build → Generate Signed Bundle. For Expo: <code>eas build --platform android</code>.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-content"><h3>Upload to Internal Testing</h3><p>Play Console → Testing → Internal testing → Create release → Upload .aab → Add testers. Test before going public.</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <div class="step-content"><h3>Complete Store Listing</h3><p>Add: app description, screenshots (min 2, at least 1080px), feature graphic (1024x500), short description, full description, privacy policy URL (required).</p></div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <div class="step-content"><h3>Submit for Review</h3><p>Play Console → Production → Create release → Upload → Review → Submit. Review takes 1-7 days for new apps.</p></div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="app-signing">🔐 App Signing & Release</h2>
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">BASH — Generate Keystore (required for signing)</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt"># Generate a keystore (save this file SECURELY — you need it forever)</span>
+keytool -genkey -v \
+  -keystore my-release-key.jks \
+  -keyalg RSA \
+  -keysize 2048 \
+  -validity 10000 \
+  -alias my-key-alias
+
+<span class="cmt"># You'll be asked for a password and your identity info</span>
+<span class="cmt"># NEVER lose this file or its password - you can't update your app without it</span>
+
+<span class="cmt"># Get SHA-256 fingerprint (for assetlinks.json)</span>
+keytool -list -v -keystore my-release-key.jks -alias my-key-alias</pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-icon">⚠️</div>
+        <div>
+          <div class="callout-head">Use Google Play App Signing</div>
+          <div class="callout-body">Enable "Google Play App Signing" in Play Console — Google stores your production key securely. You only need to keep your upload key. This prevents catastrophic data loss if your local keystore is lost.</div>
+        </div>
+      </div>
+
+      <h2 class="content-heading" id="deep-links">🔗 Deep Links & App Links</h2>
+      <p class="content-text">Deep links let you open your app from URLs — e.g., clicking a link in an email opens directly in the app, not the browser.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">React Native — Deep Links with Expo</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// app.json — configure URL scheme</span>
+{
+  <span class="str">"expo"</span>: {
+    <span class="str">"scheme"</span>: <span class="str">"myapp"</span>,  <span class="cmt">// opens app via myapp://</span>
+    <span class="str">"intentFilters"</span>: [{  <span class="cmt">// Android App Links (https://)</span>
+      <span class="str">"action"</span>: <span class="str">"VIEW"</span>,
+      <span class="str">"autoVerify"</span>: <span class="kw">true</span>,
+      <span class="str">"data"</span>: [{ <span class="str">"scheme"</span>: <span class="str">"https"</span>, <span class="str">"host"</span>: <span class="str">"yoursite.com"</span> }],
+      <span class="str">"category"</span>: [<span class="str">"BROWSABLE"</span>, <span class="str">"DEFAULT"</span>]
+    }]
+  }
+}
+
+<span class="cmt">// Handle deep link in app (React Navigation)</span>
+<span class="kw">const</span> linking = {
+  prefixes: [<span class="str">'myapp://'</span>, <span class="str">'https://yoursite.com'</span>],
+  config: {
+    screens: {
+      Home: <span class="str">''</span>,
+      Profile: <span class="str">'profile/:userId'</span>,
+      Product: <span class="str">'products/:id'</span>,
+    }
+  }
+};</pre>
+      </div>
+
+      <div class="divider"></div>
+      <h2 class="content-heading" id="stage6-project">🏆 Stage 6 Project: App Store Published App</h2>
+      <div class="feature-list mb-lg">
+        <div class="feature-item">Take your Stage 3 blog and convert it using Capacitor</div>
+        <div class="feature-item">Add camera functionality (profile picture upload)</div>
+        <div class="feature-item">Add push notifications for new posts</div>
+        <div class="feature-item">Set up deep links from web → app</div>
+        <div class="feature-item">Build signed APK and install on a real device</div>
+        <div class="feature-item">(Bonus) Submit to Internal Testing on Play Console</div>
+      </div>
+    </div>
+
+    <div class="guide-nav">
+      <a href="stage5.html" class="guide-nav-btn"><span class="nav-arrow">←</span><div><span class="nav-label">Previous</span>Stage 5 — Pro Secrets</div></a>
+      <a href="stage7.html" class="guide-nav-btn next"><div><span class="nav-label">Final Stage</span>Stage 7 — Launch & Grow</div><span class="nav-arrow">→</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="stage1.html">Stage 1: Basics</a>
+        <a href="stage2.html">Stage 2: Frontend</a>
+        <a href="stage3.html">Stage 3: Backend</a>
+        <a href="stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/three-scenes.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const c = document.getElementById('stage-canvas');
+    if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x10b981); }
+  </script>
+</body>
+</html>

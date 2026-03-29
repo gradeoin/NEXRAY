@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Nexray — Learn Web Development from Zero to Pro in 2026</title>
+  <meta name="description" content="Nexray is a free 7-stage web development guide for 2026. Learn HTML, CSS, JavaScript, backend, DevOps, Android apps, and how to launch your project — all for free." />
+  <meta name="keywords" content="learn web development 2026, HTML CSS JavaScript tutorial, full stack beginner guide, nexray web dev" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexray.in/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Nexray" />
+  <meta property="og:Title"       content="Nexray — Learn Web Dev from Zero to Pro" />
+  <meta property="og:description" content="Free 7-stage web development guide. From HTML basics to full-stack apps and Android — all in one place." />
+  <meta property="og:image"       content="https://nexray.in/assets/og-image.png" />
+  <meta property="og:url"         content="https://nexray.in/" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:site"       content="@nexray_in" />
+  <meta name="twitter:title"      content="Nexray — Learn Web Dev from Zero to Pro" />
+  <meta name="twitter:description" content="Free 7-stage guide: HTML → CSS → JS → Backend → DevOps → Android → Launch" />
+  <meta name="twitter:image"      content="https://nexray.in/assets/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Nexray","url":"https://nexray.in","description":"Free 7-stage web development guide for 2026","potentialAction":{"@type":"SearchAction","target":"https://nexray.in/blog?q={search_term_string}","query-input":"required name=search_term_string"}}
+  </script>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+<div id="page-loader"><div class="loader-spinner"></div></div>
+<div id="custom-cursor"></div>
+
+
+<!-- ── Navigation ──────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Nexray Home">
+    <div class="logo-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <span>Nex<span class="logo-accent">ray</span></span>
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="guide/stage1.html">Guide</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="auth.html" class="btn-signin" id="nav-signin">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Sign In
+    </a>
+    <a href="guide/stage1.html" class="nav-cta">Start Learning →</a>
+  </div>
+
+  <!-- Theme toggle -->
+  <div class="theme-toggle" role="group" aria-label="Color theme">
+    <button class="theme-btn" data-theme="dark" aria-label="Dark mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      Dark
+    </button>
+    <button class="theme-btn" data-theme="light" aria-label="Light mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      Light
+    </button>
+    <button class="theme-btn" data-theme="neon" aria-label="Neon mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Neon
+    </button>
+  </div>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobile-nav">
+  <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home</a>
+  <a href="guide/stage1.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Guide</a>
+  <a href="blog/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Blog</a>
+  <a href="resources.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Resources</a>
+  <a href="auth.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="hero" style="min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:var(--nav-h);" aria-labelledby="hero-heading">
+  <canvas id="hero-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;" aria-hidden="true"></canvas>
+
+  <!-- BG glow -->
+  <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.14),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:1;text-align:center;padding-top:3rem;padding-bottom:3rem;">
+    <div class="badge badge-brand reveal" style="margin:0 auto 1.5rem;display:inline-flex;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      Free · 7 Stages · Updated 2026
+    </div>
+
+    <h1 id="hero-heading" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.05;margin-bottom:1.25rem;" class="reveal">
+      Web Dev.<br>
+      <span style="background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your Way.</span>
+    </h1>
+
+    <p style="font-size:clamp(1rem,2.5vw,1.2rem);color:var(--text-2);max-width:540px;margin:0 auto 2.5rem;line-height:1.8;" class="reveal">
+      From "What is HTML?" to deploying a full-stack app — in 7 clear stages. No fluff, real code, completely free.
+    </p>
+
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;" class="reveal">
+      <a href="guide/stage1.html" class="btn btn-primary btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Start Stage 1 — Free
+      </a>
+      <a href="auth.html" class="btn btn-secondary btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Save My Progress
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div style="display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;" class="reveal">
+      <div style="text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">7</div>
+        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Stages</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">100%</div>
+        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Free</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">2026</div>
+        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Updated</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">30+</div>
+        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Hours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stage Cards ───────────────────────────────────────────── -->
+<section class="section" aria-labelledby="stages-heading">
+  <div class="text-center mb-xl reveal">
+    <h2 id="stages-heading" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:.75rem;">Your Learning Path</h2>
+    <p style="color:var(--text-2);max-width:500px;margin:0 auto;">Start at Stage 1 and follow the path — or jump to any stage you need.</p>
+  </div>
+
+  <div class="grid-3 stagger-children" id="stage-grid">
+
+    <!-- Stage 1 -->
+    <a href="guide/stage1.html" class="stage-card pop-showcase" aria-label="Stage 1 — The Basics">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="stage-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <span class="badge level-beginner">Beginner</span>
+      </div>
+      <div class="stage-card-num">Stage 01</div>
+      <div class="stage-card-title">The Basics</div>
+      <div class="stage-card-desc">What is the internet? DNS, domains, HTML, and deploying your first website — today.</div>
+      <div class="stage-card-footer">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+          <span class="badge badge-muted">HTML</span>
+          <span class="badge badge-muted">DNS</span>
+          <span class="badge badge-muted">Hosting</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <span class="xp-badge">+100 XP</span>
+          <span class="stage-card-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="stage-card-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~2 hours
+      </div>
+    </a>
+
+    <!-- Stage 2 -->
+    <a href="guide/stage2.html" class="stage-card pop-showcase" aria-label="Stage 2 — Frontend">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="stage-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <span class="badge level-beginner">Beginner</span>
+      </div>
+      <div class="stage-card-num">Stage 02</div>
+      <div class="stage-card-title">Frontend Dev</div>
+      <div class="stage-card-desc">CSS, Flexbox, Grid, animations, JavaScript, DOM, APIs, and React basics.</div>
+      <div class="stage-card-footer">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+          <span class="badge badge-muted">CSS</span>
+          <span class="badge badge-muted">JS</span>
+          <span class="badge badge-muted">React</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <span class="xp-badge">+200 XP</span>
+          <span class="stage-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="stage-card-meta"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~4 hours</div>
+    </a>
+
+    <!-- Stage 3 -->
+    <a href="guide/stage3.html" class="stage-card pop-showcase" aria-label="Stage 3 — Backend">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="stage-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <span class="badge level-intermediate">Intermediate</span>
+      </div>
+      <div class="stage-card-num">Stage 03</div>
+      <div class="stage-card-title">Backend & APIs</div>
+      <div class="stage-card-desc">Node.js, Express, Firebase, databases, authentication, and REST APIs.</div>
+      <div class="stage-card-footer">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+          <span class="badge badge-muted">Node.js</span>
+          <span class="badge badge-muted">Firebase</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <span class="xp-badge">+300 XP</span>
+          <span class="stage-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="stage-card-meta"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~4 hours</div>
+    </a>
+
+    <!-- Stage 4 -->
+    <a href="guide/stage4.html" class="stage-card pop-showcase" aria-label="Stage 4 — DevOps">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="stage-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14M14.83 9.17a4 4 0 0 1 0 5.66M9.17 9.17a4 4 0 0 0 0 5.66"/></svg>
+        </div>
+        <span class="badge level-intermediate">Intermediate</span>
+      </div>
+      <div class="stage-card-num">Stage 04</div>
+      <div class="stage-card-title">DevOps & CI/CD</div>
+      <div class="stage-card-desc">Git, GitHub Actions, <span style="color:var(--brand);text-decoration:underline;">Cloudflare</span>, Docker, monitoring.</div>
+      <div class="stage-card-footer">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+          <span class="badge badge-muted">Git</span>
+          <span class="badge badge-muted">CI/CD</span>
+          <span class="badge badge-muted">Docker</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;"><span class="xp-badge">+300 XP</span><span class="stage-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </div>
+      <div class="stage-card-meta"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~4 hours</div>
+    </a>
+
+    <!-- Stage 5 -->
+    <a href="guide/stage5.html" class="stage-card pop-showcase" aria-label="Stage 5 — Pro Secrets">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="stage-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <span class="badge level-advanced">Advanced</span>
+      </div>
+      <div class="stage-card-num">Stage 05</div>
+      <div class="stage-card-title">Pro Secrets</div>
+      <div class="stage-card-desc">Custom email, <span style="color:var(--brand);text-decoration:underline;">Cloudinary</span>, Web Vitals, PWA, security headers.</div>
+      <div class="stage-card-footer">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;"><span class="badge badge-muted">Cloudinary</span><span class="badge badge-muted">PWA</span></div>
+        <div style="display:flex;align-items:center;gap:.5rem;"><span class="xp-badge">+400 XP</span><span class="stage-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </div>
+      <div class="stage-card-meta"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~4 hours</div>
+    </a>
+
+    <!-- Stage 6 -->
+    <a href="guide/stage6.html" class="stage-card pop-showcase" aria-label="Stage 6 — Android App">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="stage-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <span class="badge level-advanced">Advanced</span>
+      </div>
+      <div class="stage-card-num">Stage 06</div>
+      <div class="stage-card-title">Android App</div>
+      <div class="stage-card-desc">TWA, Capacitor, React Native, Play Store submission — web to mobile.</div>
+      <div class="stage-card-footer">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;"><span class="badge badge-muted">Capacitor</span><span class="badge badge-muted">React Native</span></div>
+        <div style="display:flex;align-items:center;gap:.5rem;"><span class="xp-badge">+500 XP</span><span class="stage-card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+      </div>
+      <div class="stage-card-meta"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~5 hours</div>
+    </a>
+
+    <!-- Stage 7 (spans full width on last row) -->
+    <a href="guide/stage7.html" class="stage-card pop-showcase" style="grid-column:1/-1;background:linear-gradient(135deg,var(--brand-dim),var(--glass));" aria-label="Stage 7 — Launch & Grow">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <div class="stage-card-icon" style="width:56px;height:56px;" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div class="stage-card-num">Stage 07 · FINAL</div>
+            <div class="stage-card-title" style="font-size:1.3rem;">Launch & Grow — SEO, Marketing, Revenue</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <span class="xp-badge">+1000 XP</span>
+          <span class="badge level-advanced">Advanced</span>
+          <span class="btn btn-primary btn-sm">Start →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Why Nexray ────────────────────────────────────────────── -->
+<section style="background:var(--bg-2);border-top:1px solid var(--glass-b);border-bottom:1px solid var(--glass-b);">
+  <div class="section">
+    <div class="text-center mb-xl reveal">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:.75rem;">Why Nexray?</h2>
+      <p style="color:var(--text-2);max-width:480px;margin:0 auto;">Most guides are outdated, paywalled, or full of fluff. Nexray isn't.</p>
+    </div>
+    <div class="grid-4 stagger-children">
+      <div class="glass-card text-center pop-showcase">
+        <div style="width:48px;height:48px;background:var(--brand-dim);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin:0 auto .875rem;color:var(--brand);" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3 style="font-weight:700;margin-bottom:.5rem;">100% Free</h3>
+        <p style="color:var(--text-2);font-size:.85rem;">No courses to buy. No paywalls. All 7 stages forever free.</p>
+      </div>
+      <div class="glass-card text-center pop-showcase">
+        <div style="width:48px;height:48px;background:var(--brand-dim);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin:0 auto .875rem;color:var(--brand);" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3 style="font-weight:700;margin-bottom:.5rem;">2026 Stack</h3>
+        <p style="color:var(--text-2);font-size:.85rem;">Vite, Cloudflare Workers, Firebase v9, Capacitor — no outdated tutorials.</p>
+      </div>
+      <div class="glass-card text-center pop-showcase">
+        <div style="width:48px;height:48px;background:var(--brand-dim);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin:0 auto .875rem;color:var(--brand);" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 style="font-weight:700;margin-bottom:.5rem;">Track Progress</h3>
+        <p style="color:var(--text-2);font-size:.85rem;">Sign in with Google to save your progress and earn XP across all 7 stages.</p>
+      </div>
+      <div class="glass-card text-center pop-showcase">
+        <div style="width:48px;height:48px;background:var(--brand-dim);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin:0 auto .875rem;color:var(--brand);" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-weight:700;margin-bottom:.5rem;">Community</h3>
+        <p style="color:var(--text-2);font-size:.85rem;">Blog, comments, and guides written by real developers — not AI fluff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tools You'll Use ──────────────────────────────────────── -->
+<section class="section">
+  <div class="text-center mb-xl reveal">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;margin-bottom:.75rem;">Tools You'll Actually Use</h2>
+    <p style="color:var(--text-2);max-width:460px;margin:0 auto;">Every tool linked directly to its official docs.</p>
+  </div>
+  <div style="display:flex;gap:.625rem;flex-wrap:wrap;justify-content:center;" class="reveal">
+    <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">MDN Docs</a>
+    <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Vercel</a>
+    <a href="https://firebase.google.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Firebase</a>
+    <a href="https://cloudflare.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Cloudflare</a>
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">GitHub</a>
+    <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Vite</a>
+    <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">React</a>
+    <a href="https://capacitorjs.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Capacitor</a>
+    <a href="https://cloudinary.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Cloudinary</a>
+    <a href="https://stripe.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Stripe</a>
+    <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Next.js</a>
+    <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" class="badge badge-muted" style="padding:8px 14px;font-size:.82rem;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)';" onmouseout="this.style.borderColor='';this.style.color='';">Supabase</a>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+
+
+<section style="background:var(--bg-2);border-top:1px solid var(--glass-b);">
+  <div class="section text-center">
+    <div class="reveal" style="max-width:560px;margin:0 auto;">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:1rem;">Ready? Let's Go.</h2>
+      <p style="color:var(--text-2);margin-bottom:2rem;font-size:1.05rem;line-height:1.8;">Stage 1 takes 2 hours. Your first website will be live on the internet by the end of it.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="guide/stage1.html" class="btn btn-primary btn-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Begin Stage 1 — Free
+        </a>
+        <a href="auth.html" class="btn btn-secondary btn-lg">
+          Sign In with Google
+        </a>
+      </div>
+      <div style="margin-top: 3.5rem; display: flex; justify-content: center;">
+        <svg width="240" height="150" viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: float 6s ease-in-out infinite;">
+          <style>@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }</style>
+          <!-- Abstract Person/Developer Illustration -->
+          <circle cx="120" cy="50" r="25" fill="var(--brand)" opacity="0.9" />
+          <path d="M70 140 C70 100 170 100 170 140 L200 150 L40 150 Z" fill="var(--brand-dim)" />
+          <path d="M80 140 C80 110 160 110 160 140 Z" fill="var(--brand)" opacity="0.8" />
+          <rect x="95" y="80" width="50" height="30" rx="4" fill="var(--bg-card)" stroke="var(--brand)" stroke-width="2" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom:.875rem;display:inline-flex;">
+        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <span>Nex<span class="logo-accent">ray</span></span>
+      </a>
+      <p class="brand-desc">Free 7-stage web development guide for 2026. Learn real-world skills used by professional developers. Hosted at <a href="https://nexray.in" style="color:var(--brand)">nexray.in</a>.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>The Guide</h4>
+      <a href="guide/stage1.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 1 — Basics</a>
+      <a href="guide/stage2.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 2 — Frontend</a>
+      <a href="guide/stage3.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 3 — Backend</a>
+      <a href="guide/stage4.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 4 — DevOps</a>
+      <a href="guide/stage5.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 5 — Pro Secrets</a>
+      <a href="guide/stage6.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 6 — Android</a>
+      <a href="guide/stage7.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 7 — Launch</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Nexray</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="auth.html">Sign In</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="security.html">Security</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Nexray · <a href="https://nexray.in">nexray.in</a></span>
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="security.html">Security</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <span>Built with ♥ · 100% Free</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/three-scenes.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Init hero 3D scene
+  const hc = document.getElementById('hero-canvas');
+  if (hc && window.WebDevThree) {
+    hc.width = hc.parentElement.offsetWidth;
+    hc.height = hc.parentElement.offsetHeight;
+    WebDevThree.initHeroScene('hero-canvas');
+  }
+</script>
+</body>
+</html>

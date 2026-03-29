@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nexray Resources — curated tools, docs, references, and platforms every modern web developer needs in 2026." />
+  <title>Resources — Nexray</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <style>
+    .res-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.25rem; }
+    .res-card { display:flex; flex-direction:column; gap:0.5rem; text-decoration:none; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:1.25rem 1.5rem; transition:all 0.25s ease; }
+    .res-card:hover { background:rgba(249,115,22,0.07); border-color:rgba(249,115,22,0.3); transform:translateY(-3px); box-shadow:0 12px 30px rgba(249,115,22,0.15); }
+    .res-card-icon { font-size:1.75rem; margin-bottom:0.25rem; }
+    .res-card-name { font-weight:700; font-size:1rem; color:var(--text-primary); }
+    .res-card-desc { color:var(--text-secondary); font-size:0.8rem; line-height:1.6; }
+    .res-card-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:auto; padding-top:0.5rem; }
+    .filter-bar { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .filter-btn { padding:0.4rem 1rem; border-radius:99px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.04); color:var(--text-secondary); cursor:pointer; font-size:0.8rem; transition:all 0.2s; font-family:inherit; }
+    .filter-btn:hover, .filter-btn.active { border-color:var(--orange-500); background:rgba(249,115,22,0.12); color:var(--orange-400); }
+    .res-section { margin-bottom:3rem; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide/stage1.html">Guide</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="resources.html" class="active">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="index.html">Home</a><a href="guide/stage1.html">Guide</a><a href="blog/index.html">Blog</a><a href="resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <div style="text-align:center;padding:6rem 2rem 3rem;background:radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%);">
+      <div class="stage-badge" style="margin:0 auto 1.5rem;">📦 Resource Hub</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
+        Every Tool You'll<br><span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ever Need</span>
+      </h1>
+      <p style="color:var(--text-secondary);font-size:var(--fs-md);max-width:600px;margin:0 auto;">Curated, categorized, and kept up-to-date. No affiliate garbage, no sponsored junk — just genuinely useful tools we'd recommend to a friend.</p>
+    </div>
+
+    <div class="section">
+      <!-- Frontend -->
+      <div class="res-section">
+        <h2 class="content-heading">🎨 Frontend & Design</h2>
+        <div class="res-grid">
+          <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">📚</div>
+            <div class="res-card-name">MDN Web Docs</div>
+            <div class="res-card-desc">The gold standard HTML, CSS, JS reference. If it's not on MDN, question if it's real.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Docs</span></div>
+          </a>
+          <a href="https://caniuse.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🌐</div>
+            <div class="res-card-name">Can I Use</div>
+            <div class="res-card-desc">Check browser support before using any HTML/CSS/JS feature. Essential.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Reference</span></div>
+          </a>
+          <a href="https://coolors.co" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🎨</div>
+            <div class="res-card-name">Coolors</div>
+            <div class="res-card-desc">Generate beautiful color palettes in seconds. The best color tool on the internet.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Design</span></div>
+          </a>
+          <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">✍️</div>
+            <div class="res-card-name">Google Fonts</div>
+            <div class="res-card-desc">1,000+ free typefaces. Inter, Space Grotesk, Geist — the modern dev's font library.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Fonts</span></div>
+          </a>
+          <a href="https://threejs.org" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🔮</div>
+            <div class="res-card-name">Three.js</div>
+            <div class="res-card-desc">3D graphics in the browser. Powers the hero animations on this very site.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">3D</span></div>
+          </a>
+          <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">⚡</div>
+            <div class="res-card-name">Vite</div>
+            <div class="res-card-desc">Instant dev server, blazing fast HMR. The standard build tool in 2026.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Build Tool</span></div>
+          </a>
+          <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">⚛️</div>
+            <div class="res-card-name">React</div>
+            <div class="res-card-desc">The most popular UI library. Hooks, RSC, and Suspense — the official docs are excellent.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Framework</span></div>
+          </a>
+          <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">▲</div>
+            <div class="res-card-name">Next.js</div>
+            <div class="res-card-desc">Full-stack React framework by Vercel. SSR, SSG, API routes, App Router — the full package.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Framework</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="res-section">
+        <h2 class="content-heading">⚙️ Backend & Databases</h2>
+        <div class="res-grid">
+          <a href="https://firebase.google.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🔥</div>
+            <div class="res-card-name">Firebase</div>
+            <div class="res-card-desc">Firestore DB, Auth, Storage, Hosting, Functions. The best free backend for indie devs.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">BaaS</span></div>
+          </a>
+          <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🟢</div>
+            <div class="res-card-name">Supabase</div>
+            <div class="res-card-desc">Open-source Firebase alternative with PostgreSQL. Real-time, Auth, Storage.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">PostgreSQL</span></div>
+          </a>
+          <a href="https://clerk.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🔐</div>
+            <div class="res-card-name">Clerk</div>
+            <div class="res-card-desc">Drop-in authentication UI. The easiest way to add auth in 2026. Next.js native.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Auth</span></div>
+          </a>
+          <a href="https://planetscale.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🌍</div>
+            <div class="res-card-name">PlanetScale</div>
+            <div class="res-card-desc">Serverless MySQL with branching. Scales infinitely, free tier included.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">MySQL</span></div>
+          </a>
+          <a href="https://upstash.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🔴</div>
+            <div class="res-card-name">Upstash</div>
+            <div class="res-card-desc">Serverless Redis + Kafka. Pay-per-use, perfect for rate limiting and caching.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Redis</span></div>
+          </a>
+          <a href="https://resend.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">📧</div>
+            <div class="res-card-name">Resend</div>
+            <div class="res-card-desc">Transactional email API built for developers. 3,000 emails/month free.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Email</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- DevOps & Hosting -->
+      <div class="res-section">
+        <h2 class="content-heading">🛠️ DevOps & Hosting</h2>
+        <div class="res-grid">
+          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">▲</div>
+            <div class="res-card-name">Vercel</div>
+            <div class="res-card-desc">Best frontend hosting. Instant previews per PR, Edge Functions, Analytics.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Hosting</span></div>
+          </a>
+          <a href="https://cloudflare.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🌐</div>
+            <div class="res-card-name">Cloudflare</div>
+            <div class="res-card-desc">DNS, CDN, DDoS protection, Workers edge functions, Pages hosting. Free forever plan.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">CDN</span></div>
+          </a>
+          <a href="https://railway.app" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🚂</div>
+            <div class="res-card-name">Railway</div>
+            <div class="res-card-desc">Deploy Node.js, Python, databases with zero config. Better DX than traditional cloud.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Backend Hosting</span></div>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🐙</div>
+            <div class="res-card-name">GitHub</div>
+            <div class="res-card-desc">Version control, CI/CD via Actions, code reviews, Issues, Projects. The central hub.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Git</span></div>
+          </a>
+          <a href="https://sentry.io" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🚨</div>
+            <div class="res-card-name">Sentry</div>
+            <div class="res-card-desc">Real-time error tracking for frontend and backend. Free 5k errors/month.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Monitoring</span></div>
+          </a>
+          <a href="https://uptimerobot.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">📊</div>
+            <div class="res-card-name">UptimeRobot</div>
+            <div class="res-card-desc">Pings your site every 5 minutes, alerts on downtime. Free for 50 monitors.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Monitoring</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="res-section">
+        <h2 class="content-heading">📱 Mobile & Android</h2>
+        <div class="res-grid">
+          <a href="https://capacitorjs.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">⚡</div>
+            <div class="res-card-name">Capacitor</div>
+            <div class="res-card-desc">Wrap any web app in a native shell. Access camera, GPS, notifications, file system.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Native</span></div>
+          </a>
+          <a href="https://expo.dev" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🌟</div>
+            <div class="res-card-name">Expo</div>
+            <div class="res-card-desc">The best way to build React Native apps. OTA updates, EAS Build, and Expo Go.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">React Native</span></div>
+          </a>
+          <a href="https://play.google.com/console" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🏪</div>
+            <div class="res-card-name">Google Play Console</div>
+            <div class="res-card-desc">Manage your Android app submissions, monitor installs, A/B test store listings.</div>
+            <div class="res-card-tags"><span class="tag">$25 One-time</span></div>
+          </a>
+          <a href="https://developer.chrome.com/docs/android/trusted-web-activity/" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🌐</div>
+            <div class="res-card-name">TWA (Trusted Web Activity)</div>
+            <div class="res-card-desc">Turn your PWA into an Android app with Chrome. Official Google documentation.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">PWA</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Learning -->
+      <div class="res-section">
+        <h2 class="content-heading">📚 Learning & Practice</h2>
+        <div class="res-grid">
+          <a href="https://css-tricks.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🎩</div>
+            <div class="res-card-name">CSS-Tricks</div>
+            <div class="res-card-desc">The best CSS resource on the internet. The Flexbox and Grid guides are legendary.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">CSS</span></div>
+          </a>
+          <a href="https://javascript.info" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">💛</div>
+            <div class="res-card-name">JavaScript.info</div>
+            <div class="res-card-desc">The most comprehensive free JS guide. Better than any paid course for fundamentals.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">JavaScript</span></div>
+          </a>
+          <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🔥</div>
+            <div class="res-card-name">freeCodeCamp</div>
+            <div class="res-card-desc">Free certifications, project-based curriculum. HTML/CSS/JS to Python and ML.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Curriculum</span></div>
+          </a>
+          <a href="https://roadmap.sh" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🗺️</div>
+            <div class="res-card-name">roadmap.sh</div>
+            <div class="res-card-desc">Community-curated learning roadmaps for frontend, backend, DevOps, and more.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Roadmap</span></div>
+          </a>
+          <a href="https://www.patterns.dev" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">📐</div>
+            <div class="res-card-name">Patterns.dev</div>
+            <div class="res-card-desc">Design patterns for JavaScript and React. Singleton, Observer, Module, and more.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Patterns</span></div>
+          </a>
+          <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">⚡</div>
+            <div class="res-card-name">PageSpeed Insights</div>
+            <div class="res-card-desc">Google's official tool to measure Core Web Vitals and get specific improvement tips.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Performance</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Media & Design Tools -->
+      <div class="res-section">
+        <h2 class="content-heading">🖼️ Media & Design Tools</h2>
+        <div class="res-grid">
+          <a href="https://cloudinary.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">☁️</div>
+            <div class="res-card-name">Cloudinary</div>
+            <div class="res-card-desc">Image & video hosting with URL-based transformations. Resize, optimize, convert on the fly.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Media</span></div>
+          </a>
+          <a href="https://undraw.co" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🖌️</div>
+            <div class="res-card-name">unDraw</div>
+            <div class="res-card-desc">Free SVG illustrations with customizable colors. Thousands of designs, no attribution.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Illustrations</span></div>
+          </a>
+          <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🎭</div>
+            <div class="res-card-name">Figma</div>
+            <div class="res-card-desc">The standard UI design tool. Free tier is excellent. Design components before coding.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Design</span></div>
+          </a>
+          <a href="https://squoosh.app" target="_blank" rel="noopener noreferrer" class="res-card">
+            <div class="res-card-icon">🗜️</div>
+            <div class="res-card-name">Squoosh</div>
+            <div class="res-card-desc">Google's image compressor that runs in the browser. Convert to WebP/AVIF with great quality.</div>
+            <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Image Opt</span></div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="guide/stage1.html">Stage 1: Basics</a>
+        <a href="guide/stage2.html">Stage 2: Frontend</a>
+        <a href="guide/stage3.html">Stage 3: Backend</a>
+        <a href="guide/stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="blog/index.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

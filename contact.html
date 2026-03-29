@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Nexray — reach out for feedback, corrections, suggestions, or partnership opportunities." />
+  <title>Contact — Nexray</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <style>
+    .contact-form { display:grid; gap:1.25rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+    @media(max-width:640px){ .form-row { grid-template-columns:1fr; } }
+    .form-group { display:flex; flex-direction:column; gap:0.4rem; }
+    .form-label { font-size:0.875rem; font-weight:600; color:var(--text-secondary); }
+    .form-input, .form-textarea, .form-select {
+      background:rgba(255,255,255,0.04);
+      border:1px solid var(--glass-border);
+      border-radius:10px;
+      padding:0.875rem 1rem;
+      color:var(--text-primary);
+      font-size:0.95rem;
+      font-family:inherit;
+      transition:border-color 0.2s, box-shadow 0.2s;
+      outline:none;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color:var(--orange-500);
+      box-shadow:0 0 0 3px rgba(249,115,22,0.15);
+    }
+    .form-textarea { resize:vertical; min-height:140px; }
+    .form-select option { background:#1a1a2e; color:#f8fafc; }
+    .success-msg { display:none; text-align:center; padding:2rem; color:#4ade80; }
+    .success-msg.show { display:block; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide/stage1.html">Guide</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="index.html">Home</a><a href="guide/stage1.html">Guide</a><a href="blog/index.html">Blog</a><a href="resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <div style="text-align:center;padding:6rem 2rem 3rem;background:radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%);">
+      <div class="stage-badge" style="margin:0 auto 1.5rem;">✉️ Contact Us</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
+        Get in <span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Touch</span>
+      </h1>
+      <p style="color:var(--text-secondary);font-size:var(--fs-md);max-width:540px;margin:0 auto;">Found a bug? Spotted outdated content? Want to suggest a topic? We read every message.</p>
+    </div>
+
+    <div class="section" style="max-width:900px;margin:0 auto;">
+      <div class="grid-2 mb-xl">
+        <div class="glass-card">
+          <div style="font-size:2rem;margin-bottom:1rem;">🐛</div>
+          <h3 style="margin-bottom:0.5rem;">Report a Bug</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Found broken code, a wrong explanation, or a dead link? Let us know which page and what's wrong.</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:2rem;margin-bottom:1rem;">💡</div>
+          <h3 style="margin-bottom:0.5rem;">Suggest Content</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Want us to cover a specific topic, tool, or concept? We're always adding new content based on requests.</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:2rem;margin-bottom:1rem;">🤝</div>
+          <h3 style="margin-bottom:0.5rem;">Partnership</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Sponsorship opportunities, cross-promotion, or affiliate partnerships — let's talk business.</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:2rem;margin-bottom:1rem;">❓</div>
+          <h3 style="margin-bottom:0.5rem;">Ask a Question</h3>
+          <p style="color:var(--text-secondary);font-size:0.875rem;">Stuck on something in the guide? Ask here and we'll respond or update the guide with a clearer explanation.</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="glass-card" style="max-width:680px;margin:0 auto;">
+        <h2 style="font-size:var(--fs-xl);font-weight:800;margin-bottom:1.5rem;">Send a Message</h2>
+
+        <div id="success-msg" class="success-msg">
+          <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
+          <h3 style="font-size:var(--fs-xl);margin-bottom:0.5rem;">Message Sent!</h3>
+          <p style="color:var(--text-secondary);">Thanks for reaching out. We typically reply within 24-48 hours.</p>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Name *</label>
+              <input class="form-input" type="text" id="contact-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email *</label>
+              <input class="form-input" type="email" id="contact-email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-type">Type of Message</label>
+            <select class="form-select form-input" id="contact-type" name="type">
+              <option value="">Select a category...</option>
+              <option value="bug">🐛 Bug Report</option>
+              <option value="content">💡 Content Suggestion</option>
+              <option value="question">❓ Question About the Guide</option>
+              <option value="partnership">🤝 Partnership / Sponsorship</option>
+              <option value="other">💬 Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-subject">Subject *</label>
+            <input class="form-input" type="text" id="contact-subject" name="subject" placeholder="Brief subject line" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message *</label>
+            <textarea class="form-textarea" id="contact-message" name="message" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submit-btn" style="justify-self:start;width:100%;">
+            <span id="btn-text">Send Message 🚀</span>
+          </button>
+          <p id="form-error" style="color:#f87171;font-size:0.875rem;display:none;">Please fill in all required fields.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="guide/stage1.html">Stage 1: Basics</a>
+        <a href="guide/stage2.html">Stage 2: Frontend</a>
+        <a href="guide/stage3.html">Stage 3: Backend</a>
+        <a href="guide/stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="blog/index.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+      const errEl = document.getElementById('form-error');
+
+      if (!name || !email || !subject || !message) {
+        errEl.style.display = 'block';
+        return;
+      }
+      errEl.style.display = 'none';
+
+      const btn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      btn.disabled = true;
+      btnText.textContent = 'Sending...';
+
+      // Simulate send
+      setTimeout(() => {
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('success-msg').classList.add('show');
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

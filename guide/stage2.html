@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stage 2: Frontend Dev — Master CSS, JavaScript, modern layouts, animations, Three.js, and React in 2026." />
+  <title>Stage 2: Frontend Dev — Nexray</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span>Nex<span class="logo-accent">ray</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="stage1.html" class="active">Guide</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../resources.html">Resources</a>
+      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+      <a href="../auth.html" class="nav-cta">Sign In →</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="../index.html">Home</a><a href="stage1.html">Guide</a><a href="../blog/index.html">Blog</a><a href="../resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper">
+    <div class="stage-hero" style="min-height:420px;display:flex;align-items:center;position:relative;">
+      <canvas id="stage-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
+      <div class="hero-content" style="z-index:1;text-align:center;">
+        <div class="stage-badge">🎨 Stage 2 of 7</div>
+        <h1 class="stage-title">Frontend Dev</h1>
+        <p class="stage-desc">CSS magic, JavaScript power, modern layouts, animations, Three.js 3D, and React — the full frontend toolkit.</p>
+        <div class="stage-meta">
+          <div class="stage-meta-item"><span class="icon">⏱️</span> ~6 hours</div>
+          <div class="stage-meta-item"><span class="icon">🎯</span> Beginner → Intermediate</div>
+          <div class="stage-meta-item"><span class="icon">🔥</span> High Impact</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="toc">
+        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-list">
+          <a href="#css-fundamentals">CSS Fundamentals</a>
+          <a href="#css-box-model">The Box Model</a>
+          <a href="#flexbox">Flexbox Layout</a>
+          <a href="#css-grid">CSS Grid</a>
+          <a href="#responsive">Responsive Design</a>
+          <a href="#css-variables">CSS Variables & Theming</a>
+          <a href="#animations">CSS Animations</a>
+          <a href="#glassmorphism">Glassmorphism UI</a>
+          <a href="#javascript">JavaScript Essentials</a>
+          <a href="#dom">DOM Manipulation</a>
+          <a href="#fetch-api">Fetch API & Async/Await</a>
+          <a href="#threejs">Three.js 3D Scenes</a>
+          <a href="#react-intro">React Introduction</a>
+          <a href="#stage2-project">Stage 2 Project</a>
+        </div>
+      </div>
+
+      <!-- CSS Fundamentals -->
+      <h2 class="content-heading" id="css-fundamentals">🎨 CSS Fundamentals</h2>
+      <p class="content-text">CSS (Cascading Style Sheets) controls how HTML looks. You write <strong>selectors</strong> to target elements and <strong>declarations</strong> to style them.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">/* Selector { property: value; } */</span>
+
+<span class="cmt">/* Element selector */</span>
+<span class="fn">h1</span> {
+  <span class="attr">color</span>: <span class="str">#f97316</span>;
+  <span class="attr">font-size</span>: <span class="num">2.5rem</span>;
+  <span class="attr">font-weight</span>: <span class="num">900</span>;
+}
+
+<span class="cmt">/* Class selector (reusable) */</span>
+<span class="fn">.card</span> {
+  <span class="attr">background</span>: <span class="str">#1a1a2e</span>;
+  <span class="attr">border-radius</span>: <span class="num">12px</span>;
+  <span class="attr">padding</span>: <span class="num">24px</span>;
+}
+
+<span class="cmt">/* ID selector (unique, use sparingly) */</span>
+<span class="fn">#hero</span> {
+  <span class="attr">min-height</span>: <span class="num">100vh</span>;
+}
+
+<span class="cmt">/* Descendant: p inside .card */</span>
+<span class="fn">.card p</span> { <span class="attr">color</span>: <span class="str">#94a3b8</span>; }
+
+<span class="cmt">/* Pseudo-class: on hover */</span>
+<span class="fn">.btn:hover</span> {
+  <span class="attr">transform</span>: translateY(<span class="num">-3px</span>);
+  <span class="attr">box-shadow</span>: <span class="num">0 10px 30px</span> rgba(<span class="num">249,115,22,0.4</span>);
+}
+
+<span class="cmt">/* Pseudo-element: first letter */</span>
+<span class="fn">p::first-letter</span> {
+  <span class="attr">font-size</span>: <span class="num">2em</span>;
+  <span class="attr">color</span>: <span class="str">#f97316</span>;
+}</pre>
+      </div>
+
+      <!-- Box Model -->
+      <h2 class="content-heading" id="css-box-model">📦 The Box Model</h2>
+      <p class="content-text">Every HTML element is a rectangular box. Understanding the box model is fundamental to controlling spacing and sizing.</p>
+
+      <div class="glass-card mt-md mb-lg" style="text-align:center;padding:2rem;font-family:'Fira Code',monospace;font-size:0.85rem;">
+        <div style="border:2px dashed #475569;padding:20px;border-radius:8px;color:var(--text-muted);">
+          <div style="border:2px dashed var(--orange-500);padding:16px;border-radius:6px;color:var(--orange-400);">
+            margin
+            <div style="border:2px solid #60a5fa;padding:12px;border-radius:4px;background:rgba(59,130,246,0.08);color:#60a5fa;margin-top:8px;">
+              border
+              <div style="background:rgba(34,197,94,0.1);border:2px solid #4ade80;padding:12px;border-radius:4px;color:#4ade80;margin-top:8px;">
+                padding
+                <div style="background:rgba(249,115,22,0.15);border:1px solid var(--orange-500);padding:10px;border-radius:4px;color:var(--orange-400);margin-top:8px;">
+                  content (width × height)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="fn">.box</span> {
+  <span class="cmt">/* Always use border-box! It makes width include padding+border */</span>
+  <span class="attr">box-sizing</span>: border-box;
+
+  <span class="attr">width</span>: <span class="num">300px</span>;
+  <span class="attr">height</span>: <span class="num">200px</span>;
+
+  <span class="cmt">/* Padding: space INSIDE the border */</span>
+  <span class="attr">padding</span>: <span class="num">24px</span>;          <span class="cmt">/* all sides */</span>
+  <span class="attr">padding</span>: <span class="num">16px 24px</span>;    <span class="cmt">/* top/bottom left/right */</span>
+  <span class="attr">padding-top</span>: <span class="num">12px</span>;    <span class="cmt">/* individual side */</span>
+
+  <span class="cmt">/* Border */</span>
+  <span class="attr">border</span>: <span class="num">2px</span> solid <span class="str">#f97316</span>;
+  <span class="attr">border-radius</span>: <span class="num">12px</span>;
+
+  <span class="cmt">/* Margin: space OUTSIDE the border */</span>
+  <span class="attr">margin</span>: <span class="num">0 auto</span>;       <span class="cmt">/* center horizontally */</span>
+}</pre>
+      </div>
+
+      <!-- Flexbox -->
+      <h2 class="content-heading" id="flexbox">📐 Flexbox Layout</h2>
+      <p class="content-text">Flexbox is a 1D layout system — you arrange items in a row or column. It's the most used layout tool in modern web dev.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS — Flexbox Cheatsheet</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="fn">.container</span> {
+  <span class="attr">display</span>: flex;
+
+  <span class="cmt">/* Direction */</span>
+  <span class="attr">flex-direction</span>: row;           <span class="cmt">/* → default, left to right */</span>
+  <span class="attr">flex-direction</span>: column;        <span class="cmt">/* ↓ top to bottom */</span>
+
+  <span class="cmt">/* Alignment on MAIN axis (row = horizontal) */</span>
+  <span class="attr">justify-content</span>: flex-start;  <span class="cmt">/* pack to start */</span>
+  <span class="attr">justify-content</span>: center;      <span class="cmt">/* center */</span>
+  <span class="attr">justify-content</span>: space-between;<span class="cmt">/* spread out */</span>
+  <span class="attr">justify-content</span>: space-around; <span class="cmt">/* equal spacing */</span>
+
+  <span class="cmt">/* Alignment on CROSS axis (row = vertical) */</span>
+  <span class="attr">align-items</span>: stretch;        <span class="cmt">/* fill height (default) */</span>
+  <span class="attr">align-items</span>: center;         <span class="cmt">/* vertically center */</span>
+  <span class="attr">align-items</span>: flex-end;       <span class="cmt">/* align to bottom */</span>
+
+  <span class="cmt">/* Gap between items */</span>
+  <span class="attr">gap</span>: <span class="num">16px</span>;
+  <span class="attr">flex-wrap</span>: wrap;             <span class="cmt">/* wrap to next line */</span>
+}
+
+<span class="fn">.item</span> {
+  <span class="attr">flex</span>: <span class="num">1</span>;                     <span class="cmt">/* grow to fill space */</span>
+  <span class="attr">flex</span>: <span class="num">0 0 200px</span>;            <span class="cmt">/* fixed 200px, no grow/shrink */</span>
+}
+
+<span class="cmt">/* Common pattern: center anything perfectly */</span>
+<span class="fn">.center-everything</span> {
+  <span class="attr">display</span>: flex;
+  <span class="attr">align-items</span>: center;
+  <span class="attr">justify-content</span>: center;
+}</pre>
+      </div>
+
+      <!-- CSS Grid -->
+      <h2 class="content-heading" id="css-grid">🔲 CSS Grid</h2>
+      <p class="content-text">CSS Grid is a 2D layout system — rows AND columns. Perfect for page layouts, card grids, and complex designs.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS — Grid Cheatsheet</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="fn">.grid</span> {
+  <span class="attr">display</span>: grid;
+
+  <span class="cmt">/* Define columns */</span>
+  <span class="attr">grid-template-columns</span>: <span class="num">1fr 1fr 1fr</span>;     <span class="cmt">/* 3 equal columns */</span>
+  <span class="attr">grid-template-columns</span>: repeat(<span class="num">3</span>, <span class="num">1fr</span>); <span class="cmt">/* same */</span>
+  <span class="attr">grid-template-columns</span>: <span class="num">250px 1fr</span>;      <span class="cmt">/* sidebar + content */</span>
+
+  <span class="cmt">/* Auto-fit responsive grid (NO media queries needed!) */</span>
+  <span class="attr">grid-template-columns</span>: repeat(auto-fit, minmax(<span class="num">280px</span>, <span class="num">1fr</span>));
+
+  <span class="attr">gap</span>: <span class="num">24px</span>;
+}
+
+<span class="cmt">/* Item spanning multiple columns/rows */</span>
+<span class="fn">.featured</span> {
+  <span class="attr">grid-column</span>: <span class="num">1 / 3</span>;   <span class="cmt">/* span columns 1 to 3 */</span>
+  <span class="attr">grid-row</span>: <span class="num">1 / 2</span>;       <span class="cmt">/* row 1 */</span>
+}
+
+<span class="cmt">/* Named grid areas — super readable! */</span>
+<span class="fn">.layout</span> {
+  <span class="attr">display</span>: grid;
+  <span class="attr">grid-template-areas</span>:
+    <span class="str">"header header"</span>
+    <span class="str">"sidebar main"</span>
+    <span class="str">"footer footer"</span>;
+  <span class="attr">grid-template-columns</span>: <span class="num">240px 1fr</span>;
+}
+<span class="fn">header</span> { <span class="attr">grid-area</span>: header; }
+<span class="fn">aside</span>  { <span class="attr">grid-area</span>: sidebar; }
+<span class="fn">main</span>   { <span class="attr">grid-area</span>: main; }
+<span class="fn">footer</span> { <span class="attr">grid-area</span>: footer; }</pre>
+      </div>
+
+      <!-- Responsive -->
+      <h2 class="content-heading" id="responsive">📱 Responsive Design</h2>
+      <p class="content-text">Your site must look great on phones, tablets, and desktops. Use <strong>media queries</strong> to apply different styles at different screen sizes.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS — Mobile-First Responsive</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">/* Mobile first: default styles = mobile */</span>
+<span class="fn">.grid</span> {
+  <span class="attr">display</span>: grid;
+  <span class="attr">grid-template-columns</span>: <span class="num">1fr</span>; <span class="cmt">/* single column on mobile */</span>
+  <span class="attr">gap</span>: <span class="num">16px</span>;
+}
+
+<span class="cmt">/* Tablet: 768px and up */</span>
+<span class="kw">@media</span> (min-width: <span class="num">768px</span>) {
+  <span class="fn">.grid</span> {
+    <span class="attr">grid-template-columns</span>: repeat(<span class="num">2</span>, <span class="num">1fr</span>);
+  }
+  <span class="fn">h1</span> { <span class="attr">font-size</span>: <span class="num">3rem</span>; }
+}
+
+<span class="cmt">/* Desktop: 1024px and up */</span>
+<span class="kw">@media</span> (min-width: <span class="num">1024px</span>) {
+  <span class="fn">.grid</span> {
+    <span class="attr">grid-template-columns</span>: repeat(<span class="num">3</span>, <span class="num">1fr</span>);
+  }
+}
+
+<span class="cmt">/* Fluid typography with clamp() — no media queries! */</span>
+<span class="fn">h1</span> {
+  <span class="cmt">/* clamp(min, preferred, max) */</span>
+  <span class="attr">font-size</span>: clamp(<span class="num">2rem</span>, <span class="num">5vw</span>, <span class="num">5rem</span>);
+}
+
+<span class="cmt">/* Prefer clamp() over media queries for font-size — 2026 best practice */</span></pre>
+      </div>
+
+      <!-- CSS Variables -->
+      <h2 class="content-heading" id="css-variables">🎛️ CSS Variables & Theming</h2>
+      <p class="content-text">CSS custom properties (variables) let you define values once, use everywhere. Essential for theming and dark mode.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS — Variables + Dark Mode</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">/* Define variables on :root (global scope) */</span>
+<span class="fn">:root</span> {
+  <span class="attr">--color-bg</span>: <span class="str">#ffffff</span>;
+  <span class="attr">--color-text</span>: <span class="str">#0f0f0f</span>;
+  <span class="attr">--color-accent</span>: <span class="str">#f97316</span>;
+  <span class="attr">--radius</span>: <span class="num">12px</span>;
+  <span class="attr">--spacing</span>: <span class="num">24px</span>;
+}
+
+<span class="cmt">/* Dark mode — triggered by OS preference */</span>
+<span class="kw">@media</span> (prefers-color-scheme: dark) {
+  <span class="fn">:root</span> {
+    <span class="attr">--color-bg</span>: <span class="str">#0a0a0f</span>;
+    <span class="attr">--color-text</span>: <span class="str">#f8fafc</span>;
+  }
+}
+
+<span class="cmt">/* Use variables */</span>
+<span class="fn">body</span> {
+  <span class="attr">background</span>: var(<span class="str">--color-bg</span>);
+  <span class="attr">color</span>: var(<span class="str">--color-text</span>);
+}
+
+<span class="fn">.card</span> {
+  <span class="attr">border-radius</span>: var(<span class="str">--radius</span>);
+  <span class="attr">padding</span>: var(<span class="str">--spacing</span>);
+  <span class="attr">border</span>: <span class="num">1px</span> solid var(<span class="str">--color-accent</span>);
+}
+
+<span class="cmt">/* Override variables locally */</span>
+<span class="fn">.dark-card</span> {
+  <span class="attr">--color-bg</span>: <span class="str">#1a1a2e</span>;
+  <span class="attr">background</span>: var(<span class="str">--color-bg</span>);
+}</pre>
+      </div>
+
+      <!-- Animations -->
+      <h2 class="content-heading" id="animations">✨ CSS Animations & Transitions</h2>
+      <p class="content-text">Smooth animations transform a static site into something that feels alive. Here are the key techniques:</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS — Animations</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">/* === TRANSITIONS === */</span>
+<span class="cmt">/* Simple: smoothly animate property changes */</span>
+<span class="fn">.btn</span> {
+  <span class="attr">background</span>: <span class="str">#f97316</span>;
+  <span class="attr">transition</span>: all <span class="num">250ms</span> ease;
+}
+<span class="fn">.btn:hover</span> {
+  <span class="attr">background</span>: <span class="str">#ea580c</span>;
+  <span class="attr">transform</span>: translateY(<span class="num">-4px</span>) scale(<span class="num">1.03</span>);
+  <span class="attr">box-shadow</span>: <span class="num">0 20px 40px</span> rgba(<span class="num">249,115,22,0.4</span>);
+}
+
+<span class="cmt">/* === KEYFRAME ANIMATIONS === */</span>
+<span class="kw">@keyframes</span> fadeInUp {
+  from {
+    <span class="attr">opacity</span>: <span class="num">0</span>;
+    <span class="attr">transform</span>: translateY(<span class="num">30px</span>);
+  }
+  to {
+    <span class="attr">opacity</span>: <span class="num">1</span>;
+    <span class="attr">transform</span>: translateY(<span class="num">0</span>);
+  }
+}
+
+<span class="kw">@keyframes</span> float {
+  <span class="num">0%, 100%</span> { <span class="attr">transform</span>: translateY(<span class="num">0</span>); }
+  <span class="num">50%</span>       { <span class="attr">transform</span>: translateY(<span class="num">-12px</span>); }
+}
+
+<span class="kw">@keyframes</span> pulse {
+  <span class="num">0%, 100%</span> { <span class="attr">box-shadow</span>: <span class="num">0 0 0 0</span> rgba(<span class="num">249,115,22,0.4</span>); }
+  <span class="num">50%</span>       { <span class="attr">box-shadow</span>: <span class="num">0 0 0 15px</span> rgba(<span class="num">249,115,22,0</span>); }
+}
+
+<span class="cmt">/* Apply animations */</span>
+<span class="fn">.hero-title</span> {
+  <span class="attr">animation</span>: fadeInUp <span class="num">0.6s</span> ease <span class="num">0.2s</span> both;
+<span class="cmt">           /* name  duration timing delay fill */</span>
+}
+
+<span class="fn">.float-card</span> { <span class="attr">animation</span>: float <span class="num">4s</span> ease-in-out infinite; }
+<span class="fn">.cta-btn</span>    { <span class="attr">animation</span>: pulse <span class="num">2s</span> ease infinite; }</pre>
+      </div>
+
+      <!-- Glassmorphism -->
+      <h2 class="content-heading" id="glassmorphism">🪟 Glassmorphism UI (2026 Trend)</h2>
+      <p class="content-text">Glassmorphism creates a frosted-glass effect — one of the most popular design trends. Here's the exact recipe:</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">CSS — Glassmorphism</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">/* Step 1: Your page needs a colorful background */</span>
+<span class="fn">body</span> {
+  <span class="attr">background</span>: linear-gradient(<span class="num">135deg</span>, <span class="str">#0a0a0f</span>, <span class="str">#1a0a00</span>);
+  <span class="cmt">/* Or use an image: background-image: url(bg.jpg); */</span>
+}
+
+<span class="cmt">/* Step 2: The glass card */</span>
+<span class="fn">.glass</span> {
+  <span class="cmt">/* Semi-transparent white background */</span>
+  <span class="attr">background</span>: rgba(<span class="num">255, 255, 255, 0.06</span>);
+
+  <span class="cmt">/* The KEY ingredient: backdrop blur */</span>
+  <span class="attr">backdrop-filter</span>: blur(<span class="num">20px</span>);
+  <span class="attr">-webkit-backdrop-filter</span>: blur(<span class="num">20px</span>); <span class="cmt">/* Safari */</span>
+
+  <span class="cmt">/* Subtle border for the glass edge */</span>
+  <span class="attr">border</span>: <span class="num">1px</span> solid rgba(<span class="num">255, 255, 255, 0.12</span>);
+  <span class="attr">border-radius</span>: <span class="num">20px</span>;
+
+  <span class="cmt">/* Soft shadow */</span>
+  <span class="attr">box-shadow</span>:
+    <span class="num">0 8px 32px</span> rgba(<span class="num">0, 0, 0, 0.3</span>),
+    inset <span class="num">0 1px 0</span> rgba(<span class="num">255,255,255,0.1</span>);
+
+  <span class="attr">padding</span>: <span class="num">32px</span>;
+}
+
+<span class="cmt">/* Orange accent glass variation */</span>
+<span class="fn">.glass-orange</span> {
+  <span class="attr">background</span>: rgba(<span class="num">249, 115, 22, 0.08</span>);
+  <span class="attr">border-color</span>: rgba(<span class="num">249, 115, 22, 0.25</span>);
+  <span class="attr">backdrop-filter</span>: blur(<span class="num">20px</span>);
+  <span class="attr">box-shadow</span>: <span class="num">0 0 40px</span> rgba(<span class="num">249,115,22,0.15</span>);
+}</pre>
+      </div>
+
+      <!-- JavaScript -->
+      <h2 class="content-heading" id="javascript">⚡ JavaScript Essentials</h2>
+      <p class="content-text">JavaScript makes websites interactive. It runs in the browser and can change HTML, respond to user events, and fetch data from servers.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Core Concepts</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// === Variables ===</span>
+<span class="kw">const</span> name = <span class="str">'Alice'</span>;          <span class="cmt">// immutable reference</span>
+<span class="kw">let</span>   count = <span class="num">0</span>;               <span class="cmt">// mutable</span>
+<span class="cmt">// Never use var in modern JS</span>
+
+<span class="cmt">// === Functions ===</span>
+<span class="cmt">// Traditional</span>
+<span class="kw">function</span> <span class="fn">greet</span>(name) {
+  <span class="kw">return</span> <span class="str">`Hello, <span class="kw">${</span>name<span class="kw">}</span>! 👋`</span>;
+}
+
+<span class="cmt">// Arrow function (preferred in 2026)</span>
+<span class="kw">const</span> <span class="fn">greet</span> = (name) => <span class="str">`Hello, <span class="kw">${</span>name<span class="kw">}</span>!`</span>;
+
+<span class="cmt">// === Arrays ===</span>
+<span class="kw">const</span> skills = [<span class="str">'HTML'</span>, <span class="str">'CSS'</span>, <span class="str">'JS'</span>];
+skills.<span class="fn">push</span>(<span class="str">'React'</span>);           <span class="cmt">// add to end</span>
+skills.<span class="fn">map</span>(s => s.<span class="fn">toLowerCase</span>()); <span class="cmt">// transform each item</span>
+skills.<span class="fn">filter</span>(s => s !== <span class="str">'CSS'</span>); <span class="cmt">// filter items</span>
+
+<span class="cmt">// === Objects ===</span>
+<span class="kw">const</span> user = {
+  name: <span class="str">'Alice'</span>,
+  age: <span class="num">22</span>,
+  <span class="fn">bio</span>() { <span class="kw">return</span> <span class="str">`I'm <span class="kw">${</span><span class="kw">this</span>.name<span class="kw">}</span>`</span>; }
+};
+
+<span class="cmt">// Destructuring (modern)</span>
+<span class="kw">const</span> { name, age } = user;
+<span class="kw">const</span> [first, ...rest] = skills;
+
+<span class="cmt">// === Conditionals ===</span>
+<span class="kw">if</span> (count > <span class="num">10</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Big count!'</span>);
+} <span class="kw">else if</span> (count > <span class="num">5</span>) {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Mid count'</span>);
+} <span class="kw">else</span> {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Small count'</span>);
+}
+
+<span class="cmt">// Ternary (inline if/else)</span>
+<span class="kw">const</span> label = count > <span class="num">10</span> ? <span class="str">'Big'</span> : <span class="str">'Small'</span>;
+
+<span class="cmt">// === Loops ===</span>
+skills.<span class="fn">forEach</span>(skill => <span class="fn">console</span>.<span class="fn">log</span>(skill));
+
+<span class="kw">for</span> (<span class="kw">const</span> skill <span class="kw">of</span> skills) {
+  <span class="fn">console</span>.<span class="fn">log</span>(skill);
+}</pre>
+      </div>
+
+      <!-- DOM -->
+      <h2 class="content-heading" id="dom">🌳 DOM Manipulation</h2>
+      <p class="content-text">The DOM (Document Object Model) is JavaScript's representation of your HTML. You can read, change, add, and remove elements using JS.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — DOM</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// === Select Elements ===</span>
+<span class="kw">const</span> title   = document.<span class="fn">querySelector</span>(<span class="str">'h1'</span>);
+<span class="kw">const</span> btn     = document.<span class="fn">querySelector</span>(<span class="str">'#submit-btn'</span>);
+<span class="kw">const</span> cards   = document.<span class="fn">querySelectorAll</span>(<span class="str">'.card'</span>);
+<span class="kw">const</span> nav     = document.<span class="fn">getElementById</span>(<span class="str">'nav'</span>);
+
+<span class="cmt">// === Read & Modify Content ===</span>
+title.textContent = <span class="str">'New Title'</span>;       <span class="cmt">// text only (safe)</span>
+title.innerHTML   = <span class="str">'Title &lt;span&gt;!&lt;/span&gt;'</span>; <span class="cmt">// HTML (careful!)</span>
+
+<span class="cmt">// === Modify Styles ===</span>
+btn.style.backgroundColor = <span class="str">'#f97316'</span>;
+btn.style.display = <span class="str">'none'</span>; <span class="cmt">// hide</span>
+
+<span class="cmt">// === CSS Classes (preferred over inline styles) ===</span>
+btn.<span class="fn">classList</span>.<span class="fn">add</span>(<span class="str">'active'</span>);
+btn.<span class="fn">classList</span>.<span class="fn">remove</span>(<span class="str">'hidden'</span>);
+btn.<span class="fn">classList</span>.<span class="fn">toggle</span>(<span class="str">'open'</span>);    <span class="cmt">// add if absent, remove if present</span>
+btn.<span class="fn">classList</span>.<span class="fn">contains</span>(<span class="str">'active'</span>); <span class="cmt">// returns true/false</span>
+
+<span class="cmt">// === Attributes ===</span>
+btn.<span class="fn">setAttribute</span>(<span class="str">'disabled'</span>, <span class="str">''</span>);
+btn.<span class="fn">getAttribute</span>(<span class="str">'href'</span>);
+btn.<span class="fn">removeAttribute</span>(<span class="str">'disabled'</span>);
+
+<span class="cmt">// === Create & Insert Elements ===</span>
+<span class="kw">const</span> newCard = document.<span class="fn">createElement</span>(<span class="str">'div'</span>);
+newCard.className = <span class="str">'card'</span>;
+newCard.textContent = <span class="str">'New card!'</span>;
+document.body.<span class="fn">appendChild</span>(newCard);
+
+<span class="cmt">// === Events ===</span>
+btn.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, (e) => {
+  e.<span class="fn">preventDefault</span>(); <span class="cmt">// stop default action</span>
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Button clicked!'</span>);
+});
+
+<span class="cmt">// Common events: click, submit, keydown, mouseover, scroll, resize, load</span>
+window.<span class="fn">addEventListener</span>(<span class="str">'scroll'</span>, () => {
+  <span class="kw">const</span> scrolled = window.scrollY;
+  nav.style.background = scrolled > <span class="num">100</span>
+    ? <span class="str">'rgba(0,0,0,0.95)'</span>
+    : <span class="str">'transparent'</span>;
+});</pre>
+      </div>
+
+      <!-- Fetch API -->
+      <h2 class="content-heading" id="fetch-api">🌐 Fetch API & Async/Await</h2>
+      <p class="content-text">The Fetch API lets you get data from external services (weather, news, user data) without refreshing the page.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Async Data Fetching</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// === Basic Fetch (async/await — the modern way) ===</span>
+<span class="kw">async function</span> <span class="fn">getWeather</span>(city) {
+  <span class="kw">try</span> {
+    <span class="cmt">// fetch() returns a Promise</span>
+    <span class="kw">const</span> response = <span class="kw">await</span> <span class="fn">fetch</span>(
+      <span class="str">`https://api.openweathermap.org/data/2.5/weather?q=<span class="kw">${</span>city<span class="kw">}</span>&appid=YOUR_KEY`</span>
+    );
+
+    <span class="cmt">// Check for HTTP errors</span>
+    <span class="kw">if</span> (!response.ok) {
+      <span class="kw">throw new</span> <span class="fn">Error</span>(<span class="str">`HTTP error: <span class="kw">${</span>response.status<span class="kw">}</span>`</span>);
+    }
+
+    <span class="cmt">// Parse JSON response</span>
+    <span class="kw">const</span> data = <span class="kw">await</span> response.<span class="fn">json</span>();
+    <span class="fn">console</span>.<span class="fn">log</span>(data); <span class="cmt">// use your data!</span>
+    <span class="kw">return</span> data;
+
+  } <span class="kw">catch</span> (error) {
+    <span class="fn">console</span>.<span class="fn">error</span>(<span class="str">'Fetch failed:'</span>, error);
+  }
+}
+
+<span class="cmt">// Call it:</span>
+<span class="fn">getWeather</span>(<span class="str">'London'</span>);
+
+<span class="cmt">// === POST request (send data) ===</span>
+<span class="kw">async function</span> <span class="fn">submitForm</span>(formData) {
+  <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'/api/contact'</span>, {
+    method: <span class="str">'POST'</span>,
+    headers: { <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span> },
+    body: <span class="fn">JSON</span>.<span class="fn">stringify</span>(formData),
+  });
+  <span class="kw">return</span> res.<span class="fn">json</span>();
+}
+
+<span class="cmt">// === Parallel fetches (faster!) ===</span>
+<span class="kw">const</span> [users, posts] = <span class="kw">await</span> <span class="fn">Promise</span>.<span class="fn">all</span>([
+  <span class="fn">fetch</span>(<span class="str">'/api/users'</span>).<span class="fn">then</span>(r => r.<span class="fn">json</span>()),
+  <span class="fn">fetch</span>(<span class="str">'/api/posts'</span>).<span class="fn">then</span>(r => r.<span class="fn">json</span>()),
+]);</pre>
+      </div>
+
+      <!-- Three.js -->
+      <h2 class="content-heading" id="threejs">🌐 Three.js — 3D in the Browser</h2>
+      <p class="content-text">Three.js is a JavaScript library that makes WebGL 3D graphics approachable. You can create stunning 3D scenes like the one on this page's hero section.</p>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">HTML + JavaScript — Three.js Setup</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">&lt;!-- 1. Add canvas to HTML --&gt;</span>
+<span class="tag-hl">&lt;canvas</span> <span class="attr">id</span>=<span class="str">"three-canvas"</span><span class="tag-hl">&gt;&lt;/canvas&gt;</span>
+
+<span class="cmt">&lt;!-- 2. Load Three.js --&gt;</span>
+<span class="tag-hl">&lt;script</span> <span class="attr">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"</span><span class="tag-hl">&gt;&lt;/script&gt;</span>
+
+<span class="tag-hl">&lt;script&gt;</span>
+<span class="cmt">// 3. Create scene, camera, renderer</span>
+<span class="kw">const</span> scene    = <span class="kw">new</span> THREE.<span class="fn">Scene</span>();
+<span class="kw">const</span> camera   = <span class="kw">new</span> THREE.<span class="fn">PerspectiveCamera</span>(<span class="num">75</span>, innerWidth/innerHeight, <span class="num">0.1</span>, <span class="num">1000</span>);
+<span class="kw">const</span> renderer = <span class="kw">new</span> THREE.<span class="fn">WebGLRenderer</span>({
+  canvas: document.<span class="fn">getElementById</span>(<span class="str">'three-canvas'</span>),
+  alpha: <span class="kw">true</span>,     <span class="cmt">// transparent background</span>
+  antialias: <span class="kw">true</span>  <span class="cmt">// smooth edges</span>
+});
+
+renderer.<span class="fn">setSize</span>(innerWidth, innerHeight);
+renderer.<span class="fn">setPixelRatio</span>(Math.<span class="fn">min</span>(devicePixelRatio, <span class="num">2</span>));
+camera.position.z = <span class="num">5</span>;
+
+<span class="cmt">// 4. Add lighting</span>
+scene.<span class="fn">add</span>(<span class="kw">new</span> THREE.<span class="fn">AmbientLight</span>(<span class="num">0xffffff</span>, <span class="num">0.5</span>));
+<span class="kw">const</span> light = <span class="kw">new</span> THREE.<span class="fn">PointLight</span>(<span class="num">0xf97316</span>, <span class="num">2</span>, <span class="num">100</span>);
+light.position.<span class="fn">set</span>(<span class="num">5</span>, <span class="num">5</span>, <span class="num">5</span>);
+scene.<span class="fn">add</span>(light);
+
+<span class="cmt">// 5. Create a 3D object</span>
+<span class="kw">const</span> geometry = <span class="kw">new</span> THREE.<span class="fn">IcosahedronGeometry</span>(<span class="num">1.5</span>, <span class="num">1</span>);
+<span class="kw">const</span> material = <span class="kw">new</span> THREE.<span class="fn">MeshPhongMaterial</span>({
+  color: <span class="num">0xf97316</span>,
+  wireframe: <span class="kw">true</span>
+});
+<span class="kw">const</span> mesh = <span class="kw">new</span> THREE.<span class="fn">Mesh</span>(geometry, material);
+scene.<span class="fn">add</span>(mesh);
+
+<span class="cmt">// 6. Animation loop</span>
+<span class="kw">function</span> <span class="fn">animate</span>() {
+  <span class="fn">requestAnimationFrame</span>(animate);
+  mesh.rotation.x += <span class="num">0.005</span>;
+  mesh.rotation.y += <span class="num">0.01</span>;
+  renderer.<span class="fn">render</span>(scene, camera);
+}
+<span class="fn">animate</span>();
+<span class="tag-hl">&lt;/script&gt;</span></pre>
+      </div>
+
+      <!-- React -->
+      <h2 class="content-heading" id="react-intro">⚛️ React Introduction</h2>
+      <p class="content-text">React is the most popular JS framework. It lets you build UIs with reusable <strong>components</strong> and automatically updates the page when data changes.</p>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">💡</div>
+        <div>
+          <div class="callout-head">Do you need React?</div>
+          <div class="callout-body">Not for simple sites! Use React when you have complex state (logged-in users, shopping carts, live data). For landing pages and portfolios, plain HTML/CSS/JS is faster and simpler. Don't over-engineer!</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JSX — React Component</div><button class="code-copy">Copy</button></div>
+        <pre class="code-content"><span class="cmt">// A React component is just a function that returns JSX</span>
+
+<span class="kw">import</span> { useState, useEffect } <span class="kw">from</span> <span class="str">'react'</span>;
+
+<span class="cmt">// Reusable Card component</span>
+<span class="kw">function</span> <span class="fn">StageCard</span>({ title, desc, emoji, link }) {
+  <span class="kw">return</span> (
+    <span class="tag-hl">&lt;a</span> <span class="attr">href</span>=<span class="kw">{link}</span> <span class="attr">className</span>=<span class="str">"glass-card"</span><span class="tag-hl">&gt;</span>
+      <span class="tag-hl">&lt;div</span> <span class="attr">className</span>=<span class="str">"card-icon"</span><span class="tag-hl">&gt;</span><span class="kw">{emoji}</span><span class="tag-hl">&lt;/div&gt;</span>
+      <span class="tag-hl">&lt;h3&gt;</span><span class="kw">{title}</span><span class="tag-hl">&lt;/h3&gt;</span>
+      <span class="tag-hl">&lt;p&gt;</span><span class="kw">{desc}</span><span class="tag-hl">&lt;/p&gt;</span>
+    <span class="tag-hl">&lt;/a&gt;</span>
+  );
+}
+
+<span class="cmt">// Component with state</span>
+<span class="kw">function</span> <span class="fn">Counter</span>() {
+  <span class="kw">const</span> [count, setCount] = <span class="fn">useState</span>(<span class="num">0</span>); <span class="cmt">// state hook</span>
+
+  <span class="kw">return</span> (
+    <span class="tag-hl">&lt;div&gt;</span>
+      <span class="tag-hl">&lt;p&gt;</span>Count: <span class="kw">{count}</span><span class="tag-hl">&lt;/p&gt;</span>
+      <span class="tag-hl">&lt;button</span> <span class="attr">onClick</span>=<span class="kw">{() =&gt; setCount(count + 1)}</span><span class="tag-hl">&gt;</span>
+        Increment
+      <span class="tag-hl">&lt;/button&gt;</span>
+    <span class="tag-hl">&lt;/div&gt;</span>
+  );
+}
+
+<span class="cmt">// Side effects (fetch data on mount)</span>
+<span class="kw">function</span> <span class="fn">UserProfile</span>({ userId }) {
+  <span class="kw">const</span> [user, setUser] = <span class="fn">useState</span>(<span class="kw">null</span>);
+
+  <span class="fn">useEffect</span>(() => {
+    <span class="fn">fetch</span>(<span class="str">`/api/users/<span class="kw">${</span>userId<span class="kw">}</span>`</span>)
+      .<span class="fn">then</span>(r => r.<span class="fn">json</span>())
+      .<span class="fn">then</span>(setUser);
+  }, [userId]); <span class="cmt">// re-run when userId changes</span>
+
+  <span class="kw">if</span> (!user) <span class="kw">return</span> <span class="tag-hl">&lt;p&gt;</span>Loading...<span class="tag-hl">&lt;/p&gt;</span>;
+  <span class="kw">return</span> <span class="tag-hl">&lt;h2&gt;</span><span class="kw">{user.name}</span><span class="tag-hl">&lt;/h2&gt;</span>;
+}</pre>
+      </div>
+
+      <!-- Stage 2 Project -->
+      <div class="divider"></div>
+      <h2 class="content-heading" id="stage2-project">🏆 Stage 2 Project: Animated Portfolio</h2>
+      <p class="content-text">Upgrade your Stage 1 site with:</p>
+      <div class="feature-list mb-lg">
+        <div class="feature-item">Glassmorphism nav bar that changes on scroll</div>
+        <div class="feature-item">CSS Grid portfolio section with hover effects</div>
+        <div class="feature-item">Smooth CSS animations on page load (fadeInUp)</div>
+        <div class="feature-item">Dark mode using CSS variables + prefers-color-scheme</div>
+        <div class="feature-item">A Three.js background animation</div>
+        <div class="feature-item">Fully responsive at all screen sizes</div>
+      </div>
+      <div class="callout callout-pro">
+        <div class="callout-icon">🔥</div>
+        <div>
+          <div class="callout-head">Pro Tip: Use CSS Custom Properties for theming</div>
+          <div class="callout-body">Define all your colors as CSS variables. Then toggling dark mode is just changing 3-4 variable values. This is how real production sites handle theming — no JS needed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guide-nav">
+      <a href="stage1.html" class="guide-nav-btn"><span class="nav-arrow">←</span><div><span class="nav-label">Previous</span>Stage 1 — Basics</div></a>
+      <a href="stage3.html" class="guide-nav-btn next"><div><span class="nav-label">Next Stage</span>Stage 3 — Backend & APIs</div><span class="nav-arrow">→</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
+          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span>Nex<span class="logo-accent">ray</span></span>
+        </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guide</div>
+        <a href="stage1.html">Stage 1: Basics</a>
+        <a href="stage2.html">Stage 2: Frontend</a>
+        <a href="stage3.html">Stage 3: Backend</a>
+        <a href="stage4.html">Stage 4: DevOps</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/three-scenes.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    const c = document.getElementById('stage-canvas');
+    if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x8b5cf6); }
+  </script>
+</body>
+</html>
