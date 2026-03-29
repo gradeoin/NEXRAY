@@ -17,7 +17,7 @@ function walk(dir) {
     return results;
 }
 
-const allHtmlFiles = walk('.');
+const allHtmlFiles = walk('.').filter(f => !f.includes('404.html') && !f.includes('auth.html') && !f.includes('admin') && !f.includes('google'));
 const baseUrl = 'https://nexray.in';
 
 // 2. Generate sitemap.xml

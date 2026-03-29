@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Nexray — a free, Gen-Z styled, 7-stage guide to modern web development from absolute beginner to professional developer." />
+  <title>How to Build a Website from Scratch in 2026 | Nexray</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About Nexray � Free Web Development Learning Platform" />
+  <meta property="og:description" content="Nexray is a free, open 7-stage web development learning platform. Learn from scratch to pro without spending a penny." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Nexray � Free Web Development Learning Platform" />
+  <meta name="twitter:description" content="Nexray is a free, open 7-stage web development learning platform. Learn from scratch to pro without spending a penny." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="manifest.json">
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "HowTo",\n  "name": "How to Build a Website from Scratch in 2026",\n  "description": "A complete 7-step guide to building a modern, responsive, and blazing fast website.",\n  "step": [\n    {\n      "@type": "HowToStep",\n      "name": "Learn HTML and Semantic Structure",\n      "text": "Start by learning HTML5 tags to structure your content accessibly.",\n      "url": "https://nexray.in/guide/stage1.html"\n    },\n    {\n      "@type": "HowToStep",\n      "name": "Style with CSS and Tailwind",\n      "text": "Use CSS variables, Flexbox, and CSS Grid to layout your page. Enhance with Tailwind CSS for utility-first styling.",\n      "url": "https://nexray.in/guide/stage2.html"\n    },\n    {\n      "@type": "HowToStep",\n      "name": "Add Interactivity with JavaScript",\n      "text": "Use Vanilla JavaScript (ES6+) to manipulate the DOM, fetch data from APIs, and control state.",\n      "url": "https://nexray.in/guide/stage2.html"\n    },\n    {\n      "@type": "HowToStep",\n      "name": "Connect a Backend Database",\n      "text": "Use Firebase or Supabase to store user data and enable authentication securely without painful server setup.",\n      "url": "https://nexray.in/guide/stage3.html"\n    },\n    {\n      "@type": "HowToStep",\n      "name": "Deploy Globally",\n      "text": "Push your code to GitHub and auto-deploy to Vercel or Cloudflare Pages for a free, lightning-fast edge network setup.",\n      "url": "https://nexray.in/guide/stage4.html"\n    }\n  ]\n}\n</script>\n</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.3);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="guide/stage1.html">Guide</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="index.html">Home</a><a href="guide/stage1.html">Guide</a><a href="blog/index.html">Blog</a><a href="resources.html">Resources</a>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="page-wrapper"><div style="padding:5rem 2rem 3rem;max-width:1000px;margin:0 auto;"><div class="stage-badge" style="margin-bottom:1.5rem;display:inline-block;">Ultimate Guide</div><h1 style="font-family:&quot;Space Grotesk&quot;,sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.25rem;">How to <span style="color:var(--brand);">Build a Website</span> in 2026</h1><p style="color:var(--text-secondary);font-size:1.1rem;line-height:1.8;margin-bottom:3rem;">You want to build a website, but tutorials from 2018 tell you to use WordPress and FTP. The web has moved on. Here is exactly how to build a website from scratch, for free, using the exact tools Silicon Valley engineers use today.</p><div class="step-card"><div class="step-number">1</div><div class="step-content"><h3>Master Semantic HTML</h3><p>HTML is the skeleton. Do not just use divs everywhere. Use main, article, section, and nav. Search engines love semantics.</p></div></div><div class="step-card"><div class="step-number">2</div><div class="step-content"><h3>Modern CSS & Design Systems</h3><p>Stop writing monolithic CSS files. Learn CSS Grid for layouts, Flexbox for alignment, and utility classes (like Tailwind) for speed. Implement a dark mode via CSS variables.</p></div></div><div class="step-card"><div class="step-number">3</div><div class="step-content"><h3>JavaScript & The DOM</h3><p>Learn how to select elements, listen for clicks, and manipulate the DOM using modern vanilla JS (ES6+). Forget jQuery.</p></div></div><div class="step-card"><div class="step-number">4</div><div class="step-content"><h3>Component Frameworks (React)</h3><p>Once you know JS, learn React. Extract your UI into reusable components. Manage state efficiently using Hooks.</p></div></div><div class="step-card"><div class="step-number">5</div><div class="step-content"><h3>Backend as a Service (Firebase)</h3><p>You do not need to rent a Linux server. Use Firebase or Supabase for instant database access and user authentication (Google Login) directly from your frontend.</p></div></div><div class="step-card"><div class="step-number">6</div><div class="step-content"><h3>Git & CI/CD Deployment</h3><p>Commit your code to GitHub. Connect your repository to Vercel or Cloudflare Pages. Now, every time you press push, your global website instantly updates online for free.</p></div></div><div style="margin-top:4rem;text-align:center;"><a href="guide/stage1.html" class="btn btn-primary" style="font-size:1.1rem;">Start Stage 1 Now</a></div></div>\n  </div>\n  <footer class="footer">
+    <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.3);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
+        <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
+      </div>
+      <!-- Guide footer block removed -->
+      <div class="footer-col">
+        <div class="footer-col-title">Nexray</div>
+        <a href="blog/index.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="security.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="max-width:1180px;margin:0 auto;margin-top:2.5rem;border-top:1px solid var(--glass-b);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<script src="js/three-background.js"></script>
+</body>
+</html>
