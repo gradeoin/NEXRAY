@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Stage 3: Backend — APIs, databases (SQL/NoSQL), authentication (Google/email/OAuth), and serverless options." />
+  <meta name="theme-color" content="#ff5a1f" />
+  <title>Stage 3 — Backend • NEXRAY</title>
+
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="NEXRAY home">
+        <img src="../assets/icons/logo-mark.svg" alt="" class="brand-mark" />
+        <span class="brand-name">NEXRAY</span>
+        <span class="brand-tag">Zero → Pro Web Dev (2026)</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+        <div id="navMenu" class="nav-menu" data-nav-menu>
+          <a class="nav-link" href="../index.html">Home</a>
+          <a class="nav-link" href="../resources.html">Resources</a>
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container page">
+    <header class="page-head">
+      <p class="pill"><strong>Stage 3</strong> • Backend</p>
+      <h1 class="h1">Backend from scratch: APIs, DBs, auth</h1>
+      <p class="lead">
+        Frontend is what people see. Backend is what makes it real: data, logins, permissions, payments, emails.
+        You’ll learn the architecture and copy working code patterns.
+      </p>
+
+      <div class="stage-nav">
+        <a class="btn btn-ghost" href="stage2.html">← Prev: Stage 2</a>
+        <a class="btn btn-primary" href="stage4.html">Next: Stage 4 →</a>
+      </div>
+
+      <div class="search-row">
+        <input class="input" type="search" placeholder="Search this page (press /)" data-page-search aria-label="Search Stage 3" />
+        <span class="muted tiny">Tip: Press <kbd class="kbd">/</kbd> anywhere to focus search.</span>
+      </div>
+    </header>
+
+    <section class="section glass pad">
+      <h2 class="h2">1) Backend mental model</h2>
+      <div class="grid-2">
+        <div class="card glass">
+          <h3>API</h3>
+          <p class="muted">
+            A set of endpoints your frontend can call. Typically JSON over HTTP:
+            <code>GET /posts</code>, <code>POST /login</code>, <code>POST /checkout</code>.
+          </p>
+        </div>
+        <div class="card glass">
+          <h3>Database</h3>
+          <p class="muted">
+            Stores data. You choose SQL (structured, relational) or NoSQL (document/scale‑friendly).
+            Both are valid.
+          </p>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Pro rule:</strong> Always validate data on the server. Frontend validation is UX. Server validation is security.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">2) Build a tiny Node.js API (learning fundamentals)</h2>
+          <p class="muted">
+            This is what “backend from scratch” means. You can host this API on a server or convert it to serverless later.
+          </p>
+
+          <h3 class="h3">Create a folder (example)</h3>
+          <pre class="pre"><code class="mono">api/
+  package.json
+  server.js</code></pre>
+
+          <h3 class="h3">package.json</h3>
+          <pre class="pre"><code class="mono">{
+  "name": "nexray-api",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}</code></pre>
+
+          <h3 class="h3">server.js (Express)</h3>
+          <pre class="pre"><code class="mono">import express from "express";
+import cors from "cors";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.get("/health", (req, res) =&gt; {
+  res.json({ ok: true, time: new Date().toISOString() });
+});
+
+app.get("/api/posts", (req, res) =&gt; {
+  res.json([
+    { id: "1", title: "Ship your first site", stage: 1 },
+    { id: "2", title: "Make UI feel expensive", stage: 2 }
+  ]);
+});
+
+app.post("/api/contact", (req, res) =&gt; {
+  const { name, email, topic, message } = req.body || {};
+  if (!name || !email || !topic || !message) {
+    return res.status(400).json({ ok: false, error: "Missing fields" });
+  }
+
+  // In real life: store in DB + send email
+  res.json({ ok: true, received: { name, email, topic } });
+});
+
+app.listen(8787, () =&gt; console.log("API on http://localhost:8787"));</code></pre>
+
+          <h3 class="h3">Run it</h3>
+          <pre class="pre"><code class="mono">cd api
+npm i
+npm run dev
+
+# then visit:
+# http://localhost:8787/health</code></pre>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Why serverless exists</h3>
+          <p class="muted">
+            Servers are always-on processes. Serverless runs code on demand.
+            In 2026, many production apps use serverless for APIs.
+          </p>
+          <ul class="list">
+            <li><strong>Server</strong>: simple mental model, more ops</li>
+            <li><strong>Serverless</strong>: less ops, more platform rules</li>
+          </ul>
+
+          <div class="note">
+            You can learn with Express, then deploy the same logic using a Workers/Functions platform.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass pad">
+      <h2 class="h2">3) Databases: SQL vs NoSQL (choose based on your product)</h2>
+
+      <div class="grid-2">
+        <div class="card glass">
+          <h3>SQL (Postgres)</h3>
+          <p class="muted">
+            Great when you have relationships: users → posts → comments, orders → line_items, etc.
+            Strong constraints keep data clean.
+          </p>
+          <h4 class="h4">Example schema</h4>
+          <pre class="pre"><code class="mono">CREATE TABLE users (
+  id UUID PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE posts (
+  id UUID PRIMARY KEY,
+  user_id UUID NOT NULL REFERENCES users(id),
+  title TEXT NOT NULL,
+  body TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);</code></pre>
+        </div>
+
+        <div class="card glass">
+          <h3>NoSQL (Firestore-like)</h3>
+          <p class="muted">
+            Great when you want rapid iteration, flexible docs, and simple scaling.
+            You typically denormalize (duplicate) some data for fast reads.
+          </p>
+          <h4 class="h4">Example document shape</h4>
+          <pre class="pre"><code class="mono">// users/{userId}
+{
+  "email": "you@domain.com",
+  "displayName": "You",
+  "createdAt": 1710000000
+}
+
+// posts/{postId}
+{
+  "userId": "abc",
+  "userDisplayName": "You",   // denormalized
+  "title": "Ship it",
+  "body": "Details...",
+  "createdAt": 1710000000
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Pro rule:</strong> Your database choice is less important than your <em>data model</em> and your <em>permission model</em>.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">4) Authentication (Google + email/password + OAuth)</h2>
+          <p class="muted">
+            Auth is not just “login.” It’s identity + sessions + permissions. In 2026 the safest approach is:
+            use a proven auth provider (Firebase Auth, Auth0, Clerk, etc.) unless you have a very good reason.
+          </p>
+
+          <h3 class="h3">Email/password flow (concept)</h3>
+          <ol class="list">
+            <li>User submits email/password</li>
+            <li>Server verifies</li>
+            <li>Server issues a session (cookie) or token</li>
+            <li>Frontend stores session safely and calls authenticated endpoints</li>
+          </ol>
+
+          <h3 class="h3">Google sign-in (OAuth) concept</h3>
+          <ol class="list">
+            <li>User clicks “Continue with Google”</li>
+            <li>Redirect to Google</li>
+            <li>Google returns an authorization code</li>
+            <li>Your backend/provider exchanges code for tokens</li>
+            <li>You receive user identity and start a session</li>
+          </ol>
+
+          <div class="note">
+            <strong>Pro warning:</strong> Don’t roll your own password hashing + session system for your first product. Learn it academically, but ship with a provider.
+          </div>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Token storage (important)</h3>
+          <ul class="list">
+            <li><strong>HTTP-only cookies</strong> are safer against XSS token theft.</li>
+            <li><strong>localStorage</strong> is convenient but riskier (XSS).</li>
+            <li>Use CSRF protection when using cookies.</li>
+          </ul>
+
+          <div class="note">
+            For MVPs with trusted auth providers, follow their recommended pattern.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass pad">
+      <h2 class="h2">5) A real “permissions” model (nobody tells beginners)</h2>
+      <p class="muted">
+        Most apps fail because permissions are vague. Decide early:
+      </p>
+      <ul class="list">
+        <li>Who can read what?</li>
+        <li>Who can write what?</li>
+        <li>Who is the owner of a record?</li>
+        <li>What is public vs private?</li>
+      </ul>
+
+      <h3 class="h3">Example policy (simple)</h3>
+      <pre class="pre"><code class="mono">Posts:
+- Anyone can read published posts
+- Only the owner can edit/delete their posts
+- Admin can moderate
+
+Users:
+- Users can read their own profile
+- Users can update their own displayName
+- Email is private</code></pre>
+
+      <div class="note">
+        <strong>Pro trick:</strong> Write these rules in plain English first, then translate into database rules / middleware.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">Stage 3 assignment</h2>
+          <ol class="list">
+            <li>Create a <code>/api/posts</code> endpoint (mock data is fine)</li>
+            <li>Fetch it from the frontend and render on a new page (<code>posts.html</code>)</li>
+            <li>Choose a DB direction (SQL or NoSQL) and write your data model in a README</li>
+            <li>Pick an auth provider for future stages</li>
+          </ol>
+        </div>
+        <div class="split-side">
+          <h3 class="h3">Stage 3 launch checklist</h3>
+          <ul class="checklist">
+            <li>API has a health endpoint</li>
+            <li>Input validation is enforced server-side</li>
+            <li>Permission rules are written in plain English</li>
+            <li>You understand tokens vs sessions</li>
+          </ul>
+          <a class="btn btn-primary" href="stage4.html">Continue to Stage 4 →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="stage-nav bottom">
+      <a class="btn btn-ghost" href="stage2.html">← Prev: Stage 2</a>
+      <a class="btn btn-primary" href="stage4.html">Next: Stage 4 →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span class="muted">Stage 3 • Backend</span>
+      <a class="muted" href="../resources.html">Resources</a>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

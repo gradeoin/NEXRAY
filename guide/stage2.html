@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Stage 2: Frontend — modern CSS, JS fundamentals, UI layouts, accessibility, motion, and three.js illustrations." />
+  <meta name="theme-color" content="#ff5a1f" />
+  <title>Stage 2 — Frontend • NEXRAY</title>
+
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="NEXRAY home">
+        <img src="../assets/icons/logo-mark.svg" alt="" class="brand-mark" />
+        <span class="brand-name">NEXRAY</span>
+        <span class="brand-tag">Zero → Pro Web Dev (2026)</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+        <div id="navMenu" class="nav-menu" data-nav-menu>
+          <a class="nav-link" href="../index.html">Home</a>
+          <a class="nav-link" href="../resources.html">Resources</a>
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container page">
+    <header class="page-head">
+      <p class="pill"><strong>Stage 2</strong> • Frontend</p>
+      <h1 class="h1">CSS + JavaScript + modern layout systems</h1>
+      <p class="lead">
+        You’ll learn how to build UI that looks modern in 2026: grids, type scale, glassmorphism,
+        smooth motion, and real accessibility. Plus: animated illustrations with <strong>three.js</strong>.
+      </p>
+
+      <div class="stage-nav">
+        <a class="btn btn-ghost" href="stage1.html">← Prev: Stage 1</a>
+        <a class="btn btn-primary" href="stage3.html">Next: Stage 3 →</a>
+      </div>
+
+      <div class="search-row">
+        <input class="input" type="search" placeholder="Search this page (press /)" data-page-search aria-label="Search Stage 2" />
+        <span class="muted tiny">Tip: Press <kbd class="kbd">/</kbd> anywhere to focus search.</span>
+      </div>
+    </header>
+
+    <section class="section glass pad">
+      <h2 class="h2">1) CSS that scales (design tokens)</h2>
+      <p class="muted">
+        In real products, CSS becomes unmaintainable when everyone makes random colors, random spacing, random shadows.
+        Fix that with tokens (CSS variables).
+      </p>
+
+      <h3 class="h3">Example tokens (already used in this project)</h3>
+      <pre class="pre"><code class="mono">:root {
+  --bg: #0b0b10;
+  --card: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.14);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+
+  --accent: #ff5a1f;
+  --accent2: #ff8a4c;
+
+  --radius: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,0.35);
+  --blur: 14px;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 44px;
+}</code></pre>
+
+      <div class="note">
+        <strong>Pro trick:</strong> If your UI looks “off”, it’s usually because you’re not consistent with spacing and type scale—not because you need a new font.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">2) Layout: grid + flex (use both)</h2>
+          <p class="muted">
+            Flexbox is great for 1‑D layout (a row or a column). Grid is great for 2‑D layout (rows + columns).
+            Modern sites use both.
+          </p>
+
+          <h3 class="h3">Grid example</h3>
+          <pre class="pre"><code class="mono">.cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.card {
+  grid-column: span 4;
+}
+
+@media (max-width: 900px) {
+  .card { grid-column: span 6; }
+}
+@media (max-width: 600px) {
+  .card { grid-column: span 12; }
+}</code></pre>
+
+          <h3 class="h3">Flex example</h3>
+          <pre class="pre"><code class="mono">.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}</code></pre>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Where to steal layouts (smartly)</h3>
+          <ul class="list">
+            <li><a href="https://layouts.dev" target="_blank" rel="noreferrer">layouts.dev</a> for structure</li>
+            <li><a href="https://designlib.vercel.app/categories/inspirations" target="_blank" rel="noreferrer">designlib inspirations</a> for vibe</li>
+            <li><a href="https://www.footer.design/" target="_blank" rel="noreferrer">footer.design</a> for footers</li>
+          </ul>
+
+          <div class="note">
+            <strong>Rule:</strong> Copy patterns, not pixels. Keep your own brand tokens (color, radius, type).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass pad">
+      <h2 class="h2">3) JavaScript fundamentals that actually matter</h2>
+      <div class="grid-2">
+        <div class="card glass">
+          <h3>DOM + events</h3>
+          <pre class="pre"><code class="mono">const btn = document.querySelector('[data-like]');
+btn.addEventListener('click', () =&gt; {
+  btn.classList.toggle('is-on');
+});</code></pre>
+          <p class="muted">This is the core interaction model: select → listen → update DOM.</p>
+        </div>
+        <div class="card glass">
+          <h3>Async + fetch</h3>
+          <pre class="pre"><code class="mono">async function load() {
+  const res = await fetch('/api/posts');
+  if (!res.ok) throw new Error('Failed');
+  return await res.json();
+}</code></pre>
+          <p class="muted">This is how your frontend talks to your backend (Stage 3).</p>
+        </div>
+      </div>
+
+      <h3 class="h3">The “component” mindset (no framework required)</h3>
+      <p class="muted">
+        A component is just: structure (HTML) + style (CSS) + behavior (JS) with a clear API.
+        Frameworks help you manage components at scale—but you can learn the concept now.
+      </p>
+      <pre class="pre"><code class="mono">&lt;!-- Example component: a callout --&gt;
+&lt;div class="note"&gt;
+  &lt;strong&gt;Heads up:&lt;/strong&gt; This is a reusable callout.
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">4) Accessibility (A11y) = quality</h2>
+          <p class="muted">
+            Accessibility isn’t “extra.” It’s core product quality. It improves SEO, usability, and trust.
+          </p>
+          <ul class="list">
+            <li>Use real buttons for actions</li>
+            <li>Visible focus states for keyboard users</li>
+            <li>Readable contrast (especially on glass)</li>
+            <li>Alt text for meaningful images</li>
+            <li>Use semantic headings (H1 → H2 → H3)</li>
+          </ul>
+
+          <h3 class="h3">Focus state example</h3>
+          <pre class="pre"><code class="mono">:focus-visible {
+  outline: 3px solid rgba(255, 90, 31, 0.85);
+  outline-offset: 3px;
+}</code></pre>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Motion that doesn’t annoy people</h3>
+          <p class="muted">
+            Use subtle transitions. Respect reduced motion.
+          </p>
+          <pre class="pre"><code class="mono">@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass pad">
+      <h2 class="h2">5) three.js animated illustration (lightweight)</h2>
+      <p class="muted">
+        This project already includes a decorative 3D scene on the homepage (<code>#heroCanvas</code>).
+        Here’s how it works and how to make your own.
+      </p>
+
+      <h3 class="h3">Where the code lives</h3>
+      <ul class="list">
+        <li><code>js/three-scene.js</code>: imports three.js from CDN and renders a scene</li>
+        <li>Canvas: <code>&lt;canvas id="heroCanvas"&gt;</code> in <code>index.html</code></li>
+      </ul>
+
+      <h3 class="h3">Minimal mental model</h3>
+      <ul class="list">
+        <li><strong>Scene</strong>: holds objects</li>
+        <li><strong>Camera</strong>: viewpoint</li>
+        <li><strong>Renderer</strong>: draws to canvas</li>
+        <li><strong>Geometry + Material</strong>: shape + surface</li>
+        <li><strong>Animation loop</strong>: updates + render per frame</li>
+      </ul>
+
+      <div class="note">
+        <strong>Pro trick:</strong> Keep 3D “decorative” unless your product is truly 3D. It should not block the core experience.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">6) Frameworks (optional, but understand why)</h2>
+          <p class="muted">
+            A framework helps when your UI becomes complex: routing, state, components, data fetching, forms, etc.
+            But don’t use a framework to avoid learning fundamentals.
+          </p>
+
+          <h3 class="h3">When to adopt React (or similar)</h3>
+          <ul class="list">
+            <li>Many interactive components with shared state</li>
+            <li>Complex forms and validation</li>
+            <li>Large teams working on UI consistently</li>
+            <li>You want an app-like experience</li>
+          </ul>
+
+          <h3 class="h3">When not to</h3>
+          <ul class="list">
+            <li>Marketing site / docs / blog with minimal interactivity</li>
+            <li>You’re still learning HTML/CSS/JS basics</li>
+          </ul>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Stage 2 launch checklist</h3>
+          <ul class="checklist">
+            <li>Layout responsive and consistent</li>
+            <li>Accessible focus states + headings</li>
+            <li>Animations respect reduced motion</li>
+            <li>3D scene is optional + doesn’t tank performance</li>
+          </ul>
+          <a class="btn btn-primary" href="stage3.html">Continue to Stage 3 →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="stage-nav bottom">
+      <a class="btn btn-ghost" href="stage1.html">← Prev: Stage 1</a>
+      <a class="btn btn-primary" href="stage3.html">Next: Stage 3 →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span class="muted">Stage 2 • Frontend</span>
+      <a class="muted" href="../resources.html">Resources</a>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

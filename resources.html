@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Resources for learning modern web development in 2026: tools, references, checklists, and templates." />
+  <meta name="theme-color" content="#ff5a1f" />
+  <title>Resources • NEXRAY</title>
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="NEXRAY home">
+        <img src="assets/icons/logo-mark.svg" alt="" class="brand-mark" />
+        <span class="brand-name">NEXRAY</span>
+        <span class="brand-tag">Zero → Pro Web Dev (2026)</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+
+        <div id="navMenu" class="nav-menu" data-nav-menu>
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link is-active" href="resources.html">Resources</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container page">
+    <header class="page-head">
+      <h1 class="h1">Resources (2026 toolbox)</h1>
+      <p class="lead">
+        Fast links, templates, and checklists. These are the tools you’ll see across the 7 stages.
+      </p>
+    </header>
+
+    <section class="section glass pad">
+      <h2 class="h2">Modern UI inspiration (requested)</h2>
+      <div class="cards-grid">
+        <a class="card glass" href="https://layouts.dev" target="_blank" rel="noreferrer">
+          <h3>layouts.dev</h3>
+          <p>Layout patterns you can remix. Great for hero sections, grids, landing pages.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="https://designlib.vercel.app/categories/inspirations" target="_blank" rel="noreferrer">
+          <h3>designlib inspirations</h3>
+          <p>Curated design inspiration; great for modern spacing, type, and component vibes.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="https://www.footer.design/" target="_blank" rel="noreferrer">
+          <h3>footer.design</h3>
+          <p>Footers that don’t feel like an afterthought.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+      </div>
+      <div class="note">
+        Pro tip: don’t copy layouts 1:1. Copy the <strong>system</strong>: spacing, type scale, grid rules, and how components repeat.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">Recommended 2026 stack options</h2>
+          <p class="muted">
+            You can be successful with many stacks. These options show up in the Stage pages:
+          </p>
+
+          <div class="stack-list">
+            <div class="stack-item">
+              <h3>Static / frontend</h3>
+              <ul class="list">
+                <li>Plain HTML/CSS/JS (this project)</li>
+                <li>Optional framework: React (or equivalent)</li>
+                <li>Build tool: Vite (when you switch to modules/components)</li>
+              </ul>
+            </div>
+            <div class="stack-item">
+              <h3>Backend</h3>
+              <ul class="list">
+                <li>Node.js (Express/Fastify) for learning fundamentals</li>
+                <li>Serverless: Cloudflare Workers / Functions</li>
+                <li>Firebase (Auth + Firestore) for speed</li>
+              </ul>
+            </div>
+            <div class="stack-item">
+              <h3>Data</h3>
+              <ul class="list">
+                <li>NoSQL: Firestore / Dynamo style</li>
+                <li>SQL: Postgres (Supabase/Neon/etc.)</li>
+                <li>Search: Algolia/Meilisearch style tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">The meta skill</h3>
+          <p>
+            Tools change. Fundamentals don’t. Learn: <strong>HTTP</strong>, <strong>DOM</strong>, <strong>security basics</strong>,
+            <strong>performance</strong>, and <strong>product thinking</strong>. Then switch stacks whenever you want.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklists" class="section glass pad">
+      <h2 class="h2">Copy‑paste checklists</h2>
+
+      <div class="checklist-grid">
+        <div class="card glass">
+          <h3>Pre‑launch checklist</h3>
+          <ul class="list">
+            <li>Mobile layout tested (small + large phones)</li>
+            <li>Keyboard nav works (Tab/Shift+Tab)</li>
+            <li>Meta title/description set per page</li>
+            <li>OpenGraph image set</li>
+            <li>404 page strategy (Stage 7)</li>
+            <li>Performance: images optimized</li>
+            <li>Analytics installed (privacy‑aware)</li>
+          </ul>
+        </div>
+
+        <div class="card glass">
+          <h3>Security baseline</h3>
+          <ul class="list">
+            <li>No secrets in frontend code</li>
+            <li>Rate limit API endpoints</li>
+            <li>Validate all input server‑side</li>
+            <li>Use HTTPS only</li>
+            <li>Auth tokens stored safely (avoid localStorage for high‑risk)</li>
+          </ul>
+        </div>
+
+        <div class="card glass">
+          <h3>SEO baseline</h3>
+          <ul class="list">
+            <li>Unique H1 per page</li>
+            <li>Logical headings (H2/H3) used correctly</li>
+            <li>Alt text for meaningful images</li>
+            <li>Internal linking between stages</li>
+            <li>Clean URLs + sitemap (Stage 7)</li>
+            <li>Schema.org where useful (Stage 7)</li>
+          </ul>
+        </div>
+
+        <div class="card glass">
+          <h3>Brand polish</h3>
+          <ul class="list">
+            <li>Consistent spacing scale (8px grid)</li>
+            <li>Consistent radius & shadow tokens</li>
+            <li>One primary accent color (orange)</li>
+            <li>Buttons have hover/focus states</li>
+            <li>Readable line length (~65 characters)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">Three.js + 3D assets (how to keep it light)</h2>
+          <p class="muted">
+            This project includes a decorative three.js scene. For real products, keep 3D optional:
+          </p>
+          <ul class="list">
+            <li>Only animate when in view (IntersectionObserver)</li>
+            <li>Prefer simple geometry + 1–2 lights</li>
+            <li>Lower pixel ratio on mobile</li>
+            <li>Provide a “Reduce motion” mode</li>
+          </ul>
+          <p class="muted">
+            You’ll learn these techniques in Stage 2 (frontend) and Stage 5 (pro polish).
+          </p>
+        </div>
+        <div class="split-side">
+          <h3 class="h3">Icon & image editing</h3>
+          <ul class="checklist">
+            <li>SVG icons are editable in any vector editor</li>
+            <li>Use modern formats (AVIF/WebP) for photos</li>
+            <li>Use Cloudinary for dynamic transformations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span class="muted">© 2026 NEXRAY</span>
+      <a class="muted" href="guide/stage1.html">Start Stage 1</a>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

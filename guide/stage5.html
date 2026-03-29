@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Stage 5: Professional features — Cloudinary media, emails, logging, rate limits, analytics, UX polish, and legal basics." />
+  <meta name="theme-color" content="#ff5a1f" />
+  <title>Stage 5 — Pro Features • NEXRAY</title>
+
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="NEXRAY home">
+        <img src="../assets/icons/logo-mark.svg" alt="" class="brand-mark" />
+        <span class="brand-name">NEXRAY</span>
+        <span class="brand-tag">Zero → Pro Web Dev (2026)</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+        <div id="navMenu" class="nav-menu" data-nav-menu>
+          <a class="nav-link" href="../index.html">Home</a>
+          <a class="nav-link" href="../resources.html">Resources</a>
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container page">
+    <header class="page-head">
+      <p class="pill"><strong>Stage 5</strong> • Pro Features</p>
+      <h1 class="h1">Professional features nobody explains</h1>
+      <p class="lead">
+        This stage is the difference between “a site” and “a product”: media pipelines, email, reliability,
+        logging, rate limits, analytics, and UX polish.
+      </p>
+
+      <div class="stage-nav">
+        <a class="btn btn-ghost" href="stage4.html">← Prev: Stage 4</a>
+        <a class="btn btn-primary" href="stage6.html">Next: Stage 6 →</a>
+      </div>
+
+      <div class="search-row">
+        <input class="input" type="search" placeholder="Search this page (press /)" data-page-search aria-label="Search Stage 5" />
+        <span class="muted tiny">Tip: Press <kbd class="kbd">/</kbd> anywhere to focus search.</span>
+      </div>
+    </header>
+
+    <section class="section glass pad">
+      <h2 class="h2">1) Media hosting with Cloudinary (the pro pipeline)</h2>
+      <p class="muted">
+        Uploading images directly into your repo is fine for tiny projects, but products need a pipeline:
+        upload → transform → deliver fast. Cloudinary gives you optimized delivery and transformations.
+      </p>
+
+      <h3 class="h3">Why Cloudinary matters</h3>
+      <ul class="list">
+        <li>Automatic format selection (WebP/AVIF where supported)</li>
+        <li>Resize/crop on the fly (thumbnails, banners)</li>
+        <li>CDN delivery</li>
+      </ul>
+
+      <h3 class="h3">Example URL pattern (concept)</h3>
+      <pre class="pre"><code class="mono">https://res.cloudinary.com/&lt;cloud&gt;/image/upload/
+  f_auto,q_auto,w_1200,c_fill,g_auto/
+  your-folder/hero.jpg</code></pre>
+
+      <div class="note">
+        <strong>Pro trick:</strong> Always serve responsive images. Don’t ship a 4000px hero to a phone.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">2) Email: templates + domain email (name@yourdomain.com)</h2>
+          <p class="muted">
+            Email is a core product feature: onboarding, password resets, receipts, notifications.
+            And domain email makes you look instantly more legit.
+          </p>
+
+          <h3 class="h3">Set up domain email (high level)</h3>
+          <ol class="list">
+            <li>Choose email provider (workspace-style or forwarding)</li>
+            <li>Add <strong>MX records</strong> in DNS (routes email)</li>
+            <li>Add <strong>SPF</strong> TXT record (who can send)</li>
+            <li>Add <strong>DKIM</strong> TXT record (signature)</li>
+            <li>Add <strong>DMARC</strong> TXT record (policy + reporting)</li>
+          </ol>
+
+          <div class="note">
+            <strong>Deliverability pro tip:</strong> Without SPF/DKIM/DMARC, your emails are more likely to be spam.
+          </div>
+
+          <h3 class="h3">HTML email template (simple, safe)</h3>
+          <p class="muted">
+            Email HTML is old-school: tables, inline styles, and maximum compatibility. Keep it simple.
+          </p>
+
+          <pre class="pre"><code class="mono">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;body style="margin:0;padding:0;background:#0b0b10;"&gt;
+    &lt;table role="presentation" width="100%" cellpadding="0" cellspacing="0"&gt;
+      &lt;tr&gt;
+        &lt;td align="center" style="padding:24px;"&gt;
+          &lt;table role="presentation" width="600" cellpadding="0" cellspacing="0"
+            style="background:#11111a;border-radius:16px;overflow:hidden;"&gt;
+
+            &lt;tr&gt;
+              &lt;td style="padding:22px 22px 10px;color:#fff;font-family:Arial,sans-serif;"&gt;
+                &lt;div style="font-size:18px;font-weight:bold;"&gt;NEXRAY&lt;/div&gt;
+                &lt;div style="opacity:.8;margin-top:6px;"&gt;Welcome — you’re in.&lt;/div&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+
+            &lt;tr&gt;
+              &lt;td style="padding:0 22px 22px;color:#fff;font-family:Arial,sans-serif;line-height:1.5;"&gt;
+                &lt;div style="margin-top:10px;"&gt;
+                  Your account is ready. Here’s your quick start:
+                &lt;/div&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Finish your profile&lt;/li&gt;
+                  &lt;li&gt;Create your first project&lt;/li&gt;
+                &lt;/ul&gt;
+
+                &lt;a href="https://yourdomain.com"
+                  style="display:inline-block;margin-top:12px;background:#ff5a1f;color:#111;
+                  text-decoration:none;padding:12px 16px;border-radius:12px;font-weight:bold;"&gt;
+                  Open dashboard
+                &lt;/a&gt;
+
+                &lt;div style="margin-top:16px;opacity:.75;font-size:12px;"&gt;
+                  If you didn’t request this, you can ignore this email.
+                &lt;/div&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+
+          &lt;/table&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Transactional email sending (concept)</h3>
+          <p class="muted">Typical backend flow:</p>
+          <pre class="pre"><code class="mono">POST /api/contact
+  - validate input
+  - store in DB
+  - send transactional email
+  - return ok</code></pre>
+
+          <h3 class="h3">Don’t leak secrets</h3>
+          <ul class="checklist">
+            <li>API keys only in server env vars</li>
+            <li>No keys in client JS</li>
+            <li>Log safely (no passwords, no tokens)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass pad">
+      <h2 class="h2">3) Logging, monitoring, and “debugging in production”</h2>
+      <p class="muted">
+        When users report “it’s broken,” you need evidence. You don’t guess—you observe.
+      </p>
+
+      <h3 class="h3">What to log</h3>
+      <ul class="list">
+        <li>Request ID, route, status code, latency</li>
+        <li>User ID (if authenticated), but not sensitive PII</li>
+        <li>Errors with stack traces (server-side)</li>
+      </ul>
+
+      <h3 class="h3">Pro pattern: request IDs</h3>
+      <pre class="pre"><code class="mono">const requestId = crypto.randomUUID();
+console.log({ requestId, route: req.path });</code></pre>
+
+      <div class="note">
+        <strong>Pro trick:</strong> Put the request ID in the response so the user can screenshot it and you can find it in logs.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">4) Rate limiting (protect your API)</h2>
+          <p class="muted">
+            If you have a contact form or login endpoint, bots will spam it. Rate limiting reduces abuse.
+          </p>
+
+          <h3 class="h3">Simple rule example</h3>
+          <pre class="pre"><code class="mono">/api/contact:
+- max 5 requests per minute per IP
+- blocklist suspicious patterns</code></pre>
+
+          <div class="note">
+            Rate limiting is easiest at the edge (CDN/Workers) because it’s close to the user and faster to enforce.
+          </div>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Legal basics (don’t skip)</h3>
+          <ul class="list">
+            <li>Privacy policy (if you collect data)</li>
+            <li>Cookie notice if required in your region</li>
+            <li>Terms of service if you offer accounts/paid features</li>
+          </ul>
+          <p class="muted tiny">Not legal advice—use a lawyer for serious products.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass pad">
+      <h2 class="h2">5) Hidden pro developer tricks (the spicy ones)</h2>
+      <div class="checklist-grid">
+        <div class="card glass">
+          <h3>“Make it feel expensive” checklist</h3>
+          <ul class="list">
+            <li>Reduce visual noise: fewer borders, more spacing</li>
+            <li>Use one accent color, not five</li>
+            <li>Motion: 120–220ms transitions, ease-out</li>
+            <li>Consistent radii and shadows</li>
+            <li>Text: line-height 1.5–1.7 for paragraphs</li>
+          </ul>
+        </div>
+        <div class="card glass">
+          <h3>Performance hacks</h3>
+          <ul class="list">
+            <li>Ship fewer fonts/weights</li>
+            <li>Use image compression + responsive sizes</li>
+            <li>Defer non-critical scripts</li>
+            <li>Only animate transform/opacity</li>
+          </ul>
+        </div>
+        <div class="card glass">
+          <h3>Reliability habits</h3>
+          <ul class="list">
+            <li>Feature flags for risky changes</li>
+            <li>Rollback plan before deploy</li>
+            <li>Backups for DB</li>
+            <li>Staging environment for big releases</li>
+          </ul>
+        </div>
+        <div class="card glass">
+          <h3>Product thinking</h3>
+          <ul class="list">
+            <li>Measure activation (first success action)</li>
+            <li>Make onboarding 3 steps max</li>
+            <li>Log drop-off points</li>
+            <li>Write clear empty states</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">Stage 5 assignment</h2>
+          <ol class="list">
+            <li>Pick a media strategy (local assets vs Cloudinary)</li>
+            <li>Draft a transactional email template (welcome or password reset)</li>
+            <li>Add basic logging to your API (request IDs)</li>
+            <li>Create a rate limit plan for your public endpoints</li>
+          </ol>
+        </div>
+        <div class="split-side">
+          <h3 class="h3">Stage 5 launch checklist</h3>
+          <ul class="checklist">
+            <li>Media pipeline decided</li>
+            <li>Email authentication terms understood (SPF/DKIM/DMARC)</li>
+            <li>Logging plan exists</li>
+            <li>Rate limiting plan exists</li>
+          </ul>
+          <a class="btn btn-primary" href="stage6.html">Continue to Stage 6 →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="stage-nav bottom">
+      <a class="btn btn-ghost" href="stage4.html">← Prev: Stage 4</a>
+      <a class="btn btn-primary" href="stage6.html">Next: Stage 6 →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span class="muted">Stage 5 • Pro Features</span>
+      <a class="muted" href="../resources.html">Resources</a>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

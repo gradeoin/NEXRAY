@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A modern 2026 Gen‑Z styled guide to learn web development from absolute beginner to pro." />
+  <meta name="theme-color" content="#ff5a1f" />
+  <title>NEXRAY • Learn Web Dev from Zero → Pro (2026)</title>
+
+  <meta property="og:title" content="NEXRAY • Learn Web Dev from Zero → Pro (2026)" />
+  <meta property="og:description" content="Multi‑stage, step‑by‑step guide: HTML/CSS/JS → Backend → DevOps → Pro tricks → Android app → SEO & marketing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-cover.svg" />
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="NEXRAY home">
+        <img src="assets/icons/logo-mark.svg" alt="" class="brand-mark" />
+        <span class="brand-name">NEXRAY</span>
+        <span class="brand-tag">Zero → Pro Web Dev (2026)</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+
+        <div id="navMenu" class="nav-menu" data-nav-menu>
+          <a class="nav-link is-active" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="resources.html">Resources</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="pill">
+            <img src="assets/icons/spark.svg" alt="" />
+            2026‑optimized workflows • Gen‑Z clean • Actually practical
+          </p>
+
+          <h1 class="h-display">
+            Learn Web Dev <span class="accent">from Zero → Pro</span><br />
+            with a real, modern roadmap.
+          </h1>
+
+          <p class="lead">
+            This is a multi‑page guide with <strong>7 stages</strong> that takes you from “what is a website?” to
+            <strong>shipping a branded product</strong>, deploying it, and even building an <strong>Android app version</strong>.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="guide/stage1.html">Start Stage 1</a>
+            <a class="btn btn-ghost" href="resources.html">Toolbox & links</a>
+          </div>
+
+          <div class="hero-mini-grid">
+            <div class="mini-card glass">
+              <h3>What you’ll build</h3>
+              <p>
+                A real multi‑page site, a backend API, auth, media hosting, CI/CD, DNS, performance, SEO,
+                and a publishable mobile app wrapper.
+              </p>
+            </div>
+            <div class="mini-card glass">
+              <h3>How to use this</h3>
+              <p>
+                Read each Stage page in order. Copy/paste code. Run it locally. Deploy at the end of each stage.
+                This guide is designed to be <strong>action-first</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glass visual-card">
+            <div class="visual-topbar">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="visual-title">three.js • decorative scene</span>
+            </div>
+            <canvas id="heroCanvas" class="three-canvas" aria-label="3D decorative animation"></canvas>
+            <div class="visual-caption">
+              Smooth, lightweight 3D for vibes—built with <code>three.js</code> in <strong>js/three-scene.js</strong>.
+              Uses CDN imports so the project stays ZIP‑friendly.
+            </div>
+          </div>
+
+          <div class="stage-stack">
+            <a class="stage-chip" href="guide/stage1.html"><span>Stage 1</span> Basics</a>
+            <a class="stage-chip" href="guide/stage2.html"><span>Stage 2</span> Frontend</a>
+            <a class="stage-chip" href="guide/stage3.html"><span>Stage 3</span> Backend</a>
+            <a class="stage-chip" href="guide/stage4.html"><span>Stage 4</span> DevOps</a>
+            <a class="stage-chip" href="guide/stage5.html"><span>Stage 5</span> Pro Features</a>
+            <a class="stage-chip" href="guide/stage6.html"><span>Stage 6</span> Android App</a>
+            <a class="stage-chip" href="guide/stage7.html"><span>Stage 7</span> Deploy + SEO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-head">
+        <h2 class="h2">The 7‑Stage roadmap (bookmark this)</h2>
+        <p class="muted">
+          The goal isn’t “learn everything.” The goal is to <strong>ship</strong>. You’ll keep leveling up by building.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <a class="card glass" href="guide/stage1.html">
+          <h3>Stage 1 — Basics</h3>
+          <p>What a website is, HTML foundations, free hosting, domains vs subdomains, and your first deploy.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="guide/stage2.html">
+          <h3>Stage 2 — Frontend</h3>
+          <p>Modern CSS, JS fundamentals, components, motion, accessibility, and layout systems.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="guide/stage3.html">
+          <h3>Stage 3 — Backend</h3>
+          <p>APIs, databases, authentication, serverless vs servers, and real app data flows.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="guide/stage4.html">
+          <h3>Stage 4 — DevOps</h3>
+          <p>GitHub, CI/CD, Cloudflare DNS/CDN, caching, Workers, secrets, and safe deploy practices.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="guide/stage5.html">
+          <h3>Stage 5 — Pro features</h3>
+          <p>Error budgets, logging, rate limits, analytics, emails, legal basics, and UX polish.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="guide/stage6.html">
+          <h3>Stage 6 — Android app</h3>
+          <p>2026‑friendly methods: PWA install, Trusted Web Activity, Capacitor, and modern release steps.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+        <a class="card glass" href="guide/stage7.html">
+          <h3>Stage 7 — Deploy + SEO + Marketing</h3>
+          <p>Performance, SEO, schema, social previews, content, conversion, and launch strategy.</p>
+          <span class="card-arrow">Open →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="split glass">
+        <div>
+          <h2 class="h2">Local dev (2026 best practice)</h2>
+          <p class="muted">
+            Opening HTML files directly works, but modules (like <code>three.js</code>) prefer an HTTP server.
+            Use one of these:
+          </p>
+
+          <div class="code-grid">
+            <div class="codebox">
+              <h3>Option A: VS Code Live Server</h3>
+              <ol>
+                <li>Install the “Live Server” extension</li>
+                <li>Right‑click <code>index.html</code> → “Open with Live Server”</li>
+              </ol>
+            </div>
+
+            <div class="codebox">
+              <h3>Option B: Node</h3>
+              <pre class="pre"><code class="mono"># in the project folder
+npx serve</code></pre>
+            </div>
+
+            <div class="codebox">
+              <h3>Option C: Python</h3>
+              <pre class="pre"><code class="mono"># in the project folder
+python -m http.server 5173</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-side">
+          <h3 class="h3">Design system vibe</h3>
+          <ul class="checklist">
+            <li>Orange + white core palette</li>
+            <li>Glassmorphism layers + blur</li>
+            <li>Soft shadows, rounded corners</li>
+            <li>Motion that feels “alive” (but not chaotic)</li>
+            <li>Readable typography + code blocks</li>
+          </ul>
+          <p class="muted">
+            Everything is built from plain HTML/CSS/JS so you can understand it. Then Stage 2 shows how to
+            evolve into framework patterns (React optional).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/icons/logo-mark.svg" alt="" />
+          <div>
+            <div class="footer-title">NEXRAY</div>
+            <div class="footer-sub">Learn Web Dev from Zero → Pro (2026)</div>
+          </div>
+        </div>
+        <p class="muted">
+          Built as a multi‑page tutorial site. You can deploy it as‑is, then progressively upgrade it in each stage.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="guide/stage1.html">Stage 1</a>
+        <a href="guide/stage2.html">Stage 2</a>
+        <a href="guide/stage3.html">Stage 3</a>
+        <a href="guide/stage4.html">Stage 4</a>
+        <a href="guide/stage5.html">Stage 5</a>
+        <a href="guide/stage6.html">Stage 6</a>
+        <a href="guide/stage7.html">Stage 7</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+        <a href="resources.html#checklists">Checklists</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span class="muted">© 2026 NEXRAY. Orange era forever.</span>
+      <span class="muted">Tip: Press <kbd class="kbd">/</kbd> to focus search on Stage pages.</span>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script type="module" src="js/three-scene.js"></script>
+</body>
+</html>
