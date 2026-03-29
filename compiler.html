@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Code Compiler | Nexray</title>
+  <meta name="description" content="Write and preview HTML, CSS, and JS directly in your browser with the Nexray Live Compiler." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Live Code Compiler � Write HTML CSS JS Online | Nexray" />
+  <meta property="og:description" content="Write and preview HTML, CSS, and JavaScript in real-time with Nexray's free online code compiler." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Live Code Compiler � Write HTML CSS JS Online | Nexray" />
+  <meta name="twitter:description" content="Write and preview HTML, CSS, and JavaScript in real-time with Nexray's free online code compiler." />
+  <meta name="theme-color" content="#0038FF">
+  <style>
+    body { height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+    .page-wrapper { flex: 1; display: flex; padding-top: var(--nav-h); height: calc(100vh - var(--nav-h)); }
+    
+    .compiler-layout {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+    }
+    
+    /* Left Panel: Guide & Editors */
+    .editor-section {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid rgba(0,56,255,0.12);
+      background: var(--bg-2);
+    }
+
+    /* Floating Guide Tab */
+    .guide-panel {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--bg-card), rgba(0,56,255,0.05));
+      border-bottom: 2px solid rgba(0,56,255,0.12);
+      flex-shrink: 0;
+    }
+    .guide-panel h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; color: var(--brand);}
+    .guide-panel p { color: var(--text-2); font-size: 0.9rem; line-height: 1.5;}
+    .guide-code-chip { background: var(--bg); border: 1px solid rgba(0,56,255,0.2); padding: 2px 6px; border-radius: 4px; font-family: monospace; color: var(--brand); cursor: pointer; transition: 0.2s; }
+    .guide-code-chip:hover { background: var(--brand-dim); border-color: var(--brand); }
+
+    .code-blocks {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .code-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(0,56,255,0.08);
+      min-height: 150px;
+    }
+
+    .compiler-code-header {
+      padding: 0.5rem 1rem;
+      background: rgba(0,56,255,0.04);
+      border-bottom: 1px solid rgba(0,56,255,0.08);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .compiler-code-header svg { color: #CCFF00; }
+
+    textarea.editor {
+      flex: 1;
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.9rem;
+      padding: 1rem;
+      resize: none;
+      outline: none;
+      line-height: 1.5;
+    }
+
+    /* Right Panel: Preview */
+    .preview-section {
+      width: 50%;
+      background: #fff;
+      position: relative;
+    }
+
+    .preview-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 2px solid #CCFF00;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    
+    .preview-header span { color: var(--brand); font-weight: 700; font-size: 0.8rem; font-family: 'Space Grotesk', monospace; text-transform: uppercase;}
+    
+    iframe#result-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding-top: 40px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1024px) {
+      .compiler-layout { flex-direction: column; }
+      .editor-section, .preview-section { width: 100%; height: 50%; border-right: none; }
+      .preview-section { border-top: 2px solid var(--brand); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="guide/stage1.html">Guide</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="#" class="active">Tools</a>
+    <a href="guide/stage1.html" class="nav-cta">Start Learning →</a>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+  <div class="compiler-layout">
+
+    <!-- Left: Editors -->
+    <div class="editor-section">
+      
+      <!-- Built-in Guide -->
+      <div class="guide-panel">
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Mission: Your First Code</h3>
+        <p>Try typing <span class="guide-code-chip" onclick="insertCode('html', '&lt;h1&gt;Hello World!&lt;/h1&gt;\n&lt;p&gt;I am learning to code.&lt;/p&gt;')">&lt;h1&gt;Hello World!&lt;/h1&gt;</span> in the HTML box below. Watch it instantly render on the right! Then, add some CSS <span class="guide-code-chip" onclick="insertCode('css', 'h1 { color: #0038FF; font-family: sans-serif; }')">h1 { color: blue; }</span> to style it.</p>
+      </div>
+
+      <div class="code-blocks">
+        <!-- HTML -->
+        <div class="code-box">
+          <div class="compiler-code-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> INDEX.HTML</div>
+          <textarea id="html-editor" class="editor" placeholder="<!-- Write HTML here... -->
+<div class='card'>
+  <h2>Hello Nexray!</h2>
+</div>"></textarea>
+        </div>
+        
+        <!-- CSS -->
+        <div class="code-box">
+          <div class="compiler-code-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> STYLE.CSS</div>
+          <textarea id="css-editor" class="editor" placeholder="/* Write CSS here... */
+body { font-family: system-ui, sans-serif; }
+.card { padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; margin: 20px; }
+h2 { color: #0038FF; }"></textarea>
+        </div>
+
+        <!-- JS -->
+        <div class="code-box" style="border-bottom:none;">
+          <div class="compiler-code-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> APP.JS</div>
+          <textarea id="js-editor" class="editor" placeholder="// Write JavaScript here...
+console.log('Compiler ready!');"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Preview -->
+    <div class="preview-section">
+      <div class="preview-header">
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline; vertical-align:-2px; margin-right:4px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Live Output</span>
+        <button onclick="runCompiler()" class="btn btn-primary" style="padding: 4px 12px; font-size: 0.75rem; min-height:0;">Run Code</button>
+      </div>
+      <iframe id="result-frame" sandbox="allow-scripts allow-modals"></iframe>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const htmlEditor = document.getElementById('html-editor');
+  const cssEditor = document.getElementById('css-editor');
+  const jsEditor = document.getElementById('js-editor');
+  const iframe = document.getElementById('result-frame');
+
+  let timeout;
+  function updatePreview() {
+    clearTimeout(timeout);
+    timeout = setTimeout(runCompiler, 400);
+  }
+
+  [htmlEditor, cssEditor, jsEditor].forEach(editor => {
+    editor.addEventListener('input', updatePreview);
+    editor.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const start = this.selectionStart;
+        const end = this.selectionEnd;
+        this.value = this.value.substring(0, start) + "  " + this.value.substring(end);
+        this.selectionStart = this.selectionEnd = start + 2;
+      }
+    });
+  });
+
+  function runCompiler() {
+    const html = htmlEditor.value || "<div class='card'><h2>Hello Nexray!</h2></div>";
+    const css = cssEditor.value || "body { font-family: system-ui, sans-serif; } .card { padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; margin: 20px; } h2 { color: #0038FF; }";
+    const js = jsEditor.value || "console.log('Compiler ready!');";
+
+    const doc = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${html}<script>try{${js}}catch(err){document.body.innerHTML+='<pre style="color:red;padding:10px;">'+err+'</pre>'}<\/script></body></html>`;
+    
+    iframe.srcdoc = doc;
+  }
+
+  window.insertCode = function(type, code) {
+    const decoded = code.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\\n/g, '\n');
+    if(type === 'html') { htmlEditor.value = decoded; }
+    if(type === 'css') { cssEditor.value = decoded; }
+    runCompiler();
+  };
+
+  setTimeout(runCompiler, 200);
+</script>
+
+</body>
+</html>

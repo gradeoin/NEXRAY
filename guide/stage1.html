@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Stage 1: Web Dev Basics — Learn what a website is, how domains work, HTML fundamentals, and how to get your first site live for free." />
   <title>Stage 1: Basics — Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Stage 1: The Basics � HTML, DNS & Your First Website | Nexray" />
+  <meta property="og:description" content="Learn how the internet works, get your first domain, and publish a live website today. Free beginner guide by Nexray." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stage 1: The Basics � HTML, DNS & Your First Website | Nexray" />
+  <meta name="twitter:description" content="Learn how the internet works, get your first domain, and publish a live website today. Free beginner guide by Nexray." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
   <nav class="nav">
-    <a href="../index.html" class="nav-logo">
-      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <span>Nex<span class="logo-accent">ray</span></span>
-    </a>
+    <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a href="stage1.html" class="active">Guide</a>
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
-      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -69,6 +77,63 @@
 
       <!-- 1. What Is a Website -->
       <h2 class="content-heading" id="what-is-a-website">🌐 What Is a Website?</h2>
+
+<div class="illustration-block " id="illus-what-is-a-website">
+  <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Browser window -->
+  <rect x="10" y="20" width="180" height="130" rx="10" fill="none" stroke="#0038FF" stroke-width="2"/>
+  <rect x="10" y="20" width="180" height="28" rx="10" fill="#0038FF" opacity="0.15"/>
+  <circle cx="30" cy="34" r="5" fill="#0038FF" opacity="0.6"/><circle cx="47" cy="34" r="5" fill="#0038FF" opacity="0.3"/><circle cx="64" cy="34" r="5" fill="#0038FF" opacity="0.15"/>
+  <!-- URL bar -->
+  <rect x="80" y="27" width="90" height="14" rx="7" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="88" y="38" font-size="7" fill="#94a3b8" font-family="monospace">nexray.in</text>
+  <!-- Page content lines -->
+  <rect x="25" y="62" width="100" height="8" rx="4" fill="#0038FF" opacity="0.7"/>
+  <rect x="25" y="78" width="150" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <rect x="25" y="90" width="130" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+  <rect x="25" y="102" width="120" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
+  <!-- HTML/CSS/JS badges -->
+  <rect x="25" y="118" width="35" height="18" rx="6" fill="#0038FF" opacity="0.2" stroke="#0038FF" stroke-width="1"/>
+  <text x="36" y="130" font-size="7" fill="#0038FF" font-weight="bold" text-anchor="middle">HTML</text>
+  <rect x="67" y="118" width="30" height="18" rx="6" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+  <text x="82" y="130" font-size="7" fill="#3b82f6" font-weight="bold" text-anchor="middle">CSS</text>
+  <rect x="104" y="118" width="25" height="18" rx="6" fill="#eab308" opacity="0.2" stroke="#eab308" stroke-width="1"/>
+  <text x="116" y="130" font-size="7" fill="#eab308" font-weight="bold" text-anchor="middle">JS</text>
+</svg></div>
+  <div class="illus-text">
+    <h3>What Is a Website?</h3>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="15" y="25" width="170" height="110" rx="8" fill="#fafafa" stroke="#3b82f6" stroke-width="1.5"/>
+     <rect x="15" y="25" width="170" height="20" rx="8" fill="rgba(59,130,246,0.15)"/>
+     <circle cx="28" cy="35" r="4" fill="#ef4444" opacity="0.8"/>
+     <circle cx="42" cy="35" r="4" fill="#eab308" opacity="0.8"/>
+     <circle cx="56" cy="35" r="4" fill="#4ade80" opacity="0.8"/>
+     <text x="100" y="38" font-size="7" fill="#94a3b8" font-family="monospace" text-anchor="middle">workspace.sh</text>
+     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec WHAT IS A WEBSI</text>
+     <text x="25" y="85" font-size="8" fill="#4ade80" font-family="monospace">[ok] Compiling modules...</text>
+     <text x="25" y="105" font-size="8" fill="#3b82f6" font-family="monospace">[ok] Deployment successful.</text>
+     <rect x="25" y="115" width="4" height="10" fill="#0038FF">
+       <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+     </rect>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">What Is a Website? Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding What Is a Website? is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+    <p>A website is a collection of files (HTML, CSS, JS) stored on a server and accessible via a URL. Think of HTML as the skeleton, CSS as the skin, and JS as the muscles that make everything move.</p>
+    <ul><li>HTML gives structure and content</li><li>CSS styles colors, fonts, and layout</li><li>JavaScript adds interactivity and behavior</li></ul>
+  </div>
+</div>
       <p class="content-text">A website is a collection of files (HTML, CSS, JS, images) stored on a computer called a <strong>server</strong>, accessible via the internet through a unique address called a <strong>URL</strong> (Uniform Resource Locator).</p>
 
       <div class="grid-3 mt-lg mb-lg">
@@ -94,6 +159,34 @@
       <!-- 2. How Internet Works -->
       <div class="divider"></div>
       <h2 class="content-heading" id="how-internet-works">🌍 How the Internet Works (Simple Version)</h2>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <path d="M 50 80 Q 100 20 150 80" stroke="rgba(0,56,255,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 50 80 Q 100 140 150 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 100 40 L 100 120" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" fill="none"/>
+     <circle cx="50" cy="80" r="14" fill="#fafafa" stroke="#0038FF" stroke-width="2"/>
+     <circle cx="150" cy="80" r="14" fill="#fafafa" stroke="#3b82f6" stroke-width="2"/>
+     <circle cx="100" cy="40" r="12" fill="#fafafa" stroke="#4ade80" stroke-width="2"/>
+     <circle cx="100" cy="120" r="12" fill="#fafafa" stroke="#eab308" stroke-width="2"/>
+     <text x="100" y="85" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">API</text>
+     <circle cx="100" cy="80" r="4" fill="#0038FF">
+       <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+     </circle>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🌍 How the Internet Works (Simple Version) Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🌍 How the Internet Works (Simple Version) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">The internet is a massive network of computers connected by cables, fiber, and wireless signals. Here's what happens when you visit a website — in 6 steps:</p>
 
       <div class="mt-lg">
@@ -101,6 +194,28 @@
           <div class="step-number">1</div>
           <div class="step-content">
             <h3>You type a URL</h3>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="30" y="30" width="140" height="100" rx="6" fill="rgba(59,130,246,0.05)" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+     <rect x="50" y="50" width="100" height="60" rx="4" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2"/>
+     <rect x="70" y="65" width="60" height="30" rx="2" fill="rgba(0,56,255,0.2)" stroke="#0038FF" stroke-width="2"/>
+     <text x="100" y="45" font-size="7" fill="#3b82f6" text-anchor="middle">Margin</text>
+     <text x="100" y="62" font-size="7" fill="#4ade80" text-anchor="middle">Padding</text>
+     <text x="100" y="83" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">Content</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">You type a URL Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding You type a URL is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
             <p>You type <strong>https://example.com</strong> into your browser and hit Enter. The browser needs to find where this lives.</p>
           </div>
         </div>
@@ -108,6 +223,34 @@
           <div class="step-number">2</div>
           <div class="step-content">
             <h3>DNS Lookup</h3>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="10" y="65" width="40" height="30" rx="6" fill="rgba(0,56,255,0.1)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="50" y1="80" x2="80" y2="80" stroke="#0038FF" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="80" y="65" width="40" height="30" rx="6" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="1.5"/>
+     <line x1="120" y1="80" x2="150" y2="80" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="150" y="65" width="40" height="30" rx="6" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="1.5"/>
+     <text x="30" y="83" font-size="8" fill="#0038FF" text-anchor="middle">Build</text>
+     <text x="100" y="83" font-size="8" fill="#3b82f6" text-anchor="middle">Test</text>
+     <text x="170" y="83" font-size="8" fill="#4ade80" text-anchor="middle">Ship</text>
+     <circle cx="100" cy="120" r="10" fill="none" stroke="#eab308" stroke-width="2"/>
+     <path d="M 100 110 A 10 10 0 0 1 110 120" fill="none" stroke="#eab308" stroke-width="3">
+       <animateTransform attributeName="transform" type="rotate" from="0 100 120" to="360 100 120" dur="1.5s" repeatCount="indefinite"/>
+     </path>
+  </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">DNS Lookup Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding DNS Lookup is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
             <p>Your computer asks a <strong>DNS (Domain Name System)</strong> server: "What's the IP address for example.com?" The DNS server replies: "It's 93.184.216.34."</p>
           </div>
         </div>
@@ -115,6 +258,38 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <h3>TCP Connection</h3>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="20" y="20" width="160" height="120" rx="8" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="20" y1="40" x2="180" y2="40" stroke="#0038FF" stroke-width="1" opacity="0.5"/>
+     <rect x="35" y="60" width="25" height="60" rx="3" fill="rgba(59,130,246,0.5)">
+       <animate attributeName="height" values="60;40;60" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="60;80;60" dur="2s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="75" y="40" width="25" height="80" rx="3" fill="rgba(249,115,22,0.6)">
+       <animate attributeName="height" values="80;60;80" dur="2.5s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="40;60;40" dur="2.5s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="115" y="50" width="25" height="70" rx="3" fill="rgba(74,222,128,0.5)">
+       <animate attributeName="height" values="70;90;70" dur="3s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="50;30;50" dur="3s" repeatCount="indefinite"/>
+     </rect>
+     <path d="M 35 120 L 140 120" stroke="#94a3b8" stroke-width="1.5"/>
+     <text x="100" y="150" font-size="8" fill="#0038FF" text-anchor="middle" font-weight="bold">TCP CONNECTION</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">TCP Connection Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding TCP Connection is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
             <p>Your browser connects to that IP address (the web server) using TCP/IP — like an electronic handshake. HTTPS makes this connection secure.</p>
           </div>
         </div>
@@ -122,6 +297,34 @@
           <div class="step-number">4</div>
           <div class="step-content">
             <h3>HTTP Request</h3>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="15" y="25" width="170" height="110" rx="8" fill="#fafafa" stroke="#3b82f6" stroke-width="1.5"/>
+     <rect x="15" y="25" width="170" height="20" rx="8" fill="rgba(59,130,246,0.15)"/>
+     <circle cx="28" cy="35" r="4" fill="#ef4444" opacity="0.8"/>
+     <circle cx="42" cy="35" r="4" fill="#eab308" opacity="0.8"/>
+     <circle cx="56" cy="35" r="4" fill="#4ade80" opacity="0.8"/>
+     <text x="100" y="38" font-size="7" fill="#94a3b8" font-family="monospace" text-anchor="middle">workspace.sh</text>
+     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec HTTP REQUEST</text>
+     <text x="25" y="85" font-size="8" fill="#4ade80" font-family="monospace">[ok] Compiling modules...</text>
+     <text x="25" y="105" font-size="8" fill="#3b82f6" font-family="monospace">[ok] Deployment successful.</text>
+     <rect x="25" y="115" width="4" height="10" fill="#0038FF">
+       <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+     </rect>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">HTTP Request Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding HTTP Request is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
             <p>Your browser sends an HTTP GET request: "Hey server, give me the file at /index.html please."</p>
           </div>
         </div>
@@ -129,6 +332,34 @@
           <div class="step-number">5</div>
           <div class="step-content">
             <h3>Server Responds</h3>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <path d="M 50 80 Q 100 20 150 80" stroke="rgba(0,56,255,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 50 80 Q 100 140 150 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 100 40 L 100 120" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" fill="none"/>
+     <circle cx="50" cy="80" r="14" fill="#fafafa" stroke="#0038FF" stroke-width="2"/>
+     <circle cx="150" cy="80" r="14" fill="#fafafa" stroke="#3b82f6" stroke-width="2"/>
+     <circle cx="100" cy="40" r="12" fill="#fafafa" stroke="#4ade80" stroke-width="2"/>
+     <circle cx="100" cy="120" r="12" fill="#fafafa" stroke="#eab308" stroke-width="2"/>
+     <text x="100" y="85" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">API</text>
+     <circle cx="100" cy="80" r="4" fill="#0038FF">
+       <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+     </circle>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">Server Responds Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding Server Responds is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
             <p>The server sends back the HTML file along with an HTTP status code (200 = OK, 404 = Not Found, 500 = Server Error).</p>
           </div>
         </div>
@@ -144,6 +375,59 @@
       <!-- 3. Domains & DNS -->
       <div class="divider"></div>
       <h2 class="content-heading" id="domains-and-dns">🔍 Domains & DNS Explained</h2>
+
+<div class="illustration-block reverse" id="illus-domains-and-dns">
+  <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Globe -->
+  <circle cx="100" cy="80" r="55" fill="none" stroke="#0038FF" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="100" cy="80" rx="22" ry="55" fill="none" stroke="#0038FF" stroke-width="1.5" opacity="0.3"/>
+  <line x1="45" y1="80" x2="155" y2="80" stroke="#0038FF" stroke-width="1.5" opacity="0.3"/>
+  <line x1="100" y1="25" x2="100" y2="135" stroke="#0038FF" stroke-width="1.5" opacity="0.3"/>
+  <!-- DNS Arrow -->
+  <text x="55" y="55" font-size="9" fill="#94a3b8" font-family="monospace">nexray.in</text>
+  <line x1="80" y1="58" x2="108" y2="68" stroke="#0038FF" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <!-- Server dot -->
+  <circle cx="112" cy="72" r="6" fill="#0038FF"/>
+  <text x="95" y="100" font-size="8" fill="#0038FF" font-weight="bold" text-anchor="middle">192.168.1.1</text>
+</svg></div>
+  <div class="illus-text">
+    <h3>Domains & DNS Explained</h3>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="20" y="20" width="160" height="120" rx="8" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="20" y1="40" x2="180" y2="40" stroke="#0038FF" stroke-width="1" opacity="0.5"/>
+     <rect x="35" y="60" width="25" height="60" rx="3" fill="rgba(59,130,246,0.5)">
+       <animate attributeName="height" values="60;40;60" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="60;80;60" dur="2s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="75" y="40" width="25" height="80" rx="3" fill="rgba(249,115,22,0.6)">
+       <animate attributeName="height" values="80;60;80" dur="2.5s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="40;60;40" dur="2.5s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="115" y="50" width="25" height="70" rx="3" fill="rgba(74,222,128,0.5)">
+       <animate attributeName="height" values="70;90;70" dur="3s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="50;30;50" dur="3s" repeatCount="indefinite"/>
+     </rect>
+     <path d="M 35 120 L 140 120" stroke="#94a3b8" stroke-width="1.5"/>
+     <text x="100" y="150" font-size="8" fill="#0038FF" text-anchor="middle" font-weight="bold">DOMAINS & DNS E</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">Domains & DNS Explained Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding Domains & DNS Explained is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+    <p>When you type "nexray.in" in your browser, the DNS (Domain Name System) translates that human-readable name to a specific IP address like 192.168.1.1 — where the actual server lives.</p>
+    <ul><li>Domain is your site's unique address</li><li>DNS is the internet's phonebook</li><li>IP address is the server's real location</li></ul>
+  </div>
+</div>
       <p class="content-text">A <strong>domain name</strong> is the human-friendly address of a website (like <em>youtube.com</em>). Underneath, every server has a numeric IP address (like <em>142.250.80.78</em>). DNS translates domain names to IP addresses — it's the internet's phone book.</p>
 
       <h3 class="content-subheading">Anatomy of a Domain</h3>
@@ -687,19 +971,13 @@
   <footer class="footer">
     <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
       <div class="footer-brand">
-        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
-          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <span>Nex<span class="logo-accent">ray</span></span>
-        </a>
+        <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
         <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Guide</div>
-        <a href="stage1.html">Stage 1: Basics</a>
-        <a href="stage2.html">Stage 2: Frontend</a>
-        <a href="stage3.html">Stage 3: Backend</a>
-        <a href="stage4.html">Stage 4: DevOps</a>
-      </div>
+      <!-- Guide footer block removed -->
       <div class="footer-col">
         <div class="footer-col-title">Nexray</div>
         <a href="../blog/index.html">Blog</a>
@@ -722,10 +1000,17 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="../js/three-scenes.js"></script>
+  <script src="../js/dock-injector.js"></script>
   <script src="../js/main.js"></script>
   <script>
     const c = document.getElementById('stage-canvas');
-    if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0xf97316); }
+    if (c) { 
+      c.width = c.parentElement.offsetWidth; 
+      c.height = c.parentElement.offsetHeight; 
+      if (window.WebDevThree) WebDevThree.initStageScene('stage-canvas', 0xf97316); 
+    }
   </script>
+  <script src="../js/app.js"></script>
+<script src="../js/three-background.js"></script>
 </body>
 </html>

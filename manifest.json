@@ -1,0 +1,45 @@
+{
+  "name": "Nexray — Learn Web Dev from Zero to Pro",
+  "short_name": "Nexray",
+  "description": "Free 7-stage web development guide for 2026. Learn HTML, CSS, JS, Backend, DevOps, Android & Launch.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#09090f",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "developer tools"],
+  "screenshots": [
+    {
+      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Stage 1",
+      "url": "/guide/stage1.html",
+      "description": "Begin the web development basics"
+    },
+    {
+      "name": "My Dashboard",
+      "url": "/profile.html",
+      "description": "View your learning progress"
+    }
+  ]
+}

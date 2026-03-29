@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
   <meta name="description" content="Manage your Nexray profile, track learning progress, and customize your developer identity." />
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
   <style>
     .profile-avatar-ring {
       width: 110px; height: 110px;
@@ -92,6 +92,8 @@
       .profile-grid { grid-template-columns: 1fr !important; }
     }
   </style>
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 <div id="page-loader"><div class="loader-spinner"></div></div>
@@ -100,11 +102,9 @@
 
 <!-- ── Navigation ───────────────────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Nexray Home">
-    <div class="logo-icon" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    </div>
-    <span>Nex<span class="logo-accent">ray</span></span>
+  <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
@@ -113,17 +113,6 @@
     <a href="resources.html">Resources</a>
     <a href="about.html">About</a>
     <div id="nav-user-block"></div>
-  </div>
-  <div class="theme-toggle" role="group" aria-label="Color theme">
-    <button class="theme-btn" data-theme="dark" aria-label="Dark mode">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark
-    </button>
-    <button class="theme-btn" data-theme="light" aria-label="Light mode">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>Light
-    </button>
-    <button class="theme-btn" data-theme="neon" aria-label="Neon mode">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Neon
-    </button>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -154,7 +143,7 @@
       <aside>
         <div class="glass-card text-center" style="padding: 2rem 1.5rem; margin-bottom: 1.25rem;">
           <div class="profile-avatar-ring">
-            <img id="profile-img" src="" alt="Your avatar" />
+            <img id="profile-img" src="" alt="Your avatar" / loading="lazy">
           </div>
           <h2 id="username-display" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 0.25rem;"></h2>
           <p id="email-display" style="font-size: 0.78rem; color: var(--text-3); margin-bottom: 1rem;"></p>
@@ -181,7 +170,11 @@
           <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin-bottom:0.75rem;">Quick Links</p>
           <a href="guide/stage1.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s; margin-bottom:0.25rem;">📖 Continue Learning</a>
           <a href="resources.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s; margin-bottom:0.25rem;">🔧 Resources</a>
-          <a href="blog/index.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s;">📝 Read the Blog</a>
+          <a href="blog/index.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s; margin-bottom:1rem;">📝 Read the Blog</a>
+          
+          <button onclick="downloadMyCertificate()" class="btn btn-primary btn-full animate-pulse-glow" style="font-size: 0.82rem; padding: 10px; display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+            🏆 Download Certificate
+          </button>
         </div>
       </aside>
 
@@ -366,6 +359,17 @@
     setTimeout(() => t.classList.remove('show'), 2800);
   }
 </script>
+<script src="js/dock-injector.js"></script>
 <script src="js/main.js"></script>
+
+<script src="js/certificate.js"></script>
+<script>
+    function downloadMyCertificate() {
+        const u = Nexray && Nexray.Auth && Nexray.Auth.currentUser();
+        const n = u ? u.displayName : 'Student';
+        window.generateCertificate(n);
+    }
+</script>
+<script src="js/three-background.js"></script>
 </body>
 </html>

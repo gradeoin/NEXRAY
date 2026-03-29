@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — Web Dev Tips & Guides | Nexray</title>
@@ -7,24 +7,24 @@
   <link rel="canonical" href="https://nexray.in/blog" />
   <meta property="og:title" content="Nexray Blog — Web Dev Tips & Guides" />
   <meta property="og:description" content="Tutorials, tips, and deep dives for modern web developers." />
-  <meta property="og:image" content="https://nexray.in/assets/og-image.png" />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
   <meta property="og:url" content="https://nexray.in/blog" />
   <link rel="stylesheet" href="../css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
 <nav class="nav">
-  <a href="../index.html" class="nav-logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><span>Nex<span class="logo-accent">ray</span></span></a>
+  <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-weight: 900; font-size: 1.35rem; letter-spacing: 0.5px; margin-left: 10px; color: var(--text);">Nex<span class="logo-accent" style="color: var(--brand);">ray</span></span>
+  </a>
   <div class="nav-links">
     <a href="../index.html">Home</a>
     <a href="../guide/stage1.html">Guide</a>
     <a href="index.html" class="active">Blog</a>
     <a href="../resources.html">Resources</a>
-    <div class="theme-toggle">
-      <button class="theme-btn" data-theme="dark">Dark</button>
-      <button class="theme-btn" data-theme="light">Light</button>
-      <button class="theme-btn" data-theme="neon">Neon</button>
-    </div>
     <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -189,5 +189,6 @@
   style.textContent = '.filter-btn{padding:6px 14px;border-radius:99px;border:1px solid var(--glass-b);background:var(--glass);color:var(--text-2);cursor:pointer;font-size:.82rem;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:.375rem;font-family:inherit}.filter-btn.active,.filter-btn:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-dim)}';
   document.head.appendChild(style);
 </script>
+<script src="../js/three-background.js"></script>
 </body>
 </html>

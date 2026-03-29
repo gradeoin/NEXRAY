@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="About Nexray — a free, Gen-Z styled, 7-stage guide to modern web development from absolute beginner to professional developer." />
   <title>About — Nexray</title>
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About Nexray � Free Web Development Learning Platform" />
+  <meta property="og:description" content="Nexray is a free, open 7-stage web development learning platform. Learn from scratch to pro without spending a penny." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Nexray � Free Web Development Learning Platform" />
+  <meta name="twitter:description" content="Nexray is a free, open 7-stage web development learning platform. Learn from scratch to pro without spending a penny." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <span>Nex<span class="logo-accent">ray</span></span>
-    </a>
+    <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="guide/stage1.html">Guide</a>
       <a href="blog/index.html">Blog</a>
       <a href="resources.html">Resources</a>
-      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
       <a href="auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -36,7 +44,7 @@
         <div>
           <div class="stage-badge" style="margin-bottom:1.5rem;display:inline-block;">ℹ️ About This Guide</div>
           <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;margin-bottom:1.25rem;line-height:1.08;">
-            Why We Built<br><span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Nexray</span>
+            Why We Built<br><span style="background:linear-gradient(135deg,#0038FF,#CCFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Nexray</span>
           </h1>
           <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;">
             Because the internet is still full of outdated 2015-era tutorials that teach <code>float: left</code> and FTP deployment. You deserve something built for 2026.
@@ -46,7 +54,7 @@
         <div style="display:flex;justify-content:center;">
           <svg viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px;" aria-hidden="true">
             <!-- Bookshelf / knowledge base -->
-            <rect x="20" y="30" width="280" height="220" rx="12" fill="rgba(249,115,22,0.04)" stroke="rgba(249,115,22,0.15)" stroke-width="1.5"/>
+            <rect x="20" y="30" width="280" height="220" rx="12" fill="rgba(249,115,22,0.04)" stroke="rgba(0,56,255,0.15)" stroke-width="1.5"/>
 
             <!-- Shelf 1: old tutorials (red/faded) -->
             <rect x="36" y="52" width="248" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
@@ -79,7 +87,7 @@
             <text x="156" y="87" text-anchor="middle" font-size="6.5" fill="rgba(251,191,36,0.9)" font-family="monospace" font-weight="bold">Git</text>
             <text x="156" y="97" text-anchor="middle" font-size="6" fill="rgba(251,191,36,0.6)" font-family="monospace">CI/CD</text>
             <!-- Book 5 -->
-            <rect x="174" y="66" width="34" height="44" rx="3" fill="rgba(249,115,22,0.3)" stroke="rgba(249,115,22,0.6)" stroke-width="1.5"/>
+            <rect x="174" y="66" width="34" height="44" rx="3" fill="rgba(0,56,255,0.25)" stroke="rgba(249,115,22,0.6)" stroke-width="1.5"/>
             <text x="191" y="82" text-anchor="middle" font-size="6.5" fill="rgba(249,115,22,0.95)" font-family="monospace" font-weight="bold">React</text>
             <text x="191" y="93" text-anchor="middle" font-size="5.5" fill="rgba(249,115,22,0.7)" font-family="monospace">Firebase</text>
             <!-- Book 6 big -->
@@ -179,19 +187,13 @@
   <footer class="footer">
     <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
-          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <span>Nex<span class="logo-accent">ray</span></span>
-        </a>
+        <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
         <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Guide</div>
-        <a href="guide/stage1.html">Stage 1: Basics</a>
-        <a href="guide/stage2.html">Stage 2: Frontend</a>
-        <a href="guide/stage3.html">Stage 3: Backend</a>
-        <a href="guide/stage4.html">Stage 4: DevOps</a>
-      </div>
+      <!-- Guide footer block removed -->
       <div class="footer-col">
         <div class="footer-col-title">Nexray</div>
         <a href="blog/index.html">Blog</a>
@@ -213,5 +215,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+<script src="js/three-background.js"></script>
 </body>
 </html>

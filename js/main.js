@@ -6,23 +6,9 @@
 (() => {
   'use strict';
 
-  /* ── Theme System ─────────────────────────────────────────── */
-  const THEMES = ['dark','light','neon'];
-  const savedTheme = localStorage.getItem('nexray-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', savedTheme);
+  /* ── Theme: Light mode only — no toggle needed ─────────────── */
+  // Single light theme — palette drives from CSS :root variables only.
 
-  function setTheme(t) {
-    document.documentElement.setAttribute('data-theme', t);
-    localStorage.setItem('nexray-theme', t);
-    document.querySelectorAll('.theme-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.theme === t);
-    });
-  }
-
-  document.querySelectorAll('.theme-btn').forEach(btn => {
-    btn.addEventListener('click', () => setTheme(btn.dataset.theme));
-    btn.classList.toggle('active', btn.dataset.theme === savedTheme);
-  });
 
   /* ── Navigation ───────────────────────────────────────────── */
   const hamburger = document.getElementById('hamburger');
@@ -255,5 +241,21 @@
   // Call on load and also on custom event
   syncAuthUI();
   window.addEventListener('auth-state-changed', syncAuthUI);
+
+  /* ── Service Worker Registration (PWA) ───────────────────── */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // Determine if we are in a subfolder based on pathname
+      const swPath = window.location.pathname.includes('/guide/') || window.location.pathname.includes('/blog/')
+        ? '../sw.js' 
+        : '/sw.js';
+
+      navigator.serviceWorker.register(swPath).then(registration => {
+        console.log('[PWA] ServiceWorker registered with scope:', registration.scope);
+      }).catch(err => {
+        console.warn('[PWA] ServiceWorker registration failed:', err);
+      });
+    });
+  }
 
 })();

@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Stage 3: Backend & APIs — Node.js, Firebase, databases, authentication, REST APIs, and serverless functions." />
   <title>Stage 3: Backend & APIs — Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Stage 3: Backend Dev � Node.js, Databases & APIs | Nexray" />
+  <meta property="og:description" content="Build REST APIs with Node.js, learn databases (SQL & NoSQL), and authentication. Free backend guide by Nexray." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stage 3: Backend Dev � Node.js, Databases & APIs | Nexray" />
+  <meta name="twitter:description" content="Build REST APIs with Node.js, learn databases (SQL & NoSQL), and authentication. Free backend guide by Nexray." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
   <nav class="nav">
-    <a href="../index.html" class="nav-logo">
-      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <span>Nex<span class="logo-accent">ray</span></span>
-    </a>
+    <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a href="stage1.html" class="active">Guide</a>
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
-      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -63,6 +71,43 @@
       </div>
 
       <h2 class="content-heading" id="what-is-backend">⚙️ What Is a Backend?</h2>
+
+<div class="illustration-block " id="illus-what-is-backend">
+  <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="60" y="20" width="80" height="120" rx="8" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="2"/><rect x="65" y="30" width="70" height="14" rx="4" fill="rgba(0,56,255,0.15)" stroke="#0038FF" stroke-width="1"/><circle cx="123" cy="37" r="3" fill="#4ade80"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle><rect x="65" y="52" width="70" height="14" rx="4" fill="rgba(0,56,255,0.1)" stroke="#0038FF" stroke-width="1" opacity="0.7"/><circle cx="123" cy="59" r="3" fill="#4ade80" opacity="0.6"/><line x1="10" y1="80" x2="55" y2="80" stroke="#0038FF" stroke-width="1.5" stroke-dasharray="4,3"/><text x="10" y="70" font-size="8" fill="#94a3b8">GET /api</text><line x1="145" y1="80" x2="190" y2="80" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3"/><text x="160" y="70" font-size="8" fill="#94a3b8">DB</text></svg></div>
+  <div class="illus-text">
+    <h3>What is Backend Development?</h3>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="15" y="25" width="170" height="110" rx="8" fill="#fafafa" stroke="#3b82f6" stroke-width="1.5"/>
+     <rect x="15" y="25" width="170" height="20" rx="8" fill="rgba(59,130,246,0.15)"/>
+     <circle cx="28" cy="35" r="4" fill="#ef4444" opacity="0.8"/>
+     <circle cx="42" cy="35" r="4" fill="#eab308" opacity="0.8"/>
+     <circle cx="56" cy="35" r="4" fill="#4ade80" opacity="0.8"/>
+     <text x="100" y="38" font-size="7" fill="#94a3b8" font-family="monospace" text-anchor="middle">workspace.sh</text>
+     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec WHAT IS BACKEND</text>
+     <text x="25" y="85" font-size="8" fill="#4ade80" font-family="monospace">[ok] Compiling modules...</text>
+     <text x="25" y="105" font-size="8" fill="#3b82f6" font-family="monospace">[ok] Deployment successful.</text>
+     <rect x="25" y="115" width="4" height="10" fill="#0038FF">
+       <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+     </rect>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">What is Backend Development? Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding What is Backend Development? is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+    <p>The backend is the engine room of your app — it processes requests, talks to databases, handles authentication, and sends data back to the browser.</p>
+    <ul><li>Server receives HTTP requests</li><li>Logic processes data and auth</li><li>Database stores persistent data</li><li>Response sends JSON/HTML back</li></ul>
+  </div>
+</div>
       <p class="content-text">The <strong>frontend</strong> is what users see. The <strong>backend</strong> is the server-side code that stores data, handles authentication, runs business logic, and sends data to the frontend via APIs.</p>
 
       <div class="grid-3 mt-lg mb-lg">
@@ -71,7 +116,7 @@
           <div style="font-weight:700;margin-bottom:6px;">Frontend</div>
           <p style="color:var(--text-secondary);font-size:0.875rem;">Browser renders HTML/CSS/JS. Sends requests. Shows data from backend.</p>
         </div>
-        <div class="glass-card" style="border-color:rgba(249,115,22,0.3);">
+        <div class="glass-card" style="border-color:rgba(0,56,255,0.25);">
           <div style="font-size:2rem;margin-bottom:10px;">🔄</div>
           <div style="font-weight:700;margin-bottom:6px;">API</div>
           <p style="color:var(--text-secondary);font-size:0.875rem;">The bridge. Frontend calls API endpoints, backend processes and responds with JSON.</p>
@@ -84,6 +129,34 @@
       </div>
 
       <h2 class="content-heading" id="nodejs">🟢 Node.js + Express Setup</h2>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <path d="M 50 80 Q 100 20 150 80" stroke="rgba(0,56,255,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 50 80 Q 100 140 150 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 100 40 L 100 120" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" fill="none"/>
+     <circle cx="50" cy="80" r="14" fill="#fafafa" stroke="#0038FF" stroke-width="2"/>
+     <circle cx="150" cy="80" r="14" fill="#fafafa" stroke="#3b82f6" stroke-width="2"/>
+     <circle cx="100" cy="40" r="12" fill="#fafafa" stroke="#4ade80" stroke-width="2"/>
+     <circle cx="100" cy="120" r="12" fill="#fafafa" stroke="#eab308" stroke-width="2"/>
+     <text x="100" y="85" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">API</text>
+     <circle cx="100" cy="80" r="4" fill="#0038FF">
+       <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+     </circle>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🟢 Node.js + Express Setup Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🟢 Node.js + Express Setup is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">Node.js runs JavaScript on the server. Express is the most popular Node.js framework for building APIs.</p>
 
       <div class="code-block">
@@ -108,6 +181,28 @@ npm run dev</pre>
       </div>
 
       <h2 class="content-heading" id="rest-api">🌐 Building a REST API</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="30" y="30" width="140" height="100" rx="6" fill="rgba(59,130,246,0.05)" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+     <rect x="50" y="50" width="100" height="60" rx="4" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2"/>
+     <rect x="70" y="65" width="60" height="30" rx="2" fill="rgba(0,56,255,0.2)" stroke="#0038FF" stroke-width="2"/>
+     <text x="100" y="45" font-size="7" fill="#3b82f6" text-anchor="middle">Margin</text>
+     <text x="100" y="62" font-size="7" fill="#4ade80" text-anchor="middle">Padding</text>
+     <text x="100" y="83" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">Content</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🌐 Building a REST API Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🌐 Building a REST API is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">A REST API is a set of URL endpoints your frontend can call to create, read, update, and delete data (CRUD).</p>
 
       <div class="code-block">
@@ -189,6 +284,38 @@ app.<span class="fn">listen</span>(<span class="num">3000</span>, () =>
       </div>
 
       <h2 class="content-heading" id="firebase-db">🔥 Firebase Firestore</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="20" y="20" width="160" height="120" rx="8" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="20" y1="40" x2="180" y2="40" stroke="#0038FF" stroke-width="1" opacity="0.5"/>
+     <rect x="35" y="60" width="25" height="60" rx="3" fill="rgba(59,130,246,0.5)">
+       <animate attributeName="height" values="60;40;60" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="60;80;60" dur="2s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="75" y="40" width="25" height="80" rx="3" fill="rgba(249,115,22,0.6)">
+       <animate attributeName="height" values="80;60;80" dur="2.5s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="40;60;40" dur="2.5s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="115" y="50" width="25" height="70" rx="3" fill="rgba(74,222,128,0.5)">
+       <animate attributeName="height" values="70;90;70" dur="3s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="50;30;50" dur="3s" repeatCount="indefinite"/>
+     </rect>
+     <path d="M 35 120 L 140 120" stroke="#94a3b8" stroke-width="1.5"/>
+     <text x="100" y="150" font-size="8" fill="#0038FF" text-anchor="middle" font-weight="bold">🔥 FIREBASE FIR</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🔥 Firebase Firestore Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🔥 Firebase Firestore is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">Firebase Firestore is Google's cloud NoSQL database. It's free to start, has real-time sync, and works directly from the browser — no backend server needed!</p>
 
       <div class="code-block">
@@ -250,6 +377,34 @@ app.<span class="fn">listen</span>(<span class="num">3000</span>, () =>
       </div>
 
       <h2 class="content-heading" id="auth-intro">🔐 Authentication Concepts</h2>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="15" y="25" width="170" height="110" rx="8" fill="#fafafa" stroke="#3b82f6" stroke-width="1.5"/>
+     <rect x="15" y="25" width="170" height="20" rx="8" fill="rgba(59,130,246,0.15)"/>
+     <circle cx="28" cy="35" r="4" fill="#ef4444" opacity="0.8"/>
+     <circle cx="42" cy="35" r="4" fill="#eab308" opacity="0.8"/>
+     <circle cx="56" cy="35" r="4" fill="#4ade80" opacity="0.8"/>
+     <text x="100" y="38" font-size="7" fill="#94a3b8" font-family="monospace" text-anchor="middle">workspace.sh</text>
+     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec 🔐 AUTHENTICATI</text>
+     <text x="25" y="85" font-size="8" fill="#4ade80" font-family="monospace">[ok] Compiling modules...</text>
+     <text x="25" y="105" font-size="8" fill="#3b82f6" font-family="monospace">[ok] Deployment successful.</text>
+     <rect x="25" y="115" width="4" height="10" fill="#0038FF">
+       <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+     </rect>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🔐 Authentication Concepts Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🔐 Authentication Concepts is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">Authentication = proving who you are. Authorization = what you're allowed to do. In 2026, the gold standard is using OAuth instead of storing passwords yourself.</p>
 
       <div class="callout callout-danger">
@@ -261,6 +416,65 @@ app.<span class="fn">listen</span>(<span class="num">3000</span>, () =>
       </div>
 
       <h2 class="content-heading" id="firebase-auth">🔥 Firebase Auth (Google + Email)</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <path d="M 50 80 Q 100 20 150 80" stroke="rgba(0,56,255,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 50 80 Q 100 140 150 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 100 40 L 100 120" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" fill="none"/>
+     <circle cx="50" cy="80" r="14" fill="#fafafa" stroke="#0038FF" stroke-width="2"/>
+     <circle cx="150" cy="80" r="14" fill="#fafafa" stroke="#3b82f6" stroke-width="2"/>
+     <circle cx="100" cy="40" r="12" fill="#fafafa" stroke="#4ade80" stroke-width="2"/>
+     <circle cx="100" cy="120" r="12" fill="#fafafa" stroke="#eab308" stroke-width="2"/>
+     <text x="100" y="85" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">API</text>
+     <circle cx="100" cy="80" r="4" fill="#0038FF">
+       <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+     </circle>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🔥 Firebase Auth (Google + Email) Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🔥 Firebase Auth (Google + Email) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+
+<div class="illustration-block reverse" id="illus-firebase-auth">
+  <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="25" width="100" height="110" rx="12" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="1.5"/><circle cx="100" cy="60" r="20" fill="none" stroke="#0038FF" stroke-width="2"/><rect x="90" y="50" width="20" height="14" rx="4" fill="rgba(0,56,255,0.25)"/><circle cx="100" cy="44" r="8" fill="none" stroke="#0038FF" stroke-width="1.5"/><text x="100" y="100" font-size="9" fill="#0038FF" text-anchor="middle" font-weight="bold">Firebase Auth</text><text x="100" y="115" font-size="7" fill="#94a3b8" text-anchor="middle">Google OAuth</text><circle cx="75" cy="130" r="3" fill="#4ade80"><animate attributeName="r" values="3;4;3" dur="1.5s" repeatCount="indefinite"/></circle><circle cx="100" cy="130" r="3" fill="#4ade80"/><circle cx="125" cy="130" r="3" fill="#4ade80"/></svg></div>
+  <div class="illus-text">
+    <h3>Firebase Authentication</h3>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="30" y="30" width="140" height="100" rx="6" fill="rgba(59,130,246,0.05)" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+     <rect x="50" y="50" width="100" height="60" rx="4" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2"/>
+     <rect x="70" y="65" width="60" height="30" rx="2" fill="rgba(0,56,255,0.2)" stroke="#0038FF" stroke-width="2"/>
+     <text x="100" y="45" font-size="7" fill="#3b82f6" text-anchor="middle">Margin</text>
+     <text x="100" y="62" font-size="7" fill="#4ade80" text-anchor="middle">Padding</text>
+     <text x="100" y="83" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">Content</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">Firebase Authentication Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding Firebase Authentication is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+    <p>Firebase Auth lets you add secure sign-in to your app in minutes. Support Google, GitHub, email/password, and more — all with a few lines of code.</p>
+    <ul><li>Google OAuth in 5 lines of JS</li><li>Email/password with verification</li><li>Persistent login across sessions</li></ul>
+  </div>
+</div>
       <div class="code-block">
         <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">JavaScript — Firebase Authentication</div><button class="code-copy">Copy</button></div>
         <pre class="code-content"><span class="kw">import</span> {
@@ -326,6 +540,34 @@ app.<span class="fn">listen</span>(<span class="num">3000</span>, () =>
       </div>
 
       <h2 class="content-heading" id="oauth">🔗 OAuth Providers</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="10" y="65" width="40" height="30" rx="6" fill="rgba(0,56,255,0.1)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="50" y1="80" x2="80" y2="80" stroke="#0038FF" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="80" y="65" width="40" height="30" rx="6" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="1.5"/>
+     <line x1="120" y1="80" x2="150" y2="80" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="150" y="65" width="40" height="30" rx="6" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="1.5"/>
+     <text x="30" y="83" font-size="8" fill="#0038FF" text-anchor="middle">Build</text>
+     <text x="100" y="83" font-size="8" fill="#3b82f6" text-anchor="middle">Test</text>
+     <text x="170" y="83" font-size="8" fill="#4ade80" text-anchor="middle">Ship</text>
+     <circle cx="100" cy="120" r="10" fill="none" stroke="#eab308" stroke-width="2"/>
+     <path d="M 100 110 A 10 10 0 0 1 110 120" fill="none" stroke="#eab308" stroke-width="3">
+       <animateTransform attributeName="transform" type="rotate" from="0 100 120" to="360 100 120" dur="1.5s" repeatCount="indefinite"/>
+     </path>
+  </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🔗 OAuth Providers Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🔗 OAuth Providers is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">OAuth lets users log in with existing accounts (Google, GitHub, Twitter). You never store their password — the provider handles it.</p>
 
       <div class="grid-2 mt-md mb-lg">
@@ -446,19 +688,13 @@ dist/
   <footer class="footer">
     <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
       <div class="footer-brand">
-        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
-          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <span>Nex<span class="logo-accent">ray</span></span>
-        </a>
+        <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
         <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Guide</div>
-        <a href="stage1.html">Stage 1: Basics</a>
-        <a href="stage2.html">Stage 2: Frontend</a>
-        <a href="stage3.html">Stage 3: Backend</a>
-        <a href="stage4.html">Stage 4: DevOps</a>
-      </div>
+      <!-- Guide footer block removed -->
       <div class="footer-col">
         <div class="footer-col-title">Nexray</div>
         <a href="../blog/index.html">Blog</a>
@@ -486,5 +722,7 @@ dist/
     const c = document.getElementById('stage-canvas');
     if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x06b6d4); }
   </script>
+  <script src="../js/app.js"></script>
+<script src="../js/three-background.js"></script>
 </body>
 </html>

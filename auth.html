@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign In — Nexray</title>
@@ -7,23 +7,27 @@
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="https://nexray.in/auth" />
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sign In | Nexray" />
+  <meta property="og:description" content="Sign in to Nexray to track your progress through the 7-stage web development guide." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sign In | Nexray" />
+  <meta name="twitter:description" content="Sign in to Nexray to track your progress through the 7-stage web development guide." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 <nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-    <span>Nex<span class="logo-accent">ray</span></span>
+  <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="guide/stage1.html">Guide</a>
-    <div class="theme-toggle">
-      <button class="theme-btn" data-theme="dark">Dark</button>
-      <button class="theme-btn" data-theme="light">Light</button>
-      <button class="theme-btn" data-theme="neon">Neon</button>
     </div>
-  </div>
 </nav>
 <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 
@@ -32,12 +36,10 @@
 
     <!-- Logo -->
     <div style="text-align:center;margin-bottom:2rem;">
-      <a href="index.html" class="nav-logo" style="justify-content:center;margin-bottom:1rem;display:inline-flex;">
-        <div class="logo-icon" style="width:48px;height:48px;font-size:24px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <span style="font-size:1.5rem;">Nex<span class="logo-accent">ray</span></span>
-      </a>
+      <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
       <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.375rem;">Welcome back</h1>
       <p style="color:var(--text-2);font-size:.9rem;">Sign in to save your progress and earn XP</p>
     </div>
@@ -181,5 +183,6 @@
 </script>
 <script type="module" src="js/auth.js"></script>
 <script src="js/main.js"></script>
+<script src="js/three-background.js"></script>
 </body>
 </html>

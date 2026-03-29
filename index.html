@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,23 +14,35 @@
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Nexray" />
-  <meta property="og:Title"       content="Nexray — Learn Web Dev from Zero to Pro" />
+  <meta property="og:title"       content="Nexray — Learn Web Dev from Zero to Pro" />
   <meta property="og:description" content="Free 7-stage web development guide. From HTML basics to full-stack apps and Android — all in one place." />
-  <meta property="og:image"       content="https://nexray.in/assets/og-image.png" />
+  <meta property="og:image"       content="https://nexray.in/assets/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url"         content="https://nexray.in/" />
   <meta name="twitter:card"       content="summary_large_image" />
   <meta name="twitter:site"       content="@nexray_in" />
   <meta name="twitter:title"      content="Nexray — Learn Web Dev from Zero to Pro" />
   <meta name="twitter:description" content="Free 7-stage guide: HTML → CSS → JS → Backend → DevOps → Android → Launch" />
-  <meta name="twitter:image"      content="https://nexray.in/assets/og-image.png" />
+  <meta name="twitter:image"      content="https://nexray.in/assets/og-preview.png" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Nexray","url":"https://nexray.in","description":"Free 7-stage web development guide for 2026","potentialAction":{"@type":"SearchAction","target":"https://nexray.in/blog?q={search_term_string}","query-input":"required name=search_term_string"}}
   </script>
+  
+  <!-- Add Tailwind CDN to support the new imported UI component -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false } // Prevent Tailwind from breaking existing global CSS
+    }
+  </script>
 
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 <div id="page-loader"><div class="loader-spinner"></div></div>
@@ -39,11 +51,9 @@
 
 <!-- ── Navigation ──────────────────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <a href="/" class="nav-logo" aria-label="Nexray Home">
-    <div class="logo-icon" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    </div>
-    <span>Nex<span class="logo-accent">ray</span></span>
+  <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
   </a>
 
   <div class="nav-links">
@@ -59,23 +69,7 @@
     <a href="guide/stage1.html" class="nav-cta">Start Learning →</a>
   </div>
 
-  <!-- Theme toggle -->
-  <div class="theme-toggle" role="group" aria-label="Color theme">
-    <button class="theme-btn" data-theme="dark" aria-label="Dark mode">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      Dark
-    </button>
-    <button class="theme-btn" data-theme="light" aria-label="Light mode">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      Light
-    </button>
-    <button class="theme-btn" data-theme="neon" aria-label="Neon mode">
-      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      Neon
-    </button>
-  </div>
-
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+  </div>  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -90,156 +84,131 @@
 
 <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 
-<!-- ── Hero ─────────────────────────────────────────────────── -->
-<section class="hero" style="min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:var(--nav-h);" aria-labelledby="hero-heading">
-  <canvas id="hero-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;" aria-hidden="true"></canvas>
+<!-- ── HERO SECTION ─────────────────────────────────────────────────── -->
+<section class="hero-redesign relative flex flex-col font-sans overflow-hidden w-full" style="background-color: #0038FF; font-family: sans-serif; min-height: 100svh; padding-top: var(--nav-h);">
+  
+  <style>
+    @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+    @keyframes hero-glow { 0%,100%{opacity:.35;transform:scale(1)} 50%{opacity:.6;transform:scale(1.15)} }
+    @keyframes hero-enter { 0%{opacity:0;transform:translateY(40px)} 100%{opacity:1;transform:translateY(0)} }
+    @keyframes hero-enter-delay { 0%,30%{opacity:0;transform:translateY(30px)} 100%{opacity:1;transform:translateY(0)} }
+    .hero-line { animation: hero-enter .8s cubic-bezier(.22,1,.36,1) both; }
+    .hero-line-2 { animation: hero-enter .8s cubic-bezier(.22,1,.36,1) .15s both; }
+    .hero-line-3 { animation: hero-enter .8s cubic-bezier(.22,1,.36,1) .3s both; }
+    .hero-sub { animation: hero-enter-delay 1s cubic-bezier(.22,1,.36,1) .5s both; }
+    .hero-text-shadow { text-shadow: 2px 2px 0 #001A99, 4px 4px 0 #001A99, 6px 6px 0 #001A99, 8px 8px 0 #001A99, 10px 10px 0 #001A99; }
+    @media(min-width:768px) {
+      .hero-text-shadow { text-shadow: 3px 3px 0 #001A99, 6px 6px 0 #001A99, 9px 9px 0 #001A99, 12px 12px 0 #001A99, 15px 15px 0 #001A99; }
+    }
+  </style>
 
-  <!-- BG glow -->
-  <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.14),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;" aria-hidden="true"></div>
+  <!-- Background Grid -->
+  <div class="absolute inset-0 pointer-events-none z-0" style="background-image: linear-gradient(to right, #ffffff12 1px, transparent 1px), linear-gradient(to bottom, #ffffff12 1px, transparent 1px); background-size: 4rem 4rem;"></div>
 
-  <div class="container" style="position:relative;z-index:1;padding-top:3rem;padding-bottom:3rem;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;" class="hero-grid">
+  <!-- Glow blob behind text -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] md:w-[900px] md:h-[600px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(204,255,0,0.2) 0%, rgba(0,56,255,0) 70%); animation: hero-glow 4s ease-in-out infinite;"></div>
 
-      <!-- Left: Text -->
-      <div>
-        <div class="badge badge-brand reveal" style="margin-bottom:1.5rem;display:inline-flex;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Free · 7 Stages · Updated 2026
+  <!-- Hero Content — vertically centered -->
+  <main class="flex-1 relative z-10 px-5 py-20 md:py-0 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto min-h-[60vh] md:min-h-0">
+    <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 mt-[-5vh]">
+      
+      <!-- Text Stack -->
+      <div class="w-full flex flex-col items-center relative z-10 gap-0 lg:gap-2">
+        <div class="w-full flex justify-center hero-line">
+          <h1 class="font-black leading-[1] tracking-tighter text-[#CCFF00] m-0 p-0 uppercase" style="font-size: clamp(2.5rem,6vw,90px); font-family: 'Arial Black', Impact, sans-serif;">#CODE</h1>
         </div>
-
-        <h1 id="hero-heading" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4.4rem);font-weight:900;line-height:1.06;margin-bottom:1.25rem;" class="reveal">
-          Web Dev.<br>
-          <span style="background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your Way.</span>
-        </h1>
-
-        <p style="font-size:clamp(1rem,2vw,1.15rem);color:var(--text-2);max-width:480px;margin-bottom:2.5rem;line-height:1.8;" class="reveal">
-          From "What is HTML?" to deploying a full-stack app — in 7 clear stages. No paywalls, no fluff. Real code, real projects, completely free.
-        </p>
-
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
-          <a href="guide/stage1.html" class="btn btn-primary btn-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            Start Stage 1 — Free
-          </a>
-          <a href="auth.html" class="btn btn-secondary btn-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            Create Free Account
-          </a>
+        <div class="w-full flex justify-center hero-line-2">
+          <h1 class="font-black leading-[0.82] tracking-tighter text-white m-0 p-0 uppercase hero-text-shadow drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]" style="font-size: clamp(4.5rem,15vw,220px); font-family: 'Arial Black', Impact, sans-serif;">WEB DEV</h1>
         </div>
-
-        <!-- Stats -->
-        <div style="display:flex;gap:2rem;flex-wrap:wrap;" class="reveal">
-          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">7</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Stages</div></div>
-          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">100%</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Free</div></div>
-          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">30+</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Hours</div></div>
-          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">2026</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Updated</div></div>
+        <div class="w-full flex justify-center md:justify-end md:pr-[15%] hero-line-3 mt-1 md:mt-0">
+          <h1 class="font-black leading-[0.82] tracking-tighter text-white m-0 p-0 uppercase hero-text-shadow drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]" style="font-size: clamp(3.8rem,13vw,190px); font-family: 'Arial Black', Impact, sans-serif;">MASTERY</h1>
         </div>
       </div>
 
-      <!-- Right: Hero Illustration -->
-      <div class="reveal-right" style="display:flex;justify-content:center;align-items:center;">
-        <svg viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;" aria-hidden="true">
-          <!-- Monitor frame -->
-          <rect x="30" y="20" width="320" height="210" rx="14" fill="#1a1a2e" stroke="rgba(249,115,22,0.35)" stroke-width="2"/>
-          <rect x="30" y="20" width="320" height="32" rx="14" fill="rgba(249,115,22,0.12)"/>
-          <rect x="30" y="38" width="320" height="14" fill="rgba(249,115,22,0.12)"/>
-          <!-- Traffic lights -->
-          <circle cx="52" cy="36" r="5" fill="#ff5f57"/>
-          <circle cx="68" cy="36" r="5" fill="#febc2e"/>
-          <circle cx="84" cy="36" r="5" fill="#28c840"/>
-          <!-- URL bar -->
-          <rect x="100" y="28" width="180" height="16" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-          <text x="190" y="39" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.35)" font-family="monospace">nexray.in</text>
+      <!-- Tagline + CTA -->
+      <div class="hero-sub mt-8 flex flex-col items-center gap-5">
+        <p class="text-white/90 text-[15px] md:text-xl font-medium tracking-wide max-w-md mx-auto" style="font-family: 'Space Grotesk', system-ui, sans-serif;">Free 7-stage guide · From zero to full-stack pro</p>
+        <a href="guide/stage1.html" class="inline-flex flex-col md:flex-row items-center gap-2 bg-[#CCFF00] text-black font-black text-base md:text-lg px-8 py-4 md:px-10 md:py-5 rounded-full hover:scale-[1.03] hover:-translate-y-1 active:scale-95 transition-all shadow-xl shadow-black/20" style="letter-spacing: 0.05em;">
+          <span class="flex items-center gap-2">START LEARNING <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
 
-          <!-- Code lines in screen -->
-          <rect x="50" y="72" width="90" height="7" rx="3" fill="rgba(249,115,22,0.7)"/>
-          <rect x="148" y="72" width="60" height="7" rx="3" fill="rgba(255,255,255,0.15)"/>
-          <rect x="50" y="88" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
-          <rect x="76" y="88" width="110" height="7" rx="3" fill="rgba(255,255,255,0.2)"/>
-          <rect x="50" y="104" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
-          <rect x="76" y="104" width="70" height="7" rx="3" fill="rgba(249,115,22,0.5)"/>
-          <rect x="152" y="104" width="40" height="7" rx="3" fill="rgba(255,255,255,0.15)"/>
-          <rect x="50" y="120" width="140" height="7" rx="3" fill="rgba(255,255,255,0.1)"/>
-          <rect x="50" y="136" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
-          <rect x="76" y="136" width="55" height="7" rx="3" fill="rgba(52,211,153,0.6)"/>
-          <rect x="137" y="136" width="80" height="7" rx="3" fill="rgba(255,255,255,0.12)"/>
-          <rect x="50" y="152" width="100" height="7" rx="3" fill="rgba(249,115,22,0.4)"/>
-          <rect x="50" y="168" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
-          <rect x="76" y="168" width="130" height="7" rx="3" fill="rgba(255,255,255,0.15)"/>
-          <rect x="50" y="184" width="80" height="7" rx="3" fill="rgba(255,255,255,0.08)"/>
-          <!-- Cursor blink -->
-          <rect x="216" y="72" width="2" height="9" rx="1" fill="rgba(249,115,22,0.9)">
-            <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/>
-          </rect>
+      <!-- Decorative overlays (desktop only) -->
+      <div class="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
+        <div class="absolute bottom-[5%] left-[3%] w-28 h-28 z-20">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-[#CCFF00] stroke-current overflow-visible" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M10,90 C 10,40 40,20 60,50 C 70,65 80,75 95,70" /><path d="M80,55 L95,70 L85,85" /></svg>
+        </div>
+        <div class="absolute top-[8%] right-[3%] w-28 h-28 z-20">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-[#CCFF00] stroke-current overflow-visible" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M90,10 C 80,60 60,80 40,60 C 20,40 40,20 60,30 C 80,40 70,70 50,80" /><path d="M65,75 L50,80 L55,65" /></svg>
+        </div>
+      </div>
 
-          <!-- Right panel preview -->
-          <rect x="240" y="68" width="95" height="148" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(249,115,22,0.2)" stroke-width="1"/>
-          <rect x="252" y="80" width="72" height="28" rx="4" fill="rgba(249,115,22,0.18)"/>
-          <rect x="252" y="116" width="72" height="8" rx="3" fill="rgba(255,255,255,0.12)"/>
-          <rect x="252" y="130" width="50" height="8" rx="3" fill="rgba(255,255,255,0.08)"/>
-          <rect x="252" y="152" width="72" height="24" rx="4" fill="rgba(249,115,22,0.25)" stroke="rgba(249,115,22,0.4)" stroke-width="1"/>
-          <text x="288" y="168" text-anchor="middle" font-size="8" fill="rgba(249,115,22,0.9)" font-family="monospace" font-weight="bold">Deploy →</text>
-
-          <!-- Monitor stand -->
-          <rect x="165" y="230" width="50" height="18" rx="3" fill="rgba(255,255,255,0.08)"/>
-          <rect x="140" y="246" width="100" height="8" rx="4" fill="rgba(255,255,255,0.1)"/>
-
-          <!-- Floating badges -->
-          <g style="animation:float-slow 4s ease-in-out infinite">
-            <rect x="340" y="50" width="74" height="28" rx="14" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.4)" stroke-width="1"/>
-            <text x="377" y="68" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.95)" font-family="monospace" font-weight="bold">HTML</text>
-          </g>
-          <g style="animation:float-slow 4s ease-in-out infinite 0.7s">
-            <rect x="345" y="100" width="62" height="28" rx="14" fill="rgba(129,140,248,0.15)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
-            <text x="376" y="118" text-anchor="middle" font-size="11" fill="rgba(129,140,248,0.95)" font-family="monospace" font-weight="bold">CSS</text>
-          </g>
-          <g style="animation:float-slow 4s ease-in-out infinite 1.4s">
-            <rect x="340" y="150" width="72" height="28" rx="14" fill="rgba(52,211,153,0.15)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
-            <text x="376" y="168" text-anchor="middle" font-size="11" fill="rgba(52,211,153,0.95)" font-family="monospace" font-weight="bold">JS</text>
-          </g>
-          <g style="animation:float-slow 4s ease-in-out infinite 2.1s">
-            <rect x="0" y="80" width="82" height="28" rx="14" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
-            <text x="41" y="98" text-anchor="middle" font-size="10" fill="rgba(249,115,22,0.85)" font-family="monospace" font-weight="bold">React</text>
-          </g>
-          <g style="animation:float-slow 4s ease-in-out infinite 2.8s">
-            <rect x="0" y="130" width="82" height="28" rx="14" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
-            <text x="41" y="148" text-anchor="middle" font-size="10" fill="rgba(251,191,36,0.85)" font-family="monospace" font-weight="bold">Node.js</text>
-          </g>
-
-          <!-- Connecting dots / orbit -->
-          <circle cx="210" cy="310" r="38" stroke="rgba(249,115,22,0.12)" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
-          <circle cx="210" cy="310" r="22" stroke="rgba(249,115,22,0.2)" stroke-width="1.5" fill="none"/>
-          <circle cx="210" cy="288" r="5" fill="rgba(249,115,22,0.8)"/>
-          <circle cx="232" cy="310" r="5" fill="rgba(129,140,248,0.8)"/>
-          <circle cx="210" cy="332" r="5" fill="rgba(52,211,153,0.8)"/>
-          <circle cx="188" cy="310" r="5" fill="rgba(251,191,36,0.8)"/>
-          <text x="210" y="315" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">full stack</text>
-
-          <!-- Progress path -->
-          <path d="M50 360 Q130 330 210 340 Q290 350 370 310" stroke="rgba(249,115,22,0.25)" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
-          <circle cx="50" cy="360" r="4" fill="rgba(249,115,22,0.5)"/>
-          <circle cx="130" cy="338" r="4" fill="rgba(249,115,22,0.65)"/>
-          <circle cx="210" cy="340" r="4" fill="rgba(249,115,22,0.8)"/>
-          <circle cx="290" cy="344" r="4" fill="rgba(249,115,22,0.9)"/>
-          <circle cx="370" cy="310" r="6" fill="rgba(249,115,22,1)" stroke="rgba(249,115,22,0.4)" stroke-width="3"/>
-
-          <style>
-            @keyframes float-slow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
-          </style>
-        </svg>
+      <!-- Spinning Badge (visible on all sizes) -->
+      <div class="absolute -bottom-8 right-0 md:bottom-[5%] md:right-[8%] z-40 pointer-events-auto hero-sub hidden sm:block">
+        <a href="guide/stage1.html" class="block">
+          <div class="relative w-24 h-24 md:w-32 md:h-32 bg-[#CCFF00] rounded-full flex items-center justify-center shadow-2xl rotate-12 hover:scale-110 transition-transform cursor-pointer border-[3px] border-black/5 mix-blend-normal">
+            <div class="absolute inset-1" style="animation: spin-slow 10s linear infinite;">
+              <svg viewBox="0 0 100 100" class="w-full h-full"><path id="circlePath" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="none" /><text class="font-black uppercase shadow-none" style="font-size:11px; letter-spacing:0.18em;" fill="black"><textPath href="#circlePath" startOffset="0%">START FOR FREE • START FOR FREE • </textPath></text></svg>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" class="w-8 h-8 md:w-8 md:h-8" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </main>
 
-<style>
-  @media (max-width: 768px) {
-    .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
-    .hero-grid > div:last-child { display: none; }
-    .hero-grid .badge, .hero-grid h1, .hero-grid p { margin-left: auto; margin-right: auto; }
-    .hero-grid .reveal { display: flex; flex-direction: column; align-items: center; }
-  }
-</style>
+  <!-- Bottom Features Section -->
+  <section class="bg-white text-black rounded-t-[2.5rem] md:rounded-t-[3.5rem] px-6 py-12 md:px-10 md:py-20 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.1)] w-full">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 overflow-visible relative">
+      
+      <!-- Card 1 -->
+      <div class="bg-[#F8F9FA] rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center relative border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <h3 class="text-2xl md:text-3xl uppercase leading-tight mb-3 font-black text-[#001A99]" style="font-family: 'Arial Black', Impact, sans-serif;">LEARN TO<br/>CODE ONLINE</h3>
+        <p class="text-sm md:text-base text-gray-600 font-medium mb-8">Gain XP for every lesson completed.</p>
+        <div class="relative w-full flex justify-center mt-auto">
+          <div class="flex items-center bg-[#0038FF] rounded-2xl md:rounded-full px-6 py-4 text-white shadow-lg shadow-blue-500/30 w-full justify-center gap-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#CCFF00" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span class="font-black text-lg text-white">7 Stages · 30+ Hrs</span>
+          </div>
+          <div class="absolute -right-2 md:-right-6 -top-5 md:top-1/2 md:-translate-y-1/2 bg-[#CCFF00] text-black font-black text-xs md:text-sm px-4 py-2 rounded-xl z-20 shadow-md transform rotate-12">
+            +500 XP
+          </div>
+        </div>
+        <div class="hidden lg:block absolute -right-16 top-1/2 w-20 h-20 z-30 opacity-40">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-black stroke-current overflow-visible" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20,80 Q 40,20 80,40" /><path d="M60,20 L80,40 L50,60" /></svg>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#F8F9FA] rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center relative border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <h3 class="text-2xl md:text-3xl uppercase leading-tight mb-3 font-black text-[#001A99]" style="font-family: 'Arial Black', Impact, sans-serif;">BUILD REAL<br/>WEB PROJECTS</h3>
+        <p class="text-sm md:text-base text-gray-600 font-medium mb-8">Create a diverse portfolio of working apps.</p>
+        <div class="relative w-full flex justify-center mt-auto">
+          <div class="flex items-center justify-between bg-[#0038FF] rounded-full px-2 py-2 text-white shadow-lg shadow-blue-500/30 w-full max-w-[220px]">
+            <div class="bg-white text-[#0038FF] font-black text-sm px-6 py-3 rounded-full">100%</div>
+            <div class="font-black text-lg px-6 text-white tracking-widest">FREE</div>
+          </div>
+        </div>
+        <div class="hidden lg:block absolute -right-16 top-1/2 w-20 h-20 z-30 opacity-40">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-black stroke-current overflow-visible" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20,80 Q 40,20 80,40" /><path d="M60,20 L80,40 L50,60" /></svg>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#F8F9FA] rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center relative border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <h3 class="text-2xl md:text-3xl uppercase leading-tight mb-3 font-black text-[#001A99]" style="font-family: 'Arial Black', Impact, sans-serif;">MASTER THE<br/>FULL STACK</h3>
+        <p class="text-sm md:text-base text-gray-600 font-medium mb-8">Become a certified web developer today.</p>
+        <div class="flex flex-col items-center justify-center bg-[#CCFF00] border-2 border-[#CCFF00] rounded-2xl px-8 py-4 text-black shadow-lg shadow-[#CCFF00]/20 mt-auto w-full max-w-[220px]">
+          <p class="text-xs font-black uppercase tracking-widest mb-1 text-black/70">TOTAL STAGES</p>
+          <p class="text-4xl font-black text-black m-0 leading-none">07</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</section>
 
 <!-- ── Stage Cards ───────────────────────────────────────────── -->
 <section class="section" aria-labelledby="stages-heading">
@@ -430,7 +399,7 @@
         <line x1="0" y1="28" x2="320" y2="28" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
 
         <text x="0" y="50" font-size="9" fill="rgba(249,115,22,0.8)" font-family="monospace" font-weight="bold">nexray</text>
-        <rect x="44" y="40" width="110" height="10" rx="5" fill="rgba(249,115,22,0.3)" stroke="rgba(249,115,22,0.6)" stroke-width="1"/>
+        <rect x="44" y="40" width="110" height="10" rx="5" fill="rgba(0,56,255,0.25)" stroke="rgba(249,115,22,0.6)" stroke-width="1"/>
         <text x="158" y="50" font-size="9" fill="rgba(249,115,22,0.9)" font-family="monospace">100% free</text>
         <rect x="218" y="40" width="88" height="10" rx="5" fill="rgba(52,211,153,0.25)" stroke="rgba(52,211,153,0.5)" stroke-width="1"/>
         <text x="310" y="50" font-size="9" fill="rgba(52,211,153,0.9)" font-family="monospace">2026</text>
@@ -480,11 +449,11 @@
     </div>
     <svg viewBox="0 0 900 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;display:block;margin:0 auto;" aria-hidden="true">
       <!-- Connecting line -->
-      <line x1="70" y1="45" x2="830" y2="45" stroke="rgba(249,115,22,0.2)" stroke-width="2" stroke-dasharray="6 4"/>
+      <line x1="70" y1="45" x2="830" y2="45" stroke="rgba(0,56,255,0.2)" stroke-width="2" stroke-dasharray="6 4"/>
 
       <!-- Stage nodes -->
       <!-- S1 -->
-      <circle cx="70" cy="45" r="20" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.6)" stroke-width="2"/>
+      <circle cx="70" cy="45" r="20" fill="rgba(0,56,255,0.15)" stroke="rgba(249,115,22,0.6)" stroke-width="2"/>
       <text x="70" y="50" text-anchor="middle" font-size="11" fill="rgba(249,115,22,1)" font-weight="bold" font-family="monospace">01</text>
       <text x="70" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.6)" font-family="sans-serif">Basics</text>
 
@@ -514,7 +483,7 @@
       <text x="705" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-family="sans-serif">Android</text>
 
       <!-- S7 Trophy -->
-      <circle cx="830" cy="45" r="24" fill="rgba(249,115,22,0.2)" stroke="rgba(249,115,22,0.8)" stroke-width="2.5"/>
+      <circle cx="830" cy="45" r="24" fill="rgba(0,56,255,0.2)" stroke="rgba(249,115,22,0.8)" stroke-width="2.5"/>
       <text x="830" y="41" text-anchor="middle" font-size="16" font-family="sans-serif">🏆</text>
       <text x="830" y="80" text-anchor="middle" font-size="10" fill="rgba(249,115,22,0.9)" font-family="sans-serif" font-weight="bold">Launch</text>
 
@@ -553,12 +522,12 @@
       <div class="reveal-left" style="display:flex;justify-content:center;">
         <svg viewBox="0 0 340 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;" aria-hidden="true">
           <!-- Glow bg -->
-          <circle cx="170" cy="160" r="120" fill="rgba(249,115,22,0.05)"/>
-          <circle cx="170" cy="160" r="80" fill="rgba(249,115,22,0.05)"/>
+          <circle cx="170" cy="160" r="120" fill="rgba(0,56,255,0.05)"/>
+          <circle cx="170" cy="160" r="80" fill="rgba(0,56,255,0.05)"/>
 
           <!-- Laptop base -->
           <rect x="60" y="210" width="220" height="14" rx="7" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <rect x="75" y="150" width="190" height="62" rx="8" fill="#111827" stroke="rgba(249,115,22,0.3)" stroke-width="1.5"/>
+          <rect x="75" y="150" width="190" height="62" rx="8" fill="#111827" stroke="rgba(0,56,255,0.25)" stroke-width="1.5"/>
           <!-- Screen content -->
           <rect x="85" y="158" width="170" height="46" rx="4" fill="rgba(249,115,22,0.04)"/>
           <rect x="92" y="164" width="60" height="6" rx="3" fill="rgba(249,115,22,0.6)"/>
@@ -635,22 +604,15 @@
 <footer class="footer" role="contentinfo">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="/" class="nav-logo" style="margin-bottom:.875rem;display:inline-flex;">
-        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <span>Nex<span class="logo-accent">ray</span></span>
-      </a>
+      <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
       <p class="brand-desc">Free 7-stage web development guide for 2026. Learn real-world skills used by professional developers. Hosted at <a href="https://nexray.in" style="color:var(--brand)">nexray.in</a>.</p>
     </div>
 
     <div class="footer-col">
-      <h4>The Guide</h4>
-      <a href="guide/stage1.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 1 — Basics</a>
-      <a href="guide/stage2.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 2 — Frontend</a>
-      <a href="guide/stage3.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 3 — Backend</a>
-      <a href="guide/stage4.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 4 — DevOps</a>
-      <a href="guide/stage5.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 5 — Pro Secrets</a>
-      <a href="guide/stage6.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 6 — Android</a>
-      <a href="guide/stage7.html"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg> Stage 7 — Launch</a>
+<!-- Column removed -->
     </div>
 
     <div class="footer-col">
@@ -679,14 +641,14 @@
       <a href="terms.html">Terms</a>
       <a href="disclaimer.html">Disclaimer</a>
       <a href="security.html">Security</a>
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
+      </div>
     <span>Built with ♥ · 100% Free</span>
   </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/three-scenes.js"></script>
+<script src="js/dock-injector.js"></script>
 <script src="js/main.js"></script>
 <script type="module" src="js/auth.js"></script>
 <script>
@@ -698,5 +660,6 @@
     WebDevThree.initHeroScene('hero-canvas');
   }
 </script>
+<script src="js/three-background.js"></script>
 </body>
 </html>

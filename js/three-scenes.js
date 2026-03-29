@@ -20,10 +20,10 @@
 
     // ── Lighting ──────────────────────────────────────────── //
     scene.add(new THREE.AmbientLight(0xffffff, 0.3));
-    const pointLight = new THREE.PointLight(0xf97316, 2, 50);
+    const pointLight = new THREE.PointLight(0x0038FF, 2, 50);
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
-    const pointLight2 = new THREE.PointLight(0xfb923c, 1, 30);
+    const pointLight2 = new THREE.PointLight(0xCCFF00, 1, 30);
     pointLight2.position.set(-5, -5, 3);
     scene.add(pointLight2);
 
@@ -37,7 +37,7 @@
       new THREE.TetrahedronGeometry(0.85, 0),
     ];
 
-    const matWire = new THREE.MeshBasicMaterial({ color: 0xf97316, wireframe: true, transparent: true, opacity: 0.35 });
+    const matWire = new THREE.MeshBasicMaterial({ color: 0x0038FF, wireframe: true, transparent: true, opacity: 0.35 });
 
     geos.forEach((geo, i) => {
       const mesh = new THREE.Mesh(geo, matWire.clone());
@@ -63,7 +63,7 @@
     partGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
     const partMat = new THREE.PointsMaterial({
-      color: 0xfb923c,
+      color: 0xCCFF00,
       size: 0.07,
       transparent: true,
       opacity: 0.5,
@@ -120,7 +120,7 @@
   }
 
   // ── Stage mini scene (smaller, simpler) ─────────────────── //
-  function initStageScene(canvasId, color = 0xf97316) {
+  function initStageScene(canvasId, color = 0x0038FF) {
     const canvas = document.getElementById(canvasId);
     if (!canvas || typeof THREE === 'undefined') return;
 

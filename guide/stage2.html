@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Stage 2: Frontend Dev — Master CSS, JavaScript, modern layouts, animations, Three.js, and React in 2026." />
   <title>Stage 2: Frontend Dev — Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Stage 2: Frontend Dev � CSS, JavaScript & React | Nexray" />
+  <meta property="og:description" content="Master CSS Flexbox, Grid, animations, JavaScript, DOM, APIs, and React fundamentals. Free frontend guide by Nexray." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stage 2: Frontend Dev � CSS, JavaScript & React | Nexray" />
+  <meta name="twitter:description" content="Master CSS Flexbox, Grid, animations, JavaScript, DOM, APIs, and React fundamentals. Free frontend guide by Nexray." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="../manifest.json">
 </head>
 <body>
   <nav class="nav">
-    <a href="../index.html" class="nav-logo">
-      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <span>Nex<span class="logo-accent">ray</span></span>
-    </a>
+    <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a href="stage1.html" class="active">Guide</a>
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
-      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -67,6 +75,43 @@
 
       <!-- CSS Fundamentals -->
       <h2 class="content-heading" id="css-fundamentals">🎨 CSS Fundamentals</h2>
+
+<div class="illustration-block " id="illus-css-fundamentals">
+  <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="180" height="140" rx="10" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="1.5"/><rect x="10" y="10" width="180" height="22" rx="10" fill="rgba(0,56,255,0.1)"/><text x="20" y="25" font-size="8" fill="#0038FF" font-family="monospace">style.css</text><text x="20" y="48" font-size="8" fill="#0038FF" font-family="monospace">body {</text><text x="30" y="62" font-size="8" fill="#94a3b8" font-family="monospace">font-family: Inter;</text><text x="30" y="76" font-size="8" fill="#3b82f6" font-family="monospace">background: #fafafa;</text><text x="30" y="90" font-size="8" fill="#eab308" font-family="monospace">color: #ffffff;</text><text x="20" y="104" font-size="8" fill="#0038FF" font-family="monospace">}</text><rect x="140" y="98" width="2" height="10" rx="1" fill="#0038FF" opacity="0.7"><animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/></rect></svg></div>
+  <div class="illus-text">
+    <h3>CSS Gives Your Site Its Look</h3>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="15" y="25" width="170" height="110" rx="8" fill="#fafafa" stroke="#3b82f6" stroke-width="1.5"/>
+     <rect x="15" y="25" width="170" height="20" rx="8" fill="rgba(59,130,246,0.15)"/>
+     <circle cx="28" cy="35" r="4" fill="#ef4444" opacity="0.8"/>
+     <circle cx="42" cy="35" r="4" fill="#eab308" opacity="0.8"/>
+     <circle cx="56" cy="35" r="4" fill="#4ade80" opacity="0.8"/>
+     <text x="100" y="38" font-size="7" fill="#94a3b8" font-family="monospace" text-anchor="middle">workspace.sh</text>
+     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec CSS GIVES YOUR </text>
+     <text x="25" y="85" font-size="8" fill="#4ade80" font-family="monospace">[ok] Compiling modules...</text>
+     <text x="25" y="105" font-size="8" fill="#3b82f6" font-family="monospace">[ok] Deployment successful.</text>
+     <rect x="25" y="115" width="4" height="10" fill="#0038FF">
+       <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+     </rect>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">CSS Gives Your Site Its Look Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding CSS Gives Your Site Its Look is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+    <p>CSS (Cascading Style Sheets) controls how HTML elements appear on screen — every color, font, spacing rule, and animation is powered by CSS.</p>
+    <ul><li>Selectors target HTML elements</li><li>Properties define visual appearance</li><li>Responsive design adapts to any screen</li></ul>
+  </div>
+</div>
       <p class="content-text">CSS (Cascading Style Sheets) controls how HTML looks. You write <strong>selectors</strong> to target elements and <strong>declarations</strong> to style them.</p>
 
       <div class="code-block">
@@ -75,7 +120,7 @@
 
 <span class="cmt">/* Element selector */</span>
 <span class="fn">h1</span> {
-  <span class="attr">color</span>: <span class="str">#f97316</span>;
+  <span class="attr">color</span>: <span class="str">#0038FF</span>;
   <span class="attr">font-size</span>: <span class="num">2.5rem</span>;
   <span class="attr">font-weight</span>: <span class="num">900</span>;
 }
@@ -104,12 +149,40 @@
 <span class="cmt">/* Pseudo-element: first letter */</span>
 <span class="fn">p::first-letter</span> {
   <span class="attr">font-size</span>: <span class="num">2em</span>;
-  <span class="attr">color</span>: <span class="str">#f97316</span>;
+  <span class="attr">color</span>: <span class="str">#0038FF</span>;
 }</pre>
       </div>
 
       <!-- Box Model -->
       <h2 class="content-heading" id="css-box-model">📦 The Box Model</h2>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <path d="M 50 80 Q 100 20 150 80" stroke="rgba(0,56,255,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 50 80 Q 100 140 150 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 100 40 L 100 120" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" fill="none"/>
+     <circle cx="50" cy="80" r="14" fill="#fafafa" stroke="#0038FF" stroke-width="2"/>
+     <circle cx="150" cy="80" r="14" fill="#fafafa" stroke="#3b82f6" stroke-width="2"/>
+     <circle cx="100" cy="40" r="12" fill="#fafafa" stroke="#4ade80" stroke-width="2"/>
+     <circle cx="100" cy="120" r="12" fill="#fafafa" stroke="#eab308" stroke-width="2"/>
+     <text x="100" y="85" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">API</text>
+     <circle cx="100" cy="80" r="4" fill="#0038FF">
+       <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+     </circle>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">📦 The Box Model Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 📦 The Box Model is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">Every HTML element is a rectangular box. Understanding the box model is fundamental to controlling spacing and sizing.</p>
 
       <div class="glass-card mt-md mb-lg" style="text-align:center;padding:2rem;font-family:'Fira Code',monospace;font-size:0.85rem;">
@@ -120,7 +193,7 @@
               border
               <div style="background:rgba(34,197,94,0.1);border:2px solid #4ade80;padding:12px;border-radius:4px;color:#4ade80;margin-top:8px;">
                 padding
-                <div style="background:rgba(249,115,22,0.15);border:1px solid var(--orange-500);padding:10px;border-radius:4px;color:var(--orange-400);margin-top:8px;">
+                <div style="background:rgba(0,56,255,0.15);border:1px solid var(--orange-500);padding:10px;border-radius:4px;color:var(--orange-400);margin-top:8px;">
                   content (width × height)
                 </div>
               </div>
@@ -144,7 +217,7 @@
   <span class="attr">padding-top</span>: <span class="num">12px</span>;    <span class="cmt">/* individual side */</span>
 
   <span class="cmt">/* Border */</span>
-  <span class="attr">border</span>: <span class="num">2px</span> solid <span class="str">#f97316</span>;
+  <span class="attr">border</span>: <span class="num">2px</span> solid <span class="str">#0038FF</span>;
   <span class="attr">border-radius</span>: <span class="num">12px</span>;
 
   <span class="cmt">/* Margin: space OUTSIDE the border */</span>
@@ -154,6 +227,65 @@
 
       <!-- Flexbox -->
       <h2 class="content-heading" id="flexbox">📐 Flexbox Layout</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="30" y="30" width="140" height="100" rx="6" fill="rgba(59,130,246,0.05)" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+     <rect x="50" y="50" width="100" height="60" rx="4" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2"/>
+     <rect x="70" y="65" width="60" height="30" rx="2" fill="rgba(0,56,255,0.2)" stroke="#0038FF" stroke-width="2"/>
+     <text x="100" y="45" font-size="7" fill="#3b82f6" text-anchor="middle">Margin</text>
+     <text x="100" y="62" font-size="7" fill="#4ade80" text-anchor="middle">Padding</text>
+     <text x="100" y="83" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">Content</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">📐 Flexbox Layout Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 📐 Flexbox Layout is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+
+<div class="illustration-block reverse" id="illus-flexbox">
+  <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="30" width="180" height="100" rx="8" fill="none" stroke="#0038FF" stroke-width="1.5" stroke-dasharray="4,3"/><rect x="20" y="42" width="45" height="76" rx="6" fill="rgba(0,56,255,0.15)" stroke="#0038FF" stroke-width="1"><animate attributeName="width" values="45;50;45" dur="3s" repeatCount="indefinite"/></rect><rect x="75" y="42" width="50" height="76" rx="6" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1"><animate attributeName="width" values="50;60;50" dur="3s" repeatCount="indefinite"/></rect><rect x="135" y="42" width="45" height="76" rx="6" fill="rgba(74,222,128,0.15)" stroke="#4ade80" stroke-width="1"><animate attributeName="width" values="45;40;45" dur="3s" repeatCount="indefinite"/></rect><text x="42" y="84" font-size="8" fill="#0038FF" text-anchor="middle">flex:1</text><text x="100" y="84" font-size="8" fill="#3b82f6" text-anchor="middle">flex:2</text><text x="157" y="84" font-size="8" fill="#4ade80" text-anchor="middle">flex:1</text></svg></div>
+  <div class="illus-text">
+    <h3>Flexbox: 1D Flexible Layouts</h3>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="10" y="65" width="40" height="30" rx="6" fill="rgba(0,56,255,0.1)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="50" y1="80" x2="80" y2="80" stroke="#0038FF" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="80" y="65" width="40" height="30" rx="6" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="1.5"/>
+     <line x1="120" y1="80" x2="150" y2="80" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="150" y="65" width="40" height="30" rx="6" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="1.5"/>
+     <text x="30" y="83" font-size="8" fill="#0038FF" text-anchor="middle">Build</text>
+     <text x="100" y="83" font-size="8" fill="#3b82f6" text-anchor="middle">Test</text>
+     <text x="170" y="83" font-size="8" fill="#4ade80" text-anchor="middle">Ship</text>
+     <circle cx="100" cy="120" r="10" fill="none" stroke="#eab308" stroke-width="2"/>
+     <path d="M 100 110 A 10 10 0 0 1 110 120" fill="none" stroke="#eab308" stroke-width="3">
+       <animateTransform attributeName="transform" type="rotate" from="0 100 120" to="360 100 120" dur="1.5s" repeatCount="indefinite"/>
+     </path>
+  </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">Flexbox: 1D Flexible Layouts Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding Flexbox: 1D Flexible Layouts is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
+    <p>Flexbox makes it effortless to align items in a row or column. Think of it as a smart container that automatically distributes space between elements.</p>
+    <ul><li>justify-content aligns on main axis</li><li>align-items aligns on cross axis</li><li>flex-grow lets items share space</li></ul>
+  </div>
+</div>
       <p class="content-text">Flexbox is a 1D layout system — you arrange items in a row or column. It's the most used layout tool in modern web dev.</p>
 
       <div class="code-block">
@@ -196,6 +328,38 @@
 
       <!-- CSS Grid -->
       <h2 class="content-heading" id="css-grid">🔲 CSS Grid</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="20" y="20" width="160" height="120" rx="8" fill="rgba(0,56,255,0.05)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="20" y1="40" x2="180" y2="40" stroke="#0038FF" stroke-width="1" opacity="0.5"/>
+     <rect x="35" y="60" width="25" height="60" rx="3" fill="rgba(59,130,246,0.5)">
+       <animate attributeName="height" values="60;40;60" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="60;80;60" dur="2s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="75" y="40" width="25" height="80" rx="3" fill="rgba(249,115,22,0.6)">
+       <animate attributeName="height" values="80;60;80" dur="2.5s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="40;60;40" dur="2.5s" repeatCount="indefinite"/>
+     </rect>
+     <rect x="115" y="50" width="25" height="70" rx="3" fill="rgba(74,222,128,0.5)">
+       <animate attributeName="height" values="70;90;70" dur="3s" repeatCount="indefinite"/>
+       <animate attributeName="y" values="50;30;50" dur="3s" repeatCount="indefinite"/>
+     </rect>
+     <path d="M 35 120 L 140 120" stroke="#94a3b8" stroke-width="1.5"/>
+     <text x="100" y="150" font-size="8" fill="#0038FF" text-anchor="middle" font-weight="bold">🔲 CSS GRID</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🔲 CSS Grid Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🔲 CSS Grid is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">CSS Grid is a 2D layout system — rows AND columns. Perfect for page layouts, card grids, and complex designs.</p>
 
       <div class="code-block">
@@ -274,6 +438,34 @@
 
       <!-- CSS Variables -->
       <h2 class="content-heading" id="css-variables">🎛️ CSS Variables & Theming</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <path d="M 50 80 Q 100 20 150 80" stroke="rgba(0,56,255,0.25)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 50 80 Q 100 140 150 80" stroke="rgba(59,130,246,0.3)" stroke-width="1.5" fill="none" stroke-dasharray="4,2"/>
+     <path d="M 100 40 L 100 120" stroke="rgba(74,222,128,0.3)" stroke-width="1.5" fill="none"/>
+     <circle cx="50" cy="80" r="14" fill="#fafafa" stroke="#0038FF" stroke-width="2"/>
+     <circle cx="150" cy="80" r="14" fill="#fafafa" stroke="#3b82f6" stroke-width="2"/>
+     <circle cx="100" cy="40" r="12" fill="#fafafa" stroke="#4ade80" stroke-width="2"/>
+     <circle cx="100" cy="120" r="12" fill="#fafafa" stroke="#eab308" stroke-width="2"/>
+     <text x="100" y="85" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">API</text>
+     <circle cx="100" cy="80" r="4" fill="#0038FF">
+       <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+       <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+     </circle>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🎛️ CSS Variables & Theming Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🎛️ CSS Variables & Theming is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">CSS custom properties (variables) let you define values once, use everywhere. Essential for theming and dark mode.</p>
 
       <div class="code-block">
@@ -282,7 +474,7 @@
 <span class="fn">:root</span> {
   <span class="attr">--color-bg</span>: <span class="str">#ffffff</span>;
   <span class="attr">--color-text</span>: <span class="str">#0f0f0f</span>;
-  <span class="attr">--color-accent</span>: <span class="str">#f97316</span>;
+  <span class="attr">--color-accent</span>: <span class="str">#0038FF</span>;
   <span class="attr">--radius</span>: <span class="num">12px</span>;
   <span class="attr">--spacing</span>: <span class="num">24px</span>;
 }
@@ -316,6 +508,28 @@
 
       <!-- Animations -->
       <h2 class="content-heading" id="animations">✨ CSS Animations & Transitions</h2>
+
+<div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="30" y="30" width="140" height="100" rx="6" fill="rgba(59,130,246,0.05)" stroke="#3b82f6" stroke-width="2" stroke-dasharray="8,4"/>
+     <rect x="50" y="50" width="100" height="60" rx="4" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="2"/>
+     <rect x="70" y="65" width="60" height="30" rx="2" fill="rgba(0,56,255,0.2)" stroke="#0038FF" stroke-width="2"/>
+     <text x="100" y="45" font-size="7" fill="#3b82f6" text-anchor="middle">Margin</text>
+     <text x="100" y="62" font-size="7" fill="#4ade80" text-anchor="middle">Padding</text>
+     <text x="100" y="83" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">Content</text>
+   </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">✨ CSS Animations & Transitions Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding ✨ CSS Animations & Transitions is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">Smooth animations transform a static site into something that feels alive. Here are the key techniques:</p>
 
       <div class="code-block">
@@ -323,11 +537,11 @@
         <pre class="code-content"><span class="cmt">/* === TRANSITIONS === */</span>
 <span class="cmt">/* Simple: smoothly animate property changes */</span>
 <span class="fn">.btn</span> {
-  <span class="attr">background</span>: <span class="str">#f97316</span>;
+  <span class="attr">background</span>: <span class="str">#0038FF</span>;
   <span class="attr">transition</span>: all <span class="num">250ms</span> ease;
 }
 <span class="fn">.btn:hover</span> {
-  <span class="attr">background</span>: <span class="str">#ea580c</span>;
+  <span class="attr">background</span>: <span class="str">#0038FF</span>;
   <span class="attr">transform</span>: translateY(<span class="num">-4px</span>) scale(<span class="num">1.03</span>);
   <span class="attr">box-shadow</span>: <span class="num">0 20px 40px</span> rgba(<span class="num">249,115,22,0.4</span>);
 }
@@ -366,6 +580,34 @@
 
       <!-- Glassmorphism -->
       <h2 class="content-heading" id="glassmorphism">🪟 Glassmorphism UI (2026 Trend)</h2>
+
+<div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
+  <div class="illus-svg" style="flex-shrink:0; width:220px;">
+    <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+     <rect x="10" y="65" width="40" height="30" rx="6" fill="rgba(0,56,255,0.1)" stroke="#0038FF" stroke-width="1.5"/>
+     <line x1="50" y1="80" x2="80" y2="80" stroke="#0038FF" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="80" y="65" width="40" height="30" rx="6" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="1.5"/>
+     <line x1="120" y1="80" x2="150" y2="80" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3"/>
+     <rect x="150" y="65" width="40" height="30" rx="6" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="1.5"/>
+     <text x="30" y="83" font-size="8" fill="#0038FF" text-anchor="middle">Build</text>
+     <text x="100" y="83" font-size="8" fill="#3b82f6" text-anchor="middle">Test</text>
+     <text x="170" y="83" font-size="8" fill="#4ade80" text-anchor="middle">Ship</text>
+     <circle cx="100" cy="120" r="10" fill="none" stroke="#eab308" stroke-width="2"/>
+     <path d="M 100 110 A 10 10 0 0 1 110 120" fill="none" stroke="#eab308" stroke-width="3">
+       <animateTransform attributeName="transform" type="rotate" from="0 100 120" to="360 100 120" dur="1.5s" repeatCount="indefinite"/>
+     </path>
+  </svg>
+  </div>
+  <div class="illus-text" style="flex:1;">
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🪟 Glassmorphism UI (2026 Trend) Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🪟 Glassmorphism UI (2026 Trend) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
+       <li style="font-weight:600;"><span style="color:var(--brand);">→</span> High performance state-management</li>
+    </ul>
+  </div>
+</div>
       <p class="content-text">Glassmorphism creates a frosted-glass effect — one of the most popular design trends. Here's the exact recipe:</p>
 
       <div class="code-block">
@@ -480,7 +722,7 @@ title.textContent = <span class="str">'New Title'</span>;       <span class="cmt
 title.innerHTML   = <span class="str">'Title &lt;span&gt;!&lt;/span&gt;'</span>; <span class="cmt">// HTML (careful!)</span>
 
 <span class="cmt">// === Modify Styles ===</span>
-btn.style.backgroundColor = <span class="str">'#f97316'</span>;
+btn.style.backgroundColor = <span class="str">'#0038FF'</span>;
 btn.style.display = <span class="str">'none'</span>; <span class="cmt">// hide</span>
 
 <span class="cmt">// === CSS Classes (preferred over inline styles) ===</span>
@@ -704,19 +946,13 @@ scene.<span class="fn">add</span>(mesh);
   <footer class="footer">
     <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
       <div class="footer-brand">
-        <a href="../index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
-          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <span>Nex<span class="logo-accent">ray</span></span>
-        </a>
+        <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
         <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Guide</div>
-        <a href="stage1.html">Stage 1: Basics</a>
-        <a href="stage2.html">Stage 2: Frontend</a>
-        <a href="stage3.html">Stage 3: Backend</a>
-        <a href="stage4.html">Stage 4: DevOps</a>
-      </div>
+      <!-- Guide footer block removed -->
       <div class="footer-col">
         <div class="footer-col-title">Nexray</div>
         <a href="../blog/index.html">Blog</a>
@@ -744,5 +980,7 @@ scene.<span class="fn">add</span>(mesh);
     const c = document.getElementById('stage-canvas');
     if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x8b5cf6); }
   </script>
+  <script src="../js/app.js"></script>
+<script src="../js/three-background.js"></script>
 </body>
 </html>

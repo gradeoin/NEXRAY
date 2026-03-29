@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Nexray Resources — curated tools, docs, references, and platforms every modern web developer needs in 2026." />
   <title>Resources — Nexray</title>
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
   <style>
     .res-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.25rem; }
     .res-card { display:flex; flex-direction:column; gap:0.5rem; text-decoration:none; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:1.25rem 1.5rem; transition:all 0.25s ease; }
-    .res-card:hover { background:rgba(249,115,22,0.07); border-color:rgba(249,115,22,0.3); transform:translateY(-3px); box-shadow:0 12px 30px rgba(249,115,22,0.15); }
+    .res-card:hover { background:rgba(249,115,22,0.07); border-color:rgba(0,56,255,0.25); transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,56,255,0.15); }
     .res-card-icon { font-size:1.75rem; margin-bottom:0.25rem; }
     .res-card-name { font-weight:700; font-size:1rem; color:var(--text-primary); }
     .res-card-desc { color:var(--text-secondary); font-size:0.8rem; line-height:1.6; }
@@ -20,19 +20,27 @@
     .filter-btn:hover, .filter-btn.active { border-color:var(--orange-500); background:rgba(249,115,22,0.12); color:var(--orange-400); }
     .res-section { margin-bottom:3rem; }
   </style>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Developer Resources & Tools | Nexray" />
+  <meta property="og:description" content="Curated list of free tools, icons, APIs, hosting, and resources for web developers. Compiled by Nexray." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Developer Resources & Tools | Nexray" />
+  <meta name="twitter:description" content="Curated list of free tools, icons, APIs, hosting, and resources for web developers. Compiled by Nexray." />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <nav class="nav">
-    <a href="index.html" class="nav-logo">
-      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <span>Nex<span class="logo-accent">ray</span></span>
-    </a>
+    <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="guide/stage1.html">Guide</a>
       <a href="blog/index.html">Blog</a>
       <a href="resources.html" class="active">Resources</a>
-      <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
       <a href="auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -46,7 +54,7 @@
     <div style="text-align:center;padding:6rem 2rem 3rem;background:radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%);">
       <div class="stage-badge" style="margin:0 auto 1.5rem;">📦 Resource Hub</div>
       <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
-        Every Tool You'll<br><span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ever Need</span>
+        Every Tool You'll<br><span style="background:linear-gradient(135deg,#0038FF,#CCFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ever Need</span>
       </h1>
       <p style="color:var(--text-secondary);font-size:var(--fs-md);max-width:600px;margin:0 auto;">Curated, categorized, and kept up-to-date. No affiliate garbage, no sponsored junk — just genuinely useful tools we'd recommend to a friend.</p>
     </div>
@@ -304,19 +312,13 @@
   <footer class="footer">
     <div class="footer-grid" style="max-width:1180px;margin:0 auto;">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;">
-          <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <span>Nex<span class="logo-accent">ray</span></span>
-        </a>
+        <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-family: 'Arial Black', Impact, sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 1px; margin-left: 10px; color: var(--text); text-transform: uppercase;">NEX<span class="logo-accent" style="color: var(--brand);">RAY</span></span>
+  </a>
         <p style="color:var(--text-2);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem;">The complete 2026 guide to web development. Built for beginners, designed for pros.</p>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Guide</div>
-        <a href="guide/stage1.html">Stage 1: Basics</a>
-        <a href="guide/stage2.html">Stage 2: Frontend</a>
-        <a href="guide/stage3.html">Stage 3: Backend</a>
-        <a href="guide/stage4.html">Stage 4: DevOps</a>
-      </div>
+      <!-- Guide footer block removed -->
       <div class="footer-col">
         <div class="footer-col-title">Nexray</div>
         <a href="blog/index.html">Blog</a>
@@ -338,5 +340,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+<script src="js/three-background.js"></script>
 </body>
 </html>
