@@ -276,12 +276,12 @@
       modal.id = 'cert-completion-modal';
       modal.innerHTML = `
         <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(9,9,15,0.8); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.5s ease;">
-          <div style="background: var(--bg-card); border: 2px solid var(--brand); border-radius: 24px; padding: 3rem; text-align: center; max-width: 480px; width: 90%; transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 60px rgba(249,115,22,0.3);">
+          <div style="background: #ffffff; border: 2px solid var(--brand); border-radius: 24px; padding: 3rem; text-align: center; max-width: 480px; width: 90%; transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 60px rgba(0,56,255,0.2);">
             <div style="font-size: 4rem; margin-bottom: 1rem;">🎓</div>
             <h2 style="font-size: 2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 900; color: var(--text); margin-bottom: 1rem;">Journey Complete!</h2>
             <p style="color: var(--text-2); margin-bottom: 2rem; line-height: 1.6;">You've officially finished all 7 stages of the Nexray Web Development Masterclass. Claim your verified certificate now.</p>
             <div style="display: flex; gap: 1rem; justify-content: center;">
-              <button id="cert-close-btn" class="btn btn-secondary">Maybe Later</button>
+              <button id="cert-close-btn" class="btn btn-secondary" style="background: var(--bg-2); color: var(--text);">Maybe Later</button>
               <button id="cert-claim-btn" class="btn btn-primary" style="animation: pulse-glow 2s infinite;">Download Certificate</button>
             </div>
           </div>
