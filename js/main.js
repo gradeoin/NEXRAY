@@ -220,4 +220,37 @@
     }, 3000); 
   }
 
+  /* ── Auth UI State Sync ───────────────────────────────────── */
+  function syncAuthUI() {
+    const userStr = localStorage.getItem('nexray_user');
+    if (!userStr) return;
+    
+    try {
+      const u = JSON.parse(userStr);
+      if (u && u.loggedIn) {
+        // Find and swap "Sign In" link for User Avatar
+        const signinBtn = document.getElementById('nav-signin') || document.querySelector('.nav-cta');
+        if (signinBtn) {
+          const avatar = document.createElement('img');
+          avatar.src = u.photoURL;
+          avatar.className = 'user-avatar';
+          avatar.title = `Logged in as ${u.displayName} · Click to Sign Out`;
+          
+          // Sign-out functionality
+          avatar.onclick = () => {
+            if (confirm('Sign out of Nexray?')) {
+              localStorage.removeItem('nexray_user');
+              window.location.reload();
+            }
+          };
+          
+          signinBtn.replaceWith(avatar);
+        }
+      }
+    } catch(e) { console.warn('Auth sync failed', e); }
+  }
+  
+  // Call on load
+  syncAuthUI();
+
 })();

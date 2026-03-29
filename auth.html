@@ -121,28 +121,52 @@
 
   // Redirect if already signed in
   onAuthStateChanged(auth, (user) => {
-    if (user) window.location.href = 'profile.html';
+    if (user) {
+      // Save minimal user info to localStorage for global quick access in main.js
+      localStorage.setItem('nexray_user', JSON.stringify({
+        displayName: user.displayName || 'Developer',
+        photoURL: user.photoURL || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80',
+        loggedIn: true
+      }));
+      window.location.href = 'index.html';
+    }
   });
 
   // Google Sign In
   document.getElementById('google-signin-btn').addEventListener('click', async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
-      window.location.href = 'profile.html';
+      const result = await signInWithPopup(auth, googleProvider);
+      localStorage.setItem('nexray_user', JSON.stringify({
+        displayName: result.user.displayName,
+        photoURL: result.user.photoURL,
+        loggedIn: true
+      }));
+      window.location.href = 'index.html';
     } catch (err) {
-      showError(err.message);
+      showError('Google sign in failed: ' + err.message);
     }
   });
 
   // Email Sign In
   document.getElementById('signin-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = 'Signing in...';
+    
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = 'profile.html';
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem('nexray_user', JSON.stringify({
+        displayName: result.user.email.split('@')[0],
+        photoURL: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80',
+        loggedIn: true
+      }));
+      window.location.href = 'index.html';
     } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Sign In';
       showError(err.code === 'auth/invalid-credential' ? 'Invalid email or password.' : err.message);
     }
   });
