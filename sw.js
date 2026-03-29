@@ -18,6 +18,28 @@ const STATIC_ASSETS = [
   '/profile.html',
   '/auth.html',
   '/404.html'
+
+  '/website-creation.html',
+  '/react-development-tools.html',
+  '/tailwind-css-best-practices.html',
+  '/full-stack-roadmap-2026.html',
+
+  '/javascript-tutorial-for-beginners.html',
+  '/learn-typescript-in-2026.html',
+  '/best-code-editors.html',
+  '/css-grid-vs-flexbox.html',
+  '/what-is-an-api.html',
+  '/how-to-become-a-frontend-developer.html',
+  '/backend-development-languages.html',
+  '/deploy-react-app-free.html',
+  '/github-actions-cicd-guide.html',
+  '/firebase-vs-supabase.html',
+  '/docker-for-web-developers.html',
+  '/web-accessibility-wcag-2026.html',
+  '/how-to-learn-coding.html',
+  '/best-programming-languages-2026.html',
+  '/web-development-bootcamp-alternatives.html',
+  '/nextjs-app-router-tutorial.html',
 ];
 
 const CDN_CACHE = 'nexray-cdn-v1';
@@ -63,6 +85,9 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       fetch(request)
         .then(resp => {
+          if (!resp.ok && resp.status === 404) {
+            throw new Error("Page not found");
+          }
           const clone = resp.clone();
           caches.open(CACHE_NAME).then(c => c.put(request, clone));
           return resp;
