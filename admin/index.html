@@ -1,158 +1,238 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard — Nexray</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="stylesheet" href="../css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" />
+  <meta name="theme-color" content="#0038FF">
+  <link rel="manifest" href="../manifest.json">
   <style>
-    body { overflow: hidden; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
     .admin-wrap { display: flex; min-height: 100vh; padding-top: var(--nav-h); }
-    .admin-main { flex: 1; overflow-y: auto; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
-    .data-table th { text-align: left; padding: 10px 14px; color: var(--text-3); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--glass-b); }
-    .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--glass-b); color: var(--text-2); }
-    .data-table tr:hover td { background: var(--bg-card-h); }
-    .admin-section { margin-bottom: 2.5rem; }
-    .admin-section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
-    .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; display: inline-block; animation: pulse-dot 2s ease infinite; }
-    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
-    @media(max-width:768px){.admin-sidebar{display:none}.admin-main{overflow-y:auto;height:calc(100vh - var(--nav-h))}}
+    .admin-sidebar { width: 260px; background: var(--bg-2); border-right: 1px solid var(--glass-b); padding: 1.5rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; flex-shrink: 0; }
+    .admin-main { flex: 1; overflow-y: auto; padding: 2rem; }
+    .admin-nav-item { padding: 10px 16px; border-radius: var(--radius-sm); cursor: pointer; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 0.9rem; color: var(--text-2); transition: all 0.2s; }
+    .admin-nav-item:hover, .admin-nav-item.active { background: var(--brand-dim); color: var(--brand); }
+    .admin-section-wrap { display: none; animation: fade-in 0.3s ease-out; }
+    .admin-section-wrap.active { display: block; }
+    .admin-card { background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-2); }
+    .form-input, .form-textarea { width: 100%; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--glass-b); border-radius: var(--radius-sm); color: var(--text); font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--brand); }
+    .form-textarea { min-height: 150px; resize: vertical; }
+    
+    /* Email Builder Specifics */
+    .email-preview { width: 100%; height: 500px; border: 1px solid var(--glass-b); border-radius: var(--radius-sm); background: #fff; padding: 0; overflow: hidden; }
+    
+    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+        .admin-wrap { flex-direction: column; }
+        .admin-sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; padding: 1rem; border-right: none; border-bottom: 1px solid var(--glass-b); }
+        .admin-main { padding: 1rem; }
+    }
   </style>
 </head>
 <body>
 <nav class="nav">
-  <a href="../index.html" class="nav-logo"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><span>Nex<span class="logo-accent">ray</span> <span style="font-size:.65rem;padding:2px 8px;background:var(--brand-dim);border:1px solid var(--brand-glow);border-radius:99px;color:var(--brand);font-weight:700;font-family:'Inter',sans-serif;vertical-align:middle;">ADMIN</span></span></a>
-  <div class="nav-links">
-    <span class="badge-dot"></span>
-    <span style="color:var(--text-2);font-size:.82rem;">Live</span>
-    <a href="../index.html" class="btn-secondary" style="padding:6px 14px;border-radius:99px;font-size:.82rem;background:var(--glass);border:1px solid var(--glass-b);color:var(--text-2);display:inline-flex;align-items:center;gap:.375rem;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      View Site
-    </a>
-    <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+  <div class="nav-container" style="display:flex; justify-content:space-between; align-items:center; width:100%; padding: 0 1.5rem;">
+      <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
+    <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" alt="Nexray Logo" class="nav-logo-img" style="height:36px; width:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0, 56, 255, 0.25);">
+    <span style="font-weight: 900; font-size: 1.35rem; letter-spacing: 0.5px; margin-left: 10px; color: var(--text);">Nex<span class="logo-accent" style="color: var(--brand);">ray</span></span>
+  </a>
+      <div style="display:flex; align-items:center; gap: 1rem;">
+        <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; font-weight:600; color:var(--text-2);">
+          <div style="width:8px; height:8px; border-radius:50%; background:#4ade80; box-shadow:0 0 10px #4ade80; animation: pulse-glow 2s infinite;"></div> Backend Linked
+        </span>
+      </div>
   </div>
 </nav>
 
 <div class="admin-wrap">
   <!-- Sidebar -->
   <aside class="admin-sidebar">
-    <div style="font-size:.7rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;padding:.5rem .875rem;margin-bottom:.5rem;">Menu</div>
-
-    <div class="admin-nav-item active" onclick="showSection('dashboard',this)">
-      Dashboard
-    </div>
-    <div class="admin-nav-item" onclick="showSection('users',this)">Users</div>
-    <div class="admin-nav-item" onclick="showSection('blog',this)">Blog Posts</div>
-    <div class="admin-nav-item" onclick="showSection('analytics',this)">Analytics</div>
-    <div class="admin-nav-item" onclick="showSection('settings',this)">Settings</div>
-
-    <div style="flex:1"></div>
+    <div style="font-size:.7rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;padding:.5rem .875rem; width:100%;">Menu</div>
+    <div class="admin-nav-item active" onclick="showSection('dashboard', this)">Dashboard</div>
+    <div class="admin-nav-item" onclick="showSection('blog', this)">Publish Blog</div>
+    <div class="admin-nav-item" onclick="showSection('notifications', this)">Push Notifications</div>
+    <div class="admin-nav-item" onclick="showSection('email', this)">HTML Email Builder</div>
+    <div class="admin-nav-item" onclick="showSection('gamification', this)">Gamification Rules</div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Main Content Areas -->
   <main class="admin-main">
-    <div id="section-dashboard" class="admin-section-wrap" style="padding:2rem;">
-
-      <!-- Recent Users -->
-      <div class="admin-section">
-        <div class="admin-section-title">Recent Users</div>
-        <div class="glass-card" style="padding:0;overflow:hidden;">
-          <table class="data-table">
-            <thead><tr><th>User</th><th>Email</th><th>Signs Up</th><th>Progress</th><th>XP</th></tr></thead>
-            <tbody id="users-table-body">
-              <tr><td colspan="5">Loading...</td></tr>
-            </tbody>
-          </table>
+    
+    <!-- DASHBOARD -->
+    <div id="section-dashboard" class="admin-section-wrap active">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:0.5rem;">Admin Overview</h1>
+      <p style="color:var(--text-2);margin-bottom:2rem;">Manage content, send communications, and adjust the backend rules.</p>
+      
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.5rem;">
+        <div class="admin-card">
+            <h3 style="font-size:0.9rem; color:var(--text-2);">Total Registered Users</h3>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:800; color:var(--brand);">12,409</div>
+        </div>
+        <div class="admin-card">
+            <h3 style="font-size:0.9rem; color:var(--text-2);">Active Learning Paths</h3>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:800; color:var(--brand);">8,932</div>
         </div>
       </div>
-
     </div>
 
-    <!-- Other sections -->
-    <div id="section-users" class="admin-section-wrap" style="display:none;padding:2rem;">
-      <h2 class="admin-section-title">Users — Live Firebase Data</h2>
-      <p>Connected to Firestore users collection.</p>
+    <!-- BLOG PUBLISHER -->
+    <div id="section-blog" class="admin-section-wrap">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:1.5rem;">Publish New Blog</h1>
+      <div class="admin-card">
+        <div class="form-group">
+          <label class="form-label">Post Title</label>
+          <input type="text" class="form-input" placeholder="e.g., Why Next.js is the Future" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Slug URL</label>
+          <input type="text" class="form-input" placeholder="e.g., why-nextjs-future" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cover Image URL</label>
+          <input type="text" class="form-input" placeholder="Cloudinary URL" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Markdown Content</label>
+          <textarea class="form-textarea" placeholder="Write your post content here using Markdown..."></textarea>
+        </div>
+        <button class="btn btn-primary">Publish to Firestore</button>
+      </div>
     </div>
 
-    <div id="section-blog" class="admin-section-wrap" style="display:none;padding:2rem;">
-      <h2 class="admin-section-title">Blog Posts</h2>
+    <!-- NOTIFICATIONS -->
+    <div id="section-notifications" class="admin-section-wrap">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:1.5rem;">Send Push Notification</h1>
+      <div class="admin-card">
+        <p style="color:var(--text-2); margin-bottom:1.5rem; font-size:0.9rem;">Broadcast a push notification to all users via Firebase Cloud Messaging.</p>
+        <div class="form-group">
+          <label class="form-label">Notification Title</label>
+          <input type="text" id="notif-title" class="form-input" placeholder="e.g., Stage 8 is Live!" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message Body</label>
+          <textarea id="notif-body" class="form-textarea" style="min-height:80px;" placeholder="New content available..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Target URL</label>
+          <input type="text" id="notif-url" class="form-input" placeholder="/guide/stage8.html" />
+        </div>
+        <button class="btn btn-primary" onclick="sendTestNotification()">Send Broadcast</button>
+      </div>
     </div>
 
-    <div id="section-analytics" class="admin-section-wrap" style="display:none;padding:2rem;">
-      <h2 class="admin-section-title">Analytics</h2>
+    <!-- HTML EMAIL BUILDER -->
+    <div id="section-email" class="admin-section-wrap">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:1.5rem;">HTML Email Builder</h1>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem;">
+        <div class="admin-card">
+          <div class="form-group">
+            <label class="form-label">Email Subject</label>
+            <input type="text" class="form-input" placeholder="Weekly Nexray Update" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">HTML Body (MJML supported)</label>
+            <textarea class="form-textarea" id="email-code" onkeyup="updateEmailPreview()" style="min-height:300px; font-family:monospace; font-size:13px;">
+<div style="font-family: Arial, sans-serif; background-color: #fafafa; color: #ffffff; padding: 40px; text-align: center;">
+  <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png" height="40" style="margin-bottom: 20px;" />
+  <h1 style="color: #0038FF;">New Gamification Loop Added!</h1>
+  <p style="color: #94a3b8; font-size: 16px; line-height: 1.5;">You can now earn XP, track your 7-stage progress, and unlock exclusive badges on your Nexray dashboard.</p>
+  <a href="https://nexray.in/profile.html" style="display: inline-block; background-color: #0038FF; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; margin-top: 20px;">View Your Dashboard</a>
+</div>
+            </textarea>
+          </div>
+          <button class="btn btn-primary">Send to All Users (Firebase + Sendgrid)</button>
+        </div>
+        <div>
+          <label class="form-label">Live Preview</label>
+          <iframe id="email-preview-frame" class="email-preview"></iframe>
+        </div>
+      </div>
     </div>
 
-    <div id="section-settings" class="admin-section-wrap" style="display:none;padding:2rem;">
-      <h2 class="admin-section-title">Settings</h2>
+    <!-- GAMIFICATION -->
+    <div id="section-gamification" class="admin-section-wrap">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;margin-bottom:1.5rem;">Gamification Rules Engine</h1>
+      <p style="color:var(--text-2);margin-bottom:2rem;">Configure the global XP and badge rewards for the learning platform.</p>
+      
+      <div class="admin-card" style="margin-bottom: 1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                  <h3 style="margin-bottom:0.2rem;">Stage 1 Completion</h3>
+                  <p style="font-size:0.85rem; color:var(--text-2);">Awarded when user finishes the HTML Guide</p>
+              </div>
+              <input type="number" class="form-input" style="width:100px; text-align:center;" value="100" />
+              <span style="color:var(--brand); font-weight:bold;">XP</span>
+          </div>
+      </div>
+      
+      <div class="admin-card" style="margin-bottom: 1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                  <h3 style="margin-bottom:0.2rem;">Perfect 7-Day Daily Streak</h3>
+                  <p style="font-size:0.85rem; color:var(--text-2);">Awarded for logging in every day for a week</p>
+              </div>
+              <input type="number" class="form-input" style="width:100px; text-align:center;" value="250" />
+              <span style="color:var(--brand); font-weight:bold;">XP</span>
+          </div>
+      </div>
+      
+      <button class="btn btn-primary mt-md">Update Rules in Firestore</button>
     </div>
+    
   </main>
 </div>
 
 <script>
+  // Simple tab switching logic
   function showSection(id, btn) {
-    document.querySelectorAll('.admin-section-wrap').forEach(s => s.style.display = 'none');
-    document.getElementById('section-' + id).style.display = 'block';
+    document.querySelectorAll('.admin-section-wrap').forEach(s => s.classList.remove('active'));
+    document.getElementById('section-' + id).classList.add('active');
     document.querySelectorAll('.admin-nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
-</script>
 
-<!-- ⭐ FIREBASE + USERS FETCH -->
-<script type="module">
-
-  /* --- Firebase Imports --- */
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getFirestore, collection, getDocs } 
-    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-
-  /* --- Your Firebase Config --- */
-  const firebaseConfig = {
-    apiKey: "AIzaSyBzM68THLIm9Njdps5XMcvkdnzzvL3l7EQ",
-    authDomain: "nexray-d66fb.firebaseapp.com",
-    projectId: "nexray-d66fb",
-    storageBucket: "nexray-d66fb.firebasestorage.app",
-    messagingSenderId: "714253399201",
-    appId: "1:714253399201:web:77679145c51f0243b92ce0",
-    measurementId: "G-4Q8W67SGYB"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  /* --- Load Users Table --- */
-  async function loadUsers() {
-    const tbody = document.getElementById("users-table-body");
-    tbody.innerHTML = "<tr><td colspan='5'>Loading users...</td></tr>";
-
-    const querySnapshot = await getDocs(collection(db, "users"));
-
-    tbody.innerHTML = "";
-
-    querySnapshot.forEach(doc => {
-      const u = doc.data();
-
-      const row = `
-        <tr>
-          <td style="color:var(--text);">${u.name || "Unknown"}</td>
-          <td>${u.email || "-"}</td>
-          <td>${u.signupDate || "-"}</td>
-          <td><span class="badge">${u.progress || "0/7"} Stages</span></td>
-          <td><span class="xp-badge">${u.xp || 0} XP</span></td>
-        </tr>
-      `;
-      tbody.insertAdjacentHTML("beforeend", row);
-    });
-
-    if (!querySnapshot.size) {
-      tbody.innerHTML = "<tr><td colspan='5'>No users found.</td></tr>";
-    }
+  // Live email preview update
+  function updateEmailPreview() {
+    const code = document.getElementById('email-code').value;
+    const frame = document.getElementById('email-preview-frame');
+    frame.contentWindow.document.open();
+    frame.contentWindow.document.write(code);
+    frame.contentWindow.document.close();
   }
+  
+  // Init frame on load
+  window.onload = updateEmailPreview;
 
-  document.addEventListener("DOMContentLoaded", loadUsers);
-
+  // Fake notification sender
+  function sendTestNotification() {
+      const title = document.getElementById('notif-title').value || 'Test Title';
+      const body = document.getElementById('notif-body').value || 'Test Body';
+      
+      if(Notification.permission === 'granted') {
+          navigator.serviceWorker.ready.then(reg => {
+              reg.showNotification(title, {
+                  body: body,
+                  icon: 'https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png'
+              });
+          });
+          alert('Broadcast sent! (Check your system notifications)');
+      } else if (Notification.permission !== 'denied') {
+          Notification.requestPermission().then(permission => {
+              if (permission === 'granted') sendTestNotification();
+          });
+      } else {
+        alert('Notifications blocked by browser. Cannot send test.');
+      }
+  }
 </script>
-
+<script src="../js/three-background.js"></script>
 </body>
 </html>
