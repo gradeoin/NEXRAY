@@ -159,7 +159,7 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
   box-shadow:var(--shadow-brand);
   transition:transform .25s,box-shadow .25s !important;
 }
-.nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 0 40px var(--brand-glow)!important}
+.nav-cta:hover{box-shadow:0 0 20px var(--brand-glow)!important}
 
 /* Theme toggle */
 .theme-toggle{
@@ -255,7 +255,6 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
 .glass-card:hover{
   background:var(--bg-card-h);
   border-color:var(--brand);
-  transform:translateY(-6px); /* More pronounced pop */
   box-shadow:var(--shadow-brand);
 }
 
@@ -267,67 +266,44 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
   display:inline-flex;align-items:center;gap:.5rem;
   padding:12px 28px;border:none;border-radius:30px;
   font-size:.92rem;font-weight:700;cursor:pointer;
-  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  transition:background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
   white-space:nowrap;
   position: relative;
   overflow: hidden;
-  z-index: 1;
-}
-
-/* Spinning conic gradient "Laser" effect for global buttons */
-.btn::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(transparent, transparent, transparent, #fff);
-  animation: spin-slow 4s linear infinite;
-  opacity: 0;
-  transition: opacity 0.35s;
-  z-index: -1;
-  pointer-events: none;
 }
 
 .btn-primary{
   background:var(--brand-gradient);
   color:#fff !important;
-  box-shadow: 0 4px 15px var(--brand-glow), inset 0px 1px 1px rgba(255,255,255,0.4);
+  box-shadow: 0 4px 14px var(--brand-glow);
+}
+.btn-primary:hover{
+  box-shadow: 0 6px 22px var(--brand-glow);
+  opacity: 0.92;
 }
 
 .btn-secondary{
-  background:rgba(255,255,255,0.08); /* Darker glass for better contrast */
+  background:rgba(255,255,255,0.07);
   border:1px solid var(--glass-b);
   color:var(--text) !important;
   backdrop-filter:blur(12px);
 }
-
-/* Activate laser on hover for all primary/secondary buttons */
-.btn:hover{
-  transform:translateY(-4px) scale(1.03);
-  box-shadow: 0 10px 30px var(--brand-glow);
-  color: #fff !important;
-}
-
-.btn-primary:hover{ background: var(--brand); }
-.btn-secondary:hover{ border-color:var(--brand); background: var(--brand-dim); }
-
-.btn:hover::before {
-  opacity: 0.8;
+.btn-secondary:hover{
+  border-color:var(--brand);
+  background: var(--brand-dim);
 }
 
 .btn-outline{background:transparent;border:1.5px solid var(--brand);color:var(--brand)}
-.btn-outline:hover{background:var(--brand-dim);transform:translateY(-2px)}
+.btn-outline:hover{background:var(--brand-dim);}
 .btn-sm{padding:7px 16px;font-size:.8rem}
 .btn-lg{padding:15px 36px;font-size:1.05rem}
 .btn-full{width:100%;justify-content:center}
 
-/* Canvas Transparency Fix - Solves reading over animation */
+/* Canvas — keep very faint so text stays readable */
 #hero-canvas, #stage-canvas, .hero-canvas {
-  opacity: 0.08 !important; /* Ultra-faint for zero text interference */
+  opacity: 0.07 !important;
   pointer-events: none;
-  filter: blur(1px); /* Softens edges further */
+  filter: blur(1px);
 }
 
 /* ── Tags / Badges ──────────────────────────────────────────── */
@@ -453,7 +429,7 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
   border-radius:var(--radius-lg);margin-bottom:1rem;
   transition:all .25s;
 }
-.step-card:hover{border-color:rgba(249,115,22,.3);background:var(--bg-card-h);transform:translateX(6px)}
+.step-card:hover{border-color:rgba(249,115,22,.3);background:var(--bg-card-h);}
 .step-number{
   flex-shrink:0;width:44px;height:44px;
   background:var(--brand-gradient);border-radius:var(--radius);
@@ -505,7 +481,7 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
   font-size:.85rem;font-weight:600;transition:all .25s;
   max-width:240px;
 }
-.guide-nav-btn:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-dim);transform:translateY(-2px)}
+.guide-nav-btn:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-dim);}
 .guide-nav-btn.next{margin-left:auto;text-align:right}
 .guide-nav-btn .nav-arrow{font-size:1.1em}
 .guide-nav-btn .nav-label{font-size:.72rem;color:var(--text-3);display:block;font-weight:400}
@@ -580,7 +556,7 @@ code{
 .footer-brand .brand-desc{color:var(--text-2);font-size:.9rem;line-height:1.8;margin:.875rem 0 1.25rem; font-weight: 500;}
 .footer-col h4{font-size:.8rem;font-weight:900;color:var(--text);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.1em}
 .footer-col a{display:flex;align-items:center;gap:.375rem;color:var(--text-2);font-size:.9rem;padding:6px 0;transition:all .2s; font-weight: 700;}
-.footer-col a:hover{color:var(--brand); transform: translateX(5px); }
+.footer-col a:hover{color:var(--brand);}
 .footer-bottom{
   max-width:1180px;margin:0 auto;padding-top:2rem;
   border-top:1px solid var(--glass-b);
@@ -622,7 +598,6 @@ code{
 }
 .stage-card:hover{
   border-color:rgba(249,115,22,.3);
-  transform:translateY(-5px);
   box-shadow:var(--shadow-brand);
 }
 .stage-card > *{position:relative;z-index:1}
@@ -647,7 +622,7 @@ code{
   border-radius:var(--radius-lg);overflow:hidden;
   transition:all .25s;display:flex;flex-direction:column;
 }
-.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-brand);border-color:rgba(249,115,22,.25)}
+.blog-card:hover{box-shadow:var(--shadow-brand);border-color:rgba(249,115,22,.25)}
 .blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--bg-2)}
 .blog-card-body{padding:1.25rem;display:flex;flex-direction:column;gap:.625rem;flex:1}
 .blog-card-title{font-weight:700;font-size:1rem;line-height:1.45}
@@ -763,38 +738,13 @@ code{
 .hide-scroll::-webkit-scrollbar{display:none}
 
 /* ── Custom UI Enhancements ─────────────────────────────────── */
-/* Custom Cursor & Effects */
+/* Custom Cursor — orange arrow */
 @media (pointer: fine) {
-  body { cursor: none; }
-  a, button, input, textarea, select, .stage-card, .btn { cursor: none !important; }
-
-  #custom-cursor {
-    position: fixed;
-    top: -50px;
-    left: -50px;
-    width: 24px;
-    height: 24px;
-    background: var(--brand-gradient);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s, mix-blend-mode 0.2s;
-    mix-blend-mode: normal;
+  body,
+  a, button, input, textarea, select, .stage-card, .btn {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='26' viewBox='0 0 22 26'%3E%3Cpolygon points='2,2 2,22 8,16 12,24 15,23 11,15 19,15' fill='%23f97316' stroke='%23fff' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 2 2, auto !important;
   }
-  #custom-cursor.hover {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.9);
-    mix-blend-mode: exclusion;
-  }
-  #custom-cursor.click {
-    width: 90px;
-    height: 90px;
-    background: var(--brand);
-    opacity: 0.5;
-    mix-blend-mode: normal;
-  }
+  #custom-cursor { display: none !important; }
 }
 
 /* Loading Screen */

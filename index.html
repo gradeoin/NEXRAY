@@ -97,53 +97,149 @@
   <!-- BG glow -->
   <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.14),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;" aria-hidden="true"></div>
 
-  <div class="container" style="position:relative;z-index:1;text-align:center;padding-top:3rem;padding-bottom:3rem;">
-    <div class="badge badge-brand reveal" style="margin:0 auto 1.5rem;display:inline-flex;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      Free · 7 Stages · Updated 2026
-    </div>
+  <div class="container" style="position:relative;z-index:1;padding-top:3rem;padding-bottom:3rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;" class="hero-grid">
 
-    <h1 id="hero-heading" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.05;margin-bottom:1.25rem;" class="reveal">
-      Web Dev.<br>
-      <span style="background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your Way.</span>
-    </h1>
+      <!-- Left: Text -->
+      <div>
+        <div class="badge badge-brand reveal" style="margin-bottom:1.5rem;display:inline-flex;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Free · 7 Stages · Updated 2026
+        </div>
 
-    <p style="font-size:clamp(1rem,2.5vw,1.2rem);color:var(--text-2);max-width:540px;margin:0 auto 2.5rem;line-height:1.8;" class="reveal">
-      From "What is HTML?" to deploying a full-stack app — in 7 clear stages. No fluff, real code, completely free.
-    </p>
+        <h1 id="hero-heading" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4.4rem);font-weight:900;line-height:1.06;margin-bottom:1.25rem;" class="reveal">
+          Web Dev.<br>
+          <span style="background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your Way.</span>
+        </h1>
 
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;" class="reveal">
-      <a href="guide/stage1.html" class="btn btn-primary btn-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Start Stage 1 — Free
-      </a>
-      <a href="auth.html" class="btn btn-secondary btn-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Save My Progress
-      </a>
-    </div>
+        <p style="font-size:clamp(1rem,2vw,1.15rem);color:var(--text-2);max-width:480px;margin-bottom:2.5rem;line-height:1.8;" class="reveal">
+          From "What is HTML?" to deploying a full-stack app — in 7 clear stages. No paywalls, no fluff. Real code, real projects, completely free.
+        </p>
 
-    <!-- Stats -->
-    <div style="display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;" class="reveal">
-      <div style="text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">7</div>
-        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Stages</div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
+          <a href="guide/stage1.html" class="btn btn-primary btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Start Stage 1 — Free
+          </a>
+          <a href="auth.html" class="btn btn-secondary btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Create Free Account
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;" class="reveal">
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">7</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Stages</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">100%</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Free</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">30+</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Hours</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:800;color:var(--brand);">2026</div><div style="font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Updated</div></div>
+        </div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">100%</div>
-        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Free</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">2026</div>
-        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Updated</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;color:var(--brand);">30+</div>
-        <div style="font-size:.78rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;">Hours</div>
+
+      <!-- Right: Hero Illustration -->
+      <div class="reveal-right" style="display:flex;justify-content:center;align-items:center;">
+        <svg viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;" aria-hidden="true">
+          <!-- Monitor frame -->
+          <rect x="30" y="20" width="320" height="210" rx="14" fill="#1a1a2e" stroke="rgba(249,115,22,0.35)" stroke-width="2"/>
+          <rect x="30" y="20" width="320" height="32" rx="14" fill="rgba(249,115,22,0.12)"/>
+          <rect x="30" y="38" width="320" height="14" fill="rgba(249,115,22,0.12)"/>
+          <!-- Traffic lights -->
+          <circle cx="52" cy="36" r="5" fill="#ff5f57"/>
+          <circle cx="68" cy="36" r="5" fill="#febc2e"/>
+          <circle cx="84" cy="36" r="5" fill="#28c840"/>
+          <!-- URL bar -->
+          <rect x="100" y="28" width="180" height="16" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="190" y="39" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.35)" font-family="monospace">nexray.in</text>
+
+          <!-- Code lines in screen -->
+          <rect x="50" y="72" width="90" height="7" rx="3" fill="rgba(249,115,22,0.7)"/>
+          <rect x="148" y="72" width="60" height="7" rx="3" fill="rgba(255,255,255,0.15)"/>
+          <rect x="50" y="88" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
+          <rect x="76" y="88" width="110" height="7" rx="3" fill="rgba(255,255,255,0.2)"/>
+          <rect x="50" y="104" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
+          <rect x="76" y="104" width="70" height="7" rx="3" fill="rgba(249,115,22,0.5)"/>
+          <rect x="152" y="104" width="40" height="7" rx="3" fill="rgba(255,255,255,0.15)"/>
+          <rect x="50" y="120" width="140" height="7" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <rect x="50" y="136" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
+          <rect x="76" y="136" width="55" height="7" rx="3" fill="rgba(52,211,153,0.6)"/>
+          <rect x="137" y="136" width="80" height="7" rx="3" fill="rgba(255,255,255,0.12)"/>
+          <rect x="50" y="152" width="100" height="7" rx="3" fill="rgba(249,115,22,0.4)"/>
+          <rect x="50" y="168" width="20" height="7" rx="3" fill="rgba(129,140,248,0.6)"/>
+          <rect x="76" y="168" width="130" height="7" rx="3" fill="rgba(255,255,255,0.15)"/>
+          <rect x="50" y="184" width="80" height="7" rx="3" fill="rgba(255,255,255,0.08)"/>
+          <!-- Cursor blink -->
+          <rect x="216" y="72" width="2" height="9" rx="1" fill="rgba(249,115,22,0.9)">
+            <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/>
+          </rect>
+
+          <!-- Right panel preview -->
+          <rect x="240" y="68" width="95" height="148" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(249,115,22,0.2)" stroke-width="1"/>
+          <rect x="252" y="80" width="72" height="28" rx="4" fill="rgba(249,115,22,0.18)"/>
+          <rect x="252" y="116" width="72" height="8" rx="3" fill="rgba(255,255,255,0.12)"/>
+          <rect x="252" y="130" width="50" height="8" rx="3" fill="rgba(255,255,255,0.08)"/>
+          <rect x="252" y="152" width="72" height="24" rx="4" fill="rgba(249,115,22,0.25)" stroke="rgba(249,115,22,0.4)" stroke-width="1"/>
+          <text x="288" y="168" text-anchor="middle" font-size="8" fill="rgba(249,115,22,0.9)" font-family="monospace" font-weight="bold">Deploy →</text>
+
+          <!-- Monitor stand -->
+          <rect x="165" y="230" width="50" height="18" rx="3" fill="rgba(255,255,255,0.08)"/>
+          <rect x="140" y="246" width="100" height="8" rx="4" fill="rgba(255,255,255,0.1)"/>
+
+          <!-- Floating badges -->
+          <g style="animation:float-slow 4s ease-in-out infinite">
+            <rect x="340" y="50" width="74" height="28" rx="14" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.4)" stroke-width="1"/>
+            <text x="377" y="68" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.95)" font-family="monospace" font-weight="bold">HTML</text>
+          </g>
+          <g style="animation:float-slow 4s ease-in-out infinite 0.7s">
+            <rect x="345" y="100" width="62" height="28" rx="14" fill="rgba(129,140,248,0.15)" stroke="rgba(129,140,248,0.4)" stroke-width="1"/>
+            <text x="376" y="118" text-anchor="middle" font-size="11" fill="rgba(129,140,248,0.95)" font-family="monospace" font-weight="bold">CSS</text>
+          </g>
+          <g style="animation:float-slow 4s ease-in-out infinite 1.4s">
+            <rect x="340" y="150" width="72" height="28" rx="14" fill="rgba(52,211,153,0.15)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
+            <text x="376" y="168" text-anchor="middle" font-size="11" fill="rgba(52,211,153,0.95)" font-family="monospace" font-weight="bold">JS</text>
+          </g>
+          <g style="animation:float-slow 4s ease-in-out infinite 2.1s">
+            <rect x="0" y="80" width="82" height="28" rx="14" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
+            <text x="41" y="98" text-anchor="middle" font-size="10" fill="rgba(249,115,22,0.85)" font-family="monospace" font-weight="bold">React</text>
+          </g>
+          <g style="animation:float-slow 4s ease-in-out infinite 2.8s">
+            <rect x="0" y="130" width="82" height="28" rx="14" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+            <text x="41" y="148" text-anchor="middle" font-size="10" fill="rgba(251,191,36,0.85)" font-family="monospace" font-weight="bold">Node.js</text>
+          </g>
+
+          <!-- Connecting dots / orbit -->
+          <circle cx="210" cy="310" r="38" stroke="rgba(249,115,22,0.12)" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
+          <circle cx="210" cy="310" r="22" stroke="rgba(249,115,22,0.2)" stroke-width="1.5" fill="none"/>
+          <circle cx="210" cy="288" r="5" fill="rgba(249,115,22,0.8)"/>
+          <circle cx="232" cy="310" r="5" fill="rgba(129,140,248,0.8)"/>
+          <circle cx="210" cy="332" r="5" fill="rgba(52,211,153,0.8)"/>
+          <circle cx="188" cy="310" r="5" fill="rgba(251,191,36,0.8)"/>
+          <text x="210" y="315" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">full stack</text>
+
+          <!-- Progress path -->
+          <path d="M50 360 Q130 330 210 340 Q290 350 370 310" stroke="rgba(249,115,22,0.25)" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
+          <circle cx="50" cy="360" r="4" fill="rgba(249,115,22,0.5)"/>
+          <circle cx="130" cy="338" r="4" fill="rgba(249,115,22,0.65)"/>
+          <circle cx="210" cy="340" r="4" fill="rgba(249,115,22,0.8)"/>
+          <circle cx="290" cy="344" r="4" fill="rgba(249,115,22,0.9)"/>
+          <circle cx="370" cy="310" r="6" fill="rgba(249,115,22,1)" stroke="rgba(249,115,22,0.4)" stroke-width="3"/>
+
+          <style>
+            @keyframes float-slow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+          </style>
+        </svg>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
+    .hero-grid > div:last-child { display: none; }
+    .hero-grid .badge, .hero-grid h1, .hero-grid p { margin-left: auto; margin-right: auto; }
+    .hero-grid .reveal { display: flex; flex-direction: column; align-items: center; }
+  }
+</style>
 
 <!-- ── Stage Cards ───────────────────────────────────────────── -->
 <section class="section" aria-labelledby="stages-heading">
@@ -319,7 +415,26 @@
   <div class="section">
     <div class="text-center mb-xl reveal">
       <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:.75rem;">Why Nexray?</h2>
-      <p style="color:var(--text-2);max-width:480px;margin:0 auto;">Most guides are outdated, paywalled, or full of fluff. Nexray isn't.</p>
+      <p style="color:var(--text-2);max-width:480px;margin:0 auto 1.5rem;">Most guides are outdated, paywalled, or full of fluff. Nexray isn't.</p>
+      <!-- Mini inline illustration -->
+      <svg viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:280px;display:block;margin:0 auto;" aria-hidden="true">
+        <!-- Three comparison bars: Others vs Nexray -->
+        <text x="0" y="14" font-size="9" fill="rgba(255,255,255,0.35)" font-family="monospace">others</text>
+        <rect x="44" y="5" width="60" height="10" rx="5" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+        <text x="108" y="14" font-size="9" fill="rgba(239,68,68,0.7)" font-family="monospace">paywall</text>
+        <rect x="155" y="5" width="45" height="10" rx="5" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
+        <text x="204" y="14" font-size="9" fill="rgba(239,68,68,0.6)" font-family="monospace">outdated</text>
+        <rect x="260" y="5" width="35" height="10" rx="5" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
+        <text x="299" y="14" font-size="9" fill="rgba(239,68,68,0.5)" font-family="monospace">fluff</text>
+
+        <line x1="0" y1="28" x2="320" y2="28" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+        <text x="0" y="50" font-size="9" fill="rgba(249,115,22,0.8)" font-family="monospace" font-weight="bold">nexray</text>
+        <rect x="44" y="40" width="110" height="10" rx="5" fill="rgba(249,115,22,0.3)" stroke="rgba(249,115,22,0.6)" stroke-width="1"/>
+        <text x="158" y="50" font-size="9" fill="rgba(249,115,22,0.9)" font-family="monospace">100% free</text>
+        <rect x="218" y="40" width="88" height="10" rx="5" fill="rgba(52,211,153,0.25)" stroke="rgba(52,211,153,0.5)" stroke-width="1"/>
+        <text x="310" y="50" font-size="9" fill="rgba(52,211,153,0.9)" font-family="monospace">2026</text>
+      </svg>
     </div>
     <div class="grid-4 stagger-children">
       <div class="glass-card text-center pop-showcase">
@@ -355,6 +470,60 @@
 </section>
 
 <!-- ── Tools You'll Use ──────────────────────────────────────── -->
+<!-- Learning Path Illustration -->
+<div style="padding: 1rem 1.5rem 3rem; max-width:1180px; margin:0 auto;">
+  <div class="reveal" style="background:var(--glass);border:1px solid var(--glass-b);border-radius:20px;padding:2.5rem 2rem;overflow:hidden;position:relative;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(249,115,22,.06),transparent 60%);pointer-events:none;"></div>
+    <div style="text-align:center;margin-bottom:2rem;">
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:0.4rem;">Your 7-Stage Journey</h3>
+      <p style="color:var(--text-3);font-size:0.82rem;">From zero to deployed full-stack developer</p>
+    </div>
+    <svg viewBox="0 0 900 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;display:block;margin:0 auto;" aria-hidden="true">
+      <!-- Connecting line -->
+      <line x1="70" y1="45" x2="830" y2="45" stroke="rgba(249,115,22,0.2)" stroke-width="2" stroke-dasharray="6 4"/>
+
+      <!-- Stage nodes -->
+      <!-- S1 -->
+      <circle cx="70" cy="45" r="20" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.6)" stroke-width="2"/>
+      <text x="70" y="50" text-anchor="middle" font-size="11" fill="rgba(249,115,22,1)" font-weight="bold" font-family="monospace">01</text>
+      <text x="70" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.6)" font-family="sans-serif">Basics</text>
+
+      <!-- S2 -->
+      <circle cx="195" cy="45" r="20" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.5)" stroke-width="2"/>
+      <text x="195" y="50" text-anchor="middle" font-size="11" fill="rgba(249,115,22,0.9)" font-weight="bold" font-family="monospace">02</text>
+      <text x="195" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-family="sans-serif">Frontend</text>
+
+      <!-- S3 -->
+      <circle cx="320" cy="45" r="20" fill="rgba(129,140,248,0.12)" stroke="rgba(129,140,248,0.5)" stroke-width="2"/>
+      <text x="320" y="50" text-anchor="middle" font-size="11" fill="rgba(129,140,248,0.9)" font-weight="bold" font-family="monospace">03</text>
+      <text x="320" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-family="sans-serif">Backend</text>
+
+      <!-- S4 -->
+      <circle cx="450" cy="45" r="20" fill="rgba(52,211,153,0.12)" stroke="rgba(52,211,153,0.5)" stroke-width="2"/>
+      <text x="450" y="50" text-anchor="middle" font-size="11" fill="rgba(52,211,153,0.9)" font-weight="bold" font-family="monospace">04</text>
+      <text x="450" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-family="sans-serif">DevOps</text>
+
+      <!-- S5 -->
+      <circle cx="575" cy="45" r="20" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.5)" stroke-width="2"/>
+      <text x="575" y="50" text-anchor="middle" font-size="11" fill="rgba(251,191,36,0.9)" font-weight="bold" font-family="monospace">05</text>
+      <text x="575" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-family="sans-serif">Pro Skills</text>
+
+      <!-- S6 -->
+      <circle cx="705" cy="45" r="20" fill="rgba(244,63,94,0.12)" stroke="rgba(244,63,94,0.5)" stroke-width="2"/>
+      <text x="705" y="50" text-anchor="middle" font-size="11" fill="rgba(244,63,94,0.9)" font-weight="bold" font-family="monospace">06</text>
+      <text x="705" y="80" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)" font-family="sans-serif">Android</text>
+
+      <!-- S7 Trophy -->
+      <circle cx="830" cy="45" r="24" fill="rgba(249,115,22,0.2)" stroke="rgba(249,115,22,0.8)" stroke-width="2.5"/>
+      <text x="830" y="41" text-anchor="middle" font-size="16" font-family="sans-serif">🏆</text>
+      <text x="830" y="80" text-anchor="middle" font-size="10" fill="rgba(249,115,22,0.9)" font-family="sans-serif" font-weight="bold">Launch</text>
+
+      <!-- Arrow at end -->
+      <polyline points="846,45 858,38 858,52" fill="rgba(249,115,22,0.7)" stroke="none"/>
+    </svg>
+  </div>
+</div>
+
 <section class="section">
   <div class="text-center mb-xl reveal">
     <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;margin-bottom:.75rem;">Tools You'll Actually Use</h2>
@@ -376,36 +545,91 @@
   </div>
 </section>
 
-<!-- ── CTA ───────────────────────────────────────────────────── -->
-
-
 <section style="background:var(--bg-2);border-top:1px solid var(--glass-b);">
-  <div class="section text-center">
-    <div class="reveal" style="max-width:560px;margin:0 auto;">
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:1rem;">Ready? Let's Go.</h2>
-      <p style="color:var(--text-2);margin-bottom:2rem;font-size:1.05rem;line-height:1.8;">Stage 1 takes 2 hours. Your first website will be live on the internet by the end of it.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="guide/stage1.html" class="btn btn-primary btn-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Begin Stage 1 — Free
-        </a>
-        <a href="auth.html" class="btn btn-secondary btn-lg">
-          Sign In with Google
-        </a>
-      </div>
-      <div style="margin-top: 3.5rem; display: flex; justify-content: center;">
-        <svg width="240" height="150" viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: float 6s ease-in-out infinite;">
-          <style>@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }</style>
-          <!-- Abstract Person/Developer Illustration -->
-          <circle cx="120" cy="50" r="25" fill="var(--brand)" opacity="0.9" />
-          <path d="M70 140 C70 100 170 100 170 140 L200 150 L40 150 Z" fill="var(--brand-dim)" />
-          <path d="M80 140 C80 110 160 110 160 140 Z" fill="var(--brand)" opacity="0.8" />
-          <rect x="95" y="80" width="50" height="30" rx="4" fill="var(--bg-card)" stroke="var(--brand)" stroke-width="2" />
+  <div class="section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;" class="cta-grid">
+
+      <!-- CTA Illustration: Rocket / Launch -->
+      <div class="reveal-left" style="display:flex;justify-content:center;">
+        <svg viewBox="0 0 340 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;" aria-hidden="true">
+          <!-- Glow bg -->
+          <circle cx="170" cy="160" r="120" fill="rgba(249,115,22,0.05)"/>
+          <circle cx="170" cy="160" r="80" fill="rgba(249,115,22,0.05)"/>
+
+          <!-- Laptop base -->
+          <rect x="60" y="210" width="220" height="14" rx="7" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <rect x="75" y="150" width="190" height="62" rx="8" fill="#111827" stroke="rgba(249,115,22,0.3)" stroke-width="1.5"/>
+          <!-- Screen content -->
+          <rect x="85" y="158" width="170" height="46" rx="4" fill="rgba(249,115,22,0.04)"/>
+          <rect x="92" y="164" width="60" height="6" rx="3" fill="rgba(249,115,22,0.6)"/>
+          <rect x="92" y="175" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.15)"/>
+          <rect x="92" y="184" width="80" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+          <!-- Deploy button on screen -->
+          <rect x="92" y="193" width="58" height="8" rx="4" fill="rgba(249,115,22,0.8)"/>
+          <text x="121" y="200" text-anchor="middle" font-size="5.5" fill="white" font-family="monospace" font-weight="bold">DEPLOY ✓</text>
+
+          <!-- Rocket body -->
+          <path d="M170 40 C170 40 145 80 145 130 L170 145 L195 130 C195 80 170 40 170 40Z" fill="rgba(249,115,22,0.9)" stroke="rgba(249,115,22,1)" stroke-width="1"/>
+          <path d="M145 115 C130 120 125 135 128 145 L145 138Z" fill="rgba(249,115,22,0.6)"/>
+          <path d="M195 115 C210 120 215 135 212 145 L195 138Z" fill="rgba(249,115,22,0.6)"/>
+          <!-- Window -->
+          <circle cx="170" cy="98" r="13" fill="rgba(15,20,40,0.9)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <circle cx="170" cy="98" r="9" fill="rgba(129,140,248,0.25)" stroke="rgba(129,140,248,0.5)" stroke-width="1"/>
+          <!-- Rocket exhaust -->
+          <path d="M158 143 Q162 158 170 165 Q178 158 182 143Z" fill="rgba(251,191,36,0.7)"/>
+          <path d="M163 155 Q167 172 170 178 Q173 172 177 155Z" fill="rgba(249,115,22,0.5)">
+            <animate attributeName="d" values="M163 155 Q167 172 170 178 Q173 172 177 155Z;M161 155 Q166 176 170 183 Q174 176 179 155Z;M163 155 Q167 172 170 178 Q173 172 177 155Z" dur="0.6s" repeatCount="indefinite"/>
+          </path>
+
+          <!-- Stars scattered -->
+          <circle cx="95" cy="65" r="2" fill="rgba(255,255,255,0.6)"/>
+          <circle cx="240" cy="80" r="1.5" fill="rgba(255,255,255,0.4)"/>
+          <circle cx="80" cy="130" r="1" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="255" cy="55" r="2" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="115" cy="45" r="1.5" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="225" cy="120" r="1" fill="rgba(255,255,255,0.4)"/>
+          <circle cx="265" cy="140" r="1.5" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="70" cy="100" r="1" fill="rgba(255,255,255,0.4)"/>
+
+          <!-- Orbit ring -->
+          <ellipse cx="170" cy="120" rx="70" ry="18" stroke="rgba(129,140,248,0.2)" stroke-width="1.5" stroke-dasharray="4 5" fill="none"/>
+
+          <!-- Achievement labels -->
+          <g style="animation:float-slow 3.5s ease-in-out infinite">
+            <rect x="260" y="85" width="72" height="22" rx="11" fill="rgba(52,211,153,0.12)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
+            <text x="296" y="100" text-anchor="middle" font-size="9" fill="rgba(52,211,153,0.9)" font-family="sans-serif" font-weight="bold">Deployed!</text>
+          </g>
+          <g style="animation:float-slow 3.5s ease-in-out infinite 1.2s">
+            <rect x="8" y="75" width="72" height="22" rx="11" fill="rgba(249,115,22,0.12)" stroke="rgba(249,115,22,0.4)" stroke-width="1"/>
+            <text x="44" y="90" text-anchor="middle" font-size="9" fill="rgba(249,115,22,0.9)" font-family="sans-serif" font-weight="bold">Stage 7 ✓</text>
+          </g>
         </svg>
       </div>
+
+      <!-- CTA Text -->
+      <div class="reveal-right">
+        <div class="badge badge-brand" style="margin-bottom:1.25rem;display:inline-flex;">🚀 Start Today — It's Free</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:1rem;line-height:1.1;">Ready?<br>Let's Ship.</h2>
+        <p style="color:var(--text-2);margin-bottom:2rem;font-size:1rem;line-height:1.8;max-width:400px;">Stage 1 takes about 2 hours. By the end, your first website will be live on the internet — for real.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="guide/stage1.html" class="btn btn-primary btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Begin Stage 1 — Free
+          </a>
+          <a href="auth.html" class="btn btn-secondary btn-lg">Sign In with Google</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 768px) {
+    .cta-grid { grid-template-columns: 1fr !important; }
+    .cta-grid > div:first-child { display: none; }
+  }
+</style>
 
 <!-- ── Footer ────────────────────────────────────────────────── -->
 <footer class="footer" role="contentinfo">

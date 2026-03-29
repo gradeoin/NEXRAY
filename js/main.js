@@ -171,39 +171,8 @@
     });
   }
 
-  /* ── Custom Cursor & Effects ──────────────────────────────── */
-  let cursor = document.getElementById('custom-cursor');
-  if (!cursor) {
-    cursor = document.createElement('div');
-    cursor.id = 'custom-cursor';
-    document.body.appendChild(cursor);
-  }
-
-  if (cursor) {
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-    document.addEventListener('mousedown', () => cursor.classList.add('click'));
-    document.addEventListener('mouseup', () => cursor.classList.remove('click'));
-    
-    // Use event delegation for dynamic elements
-    document.addEventListener('mouseover', e => {
-      const target = e.target.closest('a, button, input, textarea, select, .stage-card, .pop-showcase');
-      if (target) cursor.classList.add('hover');
-    });
-    document.addEventListener('mouseout', e => {
-      const target = e.target.closest('a, button, input, textarea, select, .stage-card, .pop-showcase');
-      if (target) cursor.classList.remove('hover');
-    });
-    document.addEventListener('click', e => {
-      const target = e.target.closest('a, button, .stage-card, .pop-showcase');
-      if (target) {
-        target.classList.add('highlight-effect');
-        setTimeout(() => target.classList.remove('highlight-effect'), 300);
-      }
-    });
-  }
+  /* ── Custom Cursor — handled via CSS arrow cursor ─────────── */
+  // CSS cursor defined in global.css — no JS needed
 
   /* ── Page Loader ──────────────────────────────────────────── */
   const loader = document.getElementById('page-loader');
@@ -223,21 +192,42 @@
   /* ── Auth UI State Sync ───────────────────────────────────── */
   function syncAuthUI() {
     const userStr = localStorage.getItem('nexray_user');
+    
+    // If there's a dedicated nav-user-block (profile page), populate it
+    const navUserBlock = document.getElementById('nav-user-block');
+    if (navUserBlock && !navUserBlock.dataset.populated) {
+      navUserBlock.dataset.populated = '1';
+      if (userStr) {
+        try {
+          const u = JSON.parse(userStr);
+          if (u && u.loggedIn) {
+            navUserBlock.innerHTML = `
+              <a href="profile.html" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;" aria-label="My Profile">
+                <span style="font-weight:700;font-size:0.85rem;color:var(--text);" class="hide-mobile">${u.displayName}</span>
+                <img src="${u.photoURL}" class="user-avatar" title="My Dashboard" alt="Profile" />
+              </a>
+            `;
+          }
+        } catch(e) {}
+      }
+    }
+
     if (!userStr) return;
     
     try {
       const u = JSON.parse(userStr);
       if (u && u.loggedIn) {
-        // 1. Handle primary "Sign In" buttons (transform to Avatar)
+        // 1. Handle primary "Sign In" buttons (transform to Avatar) — skip if already done
         document.querySelectorAll('#nav-signin, .btn-signin').forEach(el => {
-          if (el.classList.contains('auth-processed')) return;
+          if (el.classList.contains('auth-processed') || el.closest('#nav-user-block')) return;
           const userLink = document.createElement('a');
           userLink.href = 'profile.html';
           userLink.className = 'nav-user-profile auth-processed';
-          userLink.style = 'display:flex; align-items:center; gap:0.75rem; text-decoration:none;';
+          userLink.style = 'display:flex;align-items:center;gap:0.6rem;text-decoration:none;';
+          userLink.setAttribute('aria-label', 'My Profile');
           userLink.innerHTML = `
-            <span style="font-weight:800; font-size:0.85rem; color:var(--text);" class="hide-mobile">${u.displayName}</span>
-            <img src="${u.photoURL}" class="user-avatar" style="width:36px; height:36px; border-radius:50%; border:2px solid var(--brand); cursor:pointer;" title="View Dashboard" />
+            <span style="font-weight:700;font-size:0.85rem;color:var(--text);" class="hide-mobile">${u.displayName}</span>
+            <img src="${u.photoURL}" class="user-avatar" title="My Dashboard" alt="Profile" />
           `;
           el.replaceWith(userLink);
         });
@@ -252,7 +242,7 @@
 
         // 3. Catch-all for any other [href="auth.html"] links
         document.querySelectorAll('a[href="auth.html"], a[href$="/auth.html"]').forEach(btn => {
-           if (!btn.classList.contains('auth-processed')) {
+           if (!btn.classList.contains('auth-processed') && !btn.closest('#nav-user-block')) {
              btn.href = 'profile.html';
              btn.innerHTML = 'My Profile';
              btn.classList.add('auth-processed');

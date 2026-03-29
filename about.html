@@ -20,7 +20,7 @@
       <a href="blog/index.html">Blog</a>
       <a href="resources.html">Resources</a>
       <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
-      <a href="auth.html" class="nav-cta">Sign In →</a>
+      <a href="auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -31,14 +31,84 @@
 
   <div class="page-wrapper">
     <!-- Hero -->
-    <div style="text-align:center;padding:6rem 2rem 3rem;background:radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%);">
-      <div class="stage-badge" style="margin:0 auto 1.5rem;">ℹ️ About This Guide</div>
-      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
-        Why We Built<br><span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Nexray</span>
-      </h1>
-      <p style="color:var(--text-secondary);font-size:var(--fs-lg);max-width:700px;margin:0 auto;">
-        Because the internet is still full of outdated 2015-era tutorials that teach <code>float: left</code>, use FTP for deployment, and don't mention CI/CD, serverless, or modern tooling. You deserve better.
-      </p>
+    <div style="padding:5rem 2rem 3rem;">
+      <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+        <div>
+          <div class="stage-badge" style="margin-bottom:1.5rem;display:inline-block;">ℹ️ About This Guide</div>
+          <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;margin-bottom:1.25rem;line-height:1.08;">
+            Why We Built<br><span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Nexray</span>
+          </h1>
+          <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;">
+            Because the internet is still full of outdated 2015-era tutorials that teach <code>float: left</code> and FTP deployment. You deserve something built for 2026.
+          </p>
+        </div>
+        <!-- About illustration -->
+        <div style="display:flex;justify-content:center;">
+          <svg viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px;" aria-hidden="true">
+            <!-- Bookshelf / knowledge base -->
+            <rect x="20" y="30" width="280" height="220" rx="12" fill="rgba(249,115,22,0.04)" stroke="rgba(249,115,22,0.15)" stroke-width="1.5"/>
+
+            <!-- Shelf 1: old tutorials (red/faded) -->
+            <rect x="36" y="52" width="248" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <rect x="40" y="28" width="22" height="26" rx="3" fill="rgba(239,68,68,0.3)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
+            <rect x="66" y="35" width="18" height="19" rx="3" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+            <rect x="88" y="32" width="20" height="22" rx="3" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
+            <text x="51" y="44" text-anchor="middle" font-size="6" fill="rgba(239,68,68,0.7)" font-family="monospace">2015</text>
+            <text x="75" y="47" text-anchor="middle" font-size="6" fill="rgba(239,68,68,0.6)" font-family="monospace">old</text>
+            <text x="98" y="43" text-anchor="middle" font-size="6" fill="rgba(239,68,68,0.6)" font-family="monospace">ftp</text>
+            <!-- cross through old books -->
+            <line x1="36" y1="26" x2="116" y2="54" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+            <line x1="116" y1="26" x2="36" y2="54" stroke="rgba(239,68,68,0.4)" stroke-width="1.5"/>
+
+            <!-- Shelf 2: modern stack (brand) -->
+            <rect x="36" y="108" width="248" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <!-- Book 1 -->
+            <rect x="40" y="66" width="30" height="44" rx="3" fill="rgba(249,115,22,0.25)" stroke="rgba(249,115,22,0.5)" stroke-width="1.5"/>
+            <text x="55" y="82" text-anchor="middle" font-size="7" fill="rgba(249,115,22,0.9)" font-family="monospace" font-weight="bold">HTML</text>
+            <text x="55" y="95" text-anchor="middle" font-size="6" fill="rgba(249,115,22,0.6)" font-family="monospace">CSS</text>
+            <!-- Book 2 -->
+            <rect x="74" y="70" width="28" height="40" rx="3" fill="rgba(129,140,248,0.25)" stroke="rgba(129,140,248,0.5)" stroke-width="1.5"/>
+            <text x="88" y="86" text-anchor="middle" font-size="7" fill="rgba(129,140,248,0.9)" font-family="monospace" font-weight="bold">JS</text>
+            <text x="88" y="97" text-anchor="middle" font-size="6" fill="rgba(129,140,248,0.6)" font-family="monospace">TS</text>
+            <!-- Book 3 -->
+            <rect x="106" y="68" width="32" height="42" rx="3" fill="rgba(52,211,153,0.22)" stroke="rgba(52,211,153,0.45)" stroke-width="1.5"/>
+            <text x="122" y="84" text-anchor="middle" font-size="7" fill="rgba(52,211,153,0.9)" font-family="monospace" font-weight="bold">Node</text>
+            <text x="122" y="95" text-anchor="middle" font-size="6" fill="rgba(52,211,153,0.6)" font-family="monospace">API</text>
+            <!-- Book 4 -->
+            <rect x="142" y="72" width="28" height="38" rx="3" fill="rgba(251,191,36,0.22)" stroke="rgba(251,191,36,0.45)" stroke-width="1.5"/>
+            <text x="156" y="87" text-anchor="middle" font-size="6.5" fill="rgba(251,191,36,0.9)" font-family="monospace" font-weight="bold">Git</text>
+            <text x="156" y="97" text-anchor="middle" font-size="6" fill="rgba(251,191,36,0.6)" font-family="monospace">CI/CD</text>
+            <!-- Book 5 -->
+            <rect x="174" y="66" width="34" height="44" rx="3" fill="rgba(249,115,22,0.3)" stroke="rgba(249,115,22,0.6)" stroke-width="1.5"/>
+            <text x="191" y="82" text-anchor="middle" font-size="6.5" fill="rgba(249,115,22,0.95)" font-family="monospace" font-weight="bold">React</text>
+            <text x="191" y="93" text-anchor="middle" font-size="5.5" fill="rgba(249,115,22,0.7)" font-family="monospace">Firebase</text>
+            <!-- Book 6 big -->
+            <rect x="212" y="62" width="38" height="48" rx="3" fill="rgba(249,115,22,0.35)" stroke="rgba(249,115,22,0.7)" stroke-width="2"/>
+            <text x="231" y="78" text-anchor="middle" font-size="7" fill="rgba(249,115,22,1)" font-family="monospace" font-weight="bold">Full</text>
+            <text x="231" y="89" text-anchor="middle" font-size="7" fill="rgba(249,115,22,1)" font-family="monospace" font-weight="bold">Stack</text>
+            <text x="231" y="100" text-anchor="middle" font-size="6" fill="rgba(249,115,22,0.7)" font-family="monospace">2026</text>
+            <!-- Trophy on top of big book -->
+            <text x="231" y="57" text-anchor="middle" font-size="14" font-family="sans-serif">🏆</text>
+
+            <!-- Shelf 3: achievements/progress -->
+            <rect x="36" y="160" width="248" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <!-- Progress bars -->
+            <rect x="40" y="120" width="100" height="12" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <rect x="41" y="121" width="90" height="10" rx="5" fill="rgba(249,115,22,0.5)"/>
+            <text x="147" y="131" font-size="8" fill="rgba(255,255,255,0.5)" font-family="monospace">Stage 6/7</text>
+
+            <rect x="40" y="138" width="100" height="12" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <rect x="41" y="139" width="70" height="10" rx="5" fill="rgba(52,211,153,0.45)"/>
+            <text x="147" y="149" font-size="8" fill="rgba(255,255,255,0.5)" font-family="monospace">900 XP</text>
+
+            <!-- Bottom: community / free badge -->
+            <rect x="40" y="170" width="248" height="60" rx="8" fill="rgba(249,115,22,0.06)"/>
+            <text x="50" y="193" font-size="10" fill="rgba(249,115,22,0.9)" font-family="sans-serif" font-weight="bold">✓ Free Forever</text>
+            <text x="50" y="210" font-size="10" fill="rgba(52,211,153,0.8)" font-family="sans-serif" font-weight="bold">✓ No Paywalls</text>
+            <text x="50" y="227" font-size="10" fill="rgba(129,140,248,0.8)" font-family="sans-serif" font-weight="bold">✓ Updated for 2026</text>
+          </svg>
+        </div>
+      </div>
     </div>
 
     <div class="section">

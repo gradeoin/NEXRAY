@@ -1,20 +1,109 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Dashboard — Nexray</title>
-  <meta name="description" content="Manage your Nexray profile, track XP, and customize your developer avatar." />
+  <meta name="description" content="Manage your Nexray profile, track learning progress, and customize your developer identity." />
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/xml' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <style>
+    .profile-avatar-ring {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--brand);
+      box-shadow: 0 0 24px var(--brand-glow);
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      background: var(--bg-card);
+    }
+    .profile-avatar-ring img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .avatar-option {
+      padding: 8px;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      background: var(--bg-card);
+      cursor: pointer;
+      transition: all 0.2s;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .avatar-option:hover { border-color: var(--brand-glow); transform: scale(1.05); }
+    .avatar-option.selected { border-color: var(--brand); box-shadow: 0 0 14px var(--brand-glow); }
+    .avatar-option img { width: 100%; display: block; }
+
+    .profile-edit-field {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-b);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .profile-edit-field:focus { outline: none; border-color: var(--brand); }
+    .profile-edit-field:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .save-toast {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: var(--brand);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.9rem;
+      z-index: 9999;
+      transform: translateY(6rem);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .save-toast.show { transform: translateY(0); opacity: 1; }
+
+    .stat-pill {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-b);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-pill-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem; font-weight: 900; color: var(--brand);
+    }
+    .stat-pill-label {
+      font-size: 0.7rem; color: var(--text-3);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem;
+    }
+    .progress-stage-bar { height: 6px; background: var(--glass-b); border-radius: 99px; overflow: hidden; margin-top: 0.5rem; }
+    .progress-stage-bar-fill { height: 100%; background: var(--brand-gradient); border-radius: 99px; transition: width 0.6s ease; }
+
+    .quick-link:hover { color: var(--brand) !important; background: var(--brand-dim) !important; }
+
+    @media (max-width: 700px) {
+      .profile-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 <div id="page-loader"><div class="loader-spinner"></div></div>
 <div id="custom-cursor"></div>
+<div class="save-toast" id="save-toast">✓ Saved!</div>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+<!-- ── Navigation ───────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo" aria-label="Nexray Home">
+    <div class="logo-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
     <span>Nex<span class="logo-accent">ray</span></span>
   </a>
   <div class="nav-links">
@@ -22,171 +111,260 @@
     <a href="guide/stage1.html">Guide</a>
     <a href="blog/index.html">Blog</a>
     <a href="resources.html">Resources</a>
-    <div class="theme-toggle"><button class="theme-btn" data-theme="dark">Dark</button><button class="theme-btn" data-theme="light">Light</button><button class="theme-btn" data-theme="neon">Neon</button></div>
+    <a href="about.html">About</a>
     <div id="nav-user-block"></div>
   </div>
+  <div class="theme-toggle" role="group" aria-label="Color theme">
+    <button class="theme-btn" data-theme="dark" aria-label="Dark mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark
+    </button>
+    <button class="theme-btn" data-theme="light" aria-label="Light mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>Light
+    </button>
+    <button class="theme-btn" data-theme="neon" aria-label="Neon mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Neon
+    </button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<div class="page-wrapper" style="padding-top:100px; padding-bottom:80px;">
-  <div class="container" style="max-width:900px;">
-    
-    <div class="grid-2 mt-md" style="grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start;">
-      
-      <!-- User Profile Sidebar -->
-      <aside class="reveal-left">
-        <div class="glass-card text-center" style="position:relative; overflow:hidden; padding: 3rem 2rem;">
-          <!-- 3D Avatar Canvas -->
-          <div id="avatar-3d-canvas" style="width:180px; height:180px; margin:0 auto 2rem; border-radius:50%; background:var(--bg-card); position:relative; overflow:hidden; border:2px solid var(--brand-glow);">
-            <img id="profile-img" src="" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:2; opacity:0; transition:opacity 0.6s ease;" />
-            <canvas id="avatar-scene" style="position:absolute; inset:0; z-index:1;"></canvas>
+<div class="nav-mobile" id="mobile-nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="guide/stage1.html">📖 Guide</a>
+  <a href="blog/index.html">📝 Blog</a>
+  <a href="resources.html">🔧 Resources</a>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+<!-- ── Dashboard ────────────────────────────────────────────── -->
+<div class="page-wrapper" style="padding-bottom: 5rem;">
+  <div class="container" style="max-width: 960px;">
+
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-size: clamp(1.8rem,4vw,2.5rem); font-weight: 900; margin-bottom: 0.3rem;">Your Dashboard</h1>
+      <p style="color: var(--text-2); font-size: 0.92rem;">Manage your profile, pick your avatar, and track your learning journey.</p>
+    </div>
+
+    <div class="profile-grid" style="display: grid; grid-template-columns: 270px 1fr; gap: 2rem; align-items: start;">
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="glass-card text-center" style="padding: 2rem 1.5rem; margin-bottom: 1.25rem;">
+          <div class="profile-avatar-ring">
+            <img id="profile-img" src="" alt="Your avatar" />
           </div>
-          <h2 id="username" style="font-size:1.8rem; margin-bottom:0.5rem; font-family:'Fira Code',monospace; font-weight:900;">Developer</h2>
-          <div class="badge badge-brand" style="margin-bottom:1.5rem;">Level 1 Hacker</div>
-          
-          <div style="display:flex; flex-direction:column; gap:1rem; text-align:left;">
-            <div class="stat-card" style="padding:1.25rem;">
-              <span class="stat-label">EXP EARNED</span>
-              <span class="stat-value" style="font-size:1.5rem;" id="xp-count">300 XP</span>
+          <h2 id="username-display" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 0.25rem;"></h2>
+          <p id="email-display" style="font-size: 0.78rem; color: var(--text-3); margin-bottom: 1rem;"></p>
+          <div id="level-badge" class="badge badge-brand" style="margin-bottom: 1.5rem;">🌱 Level 0 — Beginner</div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <div class="stat-pill">
+              <span class="stat-pill-value" id="xp-display">0</span>
+              <span class="stat-pill-label">XP Earned</span>
             </div>
-            <div class="stat-card" style="padding:1.25rem;">
-              <span class="stat-label">RANK</span>
-              <span class="stat-value" style="font-size:1.5rem;">TOP 12%</span>
+            <div class="stat-pill">
+              <span class="stat-pill-value" id="stages-done">0/7</span>
+              <span class="stat-pill-label">Stages</span>
             </div>
           </div>
-          
-          <button id="logout-btn" class="btn btn-secondary btn-full mt-xl" style="padding: 10px; font-size: 0.82rem;">Sign Out</button>
+
+          <button id="logout-btn" class="btn btn-secondary btn-full" style="font-size: 0.82rem; padding: 9px; display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+          </button>
+        </div>
+
+        <div class="glass-card" style="padding: 1.25rem;">
+          <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-3); margin-bottom:0.75rem;">Quick Links</p>
+          <a href="guide/stage1.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s; margin-bottom:0.25rem;">📖 Continue Learning</a>
+          <a href="resources.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s; margin-bottom:0.25rem;">🔧 Resources</a>
+          <a href="blog/index.html" class="quick-link" style="display:flex; gap:0.5rem; align-items:center; font-size:0.875rem; color:var(--text-2); padding:7px 8px; border-radius:var(--radius); transition:all 0.18s;">📝 Read the Blog</a>
         </div>
       </aside>
 
-      <!-- Profile Settings -->
-      <main class="reveal-right">
-        <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:900; margin-bottom:1.5rem;">Profile Settings</h1>
-        
-        <div class="glass-card mb-md">
-          <h3 style="font-weight:900; margin-bottom:1.5rem;">Customize Your Avatar</h3>
-          <p style="color:var(--text-2); margin-bottom:2rem; font-size:0.9rem;">Pick an illustration or upload your own to represent your developer identity.</p>
-          
-          <div class="grid-4" style="gap:1rem;" id="avatar-picker-grid">
-            <!-- Avatar choices injected by JS -->
+      <!-- Main Panel -->
+      <main>
+
+        <!-- Edit Profile -->
+        <div class="glass-card" style="margin-bottom: 1.25rem;">
+          <h3 style="font-weight:900; margin-bottom:0.35rem;">Edit Profile</h3>
+          <p style="color:var(--text-2); font-size:0.875rem; margin-bottom:1.25rem;">Update your display name. Your email is linked to your account and cannot be edited here.</p>
+          <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:1.25rem;">
+            <div>
+              <label for="input-displayname" style="display:block; font-size:0.78rem; font-weight:700; color:var(--text-2); margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.04em;">Display Name</label>
+              <input type="text" id="input-displayname" class="profile-edit-field" placeholder="Your name" maxlength="40" autocomplete="off" />
+            </div>
+            <div>
+              <label style="display:block; font-size:0.78rem; font-weight:700; color:var(--text-2); margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.04em;">Email (read-only)</label>
+              <input type="email" id="input-email" class="profile-edit-field" disabled />
+            </div>
           </div>
+          <button id="save-profile-btn" class="btn btn-primary" style="display:flex; align-items:center; gap:0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Save Changes
+          </button>
         </div>
 
+        <!-- Avatar Picker -->
+        <div class="glass-card" style="margin-bottom: 1.25rem;">
+          <h3 style="font-weight:900; margin-bottom:0.35rem;">Choose Your Avatar</h3>
+          <p style="color:var(--text-2); font-size:0.875rem; margin-bottom:1.25rem;">Pick a dev bot that represents you. Click to preview, then hit Save Avatar.</p>
+          <div id="avatar-picker-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.75rem; margin-bottom:1.25rem;"></div>
+          <button id="save-avatar-btn" class="btn btn-secondary" style="display:flex; align-items:center; gap:0.5rem;" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Save Avatar
+          </button>
+        </div>
+
+        <!-- Learning Progress -->
         <div class="glass-card">
-          <h3 style="font-weight:900; margin-bottom:1.5rem;">Learning Progress</h3>
-          <div style="display:flex; flex-direction:column; gap:1rem;" id="progress-list">
-             <!-- Progress tracked here -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.5rem;">
+            <h3 style="font-weight:900;">Learning Progress</h3>
+            <span id="progress-summary" class="badge badge-brand">0 / 7 Complete</span>
           </div>
+          <div style="margin-bottom:1.25rem;">
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-3); margin-bottom:0.35rem;">
+              <span>Overall completion</span>
+              <span id="progress-pct">0%</span>
+            </div>
+            <div class="progress-stage-bar"><div class="progress-stage-bar-fill" id="overall-bar" style="width:0%"></div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.75rem;" id="progress-list"></div>
         </div>
-      </main>
 
+      </main>
     </div>
   </div>
 </div>
 
 <footer class="footer">
-  <div class="footer-bottom">
-    <span>© 2026 Nexray</span>
-    <span>Launch Your Career</span>
+  <div class="footer-bottom" style="max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <span>© 2026 Nexray — Free Web Dev Guide</span>
+    <a href="index.html" style="color:var(--brand);font-weight:700;">← Back to Home</a>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script type="module">
-  import { auth, logout } from './js/auth.js';
+  import { logout } from './js/auth.js';
 
-  const user = JSON.parse(localStorage.getItem('nexray_user'));
-  if (!user) {
-    window.location.href = 'auth.html';
+  /* ── Guard ── */
+  if (!localStorage.getItem('nexray_user')) { window.location.href = 'auth.html'; }
+
+  function getUser() { return JSON.parse(localStorage.getItem('nexray_user') || '{}'); }
+  function saveUser(u) { localStorage.setItem('nexray_user', JSON.stringify(u)); }
+
+  /* ── Refresh UI ── */
+  function refreshUI() {
+    const u = getUser();
+    const progress = JSON.parse(localStorage.getItem('nexray-progress') || '{}');
+    const completed = Object.keys(progress).filter(k => !k.includes('date')).length;
+
+    document.getElementById('profile-img').src = u.photoURL || `https://api.dicebear.com/7.x/bottts/svg?seed=1`;
+    document.getElementById('username-display').textContent = u.displayName || 'Developer';
+    document.getElementById('email-display').textContent = u.email || '';
+    document.getElementById('input-displayname').value = u.displayName || '';
+    document.getElementById('input-email').value = u.email || '';
+    document.getElementById('xp-display').textContent = completed * 150;
+    document.getElementById('stages-done').textContent = `${completed}/7`;
+
+    const lvl = document.getElementById('level-badge');
+    if (completed >= 7) lvl.textContent = '🏆 Level 7 — Full Stack Pro';
+    else if (completed >= 5) lvl.textContent = '🔥 Level 5 — DevOps Ready';
+    else if (completed >= 3) lvl.textContent = '⚡ Level 3 — Frontend Dev';
+    else if (completed >= 1) lvl.textContent = '🚀 Level 1 — Getting Started';
+    else lvl.textContent = '🌱 Level 0 — Beginner';
+
+    document.getElementById('progress-summary').textContent = `${completed} / 7 Complete`;
+    const pct = Math.round((completed / 7) * 100);
+    document.getElementById('progress-pct').textContent = `${pct}%`;
+    document.getElementById('overall-bar').style.width = `${pct}%`;
   }
+  refreshUI();
 
-  // Update DOM with user info
-  document.getElementById('username').textContent = user.displayName;
-  const pImg = document.getElementById('profile-img');
-  pImg.src = user.photoURL;
-  pImg.onload = () => pImg.style.opacity = '1';
-
-  document.getElementById('logout-btn').addEventListener('click', () => {
-    if(confirm('Are you sure you want to sign out?')) {
-      logout();
-    }
-  });
-
-  // ── Avatar Picker ──────────────────────────────────────────
+  /* ── Avatar picker ── */
   const pickerGrid = document.getElementById('avatar-picker-grid');
-  const avatars = [1, 2, 3, 4, 5, 6, 7, 8];
-  avatars.forEach(id => {
+  let pendingAvatar = null;
+  const u0 = getUser();
+  const m = (u0.photoURL || '').match(/seed=(\d+)/);
+  const activeSeed = m ? parseInt(m[1]) : null;
+
+  [1,2,3,4,5,6,7,8,9,10,11,12].forEach(seed => {
     const div = document.createElement('div');
-    div.className = 'glass-card pop-showcase';
-    div.style = 'padding:10px; cursor:pointer; background:var(--bg-card); aspect-ratio:1; display:flex; align-items:center; justify-content:center;';
-    div.innerHTML = `<img src="https://api.dicebear.com/7.x/bottts/svg?seed=${id}" style="width:100%; image-rendering:pixelated;" />`;
-    div.onclick = () => {
-      pImg.src = `https://api.dicebear.com/7.x/bottts/svg?seed=${id}`;
-      // Update local and Firebase in real app, here we just show
-    };
+    div.className = 'avatar-option' + (seed === activeSeed ? ' selected' : '');
+    div.innerHTML = `<img src="https://api.dicebear.com/7.x/bottts/svg?seed=${seed}" loading="lazy" alt="Avatar ${seed}" />`;
+    div.addEventListener('click', () => {
+      pickerGrid.querySelectorAll('.avatar-option').forEach(d => d.classList.remove('selected'));
+      div.classList.add('selected');
+      pendingAvatar = `https://api.dicebear.com/7.x/bottts/svg?seed=${seed}`;
+      document.getElementById('profile-img').src = pendingAvatar;
+      document.getElementById('save-avatar-btn').disabled = false;
+    });
     pickerGrid.appendChild(div);
   });
 
-  // ── 3D Avatar Scene (Three.js) ──────────────────────────────
-  function init3DAvatar() {
-    const canvas = document.getElementById('avatar-scene');
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(180, 180);
-    
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.z = 4;
-
-    // Glowing Sphere
-    const geometry = new THREE.IcosahedronGeometry(1.5, 1);
-    const material = new THREE.MeshPhongMaterial({
-      color: 0xf97316,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.3
-    });
-    const sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    // Light
-    const light = new THREE.PointLight(0xffffff, 1);
-    light.position.set(5, 5, 5);
-    scene.add(light);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-
-    function animate() {
-      requestAnimationFrame(animate);
-      sphere.rotation.y += 0.01;
-      sphere.rotation.x += 0.005;
-      renderer.render(scene, camera);
-    }
-    animate();
-  }
-  init3DAvatar();
-
-  // ── Progress UI ─────────────────────────────────────────────
-  const progressList = document.getElementById('progress-list');
-  const nProgress = JSON.parse(localStorage.getItem('nexray-progress') || '{}');
-  const stages = [
-    {id: 1, name: 'The Basics'},
-    {id: 2, name: 'Frontend Dev'},
-    {id: 3, name: 'Backend & APIs'},
-    {id: 4, name: 'DevOps & CI/CD'},
-    {id: 5, name: 'Pro Secrets'},
-    {id: 6, name: 'Android App'},
-    {id: 7, name: 'Launch & Grow'}
-  ];
-  
-  stages.forEach(s => {
-    const isDone = nProgress[`stage${s.id}`];
-    const item = document.createElement('div');
-    item.className = 'glass-card';
-    item.style = 'display:flex; justify-content:space-between; align-items:center; padding:15px 25px;';
-    item.innerHTML = `
-      <div style="font-weight:700;">Stage ${s.id}: ${s.name}</div>
-      <div class="badge ${isDone ? 'badge-brand' : 'badge-muted'}">${isDone ? '✓ Completed' : 'Locked'}</div>
-    `;
-    progressList.appendChild(item);
+  document.getElementById('save-avatar-btn').addEventListener('click', () => {
+    if (!pendingAvatar) return;
+    const u = getUser(); u.photoURL = pendingAvatar; saveUser(u);
+    refreshUI(); showToast('✓ Avatar saved!');
+    document.getElementById('save-avatar-btn').disabled = true;
+    pendingAvatar = null;
+    window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: u }));
   });
+
+  /* ── Save profile ── */
+  document.getElementById('save-profile-btn').addEventListener('click', () => {
+    const name = document.getElementById('input-displayname').value.trim();
+    if (!name) { alert('Display name cannot be empty.'); return; }
+    const u = getUser(); u.displayName = name; saveUser(u);
+    refreshUI(); showToast('✓ Profile saved!');
+    window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: u }));
+  });
+
+  /* ── Logout ── */
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    if (confirm('Sign out of Nexray?')) logout();
+  });
+
+  /* ── Progress list ── */
+  const stages = [
+    { id:1, name:'The Web Foundations',   desc:'HTML, CSS basics & how the internet works' },
+    { id:2, name:'Frontend Development',  desc:'JavaScript, responsive design, modern frameworks' },
+    { id:3, name:'Backend & APIs',        desc:'Node.js, databases, REST APIs' },
+    { id:4, name:'DevOps & CI/CD',        desc:'Git, deployment, cloud & pipelines' },
+    { id:5, name:'Pro Secrets',           desc:'Performance, security & best practices' },
+    { id:6, name:'Android Development',   desc:'Build mobile apps with your web skills' },
+    { id:7, name:'Launch & Grow',         desc:'Ship your project and grow an audience' },
+  ];
+  const nProgress = JSON.parse(localStorage.getItem('nexray-progress') || '{}');
+  const list = document.getElementById('progress-list');
+  stages.forEach(s => {
+    const done = !!nProgress[`stage${s.id}`];
+    const dateRaw = nProgress[`stage${s.id}_date`];
+    const dateStr = dateRaw ? new Date(dateRaw).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'}) : '';
+    const el = document.createElement('div');
+    el.style = 'display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:var(--bg-card);border:1px solid var(--glass-b);border-radius:var(--radius);gap:1rem;';
+    el.innerHTML = `
+      <div style="min-width:0;">
+        <div style="font-weight:700;font-size:0.88rem;">Stage ${s.id}: ${s.name}</div>
+        <div style="font-size:0.76rem;color:var(--text-3);margin-top:0.15rem;">${s.desc}</div>
+        ${done && dateStr ? `<div style="font-size:0.72rem;color:var(--text-3);margin-top:0.1rem;">Completed ${dateStr}</div>` : ''}
+      </div>
+      <div style="flex-shrink:0;">
+        ${done
+          ? `<span class="badge badge-brand" style="white-space:nowrap;">✓ Done</span>`
+          : `<a href="guide/stage${s.id}.html" class="btn btn-secondary" style="padding:6px 14px;font-size:0.78rem;white-space:nowrap;">Start →</a>`}
+      </div>`;
+    list.appendChild(el);
+  });
+
+  function showToast(msg) {
+    const t = document.getElementById('save-toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
 </script>
 <script src="js/main.js"></script>
 </body>
