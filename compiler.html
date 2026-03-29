@@ -228,7 +228,7 @@ console.log('Compiler ready!');"></textarea>
     const css = cssEditor.value || "body { font-family: system-ui, sans-serif; } .card { padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; margin: 20px; } h2 { color: #0038FF; }";
     const js = jsEditor.value || "console.log('Compiler ready!');";
 
-    const doc = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${html}<script>try{${js}}catch(err){document.body.innerHTML+='<pre style="color:red;padding:10px;">'+err+'</pre>'}<\/script></body></html>`;
+    const doc = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${html}<script>try{${js}}catch(err){document.body.innerHTML+='<pre style="color:red;padding:10px;">'+err+'</pre>'}<\/script>  <script src="/js/tracker.js" defer></script>\n</body></html>`;
     
     iframe.srcdoc = doc;
   }
