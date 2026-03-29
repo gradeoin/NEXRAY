@@ -173,9 +173,13 @@
 
   function showError(msg) {
     const el = document.getElementById('auth-error');
-    el.textContent = msg; el.style.display = 'block';
+    if (el) {
+      el.textContent = msg;
+      el.style.display = 'block';
+    }
   }
 </script>
+<script type="module" src="js/auth.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

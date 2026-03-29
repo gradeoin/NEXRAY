@@ -228,29 +228,29 @@
     try {
       const u = JSON.parse(userStr);
       if (u && u.loggedIn) {
-        // Find and swap "Sign In" link for User Avatar
-        const signinBtn = document.getElementById('nav-signin') || document.querySelector('.nav-cta');
-        if (signinBtn) {
-          const avatar = document.createElement('img');
-          avatar.src = u.photoURL;
-          avatar.className = 'user-avatar';
-          avatar.title = `Logged in as ${u.displayName} · Click to Sign Out`;
+        // Find ALL sign-in elements (IDs and CTA classes)
+        const signinElements = document.querySelectorAll('#nav-signin, .nav-cta, .btn-signin');
+        
+        signinElements.forEach(el => {
+          // Create a unified Avatar/Dashboard Link
+          const userLink = document.createElement('a');
+          userLink.href = 'profile.html';
+          userLink.className = 'nav-user-profile';
+          userLink.style = 'display:flex; align-items:center; gap:0.75rem; text-decoration:none;';
           
-          // Sign-out functionality
-          avatar.onclick = () => {
-            if (confirm('Sign out of Nexray?')) {
-              localStorage.removeItem('nexray_user');
-              window.location.reload();
-            }
-          };
+          userLink.innerHTML = `
+            <span style="font-weight:800; font-size:0.85rem; color:var(--text);" class="hide-mobile">${u.displayName}</span>
+            <img src="${u.photoURL}" class="user-avatar" style="width:36px; height:36px; border-radius:50%; border:2px solid var(--brand); cursor:pointer;" title="View Dashboard" />
+          `;
           
-          signinBtn.replaceWith(avatar);
-        }
+          el.replaceWith(userLink);
+        });
       }
     } catch(e) { console.warn('Auth sync failed', e); }
   }
   
-  // Call on load
+  // Call on load and also on custom event
   syncAuthUI();
+  window.addEventListener('auth-state-changed', syncAuthUI);
 
 })();
