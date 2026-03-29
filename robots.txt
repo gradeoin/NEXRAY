@@ -1,6 +1,1 @@
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-Sitemap: https://nexray.in/sitemap.xml
+User-agent: *\nAllow: /\n\n# Specifically allow AI crawlers\nUser-agent: GPTBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\nUser-agent: ClaudeBot\nAllow: /\nUser-agent: PerplexityBot\nAllow: /\n\nSitemap: https://nexray.in/sitemap.xml\n
