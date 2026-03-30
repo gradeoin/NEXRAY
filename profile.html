@@ -116,6 +116,7 @@
     <a href="guide/stage1.html">Guide</a>
     <a href="blog/index.html">Blog</a>
     <a href="resources.html">Resources</a>
+    <div id="nav-user-block"></div>
   </div>
 </nav>
 
@@ -148,7 +149,9 @@
             </div>
           </div>
 
-          <button id="logout-btn" class="btn btn-secondary btn-full">Sign Out</button>
+          <a href="guide/stage1.html" class="btn btn-primary btn-full" style="display:flex; justify-content:center; align-items:center; margin-bottom: 0.75rem;">Start the Course <svg style="margin-left:5px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a href="index.html" class="btn btn-secondary btn-full" style="display:flex; justify-content:center; align-items:center; margin-bottom: 0.75rem;">Go to Home</a>
+          <button id="logout-btn" class="btn btn-secondary btn-full" style="background:transparent; border-color:var(--glass-b); color:var(--text-3);">Sign Out</button>
         </div>
       </aside>
 
@@ -321,6 +324,7 @@
     }
     
     saveUser(u);
+    window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: u }));
     refreshUI();
     const toast = document.getElementById('save-toast');
     toast.classList.add('show');
@@ -330,6 +334,7 @@
   document.getElementById('logout-btn').onclick = () => logout();
   refreshUI();
 </script>
+<script src="js/main.js"></script>
 <script src="js/mascot.js" defer></script>
   <script src="js/motion-svgs.js" defer></script>
 </body>

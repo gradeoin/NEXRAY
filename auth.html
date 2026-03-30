@@ -532,12 +532,40 @@
         <div class="auth-success" id="signup-success"></div>
       </form>
 
-      <p class="auth-footer-link" style="font-size:0.75rem;color:var(--text-3);margin-top:1rem;">
-        By creating an account, you agree to our <a href="terms.html">Terms</a> &amp; <a href="privacy.html">Privacy Policy</a>.
       </p>
     </div>
   </div>
 </div>
+
+<!-- Onboarding Modal (After Signup) -->
+<div class="welcome-modal-overlay" id="welcome-modal">
+  <div class="glass-card welcome-card">
+    <div class="welcome-icon">🚀</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:900;margin-bottom:0.5rem;font-size:2rem;">Welcome to Nexray!</h2>
+    <p style="color:var(--text-2);margin-bottom:2rem;">Your developer journey starts here. Where'd you like to go first?</p>
+    
+    <div style="display:grid;grid-template-columns:1fr;gap:1rem;width:100%;">
+      <a href="guide/stage1.html" class="btn btn-primary" style="display:flex;justify-content:center;align-items:center;padding:1.25rem;text-decoration:none;">
+        Start the Course <svg style="margin-left:8px;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="index.html" class="btn btn-secondary" style="display:flex;justify-content:center;align-items:center;padding:1rem;text-decoration:none;">
+        Back to Home Page
+      </a>
+      <a href="profile.html" style="color:var(--text-3);font-size:0.85rem;text-decoration:none;margin-top:0.5rem;">Or view my dashboard →</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .welcome-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+    z-index: 100000; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.4s;
+  }
+  .welcome-modal-overlay.active { opacity: 1; pointer-events: auto; }
+  .welcome-icon { font-size: 4rem; margin-bottom: 1rem; }
+  .welcome-card { max-width: 440px; width: 90%; text-align: center; padding: 2.5rem 1.5rem !important; border: 1px solid var(--brand); box-shadow: 0 0 40px var(--brand-glow); }
+</style>
 
 <script>
   // ── Tab switching ──────────────────────────────────────────
@@ -638,7 +666,10 @@
       const photoURL = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=0038ff&textColor=ffffff`;
       users[email] = { displayName: name, password: pwd, photoURL };
       localStorage.setItem('nexray_accounts', JSON.stringify(users));
-      loginUser({ displayName: name, photoURL, email, provider: 'email' });
+      
+      // Instead of immediate login and redirect, show welcome modal
+      localStorage.setItem('nexray_user', JSON.stringify({ displayName: name, photoURL, email, provider: 'email', loggedIn: true }));
+      document.getElementById('welcome-modal').classList.add('active');
     }, 800);
   });
 

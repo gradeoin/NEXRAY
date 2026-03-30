@@ -217,10 +217,9 @@
   function syncAuthUI() {
     const userStr = localStorage.getItem('nexray_user');
     
-    // If there's a dedicated nav-user-block (profile page), populate it
+    // If there's a dedicated nav-user-block (profile page or header), populate it
     const navUserBlock = document.getElementById('nav-user-block');
-    if (navUserBlock && !navUserBlock.dataset.populated) {
-      navUserBlock.dataset.populated = '1';
+    if (navUserBlock) {
       if (userStr) {
         try {
           const u = JSON.parse(userStr);
@@ -231,8 +230,12 @@
                 <img src="${u.photoURL}" class="user-avatar" title="My Dashboard" alt="Profile" />
               </a>
             `;
+          } else {
+            navUserBlock.innerHTML = '';
           }
         } catch(e) {}
+      } else {
+        navUserBlock.innerHTML = '';
       }
     }
 
@@ -241,9 +244,9 @@
     try {
       const u = JSON.parse(userStr);
       if (u && u.loggedIn) {
-        // 1. Handle primary "Sign In" buttons (transform to Avatar) — skip if already done
+        // 1. Handle primary "Sign In" buttons (transform to Avatar)
         document.querySelectorAll('#nav-signin, .btn-signin').forEach(el => {
-          if (el.classList.contains('auth-processed') || el.closest('#nav-user-block')) return;
+          if (el.closest('#nav-user-block')) return;
           
           if (document.getElementById('nav-user-block') && el.id === 'nav-signin') {
              el.style.display = 'none';
@@ -251,9 +254,15 @@
              return;
           }
 
-          const userLink = document.createElement('a');
+          let userLink = el.nextElementSibling;
+          if (!userLink || !userLink.classList.contains('nav-user-profile')) {
+             userLink = document.createElement('a');
+             userLink.className = 'nav-user-profile auth-processed';
+             el.insertAdjacentElement('afterend', userLink);
+             el.style.display = 'none';
+          }
+          
           userLink.href = 'profile.html';
-          userLink.className = 'nav-user-profile auth-processed';
           userLink.style = 'display:flex;align-items:center;gap:0.6rem;text-decoration:none;';
           userLink.setAttribute('aria-label', 'My Profile');
           const defaultAvatarSvg = `data:image/svg+xml;utf8,<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='50' fill='%23f1f5f9'/><circle cx='50' cy='35' r='18' fill='%230038FF'/><path d='M50 58c-18.4 0-33.3 14.9-33.3 33.3h66.7C83.3 72.9 68.4 58 50 58z' fill='%230038FF'/></svg>`;
@@ -262,7 +271,6 @@
             <img src="${u.photoURL || defaultAvatarSvg}" class="user-avatar" title="My Dashboard" alt="Profile"
                  onerror="this.src='${defaultAvatarSvg}';this.onerror=null;" />
           `;
-          el.replaceWith(userLink);
         });
 
         // 2. Handle CTA buttons (transform to Dashboard link)
