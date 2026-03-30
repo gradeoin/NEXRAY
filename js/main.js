@@ -163,20 +163,55 @@
   /* ── Custom Cursor — handled via CSS arrow cursor ─────────── */
   // CSS cursor defined in global.css — no JS needed
 
-  /* ── Page Loader ──────────────────────────────────────────── */
+  /* ── Page Transition & Loader ─────────────────────────────── */
   const loader = document.getElementById('page-loader');
   if (loader) {
     window.addEventListener('load', () => {
       loader.classList.add('hidden');
-      setTimeout(() => loader.remove(), 600);
+      setTimeout(() => loader.style.display = 'none', 400);
     });
     setTimeout(() => {
       if(document.body.contains(loader)) {
         loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 600);
+        setTimeout(() => loader.style.display = 'none', 400);
       }
-    }, 3000); 
+    }, 2500); 
   }
+
+  // Intercept internal links to show animated fade-in loading state
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link || !link.href) return;
+    
+    // Ignore blank targets, internal anchors, javascript links, and downloads
+    const href = link.getAttribute('href');
+    if (link.target === '_blank' || href.startsWith('#') || href.startsWith('javascript:') || link.hasAttribute('download')) return;
+    
+    try {
+      const url = new URL(link.href, window.location.href);
+      if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+        e.preventDefault();
+        
+        let transLoader = document.getElementById('page-loader');
+        if (!transLoader) {
+          transLoader = document.createElement('div');
+          transLoader.id = 'page-loader';
+          transLoader.innerHTML = '<div class="loader-spinner"></div>';
+          document.body.prepend(transLoader);
+        }
+        
+        transLoader.style.display = 'flex';
+        // Force reflow
+        void transLoader.offsetWidth;
+        transLoader.classList.remove('hidden');
+        
+        // Wait for fade animation before actually navigating
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 350);
+      }
+    } catch(err) {}
+  });
 
   /* ── Auth UI State Sync ───────────────────────────────────── */
   function syncAuthUI() {

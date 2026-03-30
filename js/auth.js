@@ -3,7 +3,7 @@
    Shared Shared Firebase Auth Logic & Session Management
    ============================================================ */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js';
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBzM68THLIm9Njdps5XMcvkdnzzvL3l7EQ",
@@ -41,17 +41,15 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Automatically handle redirect results from Google
-getRedirectResult(auth)
-  .then((result) => {
-    if (result && result.user) {
-      window.location.href = 'profile.html';
+export const performGoogleSignIn = async () => {
+    try {
+        const result = await signInWithPopup(auth, googleProvider);
+        if (result && result.user) {
+            window.location.href = 'profile.html';
+        }
+    } catch (err) {
+        console.error("Google Sign In Error:", err);
     }
-  })
-  .catch((error) => console.error("Redirect Error:", error));
-
-export const performGoogleSignIn = () => {
-    signInWithRedirect(auth, googleProvider);
 };
 
 export const logout = async () => {
