@@ -209,6 +209,13 @@
         // 1. Handle primary "Sign In" buttons (transform to Avatar) — skip if already done
         document.querySelectorAll('#nav-signin, .btn-signin').forEach(el => {
           if (el.classList.contains('auth-processed') || el.closest('#nav-user-block')) return;
+          
+          if (document.getElementById('nav-user-block') && el.id === 'nav-signin') {
+             el.style.display = 'none';
+             el.classList.add('auth-processed');
+             return;
+          }
+
           const userLink = document.createElement('a');
           userLink.href = 'profile.html';
           userLink.className = 'nav-user-profile auth-processed';
