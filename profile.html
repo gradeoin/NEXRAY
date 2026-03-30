@@ -168,7 +168,16 @@
         <div class="glass-card">
           <h3 style="font-weight:900; margin-bottom:1rem;">Profile Settings</h3>
           
-          <label style="display:block; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-2); font-size: 0.9rem;">Upload Custom Avatar</label>
+          <label style="display:block; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-2); font-size: 0.9rem;">Choose a Preset Avatar</label>
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 1.25rem;" id="preset-avatar-grid">
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/bottts/svg?seed=nexray', this)"><img src="https://api.dicebear.com/7.x/bottts/svg?seed=nexray" alt="Bot 1"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/bottts/svg?seed=leo', this)"><img src="https://api.dicebear.com/7.x/bottts/svg?seed=leo" alt="Bot 2"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Felix', this)"><img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Felix" alt="Hero"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/fun-emoji/svg?seed=cool', this)"><img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=cool" alt="Emoji"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/identicon/svg?seed=dev', this)"><img src="https://api.dicebear.com/7.x/identicon/svg?seed=dev" alt="Tech"></div>
+          </div>
+
+          <label style="display:block; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-2); font-size: 0.9rem;">Or Upload Custom File</label>
           <input type="file" id="avatar-upload" accept="image/png, image/jpeg, image/webp" class="profile-edit-field" style="margin-bottom: 1.25rem;">
           
           <label style="display:block; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-2); font-size: 0.9rem;">Display Name</label>
@@ -198,6 +207,20 @@
     window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: null }));
     window.location.href = 'index.html';
   }
+
+  function selectPresetAvatar(src, el) {
+    document.querySelectorAll('.avatar-option').forEach(img => img.classList.remove('selected'));
+    if (el) el.classList.add('selected');
+    document.getElementById('profile-img').src = src;
+    
+    // Auto-save preset avatar immediately
+    const u = getUser();
+    u.photoURL = src;
+    saveUser(u);
+    window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: u }));
+  }
+
+  window.selectPresetAvatar = selectPresetAvatar; // Expose to global scope for onclick
 
   if (!localStorage.getItem('nexray_user')) { window.location.href = 'auth.html'; }
 

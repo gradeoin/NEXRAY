@@ -581,20 +581,7 @@
     window.location.href = next;
   }
 
-  // ── Google Sign-In (both buttons) ─────────────────────────
-  function handleGoogleSignIn() {
-    const displayName = prompt('Enter your display name (Google sign-in demo):');
-    if (!displayName) return;
-    loginUser({
-      displayName: displayName.trim() || 'Developer',
-      photoURL: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(displayName)}&backgroundColor=0038ff&textColor=ffffff`,
-      email: `${displayName.toLowerCase().replace(/\s+/g,'')}@google.demo`,
-      provider: 'google'
-    });
-  }
-
-  document.getElementById('google-signin-btn').onclick = handleGoogleSignIn;
-  document.getElementById('google-signup-btn').onclick = handleGoogleSignIn;
+  // ── Google Sign-In is handled via the separate module script below ──
 
   // ── Email Sign In ──────────────────────────────────────────
   document.getElementById('signin-form').addEventListener('submit', (e) => {
@@ -663,5 +650,12 @@
     } catch (e) {}
   }
 </script>
+
+<script type="module">
+  import { performGoogleSignIn } from './js/auth.js';
+  document.getElementById('google-signin-btn').onclick = performGoogleSignIn;
+  document.getElementById('google-signup-btn').onclick = performGoogleSignIn;
+</script>
+
 </body>
 </html>
