@@ -42,11 +42,14 @@
   const nav = document.querySelector('.nav');
   if (nav) {
     const updateNav = () => {
-      nav.style.boxShadow = window.scrollY > 20
-        ? '0 4px 30px rgba(0,0,0,.3)'
-        : 'none';
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
     };
     window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav(); // run on load
   }
 
   /* ── Scroll Reveal ────────────────────────────────────────── */
@@ -211,9 +214,11 @@
           userLink.className = 'nav-user-profile auth-processed';
           userLink.style = 'display:flex;align-items:center;gap:0.6rem;text-decoration:none;';
           userLink.setAttribute('aria-label', 'My Profile');
+          const defaultAvatarSvg = `data:image/svg+xml;utf8,<svg viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='50' fill='%23f1f5f9'/><circle cx='50' cy='35' r='18' fill='%230038FF'/><path d='M50 58c-18.4 0-33.3 14.9-33.3 33.3h66.7C83.3 72.9 68.4 58 50 58z' fill='%230038FF'/></svg>`;
           userLink.innerHTML = `
             <span style="font-weight:700;font-size:0.85rem;color:var(--text);" class="hide-mobile">${u.displayName}</span>
-            <img src="${u.photoURL}" class="user-avatar" title="My Dashboard" alt="Profile" />
+            <img src="${u.photoURL || defaultAvatarSvg}" class="user-avatar" title="My Dashboard" alt="Profile"
+                 onerror="this.src='${defaultAvatarSvg}';this.onerror=null;" />
           `;
           el.replaceWith(userLink);
         });

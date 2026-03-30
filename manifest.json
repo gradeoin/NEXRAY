@@ -1,45 +1,53 @@
 {
-  "name": "Nexray — Learn Web Dev from Zero to Pro",
+  "name": "Nexray — Learn Web Development",
   "short_name": "Nexray",
-  "description": "Free 7-stage web development guide for 2026. Learn HTML, CSS, JS, Backend, DevOps, Android & Launch.",
+  "description": "Free 7-stage web development guide. From zero to full-stack pro in 2026.",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
-  "background_color": "#09090f",
-  "theme_color": "#f97316",
+  "background_color": "#fafafa",
+  "theme_color": "#0038FF",
   "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["education", "productivity"],
   "icons": [
     {
-      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png",
+      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png",
+      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "developer tools"],
   "screenshots": [
     {
-      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774814733/logo1_z2jumw.png",
+      "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",
       "sizes": "1280x720",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Nexray Homepage"
     }
   ],
   "shortcuts": [
     {
-      "name": "Start Stage 1",
+      "name": "Start Guide",
+      "short_name": "Guide",
+      "description": "Start the 7-stage web dev guide",
       "url": "/guide/stage1.html",
-      "description": "Begin the web development basics"
+      "icons": [{ "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png", "sizes": "96x96" }]
     },
     {
-      "name": "My Dashboard",
-      "url": "/profile.html",
-      "description": "View your learning progress"
+      "name": "Free Resources",
+      "short_name": "Resources",
+      "description": "Browse free web development resources",
+      "url": "/resources.html",
+      "icons": [{ "src": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png", "sizes": "96x96" }]
     }
-  ]
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
 }

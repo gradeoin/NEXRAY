@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO (Nexray v2) -->
+  <meta name="description" content="Curated free tools, courses, cheatsheets, and resources for web developers. Updated for 2026." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexray.in/resources.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nexray" />
+  <meta property="og:title" content="Free Web Dev Resources 2026 — Nexray" />
+  <meta property="og:description" content="Curated free tools, courses, cheatsheets, and resources for web developers. Updated for 2026." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://nexray.in/resources.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nexray_in" />
+  <meta name="twitter:title" content="Free Web Dev Resources 2026 — Nexray" />
+  <meta name="twitter:description" content="Curated free tools, courses, cheatsheets, and resources for web developers. Updated for 2026." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Free Web Dev Resources 2026 — Nexray","description":"Curated free tools, courses, cheatsheets, and resources for web developers. Updated for 2026.","url":"https://nexray.in/resources.html","provider":{"@type":"Organization","name":"Nexray","url":"https://nexray.in"},"image":"https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png"}</script>
+  <!-- /SEO -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nexray Resources — curated tools, docs, references, and platforms every modern web developer needs in 2026." />
-  <title>Resources — Nexray</title>
+  
+  <title>Free Web Dev Resources 2026 — Nexray</title>
   <link rel="stylesheet" href="css/global.css" />
   <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
   <style>
@@ -20,16 +43,23 @@
     .filter-btn:hover, .filter-btn.active { border-color:var(--orange-500); background:rgba(249,115,22,0.12); color:var(--orange-400); }
     .res-section { margin-bottom:3rem; }
   </style>
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Developer Resources & Tools | Nexray" />
-  <meta property="og:description" content="Curated list of free tools, icons, APIs, hosting, and resources for web developers. Compiled by Nexray." />
-  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Developer Resources & Tools | Nexray" />
-  <meta name="twitter:description" content="Curated list of free tools, icons, APIs, hosting, and resources for web developers. Compiled by Nexray." />
+  
+  
+  
+  
+  
+  
+  
   <meta name="theme-color" content="#0038FF">
   <link rel="manifest" href="manifest.json">
-  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n</head>
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n<style>
+.nx-icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-0.15em;stroke:currentColor;flex-shrink:0}
+.nx-icon-success{stroke:#22c55e}
+.nx-icon-error{stroke:#ef4444}
+.nx-icon-accent{stroke:#CCFF00}
+.nx-icon-hot{stroke:#f97316}
+</style>
+</head>
 <body>
   <nav class="nav">
     <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
@@ -42,6 +72,7 @@
       <a href="blog/index.html">Blog</a>
       <a href="resources.html" class="active">Resources</a>
       <a href="auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    <div id="nav-user-block"></div>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -52,7 +83,7 @@
 
   <div class="page-wrapper">
     <div style="text-align:center;padding:6rem 2rem 3rem;background:radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%);">
-      <div class="stage-badge" style="margin:0 auto 1.5rem;">📦 Resource Hub</div>
+      <div class="stage-badge" style="margin:0 auto 1.5rem;"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Resource Hub</div>
       <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
         Every Tool You'll<br><span style="background:linear-gradient(135deg,#0038FF,#CCFF00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ever Need</span>
       </h1>
@@ -65,13 +96,13 @@
         <h2 class="content-heading">🎨 Frontend & Design</h2>
         <div class="res-grid">
           <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">📚</div>
+            <div class="res-card-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
             <div class="res-card-name">MDN Web Docs</div>
             <div class="res-card-desc">The gold standard HTML, CSS, JS reference. If it's not on MDN, question if it's real.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Docs</span></div>
           </a>
           <a href="https://caniuse.com" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">🌐</div>
+            <div class="res-card-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <div class="res-card-name">Can I Use</div>
             <div class="res-card-desc">Check browser support before using any HTML/CSS/JS feature. Essential.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Reference</span></div>
@@ -95,7 +126,7 @@
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">3D</span></div>
           </a>
           <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">⚡</div>
+            <div class="res-card-icon"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
             <div class="res-card-name">Vite</div>
             <div class="res-card-desc">Instant dev server, blazing fast HMR. The standard build tool in 2026.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Build Tool</span></div>
@@ -117,10 +148,10 @@
 
       <!-- Backend -->
       <div class="res-section">
-        <h2 class="content-heading">⚙️ Backend & Databases</h2>
+        <h2 class="content-heading"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Backend & Databases</h2>
         <div class="res-grid">
           <a href="https://firebase.google.com" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">🔥</div>
+            <div class="res-card-icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></div>
             <div class="res-card-name">Firebase</div>
             <div class="res-card-desc">Firestore DB, Auth, Storage, Hosting, Functions. The best free backend for indie devs.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">BaaS</span></div>
@@ -160,7 +191,7 @@
 
       <!-- DevOps & Hosting -->
       <div class="res-section">
-        <h2 class="content-heading">🛠️ DevOps & Hosting</h2>
+        <h2 class="content-heading"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> DevOps & Hosting</h2>
         <div class="res-grid">
           <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="res-card">
             <div class="res-card-icon">▲</div>
@@ -169,7 +200,7 @@
             <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">Hosting</span></div>
           </a>
           <a href="https://cloudflare.com" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">🌐</div>
+            <div class="res-card-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <div class="res-card-name">Cloudflare</div>
             <div class="res-card-desc">DNS, CDN, DDoS protection, Workers edge functions, Pages hosting. Free forever plan.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free Tier</span><span class="tag">CDN</span></div>
@@ -203,10 +234,10 @@
 
       <!-- Mobile -->
       <div class="res-section">
-        <h2 class="content-heading">📱 Mobile & Android</h2>
+        <h2 class="content-heading"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Mobile & Android</h2>
         <div class="res-grid">
           <a href="https://capacitorjs.com" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">⚡</div>
+            <div class="res-card-icon"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
             <div class="res-card-name">Capacitor</div>
             <div class="res-card-desc">Wrap any web app in a native shell. Access camera, GPS, notifications, file system.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Native</span></div>
@@ -224,7 +255,7 @@
             <div class="res-card-tags"><span class="tag">$25 One-time</span></div>
           </a>
           <a href="https://developer.chrome.com/docs/android/trusted-web-activity/" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">🌐</div>
+            <div class="res-card-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
             <div class="res-card-name">TWA (Trusted Web Activity)</div>
             <div class="res-card-desc">Turn your PWA into an Android app with Chrome. Official Google documentation.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">PWA</span></div>
@@ -234,7 +265,7 @@
 
       <!-- Learning -->
       <div class="res-section">
-        <h2 class="content-heading">📚 Learning & Practice</h2>
+        <h2 class="content-heading"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Learning & Practice</h2>
         <div class="res-grid">
           <a href="https://css-tricks.com" target="_blank" rel="noopener noreferrer" class="res-card">
             <div class="res-card-icon">🎩</div>
@@ -249,7 +280,7 @@
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">JavaScript</span></div>
           </a>
           <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">🔥</div>
+            <div class="res-card-icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></div>
             <div class="res-card-name">freeCodeCamp</div>
             <div class="res-card-desc">Free certifications, project-based curriculum. HTML/CSS/JS to Python and ML.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Curriculum</span></div>
@@ -267,7 +298,7 @@
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Patterns</span></div>
           </a>
           <a href="https://pagespeed.web.dev" target="_blank" rel="noopener noreferrer" class="res-card">
-            <div class="res-card-icon">⚡</div>
+            <div class="res-card-icon"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
             <div class="res-card-name">PageSpeed Insights</div>
             <div class="res-card-desc">Google's official tool to measure Core Web Vitals and get specific improvement tips.</div>
             <div class="res-card-tags"><span class="tag tag-green">Free</span><span class="tag">Performance</span></div>
@@ -340,7 +371,9 @@
   </footer>
 
   <script src="js/main.js"></script>
-<script src="js/three-background.js"></script>
-  <script src="/js/tracker.js" defer></script>\n  <script src="/js/search.js" defer></script>
+  <script src="js/tracker.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/mascot.js" defer></script>
+  <script src="js/motion-svgs.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thank you for reaching out to Nexray!" />
+  <title>Thank You — Nexray</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <style>
+    .thanks-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .cat-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+    .cat-body {
+      width: 120px;
+      height: 120px;
+      background: var(--brand);
+      border-radius: 50% 50% 40% 40%;
+      position: absolute;
+      bottom: 20px;
+      left: 40px;
+      box-shadow: 0 10px 30px rgba(0, 56, 255, 0.3);
+      animation: breathe 3s ease-in-out infinite;
+    }
+    .cat-ear {
+      width: 0; height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 30px solid var(--brand);
+      position: absolute;
+      top: -15px;
+    }
+    .ear-left { left: 10px; transform: rotate(-15deg); }
+    .ear-right { right: 10px; transform: rotate(15deg); }
+    
+    .cat-eye-socket {
+      width: 35px;
+      height: 35px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .socket-left { left: 20px; }
+    .socket-right { right: 20px; }
+    
+    .cat-pupil {
+      width: 15px;
+      height: 15px;
+      background: #0f172a;
+      border-radius: 50%;
+      position: relative;
+    }
+    .cat-nose {
+      width: 10px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: absolute;
+      top: 75px;
+      left: 55px;
+    }
+    .cat-tail {
+      width: 60px;
+      height: 15px;
+      background: var(--brand);
+      position: absolute;
+      bottom: 25px;
+      right: -20px;
+      border-radius: 20px;
+      transform-origin: left center;
+      animation: tailWag 2s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes tailWag {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(30deg); }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Nexray",
+  "url": "https://nexray.in",
+  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",
+  "description": "A free, 7-stage modern web development platform."
+}
+</script>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="Nexray Logo" style="height:36px;">
+      <span style="font-family: 'Arial Black', sans-serif; font-weight: 900; margin-left: 10px; color: var(--text);">NEX<span style="color: var(--brand);">RAY</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="thanks-container">
+      <div class="cat-container" id="cat-mascot">
+        <div class="cat-body">
+          <div class="cat-ear ear-left"></div>
+          <div class="cat-ear ear-right"></div>
+          <div class="cat-eye-socket socket-left">
+            <div class="cat-pupil" id="eye-l"></div>
+          </div>
+          <div class="cat-eye-socket socket-right">
+            <div class="cat-pupil" id="eye-r"></div>
+          </div>
+          <div class="cat-nose"></div>
+          <div class="cat-tail"></div>
+        </div>
+      </div>
+      
+      <div class="stage-badge" style="margin-bottom: 1.5rem;">💌 Success</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;margin-bottom:1.5rem;">
+        Message <span style="color: var(--brand);">Received!</span>
+      </h1>
+      <p style="color:var(--text-secondary);font-size:1.1rem;max-width:540px;margin:0 auto 2.5rem;">
+        Thanks for reaching out! Our team (and our brand cat) are reviewing your message as we speak. We'll get back to you within 24-48 hours.
+      </p>
+      <a href="index.html" class="btn btn-primary" style="padding: 1rem 2.5rem;">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const mascot = document.getElementById('cat-mascot');
+    const pupils = [document.getElementById('eye-l'), document.getElementById('eye-r')];
+
+    document.addEventListener('mousemove', (e) => {
+      const { clientX, clientY } = e;
+      
+      pupils.forEach(pupil => {
+        const rect = pupil.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const angle = Math.atan2(clientY - centerY, clientX - centerX);
+        const distance = Math.min(8, Math.hypot(clientX - centerX, clientY - centerY) / 20);
+        
+        const moveX = Math.cos(angle) * distance;
+        const moveY = Math.sin(angle) * distance;
+        
+        pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
+  </script>
+  <script src="js/mascot.js" defer></script>
+  <script src="js/motion-svgs.js" defer></script>
+</body>
+</html>

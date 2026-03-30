@@ -54,7 +54,7 @@ ul,ol{list-style:none}
 button,input,textarea,select{font:inherit;cursor:pointer}
 
 /* ── Typography Overrides for Headings ──────────────────────── */
-h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav-logo {
+h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading {
   font-family: 'Fira Code', 'Courier New', monospace !important;
   letter-spacing: -0.05em !important;
   font-weight: 900 !important; /* Maximum boldness for headers */
@@ -96,8 +96,8 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
   transition:background .3s,border-color .3s,box-shadow .3s;
 }
 
-.nav-logo{display:flex;align-items:center;gap:.5rem;font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:-.03em}
-.nav-links a { font-weight: 700 !important; font-size: 0.95rem; transition: color 0.2s; }
+.nav-logo{display:flex;align-items:center;gap:.5rem;font-weight:900;font-size:1.3rem;letter-spacing:-.03em}
+.nav-links a { font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
 .nav-links a:hover { color: var(--brand); }
 .nav-links a.active { color: var(--brand); }
 .nav-logo .logo-icon{
@@ -353,21 +353,7 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
 .stage-meta-item{display:flex;align-items:center;gap:.375rem}
 
 /* ── Code Blocks ────────────────────────────────────────────── */
-.code-block{
-  background:rgba(0,10,40,0.95);
-  border:1px solid rgba(0,56,255,0.25);
-  border-left: 3px solid #0038FF;
-  border-radius:var(--radius);
-  overflow:hidden;
-  margin:1.25rem 0;
-  font-family:'Fira Code','Courier New',monospace;
-}
-.code-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.5rem 1rem;
-  background:rgba(0,56,255,0.08);
-  border-bottom:1px solid rgba(0,56,255,0.15);
-}
+.code-block{background:#ffffff;border:1px solid #e2e8f0;border-radius:var(--radius);overflow:hidden;margin:1.5rem 0;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);}.code-header{background:#f8fafc;padding:.75rem 1.25rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;}
 .code-dots{display:flex;gap:5px}
 .code-dots span{width:11px;height:11px;border-radius:50%}
 .code-dots span:nth-child(1){background:#ff5f57}
@@ -380,12 +366,16 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading, .nav
   font-size:.7rem;cursor:pointer;transition:all .2s;
 }
 .code-copy:hover{border-color:#CCFF00;background:rgba(204,255,0,0.1)}
-.code-content{padding:1.25rem;overflow-x:auto;font-size:.82rem;line-height:1.85;color:#e2e8f0}
+.code-content{padding:1.25rem;overflow-x:auto;font-size:.82rem;line-height:1.85;color:var(--text);background:rgba(255,255,255,0.03);border:1px solid var(--glass-b);border-radius:0 0 var(--radius) var(--radius);}
 
-/* Syntax colors */
-.kw{color:#c084fc}.str{color:#86efac}.num{color:#fb923c}
-.cmt{color:#475569;font-style:italic}.fn{color:#60a5fa}
-.tag-hl{color:#f472b6}.attr{color:#34d399}
+/* Syntax colors - Light Theme Friendly High Contrast */
+.kw{color:#0038FF;font-weight:700}   /* Blue keywords */
+.str{color:#0b7e3f}                  /* Green strings */
+.num{color:#ea580c}                  /* Orange numbers */
+.cmt{color:#64748b;font-style:italic}/* Slate comments */
+.fn{color:#2563eb}                   /* Bright blue functions */
+.tag-hl{color:#d33}                  /* Flat red tags */
+.attr{color:#4f46e5}                 /* Indigo attributes */
 
 /* ── Callouts ───────────────────────────────────────────────── */
 .callout{
@@ -1215,3 +1205,226 @@ img.loaded {
   .illustration-block .illus-svg { width: 100%; max-width: 200px; margin: 0 auto; }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   NEXRAY – Mobile Hero Fix  (resolves empty-space on phones)
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero-redesign { min-height: 100svh !important; padding-top: var(--nav-h) !important; }
+  .hero-redesign main {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2.5rem !important;
+    min-height: unset !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+@media (max-width: 640px) {
+  .section { padding: 2rem 1.25rem !important; }
+  h2 { font-size: clamp(1.6rem, 8vw, 2.4rem) !important; }
+  h3 { font-size: clamp(1.1rem, 5vw, 1.5rem) !important; }
+  .grid-2,.grid-3 { grid-template-columns: 1fr !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NEXRAY Brand Buddy – coding element cards for stage pages
+   ══════════════════════════════════════════════════════════════ */
+.nxr-brand-buddy {
+  display:flex;align-items:center;gap:1.25rem;
+  background:var(--glass);border:1.5px solid var(--glass-b);
+  border-left:4px solid var(--brand);border-radius:var(--radius);
+  padding:1rem 1.5rem;margin:2rem 0;position:relative;overflow:hidden;
+}
+.nxr-brand-buddy::after {
+  content:'';position:absolute;top:0;right:0;bottom:0;width:3px;
+  background:var(--accent);border-radius:0 var(--radius) var(--radius) 0;
+}
+.nxr-brand-buddy-icon {
+  width:52px;height:52px;background:var(--brand-gradient);
+  border-radius:var(--radius-sm);display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;box-shadow:var(--shadow-brand);
+}
+.nxr-brand-buddy-icon svg { width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round; }
+.nxr-brand-buddy-text { flex:1; }
+.nxr-brand-buddy-text strong { display:block;font-weight:800;font-size:.95rem;color:var(--text);margin-bottom:3px; }
+.nxr-brand-buddy-text span { font-size:.82rem;color:var(--text-3); }
+
+.nxr-tip {
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1.1rem 1.4rem;background:rgba(0,56,255,.05);
+  border:1.5px solid rgba(0,56,255,.15);border-radius:var(--radius);
+  margin:1.5rem 0;font-size:.88rem;line-height:1.7;
+}
+.nxr-tip-icon {
+  width:36px;height:36px;flex-shrink:0;background:var(--brand);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+.nxr-tip-icon svg { width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5; }
+.nxr-tip-body strong { display:block;font-weight:800;font-size:.9rem;margin-bottom:4px;color:var(--brand); }
+.nxr-tip-body p { color:var(--text-2); }
+
+.nxr-code-label {
+  display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:#fff;
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:var(--radius-sm);margin-bottom:.5rem;
+}
+
+/* Scroll-reveal helpers */
+.reveal { opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease; }
+.reveal-left { opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease; }
+.reveal-right { opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease; }
+.reveal.revealed,.reveal-left.revealed,.reveal-right.revealed { opacity:1;transform:none; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   NEXRAY – Production Fixes & Branding Enhancements
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Avatar fixes ────────────────────────────────────────── */
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--brand);
+  background: var(--bg-card);
+  /* Prevent white flash while loading */
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='12' fill='%23f1f5f9'/><circle cx='12' cy='8' r='4' fill='%230038FF'/><path d='M12 14c-4.42 0-8 3.58-8 8h16c0-4.42-3.58-8-8-8z' fill='%230038FF'/></svg>");
+  background-size: cover;
+}
+
+/* ── Nav user profile link ───────────────────────────────── */
+.nav-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 4px 10px 4px 12px;
+  border: 1px solid var(--glass-b);
+  border-radius: var(--radius-full);
+  background: var(--glass);
+  transition: all 0.2s;
+}
+.nav-user-profile:hover {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-glow);
+}
+.nav-user-profile .user-avatar {
+  width: 28px;
+  height: 28px;
+}
+.hide-mobile {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── Branding: stronger CTA buttons ─────────────────────── */
+.btn-primary {
+  background: var(--brand);
+  background-image: linear-gradient(135deg, #0038FF 0%, #0052ff 100%);
+  color: #fff;
+  border: none;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover {
+  background: #0030e0;
+  background-image: linear-gradient(135deg, #0030e0 0%, #0045e0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 56, 255, 0.35);
+}
+
+/* ── Stage cards: stronger hover ────────────────────────── */
+.stage-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.stage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 56, 255, 0.12);
+  border-color: var(--brand);
+}
+
+/* ── Glass card refinements ──────────────────────────────── */
+.glass-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 56, 255, 0.10);
+}
+
+/* ── Improve footer ─────────────────────────────────────── */
+.footer-col:empty { display: none; }
+
+/* ── Nav id placeholder fix ─────────────────────────────── */
+#nav-user-block { display: flex; align-items: center; }
+
+/* ── Improved focus ring for accessibility ──────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+/* ── Loading state for auth buttons ─────────────────────── */
+.btn[disabled], .btn.loading {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Better mobile nav ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none; }
+}
+@media (min-width: 769px) {
+  .nav-hamburger { display: none; }
+  .nav-links { display: flex; }
+  .nav-mobile { display: none !important; }
+}
+
+/* ── Branding: improve nav border accent ─────────────────── */
+.nav {
+  border-bottom: 2px solid #CCFF00;
+}
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Profile avatar ring default state ──────────────────── */
+.profile-avatar-ring {
+  background: linear-gradient(135deg, var(--brand-dim), rgba(204,255,0,0.1));
+}
+.profile-avatar-ring img {
+  background: var(--bg-card);
+}
+
+/* ── Auth card improvements ──────────────────────────────── */
+.auth-card {
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Smooth page transitions ─────────────────────────────── */
+body {
+  animation: pageFadeIn 0.3s ease;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Better scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #0030e0; }

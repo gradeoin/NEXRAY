@@ -1,14 +1,24 @@
 User-agent: *
 Allow: /
 
-# Specifically allow AI crawlers
-User-agent: GPTBot
-Allow: /
-User-agent: ChatGPT-User
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: PerplexityBot
-Allow: /
+# Priority crawl paths
+Allow: /guide/
+Allow: /blog/
+Allow: /resources.html
+Allow: /about.html
+
+# Block admin and build scripts
+Disallow: /admin/
+Disallow: /*.js$
+Disallow: /emails/
+Disallow: /lib/
+Disallow: /components/
+
+# Allow specific JS assets
+Allow: /js/
+Allow: /sw.js
 
 Sitemap: https://nexray.in/sitemap.xml
+
+# Crawl-delay recommendation
+Crawl-delay: 2

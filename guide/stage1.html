@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO (Nexray v2) -->
+  <meta name="description" content="Learn what a website is, how the internet works, buy a domain, and deploy your first live site for free. Stage 1 of the Nexray guide." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexray.in/guide/stage1.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nexray" />
+  <meta property="og:title" content="Stage 1: Web Dev Basics — HTML, DNS & Your First Website | Nexray" />
+  <meta property="og:description" content="Learn what a website is, how the internet works, buy a domain, and deploy your first live site for free. Stage 1 of the Nexray guide." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://nexray.in/guide/stage1.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nexray_in" />
+  <meta name="twitter:title" content="Stage 1: Web Dev Basics — HTML, DNS & Your First Website | Nexray" />
+  <meta name="twitter:description" content="Learn what a website is, how the internet works, buy a domain, and deploy your first live site for free. Stage 1 of the Nexray guide." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Stage 1: Web Dev Basics — HTML, DNS & Your First Website | Nexray","description":"Learn what a website is, how the internet works, buy a domain, and deploy your first live site for free. Stage 1 of the Nexray guide.","url":"https://nexray.in/guide/stage1.html","provider":{"@type":"Organization","name":"Nexray","url":"https://nexray.in"},"image":"https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png"}</script>
+  <!-- /SEO -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stage 1: Web Dev Basics — Learn what a website is, how domains work, HTML fundamentals, and how to get your first site live for free." />
-  <title>Stage 1: Basics — Nexray</title>
+  
+  <title>Stage 1: Web Dev Basics — HTML, DNS & Your First Website | Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Stage 1: The Basics � HTML, DNS & Your First Website | Nexray" />
-  <meta property="og:description" content="Learn how the internet works, get your first domain, and publish a live website today. Free beginner guide by Nexray." />
-  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Stage 1: The Basics � HTML, DNS & Your First Website | Nexray" />
-  <meta name="twitter:description" content="Learn how the internet works, get your first domain, and publish a live website today. Free beginner guide by Nexray." />
+  
+  
+  
+  
+  
+  
+  
   <meta name="theme-color" content="#0038FF">
   <link rel="manifest" href="../manifest.json">
-  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n</head>
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n<style>
+.nx-icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-0.15em;stroke:currentColor;flex-shrink:0}
+.nx-icon-success{stroke:#22c55e}
+.nx-icon-error{stroke:#ef4444}
+.nx-icon-accent{stroke:#CCFF00}
+.nx-icon-hot{stroke:#f97316}
+</style>
+</head>
 <body>
   <nav class="nav">
     <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
@@ -29,6 +59,7 @@
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    <div id="nav-user-block"></div>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -42,23 +73,39 @@
     <div class="stage-hero" style="min-height: 420px; display:flex; align-items:center; position:relative;">
       <canvas id="stage-canvas" style="position:absolute; inset:0; width:100%; height:100%; z-index:0;"></canvas>
       <div class="hero-content" style="z-index:1; text-align:center;">
-        <div class="stage-badge">🌐 Stage 1 of 7</div>
+        <div class="stage-badge"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Stage 1 of 7</div>
         <h1 class="stage-title">The Basics</h1>
         <p class="stage-desc">From "what's a website?" to your first live site — step by step, no nonsense, all real.</p>
         <div class="stage-meta">
-          <div class="stage-meta-item"><span class="icon">⏱️</span> ~3 hours</div>
-          <div class="stage-meta-item"><span class="icon">🎯</span> Absolute Beginner</div>
-          <div class="stage-meta-item"><span class="icon">💰</span> 100% Free</div>
-          <div class="stage-meta-item"><span class="icon">📋</span> 12 Topics</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M19 3l3 3"/><path d="M12 5V2"/></svg></span> ~3 hours</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Absolute Beginner</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span> 100% Free</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></span> 12 Topics</div>
         </div>
       </div>
     </div>
 
     <!-- Content -->
     <div class="section">
+
+<!-- NEXRAY BRAND BUDDY (auto-injected) -->
+<div class="nxr-brand-buddy reveal-left">
+  <div class="nxr-brand-buddy-icon" style="background:linear-gradient(135deg,#f97316,#0038FF)"><svg viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+  <div class="nxr-brand-buddy-text">
+    <strong>Browser Mode Active</strong>
+    <span>Nexray Stage 1: HTML & The Web Basics — your interactive learning companion</span>
+  </div>
+</div>
+<div class="nxr-stage-ticker"><div class="nxr-stage-dot current" title="Stage 1"></div><div class="nxr-stage-dot " title="Stage 2"></div><div class="nxr-stage-dot " title="Stage 3"></div><div class="nxr-stage-dot " title="Stage 4"></div><div class="nxr-stage-dot " title="Stage 5"></div><div class="nxr-stage-dot " title="Stage 6"></div><div class="nxr-stage-dot " title="Stage 7"></div></div>
+<div class="nxr-tip reveal">
+  <div class="nxr-tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><circle cx="12" cy="12" r="10"/></svg></div>
+  <div class="nxr-tip-body"><strong>Pro Tip</strong><p>Every website you visit loads HTML from a server.</p></div>
+</div>
+<!-- END NEXRAY BRAND BUDDY -->
+
       <!-- TOC -->
       <div class="toc">
-        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-title"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> In This Stage</div>
         <div class="toc-list">
           <a href="#what-is-a-website">What Is a Website?</a>
           <a href="#how-internet-works">How the Internet Works</a>
@@ -76,7 +123,7 @@
       </div>
 
       <!-- 1. What Is a Website -->
-      <h2 class="content-heading" id="what-is-a-website">🌐 What Is a Website?</h2>
+      <h2 class="content-heading" id="what-is-a-website"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> What Is a Website?</h2>
 
 <div class="illustration-block " id="illus-what-is-a-website">
   <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -148,7 +195,7 @@
           <p style="color:var(--text-secondary); font-size:0.875rem;">The visual styling — colors, fonts, layouts, animations</p>
         </div>
         <div class="glass-card">
-          <div style="font-size:2rem; margin-bottom:10px;">⚡</div>
+          <div style="font-size:2rem; margin-bottom:10px;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <div style="font-weight:700; margin-bottom:6px;">JS Files</div>
           <p style="color:var(--text-secondary); font-size:0.875rem;">The behavior — interactivity, animations, data fetching</p>
         </div>
@@ -447,7 +494,7 @@
 
       <div class="grid-3 mt-md mb-lg">
         <div class="resource-card">
-          <div class="resource-icon">🌐</div>
+          <div class="resource-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div class="resource-title">Namecheap</div>
           <p class="resource-desc">Often the cheapest option. .com domains ~$9-12/year. Great interface, free WhoisGuard privacy.</p>
           <span class="tag tag-green">Budget Pick</span>
@@ -467,7 +514,7 @@
       </div>
 
       <div class="callout callout-pro">
-        <div class="callout-icon">🔥</div>
+        <div class="callout-icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></div>
         <div>
           <div class="callout-head">Pro Tip: Use Cloudflare for DNS</div>
           <div class="callout-body">Buy your domain anywhere, then point the nameservers to Cloudflare. You get free SSL, CDN, DDoS protection, and the fastest DNS on earth — all free. This is what pro devs do.</div>
@@ -580,7 +627,7 @@
       <p class="content-text">HTML (HyperText Markup Language) is the skeleton of every webpage. It defines content and structure using <strong>tags</strong> — keywords wrapped in angle brackets.</p>
 
       <div class="callout callout-info">
-        <div class="callout-icon">💡</div>
+        <div class="callout-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
         <div>
           <div class="callout-head">Key Concept: Tags</div>
           <div class="callout-body">Tags come in pairs: an opening tag <code>&lt;p&gt;</code> and a closing tag <code>&lt;/p&gt;</code>. Everything between them is the content. Some tags are self-closing like <code>&lt;img /&gt;</code> and <code>&lt;br /&gt;</code>.</div>
@@ -634,7 +681,7 @@
       </div>
 
       <!-- 7. Essential Elements -->
-      <h2 class="content-heading" id="html-elements">🧩 Essential HTML Elements</h2>
+      <h2 class="content-heading" id="html-elements"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Essential HTML Elements</h2>
       <p class="content-text">These are the tags you'll use in 95% of websites. Master these first.</p>
 
       <div class="grid-2 mt-lg">
@@ -784,13 +831,13 @@
   <span class="tag-hl">&lt;label</span> <span class="attr">for</span>=<span class="str">"agree"</span><span class="tag-hl">&gt;</span>I agree to the terms<span class="tag-hl">&lt;/label&gt;</span>
 
   <span class="cmt">&lt;!-- Submit button --&gt;</span>
-  <span class="tag-hl">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span><span class="tag-hl">&gt;</span>Send Message 🚀<span class="tag-hl">&lt;/button&gt;</span>
+  <span class="tag-hl">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span><span class="tag-hl">&gt;</span>Send Message <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg><span class="tag-hl">&lt;/button&gt;</span>
 
 <span class="tag-hl">&lt;/form&gt;</span></pre>
       </div>
 
       <div class="callout callout-tip mt-md">
-        <div class="callout-icon">✅</div>
+        <div class="callout-icon"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <div class="callout-head">Free Form Backends</div>
           <div class="callout-body"><strong>Formspree.io</strong> — free tier handles 50 submissions/month, just point your form action at their URL. <strong>Netlify Forms</strong> — add <code>netlify</code> to your form tag and it works automatically if hosted on Netlify. Zero backend code needed!</div>
@@ -817,37 +864,37 @@
               <td style="padding:12px; font-weight:600; color:var(--text-primary);">Vercel</td>
               <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
               <td style="padding:12px;">Static + Next.js</td>
-              <td style="padding:12px;">✅ Free</td>
+              <td style="padding:12px;"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
               <td style="padding:12px; font-weight:600; color:var(--text-primary);">Netlify</td>
               <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
               <td style="padding:12px;">Static + Forms</td>
-              <td style="padding:12px;">✅ Free</td>
+              <td style="padding:12px;"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
               <td style="padding:12px; font-weight:600; color:var(--text-primary);">GitHub Pages</td>
               <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
               <td style="padding:12px;">Portfolio / docs</td>
-              <td style="padding:12px;">✅ Free</td>
+              <td style="padding:12px;"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
               <td style="padding:12px; font-weight:600; color:var(--text-primary);">Cloudflare Pages</td>
               <td style="padding:12px;"><span class="tag tag-green">Yes</span></td>
               <td style="padding:12px;">Fast global edge</td>
-              <td style="padding:12px;">✅ Free</td>
+              <td style="padding:12px;"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
               <td style="padding:12px; font-weight:600; color:var(--text-primary);">Railway.app</td>
               <td style="padding:12px;"><span class="tag tag-orange">Limited</span></td>
               <td style="padding:12px;">Node.js / backend</td>
-              <td style="padding:12px;">✅ Free</td>
+              <td style="padding:12px;"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free</td>
             </tr>
             <tr>
               <td style="padding:12px; font-weight:600; color:var(--text-primary);">Render</td>
               <td style="padding:12px;"><span class="tag tag-orange">Limited</span></td>
               <td style="padding:12px;">Apps + databases</td>
-              <td style="padding:12px;">✅ Free</td>
+              <td style="padding:12px;"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free</td>
             </tr>
           </tbody>
         </table>
@@ -896,10 +943,10 @@
       </div>
 
       <div class="callout callout-tip mt-md">
-        <div class="callout-icon">🔥</div>
+        <div class="callout-icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></div>
         <div>
           <div class="callout-head">Add a Custom Domain to GitHub Pages</div>
-          <div class="callout-body">Go to Settings → Pages → Custom Domain → enter your domain. Then add a CNAME DNS record pointing to <code>yourusername.github.io</code>. Cloudflare as your DNS provider + GitHub Pages = free HTTPS custom domain hosting. 🚀</div>
+          <div class="callout-body">Go to Settings → Pages → Custom Domain → enter your domain. Then add a CNAME DNS record pointing to <code>yourusername.github.io</code>. Cloudflare as your DNS provider + GitHub Pages = free HTTPS custom domain hosting. <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div>
         </div>
       </div>
 
@@ -927,7 +974,7 @@
 
       <!-- Stage 1 Project -->
       <div class="divider"></div>
-      <h2 class="content-heading" id="stage1-project">🏆 Stage 1 Project: Your First Website</h2>
+      <h2 class="content-heading" id="stage1-project"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1H8"/><path d="M14 14.66V17a1 1 0 0 0 1 1h1"/><path d="M8 22H6a2 2 0 0 1-2-2v-7a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v7a2 2 0 0 1-2 2h-2"/></svg> Stage 1 Project: Your First Website</h2>
       <p class="content-text">Build and deploy a simple portfolio landing page with:</p>
       <div class="feature-list mb-lg">
         <div class="feature-item">A profile picture (or placeholder emoji)</div>
@@ -997,10 +1044,6 @@
       <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
     </div>
   </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="../js/three-scenes.js"></script>
-  <script src="../js/dock-injector.js"></script>
   <script src="../js/main.js"></script>
   <script>
     const c = document.getElementById('stage-canvas');
@@ -1011,7 +1054,12 @@
     }
   </script>
   <script src="../js/app.js"></script>
-<script src="../js/three-background.js"></script>
-  <script src="/js/tracker.js" defer></script>\n  <script src="/js/search.js" defer></script>
+  <script src="../js/mascot.js" defer></script>
+  <script src="../js/playgrounds.js" defer></script>
+<script>
+const _ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('revealed');_ro.unobserve(x.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>_ro.observe(el));
+</script>
+  <script src="../js/motion-svgs.js" defer></script>
 </body>
 </html>

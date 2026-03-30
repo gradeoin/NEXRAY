@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO (Nexray v2) -->
+  <meta name="description" content="Master HTML, CSS, JavaScript and React. Build beautiful, interactive websites. Stage 2 of the Nexray web dev guide." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexray.in/guide/stage2.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nexray" />
+  <meta property="og:title" content="Stage 2: Frontend Development — CSS, JS & React | Nexray" />
+  <meta property="og:description" content="Master HTML, CSS, JavaScript and React. Build beautiful, interactive websites. Stage 2 of the Nexray web dev guide." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://nexray.in/guide/stage2.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nexray_in" />
+  <meta name="twitter:title" content="Stage 2: Frontend Development — CSS, JS & React | Nexray" />
+  <meta name="twitter:description" content="Master HTML, CSS, JavaScript and React. Build beautiful, interactive websites. Stage 2 of the Nexray web dev guide." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Stage 2: Frontend Development — CSS, JS & React | Nexray","description":"Master HTML, CSS, JavaScript and React. Build beautiful, interactive websites. Stage 2 of the Nexray web dev guide.","url":"https://nexray.in/guide/stage2.html","provider":{"@type":"Organization","name":"Nexray","url":"https://nexray.in"},"image":"https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png"}</script>
+  <!-- /SEO -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stage 2: Frontend Dev — Master CSS, JavaScript, modern layouts, animations, Three.js, and React in 2026." />
-  <title>Stage 2: Frontend Dev — Nexray</title>
+  
+  <title>Stage 2: Frontend Development — CSS, JS & React | Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Stage 2: Frontend Dev � CSS, JavaScript & React | Nexray" />
-  <meta property="og:description" content="Master CSS Flexbox, Grid, animations, JavaScript, DOM, APIs, and React fundamentals. Free frontend guide by Nexray." />
-  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Stage 2: Frontend Dev � CSS, JavaScript & React | Nexray" />
-  <meta name="twitter:description" content="Master CSS Flexbox, Grid, animations, JavaScript, DOM, APIs, and React fundamentals. Free frontend guide by Nexray." />
+  
+  
+  
+  
+  
+  
+  
   <meta name="theme-color" content="#0038FF">
   <link rel="manifest" href="../manifest.json">
-  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n</head>
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n<style>
+.nx-icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-0.15em;stroke:currentColor;flex-shrink:0}
+.nx-icon-success{stroke:#22c55e}
+.nx-icon-error{stroke:#ef4444}
+.nx-icon-accent{stroke:#CCFF00}
+.nx-icon-hot{stroke:#f97316}
+</style>
+</head>
 <body>
   <nav class="nav">
     <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
@@ -29,6 +59,7 @@
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    <div id="nav-user-block"></div>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -45,16 +76,32 @@
         <h1 class="stage-title">Frontend Dev</h1>
         <p class="stage-desc">CSS magic, JavaScript power, modern layouts, animations, Three.js 3D, and React — the full frontend toolkit.</p>
         <div class="stage-meta">
-          <div class="stage-meta-item"><span class="icon">⏱️</span> ~6 hours</div>
-          <div class="stage-meta-item"><span class="icon">🎯</span> Beginner → Intermediate</div>
-          <div class="stage-meta-item"><span class="icon">🔥</span> High Impact</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M19 3l3 3"/><path d="M12 5V2"/></svg></span> ~6 hours</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Beginner → Intermediate</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></span> High Impact</div>
         </div>
       </div>
     </div>
 
     <div class="section">
+
+<!-- NEXRAY BRAND BUDDY (auto-injected) -->
+<div class="nxr-brand-buddy reveal-left">
+  <div class="nxr-brand-buddy-icon" style="background:linear-gradient(135deg,#8b5cf6,#0038FF)"><svg viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+  <div class="nxr-brand-buddy-text">
+    <strong>Inspector Mode Active</strong>
+    <span>Nexray Stage 2: Frontend Dev — your interactive learning companion</span>
+  </div>
+</div>
+<div class="nxr-stage-ticker"><div class="nxr-stage-dot done" title="Stage 1"></div><div class="nxr-stage-dot current" title="Stage 2"></div><div class="nxr-stage-dot " title="Stage 3"></div><div class="nxr-stage-dot " title="Stage 4"></div><div class="nxr-stage-dot " title="Stage 5"></div><div class="nxr-stage-dot " title="Stage 6"></div><div class="nxr-stage-dot " title="Stage 7"></div></div>
+<div class="nxr-tip reveal">
+  <div class="nxr-tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><circle cx="12" cy="12" r="10"/></svg></div>
+  <div class="nxr-tip-body"><strong>Pro Tip</strong><p>Open DevTools (F12) to inspect any website's HTML & CSS.</p></div>
+</div>
+<!-- END NEXRAY BRAND BUDDY -->
+
       <div class="toc">
-        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-title"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> In This Stage</div>
         <div class="toc-list">
           <a href="#css-fundamentals">CSS Fundamentals</a>
           <a href="#css-box-model">The Box Model</a>
@@ -154,7 +201,7 @@
       </div>
 
       <!-- Box Model -->
-      <h2 class="content-heading" id="css-box-model">📦 The Box Model</h2>
+      <h2 class="content-heading" id="css-box-model"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> The Box Model</h2>
 
 <div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
   <div class="illus-svg" style="flex-shrink:0; width:220px;">
@@ -174,8 +221,8 @@
    </svg>
   </div>
   <div class="illus-text" style="flex:1;">
-    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">📦 The Box Model Breakdown</h3>
-    <p style="color: var(--text-2); line-height: 1.6;">Understanding 📦 The Box Model is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> The Box Model Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> The Box Model is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
     <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
@@ -400,7 +447,7 @@
       </div>
 
       <!-- Responsive -->
-      <h2 class="content-heading" id="responsive">📱 Responsive Design</h2>
+      <h2 class="content-heading" id="responsive"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Responsive Design</h2>
       <p class="content-text">Your site must look great on phones, tablets, and desktops. Use <strong>media queries</strong> to apply different styles at different screen sizes.</p>
 
       <div class="code-block">
@@ -507,7 +554,7 @@
       </div>
 
       <!-- Animations -->
-      <h2 class="content-heading" id="animations">✨ CSS Animations & Transitions</h2>
+      <h2 class="content-heading" id="animations"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1 3-3 5-6 6 3 1 5 3 6 6 1-3 3-5 6-6-3-1-5-3-6-6z"/><path d="M5 3v4"/><path d="M3 5h4"/><path d="M19 17v4"/><path d="M17 19h4"/></svg> CSS Animations & Transitions</h2>
 
 <div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
   <div class="illus-svg" style="flex-shrink:0; width:220px;">
@@ -521,8 +568,8 @@
    </svg>
   </div>
   <div class="illus-text" style="flex:1;">
-    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">✨ CSS Animations & Transitions Breakdown</h3>
-    <p style="color: var(--text-2); line-height: 1.6;">Understanding ✨ CSS Animations & Transitions is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1 3-3 5-6 6 3 1 5 3 6 6 1-3 3-5 6-6-3-1-5-3-6-6z"/><path d="M5 3v4"/><path d="M3 5h4"/><path d="M19 17v4"/><path d="M17 19h4"/></svg> CSS Animations & Transitions Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding <svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1 3-3 5-6 6 3 1 5 3 6 6 1-3 3-5 6-6-3-1-5-3-6-6z"/><path d="M5 3v4"/><path d="M3 5h4"/><path d="M19 17v4"/><path d="M17 19h4"/></svg> CSS Animations & Transitions is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
     <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
@@ -649,7 +696,7 @@
       </div>
 
       <!-- JavaScript -->
-      <h2 class="content-heading" id="javascript">⚡ JavaScript Essentials</h2>
+      <h2 class="content-heading" id="javascript"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> JavaScript Essentials</h2>
       <p class="content-text">JavaScript makes websites interactive. It runs in the browser and can change HTML, respond to user events, and fetch data from servers.</p>
 
       <div class="code-block">
@@ -758,7 +805,7 @@ window.<span class="fn">addEventListener</span>(<span class="str">'scroll'</span
       </div>
 
       <!-- Fetch API -->
-      <h2 class="content-heading" id="fetch-api">🌐 Fetch API & Async/Await</h2>
+      <h2 class="content-heading" id="fetch-api"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Fetch API & Async/Await</h2>
       <p class="content-text">The Fetch API lets you get data from external services (weather, news, user data) without refreshing the page.</p>
 
       <div class="code-block">
@@ -807,7 +854,7 @@ window.<span class="fn">addEventListener</span>(<span class="str">'scroll'</span
       </div>
 
       <!-- Three.js -->
-      <h2 class="content-heading" id="threejs">🌐 Three.js — 3D in the Browser</h2>
+      <h2 class="content-heading" id="threejs"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Three.js — 3D in the Browser</h2>
       <p class="content-text">Three.js is a JavaScript library that makes WebGL 3D graphics approachable. You can create stunning 3D scenes like the one on this page's hero section.</p>
 
       <div class="code-block">
@@ -863,7 +910,7 @@ scene.<span class="fn">add</span>(mesh);
       <p class="content-text">React is the most popular JS framework. It lets you build UIs with reusable <strong>components</strong> and automatically updates the page when data changes.</p>
 
       <div class="callout callout-info">
-        <div class="callout-icon">💡</div>
+        <div class="callout-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
         <div>
           <div class="callout-head">Do you need React?</div>
           <div class="callout-body">Not for simple sites! Use React when you have complex state (logged-in users, shopping carts, live data). For landing pages and portfolios, plain HTML/CSS/JS is faster and simpler. Don't over-engineer!</div>
@@ -918,7 +965,7 @@ scene.<span class="fn">add</span>(mesh);
 
       <!-- Stage 2 Project -->
       <div class="divider"></div>
-      <h2 class="content-heading" id="stage2-project">🏆 Stage 2 Project: Animated Portfolio</h2>
+      <h2 class="content-heading" id="stage2-project"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1H8"/><path d="M14 14.66V17a1 1 0 0 0 1 1h1"/><path d="M8 22H6a2 2 0 0 1-2-2v-7a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v7a2 2 0 0 1-2 2h-2"/></svg> Stage 2 Project: Animated Portfolio</h2>
       <p class="content-text">Upgrade your Stage 1 site with:</p>
       <div class="feature-list mb-lg">
         <div class="feature-item">Glassmorphism nav bar that changes on scroll</div>
@@ -929,7 +976,7 @@ scene.<span class="fn">add</span>(mesh);
         <div class="feature-item">Fully responsive at all screen sizes</div>
       </div>
       <div class="callout callout-pro">
-        <div class="callout-icon">🔥</div>
+        <div class="callout-icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></div>
         <div>
           <div class="callout-head">Pro Tip: Use CSS Custom Properties for theming</div>
           <div class="callout-body">Define all your colors as CSS variables. Then toggling dark mode is just changing 3-4 variable values. This is how real production sites handle theming — no JS needed.</div>
@@ -972,16 +1019,19 @@ scene.<span class="fn">add</span>(mesh);
       <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
     </div>
   </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="../js/three-scenes.js"></script>
   <script src="../js/main.js"></script>
   <script>
     const c = document.getElementById('stage-canvas');
     if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x8b5cf6); }
   </script>
   <script src="../js/app.js"></script>
-<script src="../js/three-background.js"></script>
-  <script src="/js/tracker.js" defer></script>\n  <script src="/js/search.js" defer></script>
+  <script src="../js/tracker.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/mascot.js" defer></script>
+<script>
+const _ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('revealed');_ro.unobserve(x.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>_ro.observe(el));
+</script>
+  <script src="../js/motion-svgs.js" defer></script>
 </body>
 </html>

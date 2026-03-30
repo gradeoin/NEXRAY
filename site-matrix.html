@@ -16,7 +16,14 @@
   <meta name="twitter:description" content="Nexray is a free, open 7-stage web development learning platform. Learn from scratch to pro without spending a penny." />
   <meta name="theme-color" content="#0038FF">
   <link rel="manifest" href="manifest.json">
-  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n</head>
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n<style>
+.nx-icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-0.15em;stroke:currentColor;flex-shrink:0}
+.nx-icon-success{stroke:#22c55e}
+.nx-icon-error{stroke:#ef4444}
+.nx-icon-accent{stroke:#CCFF00}
+.nx-icon-hot{stroke:#f97316}
+</style>
+</head>
 <body>
   <nav class="nav">
     <a href="index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
@@ -29,6 +36,7 @@
       <a href="blog/index.html">Blog</a>
       <a href="resources.html">Resources</a>
       <a href="auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    <div id="nav-user-block"></div>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -50,13 +58,13 @@
             </h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:15px;">
                 <a href="/about.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> About
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> About
          </a><a href="/contact.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Contact
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Contact
          </a><a href="/index.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Index
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Index
          </a><a href="/learn-hub.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Learn hub
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Learn hub
          </a>
             </div>
         </div>
@@ -67,13 +75,13 @@
             </h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:15px;">
                 <a href="/how-to-become-a-frontend-developer.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> How to become a frontend developer
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> How to become a frontend developer
          </a><a href="/how-to-build-a-website.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> How to build a website
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> How to build a website
          </a><a href="/how-to-design-a-website.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> How to design a website
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> How to design a website
          </a><a href="/how-to-learn-coding.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> How to learn coding
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> How to learn coding
          </a>
             </div>
         </div>
@@ -84,19 +92,19 @@
             </h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:15px;">
                 <a href="/guide/stage1.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage1
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage1
          </a><a href="/guide/stage2.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage2
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage2
          </a><a href="/guide/stage3.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage3
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage3
          </a><a href="/guide/stage4.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage4
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage4
          </a><a href="/guide/stage5.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage5
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage5
          </a><a href="/guide/stage6.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage6
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage6
          </a><a href="/guide/stage7.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Stage7
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Stage7
          </a>
             </div>
         </div>
@@ -107,9 +115,9 @@
             </h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:15px;">
                 <a href="/html-css-cheat-sheet.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Html css cheat sheet
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Html css cheat sheet
          </a><a href="/javascript-cheat-sheet-notes.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Javascript cheat sheet notes
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Javascript cheat sheet notes
          </a>
             </div>
         </div>
@@ -120,57 +128,57 @@
             </h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:15px;">
                 <a href="/admin/index.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Index
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Index
          </a><a href="/backend-development-languages.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Backend development languages
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Backend development languages
          </a><a href="/best-code-editors.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Best code editors
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Best code editors
          </a><a href="/best-programming-languages-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Best programming languages 2026
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Best programming languages 2026
          </a><a href="/blog/getting-started.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Getting started
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Getting started
          </a><a href="/blog/index.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Index
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Index
          </a><a href="/compiler.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Compiler
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Compiler
          </a><a href="/css-grid-vs-flexbox.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Css grid vs flexbox
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Css grid vs flexbox
          </a><a href="/deploy-react-app-free.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Deploy react app free
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Deploy react app free
          </a><a href="/docker-for-web-developers.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Docker for web developers
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Docker for web developers
          </a><a href="/firebase-vs-supabase.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Firebase vs supabase
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Firebase vs supabase
          </a><a href="/free-website-hosting-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Free website hosting 2026
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Free website hosting 2026
          </a><a href="/full-stack-roadmap-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Full stack roadmap 2026
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Full stack roadmap 2026
          </a><a href="/github-actions-cicd-guide.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Github actions cicd guide
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Github actions cicd guide
          </a><a href="/javascript-tutorial-for-beginners.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Javascript tutorial for beginners
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Javascript tutorial for beginners
          </a><a href="/learn-typescript-in-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Learn typescript in 2026
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Learn typescript in 2026
          </a><a href="/nextjs-app-router-tutorial.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Nextjs app router tutorial
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Nextjs app router tutorial
          </a><a href="/profile.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Profile
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Profile
          </a><a href="/react-development-tools.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> React development tools
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> React development tools
          </a><a href="/resources.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Resources
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Resources
          </a><a href="/security.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Security
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Security
          </a><a href="/tailwind-css-best-practices.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Tailwind css best practices
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Tailwind css best practices
          </a><a href="/web-accessibility-wcag-2026.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Web accessibility wcag 2026
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Web accessibility wcag 2026
          </a><a href="/web-development-bootcamp-alternatives.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Web development bootcamp alternatives
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Web development bootcamp alternatives
          </a><a href="/website-creation.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Website creation
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Website creation
          </a><a href="/what-is-an-api.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> What is an api
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> What is an api
          </a>
             </div>
         </div>
@@ -181,15 +189,15 @@
             </h2>
             <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:15px;">
                 <a href="/404.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> 404
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> 404
          </a><a href="/auth.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Auth
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Auth
          </a><a href="/disclaimer.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Disclaimer
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Disclaimer
          </a><a href="/privacy.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Privacy
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Privacy
          </a><a href="/terms.html" style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,0,0,0.05);color:var(--text);font-weight:600;transition:all 0.2s ease;text-decoration:none;">
-            <span style="color:var(--brand);font-size:1.2rem;">⚡</span> Terms
+            <span style="color:var(--brand);font-size:1.2rem;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> Terms
          </a>
             </div>
         </div>
@@ -231,7 +239,9 @@
   </footer>
 
   <script src="js/main.js"></script>
-<script src="js/three-background.js"></script>
-  <script src="/js/tracker.js" defer></script>\n  <script src="/js/search.js" defer></script>
+  <script src="js/tracker.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/mascot.js" defer></script>
+  <script src="js/motion-svgs.js" defer></script>
 </body>
 </html>

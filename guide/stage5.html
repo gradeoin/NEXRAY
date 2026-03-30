@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO (Nexray v2) -->
+  <meta name="description" content="Deploy with Docker, GitHub Actions, Vercel, and AWS. Learn DevOps fundamentals. Stage 5 of the Nexray guide." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexray.in/guide/stage5.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nexray" />
+  <meta property="og:title" content="Stage 5: DevOps, CI/CD & Cloud Deployment | Nexray" />
+  <meta property="og:description" content="Deploy with Docker, GitHub Actions, Vercel, and AWS. Learn DevOps fundamentals. Stage 5 of the Nexray guide." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://nexray.in/guide/stage5.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nexray_in" />
+  <meta name="twitter:title" content="Stage 5: DevOps, CI/CD & Cloud Deployment | Nexray" />
+  <meta name="twitter:description" content="Deploy with Docker, GitHub Actions, Vercel, and AWS. Learn DevOps fundamentals. Stage 5 of the Nexray guide." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Stage 5: DevOps, CI/CD & Cloud Deployment | Nexray","description":"Deploy with Docker, GitHub Actions, Vercel, and AWS. Learn DevOps fundamentals. Stage 5 of the Nexray guide.","url":"https://nexray.in/guide/stage5.html","provider":{"@type":"Organization","name":"Nexray","url":"https://nexray.in"},"image":"https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png"}</script>
+  <!-- /SEO -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stage 5: Pro Secrets — Custom professional email, Cloudinary media, HTML email templates, performance tricks, and hidden pro developer techniques." />
-  <title>Stage 5: Pro Secrets — Nexray</title>
+  
+  <title>Stage 5: DevOps, CI/CD & Cloud Deployment | Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
   <meta name="theme-color" content="#0038FF">
-  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n</head>
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n<style>
+.nx-icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-0.15em;stroke:currentColor;flex-shrink:0}
+.nx-icon-success{stroke:#22c55e}
+.nx-icon-error{stroke:#ef4444}
+.nx-icon-accent{stroke:#CCFF00}
+.nx-icon-hot{stroke:#f97316}
+</style>
+</head>
 <body>
   <nav class="nav">
     <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
@@ -21,6 +51,7 @@
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    <div id="nav-user-block"></div>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -37,16 +68,32 @@
         <h1 class="stage-title">Pro Secrets</h1>
         <p class="stage-desc">The advanced stuff nobody documents — custom email, Cloudinary, HTML email templates, performance tricks, and hidden developer techniques.</p>
         <div class="stage-meta">
-          <div class="stage-meta-item"><span class="icon">⏱️</span> ~4 hours</div>
-          <div class="stage-meta-item"><span class="icon">🎯</span> Advanced</div>
-          <div class="stage-meta-item"><span class="icon">💎</span> Rarely Documented</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M19 3l3 3"/><path d="M12 5V2"/></svg></span> ~4 hours</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Advanced</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.58a2.41 2.41 0 0 0 3.41 0l7.59-7.58a2.41 2.41 0 0 0 0-3.41l-7.59-7.58a2.41 2.41 0 0 0-3.41 0Z"/></svg></span> Rarely Documented</div>
         </div>
       </div>
     </div>
 
     <div class="section">
+
+<!-- NEXRAY BRAND BUDDY (auto-injected) -->
+<div class="nxr-brand-buddy reveal-left">
+  <div class="nxr-brand-buddy-icon" style="background:linear-gradient(135deg,#f59e0b,#0038FF)"><svg viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg></div>
+  <div class="nxr-brand-buddy-text">
+    <strong>Pipeline Mode Active</strong>
+    <span>Nexray Stage 5: DevOps & CI/CD — your interactive learning companion</span>
+  </div>
+</div>
+<div class="nxr-stage-ticker"><div class="nxr-stage-dot done" title="Stage 1"></div><div class="nxr-stage-dot done" title="Stage 2"></div><div class="nxr-stage-dot done" title="Stage 3"></div><div class="nxr-stage-dot done" title="Stage 4"></div><div class="nxr-stage-dot current" title="Stage 5"></div><div class="nxr-stage-dot " title="Stage 6"></div><div class="nxr-stage-dot " title="Stage 7"></div></div>
+<div class="nxr-tip reveal">
+  <div class="nxr-tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><circle cx="12" cy="12" r="10"/></svg></div>
+  <div class="nxr-tip-body"><strong>Pro Tip</strong><p>DevOps automates the path from code to live production.</p></div>
+</div>
+<!-- END NEXRAY BRAND BUDDY -->
+
       <div class="toc">
-        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-title"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> In This Stage</div>
         <div class="toc-list">
           <a href="#custom-email">Professional Email Setup</a>
           <a href="#email-dns">Email DNS Records (SPF, DKIM, DMARC)</a>
@@ -111,7 +158,7 @@
           </div>
         </div>
         <div class="glass-card">
-          <div style="font-weight:700;margin-bottom:8px;">💎 Paid (Best Options)</div>
+          <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.58a2.41 2.41 0 0 0 3.41 0l7.59-7.58a2.41 2.41 0 0 0 0-3.41l-7.59-7.58a2.41 2.41 0 0 0-3.41 0Z"/></svg> Paid (Best Options)</div>
           <div class="feature-list">
             <div class="feature-item"><strong>Google Workspace</strong> — Gmail with your domain. $6/user/month.</div>
             <div class="feature-item"><strong>Resend.com</strong> — API-based sending. 3,000 free emails/month.</div>
@@ -246,7 +293,7 @@
         </div>
       </div>
 
-      <h2 class="content-heading" id="email-dns">🔒 Email DNS Records (SPF, DKIM, DMARC)</h2>
+      <h2 class="content-heading" id="email-dns"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Email DNS Records (SPF, DKIM, DMARC)</h2>
 
 <div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
   <div class="illus-svg" style="flex-shrink:0; width:220px;">
@@ -257,7 +304,7 @@
      <circle cx="42" cy="35" r="4" fill="#eab308" opacity="0.8"/>
      <circle cx="56" cy="35" r="4" fill="#4ade80" opacity="0.8"/>
      <text x="100" y="38" font-size="7" fill="#94a3b8" font-family="monospace" text-anchor="middle">workspace.sh</text>
-     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec 🔒 EMAIL DNS RE</text>
+     <text x="25" y="65" font-size="8" fill="#0038FF" font-family="monospace">&gt; exec <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> EMAIL DNS RE</text>
      <text x="25" y="85" font-size="8" fill="#4ade80" font-family="monospace">[ok] Compiling modules...</text>
      <text x="25" y="105" font-size="8" fill="#3b82f6" font-family="monospace">[ok] Deployment successful.</text>
      <rect x="25" y="115" width="4" height="10" fill="#0038FF">
@@ -266,8 +313,8 @@
    </svg>
   </div>
   <div class="illus-text" style="flex:1;">
-    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🔒 Email DNS Records (SPF, DKIM, DMARC) Breakdown</h3>
-    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🔒 Email DNS Records (SPF, DKIM, DMARC) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Email DNS Records (SPF, DKIM, DMARC) Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Email DNS Records (SPF, DKIM, DMARC) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
     <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
@@ -309,7 +356,7 @@
       </div>
 
       <div class="callout callout-tip">
-        <div class="callout-icon">✅</div>
+        <div class="callout-icon"><svg class="nx-icon nx-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div>
           <div class="callout-head">Test Your Email Setup</div>
           <div class="callout-body">Use <strong>mail-tester.com</strong> — send them a test email, get a score out of 10. Aim for 8+. Also use <strong>mxtoolbox.com</strong> to verify your DNS records are correct.</div>
@@ -370,7 +417,7 @@
         <span class="cmt">&lt;!-- Header with orange gradient --&gt;</span>
         <span class="tag-hl">&lt;tr&gt;&lt;td</span> <span class="attr">style</span>=<span class="str">"background:linear-gradient(135deg,#0038FF,#CCFF00);padding:40px;text-align:center;"</span><span class="tag-hl">&gt;</span>
           <span class="tag-hl">&lt;h1</span> <span class="attr">style</span>=<span class="str">"color:#fff;margin:0;font-size:28px;font-weight:900;"</span><span class="tag-hl">&gt;</span>
-            🚀 Welcome to WebDev2026!
+            <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Welcome to WebDev2026!
           <span class="tag-hl">&lt;/h1&gt;</span>
         <span class="tag-hl">&lt;/td&gt;&lt;/tr&gt;</span>
 
@@ -406,7 +453,7 @@
       </div>
 
       <div class="callout callout-pro">
-        <div class="callout-icon">🔥</div>
+        <div class="callout-icon"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg></div>
         <div>
           <div class="callout-head">Use React Email for Beautiful Emails</div>
           <div class="callout-body"><strong>react.email</strong> — write email templates as React components, preview in browser, export to HTML. Works with Resend, Sendgrid, Postmark. This is the modern approach in 2026.</div>
@@ -487,7 +534,7 @@ formData.<span class="fn">append</span>(<span class="str">'upload_preset'</span>
 <span class="kw">const</span> { secure_url } = <span class="kw">await</span> res.<span class="fn">json</span>();</pre>
       </div>
 
-      <h2 class="content-heading" id="image-optimization">🚀 Image Optimization Tricks</h2>
+      <h2 class="content-heading" id="image-optimization"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Image Optimization Tricks</h2>
 
 <div class="illustration-block reverse animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
   <div class="illus-svg" style="flex-shrink:0; width:220px;">
@@ -507,8 +554,8 @@ formData.<span class="fn">append</span>(<span class="str">'upload_preset'</span>
   </svg>
   </div>
   <div class="illus-text" style="flex:1;">
-    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🚀 Image Optimization Tricks Breakdown</h3>
-    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🚀 Image Optimization Tricks is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Image Optimization Tricks Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Image Optimization Tricks is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
     <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
@@ -558,7 +605,7 @@ formData.<span class="fn">append</span>(<span class="str">'upload_preset'</span>
 
       <div class="grid-3 mt-md mb-lg">
         <div class="glass-card">
-          <div style="font-size:2rem;margin-bottom:10px;">⏱️</div>
+          <div style="font-size:2rem;margin-bottom:10px;"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M19 3l3 3"/><path d="M12 5V2"/></svg></div>
           <div style="font-weight:700;margin-bottom:4px;">LCP</div>
           <div style="color:var(--orange-400);font-size:0.8rem;margin-bottom:8px;">Largest Contentful Paint</div>
           <p style="color:var(--text-secondary);font-size:0.8rem;">Time until largest element loads. Target: under 2.5s. Fix: optimize your hero image, use fetchpriority="high".</p>
@@ -585,7 +632,7 @@ formData.<span class="fn">append</span>(<span class="str">'upload_preset'</span>
         </div>
       </div>
 
-      <h2 class="content-heading" id="pwa">📱 Progressive Web Apps (PWA)</h2>
+      <h2 class="content-heading" id="pwa"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Progressive Web Apps (PWA)</h2>
       <p class="content-text">A PWA makes your website installable like an app, work offline, and send push notifications — without an app store.</p>
 
       <div class="code-block">
@@ -630,7 +677,7 @@ self.<span class="fn">addEventListener</span>(<span class="str">'fetch'</span>, 
 }</pre>
       </div>
 
-      <h2 class="content-heading" id="security">🔒 Security Headers</h2>
+      <h2 class="content-heading" id="security"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Security Headers</h2>
       <p class="content-text">These HTTP headers protect your users from common attacks. Add them to every production site:</p>
 
       <div class="code-block">
@@ -666,7 +713,7 @@ app.<span class="fn">use</span>((req, res, next) => {
       <h2 class="content-heading" id="pro-tricks">🎆 Hidden Pro Tricks Nobody Talks About</h2>
 
       <div class="glass-card mt-md mb-md" style="border-left:3px solid var(--orange-500);">
-        <div style="font-weight:700;margin-bottom:8px;">🔥 1. Preconnect to External Resources</div>
+        <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg> 1. Preconnect to External Resources</div>
         <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;">Tell the browser to connect to external domains early — before it discovers the resources.</p>
         <div class="code-block" style="margin:0;"><div class="code-header" style="padding:6px 10px;"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang" style="font-size:0.65rem;">HTML &lt;head&gt;</div></div>
         <pre class="code-content" style="padding:10px;font-size:0.8rem;"><span class="tag-hl">&lt;link</span> <span class="attr">rel</span>=<span class="str">"preconnect"</span> <span class="attr">href</span>=<span class="str">"https://fonts.googleapis.com"</span> <span class="tag-hl">/&gt;</span>
@@ -675,7 +722,7 @@ app.<span class="fn">use</span>((req, res, next) => {
       </div>
 
       <div class="glass-card mb-md" style="border-left:3px solid #8b5cf6;">
-        <div style="font-weight:700;margin-bottom:8px;">🔥 2. Open Graph Tags for Social Preview</div>
+        <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg> 2. Open Graph Tags for Social Preview</div>
         <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;">Control exactly how your site looks when shared on Twitter, LinkedIn, WhatsApp.</p>
         <div class="code-block" style="margin:0;"><div class="code-header" style="padding:6px 10px;"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang" style="font-size:0.65rem;">HTML</div></div>
         <pre class="code-content" style="padding:10px;font-size:0.8rem;"><span class="tag-hl">&lt;meta</span> <span class="attr">property</span>=<span class="str">"og:title"</span>       <span class="attr">content</span>=<span class="str">"My Awesome Site"</span> <span class="tag-hl">/&gt;</span>
@@ -686,23 +733,23 @@ app.<span class="fn">use</span>((req, res, next) => {
       </div>
 
       <div class="glass-card mb-md" style="border-left:3px solid #10b981;">
-        <div style="font-weight:700;margin-bottom:8px;">🔥 3. Critical CSS Inlining</div>
+        <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg> 3. Critical CSS Inlining</div>
         <p style="color:var(--text-secondary);font-size:0.875rem;">Inline only the CSS needed for above-the-fold content, defer the rest. Eliminates render-blocking CSS. Use <a href="https://criticalcss.com" target="_blank" style="color:var(--orange-400);">criticalcss.com</a> to generate it.</p>
       </div>
 
       <div class="glass-card mb-md" style="border-left:3px solid #f59e0b;">
-        <div style="font-weight:700;margin-bottom:8px;">🔥 4. rel="noopener noreferrer" on External Links</div>
+        <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg> 4. rel="noopener noreferrer" on External Links</div>
         <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;">Without this, external sites opened in a new tab can access your page via <code>window.opener</code> — a security risk.</p>
         <code style="font-family:'Fira Code',monospace;font-size:0.8rem;color:var(--orange-400);">&lt;a href="..." target="_blank" rel="noopener noreferrer"&gt;</code>
       </div>
 
       <div class="glass-card mb-md" style="border-left:3px solid #ec4899;">
-        <div style="font-weight:700;margin-bottom:8px;">🔥 5. Skeleton Screens (Better than Spinners)</div>
+        <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg> 5. Skeleton Screens (Better than Spinners)</div>
         <p style="color:var(--text-secondary);font-size:0.875rem;">Show a pulsing grey placeholder in the shape of your content while data loads. Users think it's faster (even if it isn't). Used by Facebook, YouTube, LinkedIn.</p>
       </div>
 
       <div class="glass-card mb-lg" style="border-left:3px solid #60a5fa;">
-        <div style="font-weight:700;margin-bottom:8px;">🔥 6. Intersection Observer for Animations</div>
+        <div style="font-weight:700;margin-bottom:8px;"><svg class="nx-icon nx-icon-hot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg> 6. Intersection Observer for Animations</div>
         <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:10px;">Don't animate elements that aren't visible. Use Intersection Observer to trigger animations only when the element enters the viewport.</p>
         <div class="code-block" style="margin:0;"><div class="code-header" style="padding:6px 10px;"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang" style="font-size:0.65rem;">JavaScript</div></div>
         <pre class="code-content" style="padding:10px;font-size:0.8rem;"><span class="kw">const</span> obs = <span class="kw">new</span> <span class="fn">IntersectionObserver</span>((entries) => {
@@ -754,16 +801,15 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.card'</spa
       <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
     </div>
   </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="../js/three-scenes.js"></script>
   <script src="../js/main.js"></script>
   <script>
     const c = document.getElementById('stage-canvas');
     if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0xec4899); }
   </script>
   <script src="../js/app.js"></script>
-<script src="../js/three-background.js"></script>
-  <script src="/js/tracker.js" defer></script>\n  <script src="/js/search.js" defer></script>
+  <script src="../js/tracker.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/mascot.js" defer></script>
+  <script src="../js/motion-svgs.js" defer></script>
 </body>
 </html>

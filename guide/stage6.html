@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO (Nexray v2) -->
+  <meta name="description" content="Build Android apps using React Native and Flutter. Stage 6 of the Nexray web dev guide." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexray.in/guide/stage6.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nexray" />
+  <meta property="og:title" content="Stage 6: Android & Mobile App Development | Nexray" />
+  <meta property="og:description" content="Build Android apps using React Native and Flutter. Stage 6 of the Nexray web dev guide." />
+  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://nexray.in/guide/stage6.html" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nexray_in" />
+  <meta name="twitter:title" content="Stage 6: Android & Mobile App Development | Nexray" />
+  <meta name="twitter:description" content="Build Android apps using React Native and Flutter. Stage 6 of the Nexray web dev guide." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Stage 6: Android & Mobile App Development | Nexray","description":"Build Android apps using React Native and Flutter. Stage 6 of the Nexray web dev guide.","url":"https://nexray.in/guide/stage6.html","provider":{"@type":"Organization","name":"Nexray","url":"https://nexray.in"},"image":"https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png"}</script>
+  <!-- /SEO -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stage 6: Android App — Turn your website into an Android app using TWA, Capacitor, React Native, and get it on the Play Store in 2026." />
-  <title>Stage 6: Android App — Nexray</title>
+  
+  <title>Stage 6: Android & Mobile App Development | Nexray</title>
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="icon" href="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Stage 6: Android � Convert Web Apps to Mobile | Nexray" />
-  <meta property="og:description" content="Turn your web app into an Android app using PWA, Capacitor, or React Native. Free mobile guide by Nexray." />
-  <meta property="og:image" content="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Stage 6: Android � Convert Web Apps to Mobile | Nexray" />
-  <meta name="twitter:description" content="Turn your web app into an Android app using PWA, Capacitor, or React Native. Free mobile guide by Nexray." />
+  
+  
+  
+  
+  
+  
+  
   <meta name="theme-color" content="#0038FF">
-  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n</head>
+  <script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "EducationalOrganization",\n  "name": "Nexray",\n  "url": "https://nexray.in",\n  "logo": "https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png",\n  "description": "A free, 7-stage modern web development platform teaching full-stack engineering, React, HTML, CSS, and CI/CD.",\n  "sameAs": [\n    "https://twitter.com/nexray",\n    "https://github.com/nexray"\n  ]\n}\n</script>\n<style>
+.nx-icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-0.15em;stroke:currentColor;flex-shrink:0}
+.nx-icon-success{stroke:#22c55e}
+.nx-icon-error{stroke:#ef4444}
+.nx-icon-accent{stroke:#CCFF00}
+.nx-icon-hot{stroke:#f97316}
+</style>
+</head>
 <body>
   <nav class="nav">
     <a href="../index.html" class="nav-logo" aria-label="Nexray Home" style="display:flex; align-items:center; text-decoration:none;">
@@ -28,6 +58,7 @@
       <a href="../blog/index.html">Blog</a>
       <a href="../resources.html">Resources</a>
       <a href="../auth.html" class="btn-signin" id="nav-signin"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sign In</a>
+    <div id="nav-user-block"></div>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -40,20 +71,36 @@
     <div class="stage-hero" style="min-height:420px;display:flex;align-items:center;position:relative;">
       <canvas id="stage-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
       <div class="hero-content" style="z-index:1;text-align:center;">
-        <div class="stage-badge">📱 Stage 6 of 7</div>
+        <div class="stage-badge"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Stage 6 of 7</div>
         <h1 class="stage-title">Android App</h1>
         <p class="stage-desc">Turn your website into a real Android app — 4 different methods for 2026. From zero-code TWA to full React Native.</p>
         <div class="stage-meta">
-          <div class="stage-meta-item"><span class="icon">⏱️</span> ~5 hours</div>
-          <div class="stage-meta-item"><span class="icon">🎯</span> Intermediate → Advanced</div>
-          <div class="stage-meta-item"><span class="icon">📱</span> Play Store Ready</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6"/><path d="M19 3l3 3"/><path d="M12 5V2"/></svg></span> ~5 hours</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Intermediate → Advanced</div>
+          <div class="stage-meta-item"><span class="icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> Play Store Ready</div>
         </div>
       </div>
     </div>
 
     <div class="section">
+
+<!-- NEXRAY BRAND BUDDY (auto-injected) -->
+<div class="nxr-brand-buddy reveal-left">
+  <div class="nxr-brand-buddy-icon" style="background:linear-gradient(135deg,#ec4899,#0038FF)"><svg viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+  <div class="nxr-brand-buddy-text">
+    <strong>Device Mode Active</strong>
+    <span>Nexray Stage 6: Android & Mobile Apps — your interactive learning companion</span>
+  </div>
+</div>
+<div class="nxr-stage-ticker"><div class="nxr-stage-dot done" title="Stage 1"></div><div class="nxr-stage-dot done" title="Stage 2"></div><div class="nxr-stage-dot done" title="Stage 3"></div><div class="nxr-stage-dot done" title="Stage 4"></div><div class="nxr-stage-dot done" title="Stage 5"></div><div class="nxr-stage-dot current" title="Stage 6"></div><div class="nxr-stage-dot " title="Stage 7"></div></div>
+<div class="nxr-tip reveal">
+  <div class="nxr-tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><circle cx="12" cy="12" r="10"/></svg></div>
+  <div class="nxr-tip-body"><strong>Pro Tip</strong><p>Web skills translate directly to mobile — same languages, new canvas.</p></div>
+</div>
+<!-- END NEXRAY BRAND BUDDY -->
+
       <div class="toc">
-        <div class="toc-title">📋 In This Stage</div>
+        <div class="toc-title"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> In This Stage</div>
         <div class="toc-list">
           <a href="#methods-overview">4 Methods Overview</a>
           <a href="#twa">Method 1: TWA (Easiest)</a>
@@ -67,7 +114,7 @@
         </div>
       </div>
 
-      <h2 class="content-heading" id="methods-overview">📱 4 Ways to Build an Android App in 2026</h2>
+      <h2 class="content-heading" id="methods-overview"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> 4 Ways to Build an Android App in 2026</h2>
 
 <div class="illustration-block " id="illus-methods-overview">
   <div class="illus-svg"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="65" y="10" width="70" height="140" rx="14" fill="none" stroke="#0038FF" stroke-width="2"/><rect x="68" y="13" width="64" height="134" rx="12" fill="rgba(249,115,22,0.03)"/><circle cx="100" cy="145" r="5" fill="none" stroke="#0038FF" stroke-width="1.5"/><rect x="88" y="16" width="24" height="5" rx="2.5" fill="#0038FF" opacity="0.3"/><rect x="75" y="30" width="22" height="22" rx="6" fill="rgba(0,56,255,0.2)" stroke="#0038FF" stroke-width="1"/><rect x="103" y="30" width="22" height="22" rx="6" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/><rect x="75" y="58" width="22" height="22" rx="6" fill="rgba(74,222,128,0.2)" stroke="#4ade80" stroke-width="1"/><rect x="103" y="58" width="22" height="22" rx="6" fill="rgba(234,179,8,0.2)" stroke="#eab308" stroke-width="1"/><text x="100" y="108" font-size="7" fill="#0038FF" text-anchor="middle">React Native</text><text x="100" y="120" font-size="7" fill="#94a3b8" text-anchor="middle">or Capacitor</text></svg></div>
@@ -144,7 +191,7 @@
         </table>
       </div>
 
-      <h2 class="content-heading" id="twa">🚀 Method 1: TWA (Trusted Web Activity)</h2>
+      <h2 class="content-heading" id="twa"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Method 1: TWA (Trusted Web Activity)</h2>
 
 <div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
   <div class="illus-svg" style="flex-shrink:0; width:220px;">
@@ -164,8 +211,8 @@
    </svg>
   </div>
   <div class="illus-text" style="flex:1;">
-    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">🚀 Method 1: TWA (Trusted Web Activity) Breakdown</h3>
-    <p style="color: var(--text-2); line-height: 1.6;">Understanding 🚀 Method 1: TWA (Trusted Web Activity) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Method 1: TWA (Trusted Web Activity) Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Method 1: TWA (Trusted Web Activity) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
     <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
@@ -176,7 +223,7 @@
       <p class="content-text">TWA wraps your website in an Android app shell. The user sees your website — no fake UI. If you have a PWA with 90+ Lighthouse score, this is the fastest path to the Play Store.</p>
 
       <div class="callout callout-info">
-        <div class="callout-icon">💡</div>
+        <div class="callout-icon"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
         <div>
           <div class="callout-head">Requirements for TWA</div>
           <div class="callout-body">Your website must: (1) Be served over HTTPS, (2) Have a valid web manifest, (3) Have a service worker, (4) Score 80+ on Lighthouse, (5) Add a <code>/.well-known/assetlinks.json</code> file linking the app to your domain.</div>
@@ -272,7 +319,7 @@ window.<span class="fn">addEventListener</span>(<span class="str">'appinstalled'
 });</pre>
       </div>
 
-      <h2 class="content-heading" id="capacitor">⚡ Method 3: Capacitor (Recommended for Web Devs)</h2>
+      <h2 class="content-heading" id="capacitor"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Method 3: Capacitor (Recommended for Web Devs)</h2>
 
 <div class="illustration-block  animate-float" style="margin: 3rem 0; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--glass-b); border-radius: var(--radius); display:flex; gap:2.5rem; align-items:center;" aria-hidden="true">
   <div class="illus-svg" style="flex-shrink:0; width:220px;">
@@ -292,8 +339,8 @@ window.<span class="fn">addEventListener</span>(<span class="str">'appinstalled'
   </svg>
   </div>
   <div class="illus-text" style="flex:1;">
-    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);">⚡ Method 3: Capacitor (Recommended for Web Devs) Breakdown</h3>
-    <p style="color: var(--text-2); line-height: 1.6;">Understanding ⚡ Method 3: Capacitor (Recommended for Web Devs) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
+    <h3 style="font-size: 1.4rem; font-weight:800; margin-bottom:0.75rem; color: var(--brand);"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Method 3: Capacitor (Recommended for Web Devs) Breakdown</h3>
+    <p style="color: var(--text-2); line-height: 1.6;">Understanding <svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Method 3: Capacitor (Recommended for Web Devs) is a crucial step in mastering full-stack capabilities and structuring your modern workflow. Learn to leverage these powerful concepts efficiently.</p>
     <ul style="list-style:none; padding:0; margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Core architecture paradigm</li>
        <li style="font-weight:600;"><span style="color:var(--brand);">→</span> Seamless integration workflows</li>
@@ -447,7 +494,7 @@ eas build --platform android --profile production</pre>
 
   <span class="kw">return</span> (
     <span class="tag-hl">&lt;ScrollView</span> <span class="attr">style</span>=<span class="kw">{styles.container}</span><span class="tag-hl">&gt;</span>
-      <span class="tag-hl">&lt;Text</span> <span class="attr">style</span>=<span class="kw">{styles.title}</span><span class="tag-hl">&gt;</span>My App 📱<span class="tag-hl">&lt;/Text&gt;</span>
+      <span class="tag-hl">&lt;Text</span> <span class="attr">style</span>=<span class="kw">{styles.title}</span><span class="tag-hl">&gt;</span>My App <svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><span class="tag-hl">&lt;/Text&gt;</span>
 
       <span class="tag-hl">&lt;TextInput</span>
         <span class="attr">style</span>=<span class="kw">{styles.input}</span>
@@ -635,7 +682,7 @@ keytool -list -v -keystore my-release-key.jks -alias my-key-alias</pre>
         </div>
       </div>
 
-      <h2 class="content-heading" id="deep-links">🔗 Deep Links & App Links</h2>
+      <h2 class="content-heading" id="deep-links"><svg class="nx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Deep Links & App Links</h2>
       <p class="content-text">Deep links let you open your app from URLs — e.g., clicking a link in an email opens directly in the app, not the browser.</p>
 
       <div class="code-block">
@@ -667,7 +714,7 @@ keytool -list -v -keystore my-release-key.jks -alias my-key-alias</pre>
       </div>
 
       <div class="divider"></div>
-      <h2 class="content-heading" id="stage6-project">🏆 Stage 6 Project: App Store Published App</h2>
+      <h2 class="content-heading" id="stage6-project"><svg class="nx-icon nx-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1H8"/><path d="M14 14.66V17a1 1 0 0 0 1 1h1"/><path d="M8 22H6a2 2 0 0 1-2-2v-7a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v7a2 2 0 0 1-2 2h-2"/></svg> Stage 6 Project: App Store Published App</h2>
       <div class="feature-list mb-lg">
         <div class="feature-item">Take your Stage 3 blog and convert it using Capacitor</div>
         <div class="feature-item">Add camera functionality (profile picture upload)</div>
@@ -713,15 +760,18 @@ keytool -list -v -keystore my-release-key.jks -alias my-key-alias</pre>
       <span style="color:var(--text-3);font-size:.85rem;">© 2026 Nexray · <a href="https://nexray.in" style="color:var(--text-2);">nexray.in</a></span>
     </div>
   </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="../js/three-scenes.js"></script>
   <script src="../js/main.js"></script>
   <script>
     const c = document.getElementById('stage-canvas');
     if (c) { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; WebDevThree.initStageScene('stage-canvas', 0x10b981); }
   </script>
-<script src="../js/three-background.js"></script>
-  <script src="/js/tracker.js" defer></script>\n  <script src="/js/search.js" defer></script>
+  <script src="../js/tracker.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/mascot.js" defer></script>
+<script>
+const _ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('revealed');_ro.unobserve(x.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>_ro.observe(el));
+</script>
+  <script src="../js/motion-svgs.js" defer></script>
 </body>
 </html>
