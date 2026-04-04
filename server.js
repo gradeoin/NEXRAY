@@ -2,10 +2,22 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const ROOT = __dirname;
+
 const server = http.createServer((req, res) => {
-    let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url.split('?')[0]);
+    const urlPath = req.url === '/' ? 'index.html' : req.url.split('?')[0];
+    let filePath = path.normalize(path.join(ROOT, urlPath));
+
+    // Prevent path traversal attacks
+    const relative = path.relative(ROOT, filePath);
+    if (relative.startsWith('..') || path.isAbsolute(relative)) {
+        res.writeHead(403, { 'Content-Type': 'text/plain' });
+        res.end('Forbidden');
+        return;
+    }
+
     if (!path.extname(filePath)) filePath += '.html';
-    
+
     fs.readFile(filePath, (err, content) => {
         if (err) {
             fs.readFile(path.join(__dirname, '404.html'), (err404, defaultContent) => {
