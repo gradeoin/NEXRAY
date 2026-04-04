@@ -229,7 +229,7 @@
     var photo = escHtml(user.photoURL || '');
     return '<div id="nxr-profile-dropdown" class="nxr-profile-dropdown" role="menu" hidden>'
       + '<div class="nxr-pd-header">'
-      +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar" onerror="this.style.display=\'none\'">'
+      +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar nxr-hide-on-error">'
       +   '<div><div class="nxr-pd-name">' + name + '</div><div class="nxr-pd-email">' + email + '</div></div>'
       + '</div>'
       + '<div class="nxr-pd-divider"></div>'
@@ -262,7 +262,7 @@
       var name = escHtml(user.displayName || 'User');
       profileHTML = '<div class="nxr-profile-wrapper">'
         + '<button class="nxr-nav-btn nxr-profile-btn" id="nxr-profile-btn" aria-label="My account" aria-expanded="false" aria-haspopup="true">'
-        +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar-sm" onerror="this.style.display=\'none\'">'
+        +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar-sm nxr-hide-on-error">'
         + '</button>'
         + buildProfileDropdown(user)
         + '</div>';
@@ -292,6 +292,13 @@
     } else {
       nav.appendChild(controls);
     }
+
+    /* Attach error handlers for avatar images via addEventListener */
+    controls.querySelectorAll('.nxr-hide-on-error').forEach(function (img) {
+      img.addEventListener('error', function () {
+        img.style.display = 'none';
+      });
+    });
   }
 
   /* ── Search filter ───────────────────────────────────────── */
