@@ -102,7 +102,7 @@
 </style>
 </head>
 <body>
-<div id="page-loader"><div class="loader-spinner"></div></div>
+<div id="page-loader" role="status" aria-live="polite" aria-label="Loading page"><div class="loader-spinner"></div><p class="loader-text">Hang up… please wait, we're loading</p></div>
 <div id="custom-cursor"></div>
 <div class="save-toast" id="save-toast">✓ Saved!</div>
 
@@ -132,7 +132,7 @@
       <aside>
         <div class="glass-card text-center" style="padding: 2rem 1.5rem; margin-bottom: 1.25rem;">
           <div class="profile-avatar-ring">
-            <img id="profile-img" src="" alt="Avatar" />
+            <img loading="lazy" id="profile-img" src="" alt="Avatar" />
           </div>
           <h2 id="username-display" style="font-size: 1.25rem; font-weight: 900;">Developer</h2>
           <p id="email-display" style="font-size: 0.8rem; color: var(--text-3); margin-bottom: 1rem;"></p>
@@ -173,11 +173,11 @@
           
           <label style="display:block; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-2); font-size: 0.9rem;">Choose a Preset Avatar</label>
           <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 1.25rem;" id="preset-avatar-grid">
-            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/bottts/svg?seed=nexray', this)"><img src="https://api.dicebear.com/7.x/bottts/svg?seed=nexray" alt="Bot 1"></div>
-            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/bottts/svg?seed=leo', this)"><img src="https://api.dicebear.com/7.x/bottts/svg?seed=leo" alt="Bot 2"></div>
-            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Felix', this)"><img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Felix" alt="Hero"></div>
-            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/fun-emoji/svg?seed=cool', this)"><img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=cool" alt="Emoji"></div>
-            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/identicon/svg?seed=dev', this)"><img src="https://api.dicebear.com/7.x/identicon/svg?seed=dev" alt="Tech"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/bottts/svg?seed=nexray', this)"><img loading="lazy" src="https://api.dicebear.com/7.x/bottts/svg?seed=nexray" alt="Bot 1"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/bottts/svg?seed=leo', this)"><img loading="lazy" src="https://api.dicebear.com/7.x/bottts/svg?seed=leo" alt="Bot 2"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Felix', this)"><img loading="lazy" src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Felix" alt="Hero"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/fun-emoji/svg?seed=cool', this)"><img loading="lazy" src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=cool" alt="Emoji"></div>
+            <div class="avatar-option" onclick="selectPresetAvatar('https://api.dicebear.com/7.x/identicon/svg?seed=dev', this)"><img loading="lazy" src="https://api.dicebear.com/7.x/identicon/svg?seed=dev" alt="Tech"></div>
           </div>
 
           <label style="display:block; margin-bottom: 0.5rem; font-weight: 700; color: var(--text-2); font-size: 0.9rem;">Or Upload Custom File</label>

@@ -34,7 +34,7 @@
 
 /* ── Reset ─────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;font-size:16px}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;font-size:16px;overflow-x:hidden}
 body{
   font-family:'Inter',system-ui,sans-serif;
   background-color:var(--bg);
@@ -540,6 +540,21 @@ code{
 .footer-bottom a:hover{color:var(--brand)}
 .footer-legal{display:flex;gap:1.25rem;flex-wrap:wrap}
 
+/* Social icons in footer */
+.footer-social{display:flex;gap:.75rem;align-items:center;margin-top:1rem}
+.footer-social a{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;
+  border-radius:50%;
+  background:var(--bg-card);
+  border:1px solid var(--glass-b);
+  color:var(--text-2);
+  transition:all .2s;
+  flex-shrink:0;
+}
+.footer-social a:hover{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-2px)}
+.footer-social a svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
 /* ── Mission Statement / Highlight Blocks ───────────────────── */
 .highlight-block{
   position:relative;padding:2.5rem;
@@ -697,7 +712,11 @@ code{
   .footer-grid{grid-template-columns:1fr}
   .admin-sidebar{display:none}
   .stage-meta{gap:1rem}
-  html{font-size: 15px;} /* Slightly smaller for mobile if needed, or keeping base for readability */
+  html{font-size: 16px;} /* Minimum 16px for mobile readability */
+  /* Touch-friendly tap targets */
+  .nav-mobile a{min-height:44px;padding:.75rem .875rem}
+  .btn{min-height:44px}
+  .footer-col a{min-height:44px;align-items:center}
 }
 @media (max-width:480px){
   .hero-actions{flex-direction:column}
@@ -748,6 +767,16 @@ code{
 }
 @keyframes loader-spin { 
   100% { transform: rotate(360deg); } 
+}
+.loader-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-top: 0;
+  letter-spacing: 0.02em;
+  text-align: center;
+  max-width: 220px;
+  line-height: 1.5;
 }
 
 /* Pop showcase */
