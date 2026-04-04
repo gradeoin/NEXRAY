@@ -49,6 +49,9 @@
     document.body.appendChild(wrap);
 
     var pupils = wrap.querySelectorAll('.nxm-p');
+    var MIN_APPEAR_DELAY = 12000; // minimum delay before mascot peeks again
+    var RANDOM_APPEAR_DELAY = 18000; // additional random delay to keep appearances occasional
+    var RANDOM_PEEK_PROBABILITY = 0.012; // ~1.2% chance per mousemove event while hidden
     var running = false;
     var sleepTimer = null;
     var cycleTimer = null;
@@ -64,7 +67,7 @@
     }
 
     function scheduleAppearance() {
-      var delay = 12000 + Math.random() * 18000;
+      var delay = MIN_APPEAR_DELAY + Math.random() * RANDOM_APPEAR_DELAY;
       cycleTimer = setTimeout(function () {
         showFor(4200 + Math.random() * 2600);
         scheduleAppearance();
@@ -125,7 +128,7 @@
       if (!raf) raf = requestAnimationFrame(trackPupils);
       resetIdle();
 
-      if (!running && !wrap.classList.contains('show') && Math.random() < 0.012) {
+      if (!running && !wrap.classList.contains('show') && Math.random() < RANDOM_PEEK_PROBABILITY) {
         showFor(2000);
       }
     }, { passive: true });

@@ -5,10 +5,15 @@
   window.__NEXRAY_SIDEBAR_ACTIVE__ = true;
 
   var path = window.location.pathname;
-  var currentPage = (path.split('/').pop() || 'index.html').toLowerCase();
+  var currentPageFile = path.split('/').pop() || 'index.html';
+  var currentPage = currentPageFile.toLowerCase();
   var isNested = path.includes('/guide/') || path.includes('/blog/');
   var root = isNested ? '../' : '';
   var isHome = (path === '/' || path.endsWith('/index.html')) && !path.includes('/guide/') && !path.includes('/blog/');
+  var DESKTOP_BREAKPOINT = 1024; // sidebar behaves as desktop drawer at and above this width
+  var EDGE_TRIGGER = 10; // px from left edge that auto-opens sidebar
+  var HOVER_BUFFER = 30; // extra px range keeping sidebar open while cursor is nearby
+  var CLOSE_DELAY = 160; // ms wait before auto-closing after cursor moves away
 
   document.body.classList.add(isHome ? 'nxr-home-page' : 'nxr-non-home');
 
@@ -122,10 +127,6 @@
     var closeBtn = document.getElementById('nxr-sb-close');
     var signOut = document.getElementById('nav-signout');
 
-    var DESKTOP_BREAKPOINT = 1024;
-    var EDGE_TRIGGER = 10;
-    var HOVER_BUFFER = 30;
-    var CLOSE_DELAY = 160;
     var closeTimer = null;
 
     function openSidebar() {
