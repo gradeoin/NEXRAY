@@ -1506,7 +1506,7 @@ html.dark { color-scheme: dark; }
 }
 .nxr-sb-handle img{
   width:28px; height:28px; object-fit:cover;
-  border-radius:0 50% 50% 0;
+  border-radius:0 14px 14px 0;
   transform:translateX(4px);
 }
 .nxr-overlay {

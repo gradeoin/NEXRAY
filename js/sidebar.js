@@ -301,7 +301,7 @@
       else openSidebar();
     }
 
-    if (openBtn) openBtn.addEventListener('click', toggleSidebar);
+    if (openBtn) openBtn.addEventListener('click', openSidebar);
     if (handleBtn) handleBtn.addEventListener('click', toggleSidebar);
     if (overlay) overlay.addEventListener('click', closeSidebar);
 
