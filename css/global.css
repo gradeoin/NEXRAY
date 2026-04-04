@@ -1495,6 +1495,20 @@ html.dark { color-scheme: dark; }
   overscroll-behavior:contain;
 }
 .nxr-sidebar.open { transform:translateX(0); }
+.nxr-sb-handle{
+  position:absolute; right:-26px; top:74px;
+  width:30px; height:64px; border-radius:0 14px 14px 0;
+  border:1px solid var(--glass-b); border-left:none;
+  background:var(--bg); color:var(--text);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; box-shadow:6px 0 16px rgba(0,0,0,0.15);
+  padding:0;
+}
+.nxr-sb-handle img{
+  width:28px; height:28px; object-fit:cover;
+  border-radius:0 50% 50% 0;
+  transform:translateX(4px);
+}
 .nxr-overlay {
   position:fixed; inset:0; background:rgba(0,0,0,0.45);
   z-index:1199; opacity:0; pointer-events:none;
@@ -1514,13 +1528,6 @@ html.dark { color-scheme: dark; }
 }
 .nxr-sb-logo img { height:28px; width:auto; border-radius:6px; }
 .nxr-sb-logo strong { color:var(--brand); }
-.nxr-sb-close {
-  display:flex; align-items:center; justify-content:center;
-  width:32px; height:32px; background:var(--bg-card);
-  border:1px solid var(--glass-b); border-radius:8px;
-  color:var(--text-2); cursor:pointer; transition:all 0.2s;
-}
-.nxr-sb-close:hover { background:var(--brand-dim); color:var(--brand); border-color:var(--brand-glow); }
 
 .nxr-sb-search { position:relative; margin:0.875rem 0.875rem 0.5rem; flex-shrink:0; }
 .nxr-sb-search-icon {
@@ -1693,28 +1700,23 @@ html.dark { color-scheme: dark; }
   .nxr-value-highlights { grid-template-columns:repeat(2,1fr); padding:2.5rem 1.25rem; }
   .nxr-notif-panel { width:calc(100vw - 2rem); right:-40px; }
   .nxr-profile-dropdown { right:-20px; }
+  .nxr-sidebar{
+    left:auto; right:0;
+    transform:translateX(100%);
+    border-right:none;
+    border-left:1px solid var(--glass-b);
+  }
+  .nxr-sidebar.open{ transform:translateX(0); }
+  .nxr-sb-handle{ display:none; }
 }
 @media (max-width:480px) {
   .nxr-value-highlights { grid-template-columns:1fr; }
 }
 
-/* ── Desktop: Sidebar always visible (fixed left) ─────────── */
+/* ── Desktop: Edge-triggered sidebar (left) ───────────────── */
 @media (min-width: 1024px) {
-  /* Sidebar is permanently open; override drawer behaviour */
-  .nxr-sidebar {
-    transform: translateX(0) !important;
-    z-index: 900; /* below the top nav */
-    box-shadow: none;
-  }
-  /* Hide controls that are only useful for the mobile drawer */
-  .nxr-sb-close { display: none; }
-  .nxr-sb-toggle { display: none !important; }
+  .nxr-sidebar { z-index: 900; }
   .nxr-overlay { display: none !important; }
-  /* Push all page content to the right of the sidebar */
-  body { padding-left: 272px; }
-  /* Offset the fixed top-nav so it starts after the sidebar */
-  .nav { left: 272px; }
-  .progress-bar { left: 272px; }
 }
 
 /* ── Mobile: stage/feature cards responsive fix ───────────── */

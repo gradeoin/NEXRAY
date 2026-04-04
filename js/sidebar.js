@@ -69,24 +69,7 @@
 
   /* ── Navigation items ────────────────────────────────────── */
   var NAV_ITEMS = [
-    {
-      href: 'guide/stage1.html', label: 'Guide', id: 'guide',
-      icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
-    },
-    {
-      href: 'blog/index.html', label: 'Blog', id: 'blog',
-      icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
-    },
-    { divider: true, label: 'Support' },
-    {
-      href: 'contact.html', label: 'Contact', id: 'contact.html',
-      icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>'
-    },
-    {
-      href: 'auth.html', label: 'Sign In', id: 'auth.html',
-      icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>'
-    },
-    { divider: true, label: 'Legal' },
+    { divider: true, label: 'Pages' },
     {
       href: 'terms.html', label: 'Terms of Service', id: 'terms.html',
       icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>'
@@ -102,6 +85,14 @@
     {
       href: 'disclaimer.html', label: 'Disclaimer', id: 'disclaimer.html',
       icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
+    },
+    {
+      href: 'guide/stage7.html', label: 'FAQ', id: 'faq',
+      icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
+    },
+    {
+      href: 'contact.html', label: 'Contact', id: 'contact.html',
+      icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>'
     }
   ];
 
@@ -124,12 +115,14 @@
     }).join('');
 
     return '<div id="nxr-sidebar" class="nxr-sidebar" role="navigation" aria-label="Site navigation">'
+      + '<button id="nxr-sb-handle" class="nxr-sb-handle" aria-label="Toggle sidebar" title="Toggle sidebar">'
+      +   '<img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="" loading="lazy">'
+      + '</button>'
       + '<div class="nxr-sb-header">'
       +   '<a href="index.html" class="nxr-sb-logo" aria-label="Nexray Home">'
       +     '<img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="" loading="lazy">'
       +     '<span>NEX<strong>RAY</strong></span>'
       +   '</a>'
-      +   '<button id="nxr-sb-close" class="nxr-sb-close" aria-label="Close navigation">' + closeIcon() + '</button>'
       + '</div>'
       + '<div class="nxr-sb-search">'
       +   '<span class="nxr-sb-search-icon">' + searchIcon() + '</span>'
@@ -244,40 +237,10 @@
     var nav = document.querySelector('.nav');
     if (!nav) return;
 
-    var isDark = document.documentElement.classList.contains('dark');
-    var unreadCount = NOTIFICATIONS.filter(function (n) { return !n.read; }).length;
-
-    var user = null;
-    try { user = JSON.parse(localStorage.getItem('nexray_user')); } catch (e) { /* ignore */ }
-    var isLoggedIn = user && user.loggedIn;
-
-    var profileHTML = '';
-    if (isLoggedIn) {
-      var photo = escHtml(user.photoURL || '');
-      var name = escHtml(user.displayName || 'User');
-      profileHTML = '<div class="nxr-profile-wrapper">'
-        + '<button class="nxr-nav-btn nxr-profile-btn" id="nxr-profile-btn" aria-label="My account" aria-expanded="false" aria-haspopup="true">'
-        +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar-sm nxr-hide-on-error">'
-        + '</button>'
-        + buildProfileDropdown(user)
-        + '</div>';
-    }
-
     var controls = document.createElement('div');
     controls.className = 'nxr-nav-controls';
     controls.innerHTML =
-      '<button class="nxr-nav-btn nxr-dark-toggle" aria-label="' + (isDark ? 'Switch to light mode' : 'Switch to dark mode') + '">'
-      +   (isDark ? sunIcon() : moonIcon())
-      + '</button>'
-      + '<div class="nxr-notif-wrapper">'
-      +   '<button class="nxr-nav-btn nxr-notif-btn" id="nxr-notif-btn" aria-label="Notifications" aria-expanded="false" aria-haspopup="true">'
-      +     bellIcon()
-      +     (unreadCount > 0 ? '<span class="nxr-notif-badge" aria-label="' + unreadCount + ' unread">' + unreadCount + '</span>' : '')
-      +   '</button>'
-      +   buildNotifPanel()
-      + '</div>'
-      + profileHTML
-      + '<button class="nxr-nav-btn nxr-sb-toggle" id="nxr-sb-open" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nxr-sidebar">'
+      '<button class="nxr-nav-btn nxr-sb-toggle" id="nxr-sb-open" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nxr-sidebar">'
       +   menuIcon()
       + '</button>';
 
@@ -313,14 +276,9 @@
   function setupEvents() {
     var sidebar = document.getElementById('nxr-sidebar');
     var overlay = document.getElementById('nxr-overlay');
-    var closeBtn = document.getElementById('nxr-sb-close');
+    var handleBtn = document.getElementById('nxr-sb-handle');
     var openBtn = document.getElementById('nxr-sb-open');
-    var notifBtn = document.getElementById('nxr-notif-btn');
-    var notifPanel = document.getElementById('nxr-notif-panel');
-    var markReadBtn = document.getElementById('nxr-mark-read');
-    var profileBtn = document.getElementById('nxr-profile-btn');
-    var profileDropdown = document.getElementById('nxr-profile-dropdown');
-    var signOutBtn = document.getElementById('nxr-sign-out');
+    var closeTimer = null;
 
     function openSidebar() {
       if (!sidebar) return;
@@ -337,9 +295,14 @@
       if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
+    function toggleSidebar() {
+      if (!sidebar) return;
+      if (sidebar.classList.contains('open')) closeSidebar();
+      else openSidebar();
+    }
 
-    if (openBtn) openBtn.addEventListener('click', openSidebar);
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (openBtn) openBtn.addEventListener('click', toggleSidebar);
+    if (handleBtn) handleBtn.addEventListener('click', toggleSidebar);
     if (overlay) overlay.addEventListener('click', closeSidebar);
 
     /* Dark mode */
@@ -347,58 +310,26 @@
       btn.addEventListener('click', toggleDarkMode);
     });
 
-    /* Notifications */
-    if (notifBtn && notifPanel) {
-      notifBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var willOpen = notifPanel.hidden;
-        notifPanel.hidden = !willOpen;
-        notifBtn.setAttribute('aria-expanded', String(willOpen));
-        if (profileDropdown) profileDropdown.hidden = true;
-      });
-    }
-    if (markReadBtn) {
-      markReadBtn.addEventListener('click', function () {
-        document.querySelectorAll('.nxr-notif-dot').forEach(function (d) {
-          d.classList.add('read');
-        });
-        var badge = document.querySelector('.nxr-notif-badge');
-        if (badge) badge.remove();
-        markReadBtn.textContent = 'All read \u2713';
-      });
-    }
-
-    /* Profile dropdown */
-    if (profileBtn && profileDropdown) {
-      profileBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var willOpen = profileDropdown.hidden;
-        profileDropdown.hidden = !willOpen;
-        profileBtn.setAttribute('aria-expanded', String(willOpen));
-        if (notifPanel) notifPanel.hidden = true;
-      });
-    }
-
-    /* Sign out */
-    if (signOutBtn) {
-      signOutBtn.addEventListener('click', function () {
-        localStorage.removeItem('nexray_user');
-        window.location.href = 'index.html';
-      });
-    }
-
-    /* Close panels on outside click */
-    document.addEventListener('click', function () {
-      if (notifPanel) notifPanel.hidden = true;
-      if (profileDropdown) profileDropdown.hidden = true;
-    });
+    /* Desktop: edge hover open + move-away close */
+    document.addEventListener('mousemove', function (e) {
+      if (!sidebar || window.innerWidth < DESKTOP_BREAKPOINT) return;
+      var x = e.clientX;
+      var overSidebar = x <= sidebar.offsetWidth + 24;
+      if (x <= 10) {
+        openSidebar();
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      } else if (!overSidebar) {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(function () {
+          closeSidebar();
+        }, 140);
+      }
+    }, { passive: true });
 
     /* Keyboard: Escape closes everything */
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         closeSidebar();
-        if (notifPanel) notifPanel.hidden = true;
-        if (profileDropdown) profileDropdown.hidden = true;
       }
     });
 
