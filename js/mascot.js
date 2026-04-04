@@ -155,7 +155,7 @@
         <div class="nxm-eye nxm-er"><div class="nxm-pupil nxm-p"></div></div>
         <div class="m-nose"></div>
       </div>
-      <button class="nxm-menu-toggle" aria-label="Open mascot menu">+</button>
+      <button class="nxm-menu-toggle" aria-label="Toggle mascot menu">+</button>
       <div class="nxm-menu">
         <div class="nxm-menu-title">Nexray Navigator</div>
         <a href="${root}guide/stage1.html" class="nxm-item">${menuSVGs.guide} Start the Guide</a>
