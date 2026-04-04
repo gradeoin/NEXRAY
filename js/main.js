@@ -10,22 +10,21 @@
   // Single light theme — palette drives from CSS :root variables only.
 
 
-  /* ── Navigation ───────────────────────────────────────────── */
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-      const open = mobileNav.classList.contains('open');
-      hamburger.setAttribute('aria-expanded', open);
-    });
-    // Close on outside click
-    document.addEventListener('click', e => {
-      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-        mobileNav.classList.remove('open');
-      }
-    });
+
+  /* ── Shared Sidebar Loader ───────────────────────────────── */
+  function ensureSharedSidebar() {
+    if (window.__NEXRAY_SIDEBAR_ACTIVE__) return;
+    if (document.querySelector('script[data-nxr-sidebar-loader]')) return;
+
+    const isNested = window.location.pathname.includes('/guide/') || window.location.pathname.includes('/blog/');
+    const src = isNested ? '../js/sidebar.js' : 'js/sidebar.js';
+    const s = document.createElement('script');
+    s.src = src;
+    s.defer = true;
+    s.setAttribute('data-nxr-sidebar-loader', 'true');
+    document.head.appendChild(s);
   }
+  ensureSharedSidebar();
 
   /* ── Scroll Progress Bar ──────────────────────────────────── */
   const progressFill = document.getElementById('progress-fill');
