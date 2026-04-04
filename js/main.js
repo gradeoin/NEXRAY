@@ -17,13 +17,21 @@
     hamburger.addEventListener('click', () => {
       mobileNav.classList.toggle('open');
       const open = mobileNav.classList.contains('open');
-      hamburger.setAttribute('aria-expanded', open);
+      hamburger.setAttribute('aria-expanded', String(open));
     });
     // Close on outside click
     document.addEventListener('click', e => {
       if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
         mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       }
+    });
+    // Close menu when a nav link is tapped (mobile)
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
@@ -296,6 +304,14 @@
   // Call on load and also on custom event
   syncAuthUI();
   window.addEventListener('auth-state-changed', syncAuthUI);
+
+  /* ── Lazy loading for below-fold images ──────────────────── */
+  // Add loading="lazy" to all images not in the nav (above fold)
+  document.querySelectorAll('img:not(.nav-logo-img)').forEach(img => {
+    if (!img.hasAttribute('loading')) {
+      img.setAttribute('loading', 'lazy');
+    }
+  });
 
   /* ── Service Worker Registration (PWA) ───────────────────── */
   if ('serviceWorker' in navigator) {
