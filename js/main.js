@@ -13,13 +13,58 @@
   /* ── Navigation ───────────────────────────────────────────── */
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobile-nav');
-  if (hamburger && mobileNav) {
+
+  /* ── Sidebar ─────────────────────────────────────────────── */
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const sidebarClose = document.getElementById('sidebar-close');
+
+  function openSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.add('open');
+    sidebar.setAttribute('aria-hidden', 'false');
+    if (sidebarOverlay) sidebarOverlay.classList.add('open');
+  }
+
+  function closeSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.remove('open');
+    sidebar.setAttribute('aria-hidden', 'true');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('open');
+  }
+
+  if (sidebar) {
+    // Hamburger toggles sidebar (primary trigger on all screens)
+    if (hamburger) {
+      hamburger.addEventListener('click', e => {
+        e.stopPropagation();
+        sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+      });
+    }
+    // Close button
+    if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+    // Overlay click closes
+    if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+    // Escape key closes
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+    // Left-edge hover trigger (desktop)
+    document.addEventListener('mousemove', e => {
+      if (e.clientX < 8 && !sidebar.classList.contains('open')) openSidebar();
+    });
+    // Sidebar group dropdowns
+    sidebar.querySelectorAll('.sidebar-group-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.closest('.sidebar-group');
+        const isOpen = group.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+  } else if (hamburger && mobileNav) {
+    // Fallback: legacy mobile nav toggle if no sidebar present
     hamburger.addEventListener('click', () => {
       mobileNav.classList.toggle('open');
-      const open = mobileNav.classList.contains('open');
-      hamburger.setAttribute('aria-expanded', open);
+      hamburger.setAttribute('aria-expanded', String(mobileNav.classList.contains('open')));
     });
-    // Close on outside click
     document.addEventListener('click', e => {
       if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
         mobileNav.classList.remove('open');
