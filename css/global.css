@@ -93,7 +93,10 @@ h1, h2, h3, h4, h5, h6, .stage-card-title, .content-heading, #hero-heading {
   -webkit-backdrop-filter:blur(24px) saturate(180%);
   border-bottom:2px solid #CCFF00;
   box-shadow:0 4px 30px rgba(0,56,255,0.06);
-  transition:background .3s,border-color .3s,box-shadow .3s;
+  transition:background .3s,border-color .3s,box-shadow .3s,transform .3s ease;
+}
+.nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-logo{display:flex;align-items:center;gap:.5rem;font-weight:900;font-size:1.3rem;letter-spacing:-.03em}
@@ -1392,15 +1395,15 @@ button:focus-visible, a:focus-visible {
 }
 
 /* ── Better mobile nav ──────────────────────────────────── */
+/* The native nav-hamburger and nav-mobile are replaced by the sidebar toggle from sidebar.js */
+.nav-hamburger { display: none !important; }
+.nav-mobile { display: none !important; }
 @media (max-width: 768px) {
   .hide-mobile { display: none; }
-  .nav-hamburger { display: flex; }
   .nav-links { display: none; }
 }
 @media (min-width: 769px) {
-  .nav-hamburger { display: none; }
   .nav-links { display: flex; }
-  .nav-mobile { display: none !important; }
 }
 
 /* ── Branding: improve nav border accent ─────────────────── */
@@ -1693,4 +1696,52 @@ html.dark { color-scheme: dark; }
 }
 @media (max-width:480px) {
   .nxr-value-highlights { grid-template-columns:1fr; }
+}
+
+/* ── Desktop: Sidebar always visible (fixed left) ─────────── */
+@media (min-width: 1024px) {
+  /* Sidebar is permanently open; override drawer behaviour */
+  .nxr-sidebar {
+    transform: translateX(0) !important;
+    z-index: 900; /* below the top nav */
+    box-shadow: none;
+  }
+  /* Hide controls that are only useful for the mobile drawer */
+  .nxr-sb-close { display: none; }
+  .nxr-sb-toggle { display: none !important; }
+  .nxr-overlay { display: none !important; }
+  /* Push all page content to the right of the sidebar */
+  body { padding-left: 272px; }
+  /* Offset the fixed top-nav so it starts after the sidebar */
+  .nav { left: 272px; }
+  .progress-bar { left: 272px; }
+}
+
+/* ── Mobile: stage/feature cards responsive fix ───────────── */
+@media (max-width: 768px) {
+  /* Ensure stage/feature grids wrap properly instead of compressing */
+  .grid-auto {
+    grid-template-columns: 1fr !important;
+  }
+  .stage-card {
+    min-width: 0;
+    width: 100%;
+  }
+  /* Hero feature boxes: allow wrapping and prevent overflow */
+  .max-w-\\[1280px\\] {
+    overflow: visible;
+  }
+  [class*="grid-cols-"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  /* SVG and icon auto-resize */
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
