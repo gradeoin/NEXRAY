@@ -11,11 +11,10 @@
       /* ── SHARED ─────────────────────────────── */
       .nxm-wrap{position:fixed;z-index:2147483647;pointer-events:none;transition:all .45s cubic-bezier(.175,.885,.32,1.275)}
 
-      /* ── DESKTOP side-peek ───────────────────── */
+      /* ── DESKTOP side-peek (right only) ─────── */
       @media(min-width:769px){
         .nxm-wrap{top:55%;transform:translateY(-50%);width:140px;height:140px}
-        .nxm-left{left:-80px}.nxm-right{right:-80px}
-        .nxm-left.nxm-active{left:-12px;pointer-events:auto}
+        .nxm-right{right:-80px}
         .nxm-right.nxm-active{right:-12px;pointer-events:auto}
         .nxm-paw{display:block}
       }
@@ -83,7 +82,6 @@
         font-size:9px;color:#fff;letter-spacing:.5px;
         display:none;
       }
-      .nxm-left .nxm-paw{left:88px;transform:scale(0)}
       .nxm-right .nxm-paw{right:88px;transform:scale(0)}
       .nxm-active .nxm-paw{transform:scale(1) translateX(26px)}
 
@@ -96,7 +94,6 @@
         display:none;flex-direction:column;gap:10px;
         pointer-events:auto;
       }
-      .nxm-left .nxm-menu{left:118px;top:-60px}
       .nxm-right .nxm-menu{right:118px;top:-60px}
       @media(max-width:768px){
         .nxm-menu{left:50%!important;right:auto!important;
@@ -121,21 +118,16 @@
       .nxm-item:hover{background:#0038FF;color:#fff}
       .nxm-item:hover svg{stroke:#CCFF00}
 
-      /* ── PAGE BUDDY (coding elements) ─────────── */
-      .nxm-buddy{
-        position:fixed;bottom:30px;right:30px;
-        width:60px;height:60px;
-        background:#fff;border:2px solid #0038FF;
-        border-radius:16px;
-        display:flex;align-items:center;justify-content:center;
-        z-index:99998;cursor:pointer;
-        box-shadow:0 8px 25px rgba(0,56,255,.15);
-        animation:nxm-float 3s ease-in-out infinite;
-        transition:transform .25s, box-shadow .25s;
+      .nxm-menu-toggle{
+        position:absolute; right:4px; top:-8px;
+        width:26px; height:26px; border-radius:999px;
+        background:var(--bg, #fff); border:2px solid var(--brand, #0038FF);
+        color:var(--brand, #0038FF); font-size:16px; font-weight:900; line-height:1;
+        display:flex; align-items:center; justify-content:center;
+        cursor:pointer; pointer-events:auto;
+        box-shadow:0 4px 12px var(--brand-glow, rgba(0,56,255,.2));
       }
-      .nxm-buddy:hover{transform:scale(1.12);box-shadow:0 16px 40px rgba(0,56,255,.25)}
-      .nxm-buddy svg{width:32px;height:32px;stroke:#0038FF}
-      @keyframes nxm-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+      .nxm-menu-toggle:hover{background:var(--brand, #0038FF);color:var(--bg, #fff)}
     `;
     document.head.appendChild(st);
 
@@ -163,6 +155,7 @@
         <div class="nxm-eye nxm-er"><div class="nxm-pupil nxm-p"></div></div>
         <div class="m-nose"></div>
       </div>
+      <button class="nxm-menu-toggle" aria-label="Toggle mascot menu">+</button>
       <div class="nxm-menu">
         <div class="nxm-menu-title">Nexray Navigator</div>
         <a href="${root}guide/stage1.html" class="nxm-item">${menuSVGs.guide} Start the Guide</a>
@@ -173,31 +166,13 @@
     `;
     document.body.appendChild(wrap);
 
-    /* ─── Inject Page-Specific Buddy Icon ───────────────────── */
-    const buddySVGs = {
-      guide:`<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
-      resources:`<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-      blog:`<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
-      default:`<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
-    };
-    const path = window.location.pathname;
-    let buddySVG = buddySVGs.default;
-    if (path.includes('/guide/') || path.includes('stage')) buddySVG = buddySVGs.guide;
-    else if (path.includes('resources')) buddySVG = buddySVGs.resources;
-    else if (path.includes('blog')) buddySVG = buddySVGs.blog;
-
-    const buddy = document.createElement('div');
-    buddy.className = 'nxm-buddy';
-    buddy.title = 'Quick access • Nexray';
-    buddy.innerHTML = buddySVG;
-    buddy.onclick = () => wrap.querySelector('.nxm-menu').classList.toggle('show');
-    document.body.appendChild(buddy);
-
     /* ─── Events ─────────────────────────────────────────────── */
     const menu = wrap.querySelector('.nxm-menu');
     const body = wrap.querySelector('.nxm-body');
+    const toggleBtn = wrap.querySelector('.nxm-menu-toggle');
 
     body.addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('show'); });
+    toggleBtn.addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('show'); });
     wrap.querySelector('#nxm-share').addEventListener('click', () => {
       if (navigator.share) navigator.share({ title: 'Nexray — Learn Web Dev', url: window.location.href });
       else { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }
@@ -216,9 +191,8 @@
     function track(cx, cy) {
       const w = window.innerWidth;
       if (w > 768) {
-        if (cx < w * 0.45) { wrap.classList.remove('nxm-right'); wrap.classList.add('nxm-left'); }
-        else if (cx > w * 0.55) { wrap.classList.remove('nxm-left'); wrap.classList.add('nxm-right'); }
-        wrap.classList.toggle('nxm-active', cx < 160 || cx > w - 160);
+        wrap.classList.add('nxm-right');
+        wrap.classList.toggle('nxm-active', cx > w - 160);
       } else {
         wrap.classList.toggle('nxm-active', cy < 110);
       }
