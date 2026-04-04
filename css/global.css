@@ -1449,7 +1449,7 @@ body {
    ══════════════════════════════════════════════════════════════ */
 
 /* ── Layout & Scrolling Fixes ──────────────────────────────── */
-html, body { height: 100%; overflow-y: auto; }
+html, body { min-height: 100%; overflow-y: auto; }
 
 /* ── Dark Mode Variables ───────────────────────────────────── */
 html.dark { color-scheme: dark; }

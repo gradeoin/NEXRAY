@@ -6,6 +6,16 @@
 (function () {
   'use strict';
 
+  /* ── HTML escaping (prevent XSS from user data) ─────────── */
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
   /* ── Current page detection ──────────────────────────────── */
   const currentPage = location.pathname.split('/').pop() || 'index.html';
   const isHome = currentPage === 'index.html' || currentPage === '';
@@ -214,10 +224,9 @@
 
   /* ── Profile dropdown ────────────────────────────────────── */
   function buildProfileDropdown(user) {
-    var name = user.displayName || 'User';
-    var email = user.email || '';
-    var photo = user.photoURL || '';
-    var fallbackSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+    var name = escHtml(user.displayName || 'User');
+    var email = escHtml(user.email || '');
+    var photo = escHtml(user.photoURL || '');
     return '<div id="nxr-profile-dropdown" class="nxr-profile-dropdown" role="menu" hidden>'
       + '<div class="nxr-pd-header">'
       +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar" onerror="this.style.display=\'none\'">'
@@ -249,8 +258,8 @@
 
     var profileHTML = '';
     if (isLoggedIn) {
-      var photo = user.photoURL || '';
-      var name = user.displayName || 'User';
+      var photo = escHtml(user.photoURL || '');
+      var name = escHtml(user.displayName || 'User');
       profileHTML = '<div class="nxr-profile-wrapper">'
         + '<button class="nxr-nav-btn nxr-profile-btn" id="nxr-profile-btn" aria-label="My account" aria-expanded="false" aria-haspopup="true">'
         +   '<img src="' + photo + '" alt="' + name + '" class="nxr-pd-avatar-sm" onerror="this.style.display=\'none\'">'
