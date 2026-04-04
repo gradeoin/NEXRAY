@@ -204,11 +204,12 @@
   });
 </script>
 <script>
-  // Simple logout logic directly in the file to avoid CORS module restrictions
+  // Fallback logout (module script below overrides button with Firebase-aware version)
   function logout() {
+    sessionStorage.clear();
     localStorage.removeItem('nexray_user');
     window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: null }));
-    window.location.href = 'index.html';
+    window.location.href = 'auth.html';
   }
 
   function selectPresetAvatar(src, el) {
@@ -331,8 +332,22 @@
     setTimeout(() => toast.classList.remove('show'), 3000);
   });
 
-  document.getElementById('logout-btn').onclick = () => logout();
   refreshUI();
+</script>
+<script type="module">
+  import { logout as firebaseLogout } from './js/auth.js';
+  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js';
+
+  // Override logout button with Firebase-aware signOut (clears Firebase session, storage, and redirects)
+  document.getElementById('logout-btn').onclick = firebaseLogout;
+
+  // Real-time session protection: redirect to auth page if the user is signed out while on this page
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (!user && !localStorage.getItem('nexray_user')) {
+      window.location.href = 'auth.html';
+    }
+  });
 </script>
 <script src="js/main.js"></script>
 <script src="js/mascot.js" defer></script>

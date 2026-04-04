@@ -36,6 +36,7 @@ onAuthStateChanged(auth, (user) => {
     const currentUser = JSON.parse(localStorage.getItem('nexray_user') || '{}');
     if (currentUser.provider === 'google') {
        localStorage.removeItem('nexray_user');
+       sessionStorage.clear();
        window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: null }));
     }
   }
@@ -53,13 +54,16 @@ export const performGoogleSignIn = async () => {
 };
 
 export const logout = async () => {
+    sessionStorage.clear();
     const currentUser = JSON.parse(localStorage.getItem('nexray_user') || '{}');
     if (currentUser.provider === 'google') {
         await signOut(auth);
+        // onAuthStateChanged will clear localStorage and dispatch auth-state-changed
+        window.location.href = 'auth.html';
     } else {
         localStorage.removeItem('nexray_user');
         window.dispatchEvent(new CustomEvent('auth-state-changed', { detail: null }));
-        window.location.href = 'index.html';
+        window.location.href = 'auth.html';
     }
 };
 
