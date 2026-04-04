@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify server starts
+        run: |
+          timeout 10 node server.js &
+          SERVER_PID=$!
+          sleep 3
+          curl -sf http://localhost:3000/ > /dev/null && echo "Server OK"
+          kill $SERVER_PID || true
+
+      - name: Check for syntax errors in JavaScript files
+        run: |
+          for f in $(find . -maxdepth 2 -name "*.js" \
+            ! -path "./node_modules/*" \
+            ! -path "./.git/*"); do
+            node --check "$f" && echo "OK: $f" || exit 1
+          done
+
+      - name: Verify required files exist
+        run: |
+          for f in index.html robots.txt sitemap.xml manifest.json sw.js privacy.html; do
+            test -f "$f" && echo "Found: $f" || (echo "Missing: $f" && exit 1)
+          done

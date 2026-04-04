@@ -17,7 +17,7 @@ const STATIC_ASSETS = [
   '/guide/stage3.html',
   '/profile.html',
   '/auth.html',
-  '/404.html'
+  '/404.html',
 
   '/website-creation.html',
   '/react-development-tools.html',

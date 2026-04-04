@@ -1,0 +1,21 @@
+{
+  "name": "nexray",
+  "version": "1.0.0",
+  "description": "Free 7-stage web development guide — from zero to full-stack pro in 2026",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["web-development", "education", "html", "css", "javascript"],
+  "author": "Nexray",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gradeoin/NEXRAY.git"
+  },
+  "homepage": "https://nexray.in"
+}
