@@ -1614,3 +1614,13 @@ body {
 @media (max-width: 600px) {
   .sidebar { width: 88vw; max-width: 320px; }
 }
+
+/* Minimal footer text links (replaces oversized social icons) */
+.footer-text-link {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-text-link:hover { color: var(--brand); }

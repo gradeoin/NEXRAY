@@ -47,9 +47,15 @@
     if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
     // Escape key closes
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
-    // Left-edge hover trigger (desktop)
+    // Left-edge hover trigger (desktop) — throttled to at most once per 200ms
+    let edgeTriggerTimeout = null;
     document.addEventListener('mousemove', e => {
-      if (e.clientX < 8 && !sidebar.classList.contains('open')) openSidebar();
+      if (e.clientX < 8 && !sidebar.classList.contains('open') && !edgeTriggerTimeout) {
+        edgeTriggerTimeout = setTimeout(() => {
+          if (!sidebar.classList.contains('open')) openSidebar();
+          edgeTriggerTimeout = null;
+        }, 200);
+      }
     });
     // Sidebar group dropdowns
     sidebar.querySelectorAll('.sidebar-group-btn').forEach(btn => {
