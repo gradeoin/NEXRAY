@@ -1719,82 +1719,31 @@ html.dark { color-scheme: dark; }
   .nxr-overlay { display: none !important; }
 }
 
-
-/* ── Unified Header / Sidebar polish ───────────────────────── */
-.nav{
-  background:linear-gradient(135deg, rgba(255,255,255,0.94), rgba(241,245,255,0.92));
-  border-bottom:1px solid rgba(0,56,255,0.16);
-  box-shadow:0 8px 26px rgba(0,56,255,0.08);
+/* ── Mobile: stage/feature cards responsive fix ───────────── */
+@media (max-width: 768px) {
+  /* Ensure stage/feature grids wrap properly instead of compressing */
+  .grid-auto {
+    grid-template-columns: 1fr !important;
+  }
+  .stage-card {
+    min-width: 0;
+    width: 100%;
+  }
+  /* Hero feature boxes: allow wrapping and prevent overflow */
+  .max-w-\\[1280px\\] {
+    overflow: visible;
+  }
+  [class*="grid-cols-"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  /* SVG and icon auto-resize */
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
-.nav-links a{font-weight:700;letter-spacing:.01em}
-.nav-links a:hover,.nav-links a.active{background:rgba(0,56,255,0.10);color:var(--brand)}
-
-.nxr-nav-controls{margin-left:auto}
-.nxr-nav-btn{width:40px;height:40px;border:1px solid var(--glass-b);background:rgba(255,255,255,0.85)}
-
-.nxr-sidebar{width:288px;z-index:1200}
-.nxr-sb-header{gap:.5rem}
-.nxr-sb-close{
-  width:34px;height:34px;border-radius:999px;border:1px solid var(--glass-b);
-  background:var(--bg-card);display:flex;align-items:center;justify-content:center;
-  color:var(--text-2);transition:all .2s;
-}
-.nxr-sb-close:hover{color:var(--brand);border-color:var(--brand);background:var(--brand-dim)}
-.nxr-edge-logo{
-  position:fixed;left:-22px;top:48%;transform:translateY(-50%);
-  width:54px;height:74px;border-radius:0 20px 20px 0;border:1px solid var(--glass-b);border-left:none;
-  background:var(--bg);z-index:1198;display:flex;align-items:center;justify-content:center;
-  box-shadow:6px 0 20px rgba(0,0,0,0.16);transition:left .25s ease,opacity .25s ease;
-}
-.nxr-edge-logo img{width:46px;height:46px;object-fit:cover;object-position:right center;border-radius:0 20px 20px 0}
-.nxr-sidebar.open ~ .nxr-edge-logo{left:-34px;opacity:.25}
-
-.nxr-sb-group{border-radius:12px;background:var(--bg-card);margin:4px 2px}
-.nxr-sb-group summary{
-  list-style:none;display:flex;align-items:center;justify-content:space-between;
-  padding:10px 12px;font-size:.86rem;font-weight:700;color:var(--text-2);cursor:pointer;
-}
-.nxr-sb-group summary::-webkit-details-marker{display:none}
-.nxr-sb-caret{transition:transform .2s ease}
-.nxr-sb-group[open] .nxr-sb-caret{transform:rotate(180deg)}
-.nxr-sb-submenu{display:flex;flex-direction:column;padding:0 6px 8px;gap:2px}
-.nxr-sb-subitem{
-  display:block;padding:8px 10px;border-radius:10px;font-size:.82rem;color:var(--text-2);font-weight:600;
-}
-.nxr-sb-subitem:hover,.nxr-sb-subitem.active{background:var(--brand-dim);color:var(--brand)}
-
-.nxr-non-home .footer{display:none!important}
-.footer-social{display:none!important}
-
-.nxr-brand-buddy{display:none!important}
-
-@media (min-width:1024px){
-  .nxr-sidebar{left:0;right:auto;transform:translateX(-100%);border-left:none;border-right:1px solid var(--glass-b)}
-  .nxr-sidebar.open{transform:translateX(0)}
-  .nxr-overlay{display:none!important}
-}
-
-@media (max-width:1023px){
-  .nxr-sidebar{left:auto;right:0;transform:translateX(100%);border-right:none;border-left:1px solid var(--glass-b)}
-  .nxr-sidebar.open{transform:translateX(0)}
-  .nxr-edge-logo{display:none}
-  .nxr-overlay{display:block}
-}
-
-@media (max-width:768px){
-  .nav{padding:0 1rem}
-  .nav-links a{display:none}
-  .nav-links .btn-signin,.nav-links .nxr-signout{display:none}
-  .nxr-nav-controls{margin-left:0}
-  .nxr-sb-toggle{position:fixed;top:16px;right:14px;z-index:1250;/* above sidebar (1200) below mascot (1301) */}
-
-  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr!important;gap:1rem!important}
-  .stage-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
-  .stage-meta-item{min-width:0;font-size:.78rem}
-  .stage-card,.glass-card,.step-card,.illustration-block,.toc{min-width:0;width:100%}
-  .illustration-block,.illustration-block.reverse{display:flex;flex-direction:column;gap:1rem}
-  .illustration-block .illus-svg{width:min(220px,100%)}
-  .section{padding:2.25rem 1rem!important}
-  svg,img{max-width:100%;height:auto}
-}
-
