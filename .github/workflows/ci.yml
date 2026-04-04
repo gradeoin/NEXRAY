@@ -41,6 +41,6 @@ jobs:
 
       - name: Verify required files exist
         run: |
-          for f in index.html robots.txt sitemap.xml manifest.json sw.js privacy.html; do
+          for f in index.html robots.txt sitemap.xml manifest.json sw.js Privacy-Policy.html; do
             test -f "$f" && echo "Found: $f" || (echo "Missing: $f" && exit 1)
           done
