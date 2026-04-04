@@ -196,7 +196,7 @@
         if (!transLoader) {
           transLoader = document.createElement('div');
           transLoader.id = 'page-loader';
-          transLoader.innerHTML = '<div class="loader-spinner"></div>';
+          transLoader.innerHTML = '<div class="loader-spinner"></div><p class="loader-text">Hang up… please wait, we\'re loading</p>';
           document.body.prepend(transLoader);
         }
         
