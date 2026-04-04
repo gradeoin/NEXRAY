@@ -681,7 +681,14 @@
       if (u && u.loggedIn) window.location.href = 'profile.html';
     } catch (e) {}
   }
+
+  // ── Redirect when async Firebase auth resolves ─────────────
+  window.addEventListener('auth-state-changed', (e) => {
+    if (e.detail && e.detail.loggedIn) window.location.href = 'profile.html';
+  });
 </script>
+
+<script src="js/main.js"></script>
 
 <script type="module">
   import { performGoogleSignIn } from './js/auth.js';
