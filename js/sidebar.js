@@ -22,6 +22,9 @@
 
   /* Breakpoint at which the sidebar is always visible (matches CSS @media min-width: 1024px) */
   var DESKTOP_BREAKPOINT = 1024;
+  var EDGE_TRIGGER_THRESHOLD = 10;
+  var SIDEBAR_HOVER_BUFFER = 24;
+  var SIDEBAR_CLOSE_DELAY_MS = 140;
 
   /* ── Dark Mode ───────────────────────────────────────────── */
   (function initDarkMode() {
@@ -116,7 +119,7 @@
 
     return '<div id="nxr-sidebar" class="nxr-sidebar" role="navigation" aria-label="Site navigation">'
       + '<button id="nxr-sb-handle" class="nxr-sb-handle" aria-label="Toggle sidebar" title="Toggle sidebar">'
-      +   '<img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="" loading="lazy">'
+      +   '<img src="https://res.cloudinary.com/djy0vsvfg/image/upload/v1774822889/logo_highres_hdmcey.png" alt="Nexray logo" loading="lazy">'
       + '</button>'
       + '<div class="nxr-sb-header">'
       +   '<a href="index.html" class="nxr-sb-logo" aria-label="Nexray Home">'
@@ -314,15 +317,15 @@
     document.addEventListener('mousemove', function (e) {
       if (!sidebar || window.innerWidth < DESKTOP_BREAKPOINT) return;
       var x = e.clientX;
-      var overSidebar = x <= sidebar.offsetWidth + 24;
-      if (x <= 10) {
+      var overSidebar = x <= sidebar.offsetWidth + SIDEBAR_HOVER_BUFFER;
+      if (x <= EDGE_TRIGGER_THRESHOLD) {
         openSidebar();
         if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
       } else if (!overSidebar) {
         if (closeTimer) clearTimeout(closeTimer);
         closeTimer = setTimeout(function () {
           closeSidebar();
-        }, 140);
+        }, SIDEBAR_CLOSE_DELAY_MS);
       }
     }, { passive: true });
 

@@ -121,13 +121,13 @@
       .nxm-menu-toggle{
         position:absolute; right:4px; top:-8px;
         width:26px; height:26px; border-radius:999px;
-        background:#fff; border:2px solid #0038FF;
-        color:#0038FF; font-size:16px; font-weight:900; line-height:1;
+        background:var(--bg, #fff); border:2px solid var(--brand, #0038FF);
+        color:var(--brand, #0038FF); font-size:16px; font-weight:900; line-height:1;
         display:flex; align-items:center; justify-content:center;
         cursor:pointer; pointer-events:auto;
-        box-shadow:0 4px 12px rgba(0,56,255,.2);
+        box-shadow:0 4px 12px var(--brand-glow, rgba(0,56,255,.2));
       }
-      .nxm-menu-toggle:hover{background:#0038FF;color:#fff}
+      .nxm-menu-toggle:hover{background:var(--brand, #0038FF);color:var(--bg, #fff)}
     `;
     document.head.appendChild(st);
 
