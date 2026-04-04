@@ -9,7 +9,8 @@ const server = http.createServer((req, res) => {
     let filePath = path.normalize(path.join(ROOT, urlPath));
 
     // Prevent path traversal attacks
-    if (!filePath.startsWith(ROOT + path.sep) && filePath !== ROOT) {
+    const relative = path.relative(ROOT, filePath);
+    if (relative.startsWith('..') || path.isAbsolute(relative)) {
         res.writeHead(403, { 'Content-Type': 'text/plain' });
         res.end('Forbidden');
         return;
